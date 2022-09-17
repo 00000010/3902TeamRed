@@ -45,7 +45,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            UpdateVelocity();
+            UpdateVelocity(gameTime);
             UpdatePosition();
             UpdateFrame();
         }
@@ -59,13 +59,13 @@ namespace sprint0
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
-        private void UpdateVelocity()
+        protected virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
             return;
         }
 
-        private void UpdatePosition()
+        protected virtual void UpdatePosition()
         {
             Position += Velocity;
 
@@ -82,7 +82,7 @@ namespace sprint0
         }
 
 
-        private void UpdateFrame()
+        protected virtual void UpdateFrame()
         {
             //Waits for 4 updates to occur before doing another update
             if (NumUpdates < 4)

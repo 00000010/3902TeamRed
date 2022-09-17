@@ -27,23 +27,28 @@ namespace sprint0
             this.enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
         }
 
-        public IEnemy Stalfos(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public ISprite Stalfos(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
         {
             return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position, velocity);
         }
 
-        public IEnemy Keese(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public ISprite Keese(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
         {
             return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position, velocity);
         }
 
-        public IEnemy Gel(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public ISprite Gel(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
         {
             return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position, velocity);
         }
-        public IEnemy Goriya(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public ISprite Goriya(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
         {
             return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Goriya, spriteBatch, position, velocity);
         }
+        public ISprite Octorok(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        {
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position, velocity);
+        }
+
     }
 }

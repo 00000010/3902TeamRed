@@ -19,7 +19,7 @@ namespace sprint0
 
         public ISprite player;
         public List<Rectangle[]> rectangles = new List<Rectangle[]>();
-        public IEnemy currEnemy;
+        public ISprite currEnemy;
         public int currIndex = 0;
 
         SpriteFont font;
@@ -59,7 +59,8 @@ namespace sprint0
             rectangles.Add(EnemyRectangle.Keese);
             rectangles.Add(EnemyRectangle.Goriya);
             rectangles.Add(EnemyRectangle.Gel);
-            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), new Vector2(0, 3));
+            rectangles.Add(EnemyRectangle.Octorok);
+            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), new Vector2(0, 1));
             updateables.Add(currEnemy);
             drawables.Add(currEnemy);
 

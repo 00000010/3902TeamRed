@@ -9,36 +9,57 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Enemy : Sprite, IEnemy
+    internal class Enemy : Sprite
     {
-        private List<IEnemy> enemies;
-        private int currEnemy;
 
         //Constructor gets inherited from Sprite
         public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity) 
             : base(texture, sourceRectangle, spriteBatch, position, velocity)
         {
-            this.currEnemy = 0;
         }
 
-        public IEnemy Next()
+        /**
+         * Handling the velocities of the different enemies
+         */
+        protected override void UpdateVelocity(GameTime gameTime)
         {
-            currEnemy++;
-            if (currEnemy >= enemies.Count)
+            //Setting the velocity's value too low to figure out if it changed
+            Vector2 currVelocity = new Vector2(-100);
+            EnemyVelocity.UpdateVelocity(gameTime, SourceRectangle, ref currVelocity);
+            
+            if (currVelocity.X != -100)
             {
-                currEnemy = 0;
+                Velocity = currVelocity;
             }
-            return enemies[currEnemy];
         }
 
-        public IEnemy Prev()
+        /**
+         * Handling the position of the enemies
+         */
+        protected override void UpdatePosition()
         {
-            currEnemy--;
-            if (currEnemy < 0)
+            Position += Velocity;
+        }
+
+        /**
+         * Handling the frame updates for the enemies
+         */
+        protected override void UpdateFrame()
+        {
+            //Waits for 4 updates to occur before doing another update
+            if (NumUpdates < 4)
             {
-                currEnemy = enemies.Count - 1;
+                NumUpdates++;
+                return;
             }
-            return enemies.ElementAt(currEnemy);
+            NumUpdates = 0;
+
+            //Updates frame
+            Frame++;
+            if (Frame >= SourceRectangle.Length)
+            {
+                Frame = 0;
+            }
         }
     }
 }
