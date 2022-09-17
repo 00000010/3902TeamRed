@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace sprint0
     internal class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+
+        private Keys[] prevPressedKeys = new Keys[0];
 
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
@@ -37,11 +40,13 @@ namespace sprint0
 
             foreach (Keys key in pressedKeys)
             {
-                if (controllerMappings.ContainsKey(key))
+                if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
                 {
                     controllerMappings[key].Execute();
                 }
             }
+
+            this.prevPressedKeys = pressedKeys;
         }
         public void LoadDefaultKeys(Game1 game)
         {
@@ -51,6 +56,8 @@ namespace sprint0
             this.RegisterCommand(Keys.D2, new LuigiRunningRightStillCommand(game));
             this.RegisterCommand(Keys.D3, new LuigiStandingRightMovingCommand(game));
             this.RegisterCommand(Keys.D4, new LuigiRunningRightMovingCommand(game));
+            this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
+            this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
         }
     }
 }

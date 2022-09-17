@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 
 namespace sprint0
@@ -17,6 +18,10 @@ namespace sprint0
         public List<IDrawable> drawables = new List<IDrawable>();
 
         public ISprite player;
+        public List<Rectangle[]> rectangles = new List<Rectangle[]>();
+        public IEnemy currEnemy;
+        public int currIndex = 0;
+
         SpriteFont font;
         KeyboardController keyboard;
         MouseController mouse;
@@ -26,6 +31,7 @@ namespace sprint0
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(200);
         }
 
         protected override void Initialize()
@@ -41,9 +47,21 @@ namespace sprint0
 
             // TODO: use this.Content to load your game content here
             SpriteFactory.Instance.LoadTextures(Content);
+            EnemyFactory.Instance.LoadTextures(Content);
+
+            //Add Player
             player = SpriteFactory.Instance.Luigi(_spriteBatch, new Vector2(0, 0), new Vector2(0, 0));
             updateables.Add(player);
             drawables.Add(player);
+
+            //Add Enemies
+            rectangles.Add(EnemyRectangle.Stalfos);
+            rectangles.Add(EnemyRectangle.Keese);
+            rectangles.Add(EnemyRectangle.Goriya);
+            rectangles.Add(EnemyRectangle.Gel);
+            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), new Vector2(0, 3));
+            updateables.Add(currEnemy);
+            drawables.Add(currEnemy);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);

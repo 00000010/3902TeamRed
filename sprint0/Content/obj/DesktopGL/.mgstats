@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/Arial.spritefont","C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/bin/DesktopGL/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.314327
+"C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/smb_luigi_sheet.png","C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/bin/DesktopGL/smb_luigi_sheet.xnb","TextureProcessor","Texture2DContent",6625,304645,0.0246885
+"C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/Zelda_sprite.png","C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/Content/bin/DesktopGL/Zelda_sprite.xnb","TextureProcessor","Texture2DContent",10081,604893,0.0206836

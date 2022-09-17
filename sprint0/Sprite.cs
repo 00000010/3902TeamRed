@@ -16,6 +16,7 @@ namespace sprint0
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+        public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -51,8 +52,8 @@ namespace sprint0
 
         public void Draw(GameTime gameTime)
         {
-            int height = SourceRectangle[Frame].Height * 10;
-            int width = SourceRectangle[Frame].Width * 10;
+            int height = SourceRectangle[Frame].Height * 2;
+            int width = SourceRectangle[Frame].Width * 2;
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
@@ -71,18 +72,27 @@ namespace sprint0
             // wrap around screen
             if (Position.X > 800)
             {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
+                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 2, Position.Y);
             }
 
             if (Position.Y > 480)
             {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
+                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 2);
             }    
         }
 
 
         private void UpdateFrame()
         {
+            //Waits for 4 updates to occur before doing another update
+            if (NumUpdates < 4)
+            {
+                NumUpdates++;
+                return;
+            }
+            NumUpdates = 0;
+
+            //Updates frame
             Frame++;
             if (Frame >= SourceRectangle.Length)
             {
