@@ -39,6 +39,14 @@ namespace sprint0
         protected override void UpdatePosition()
         {
             Position += Velocity;
+            if (Position.X > 800 || Position.X < 0)
+            {
+                Position = new Vector2(Position.X - Velocity.X, Position.Y);
+            }
+            if (Position.Y > 480 || Position.Y < 0)
+            {
+                Position = new Vector2(Position.X, Position.Y - Velocity.Y);
+            }
         }
 
         /**
@@ -46,20 +54,9 @@ namespace sprint0
          */
         protected override void UpdateFrame()
         {
-            //Waits for 4 updates to occur before doing another update
-            if (NumUpdates < 4)
-            {
-                NumUpdates++;
-                return;
-            }
-            NumUpdates = 0;
-
-            //Updates frame
-            Frame++;
-            if (Frame >= SourceRectangle.Length)
-            {
-                Frame = 0;
-            }
+            int frame = Frame;
+            EnemyFrame.UpdateFrame(SourceRectangle, ref frame, Velocity);
+            Frame = frame;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace sprint0
         //Boomerang enemy
         public static Rectangle[] Goriya = { new Rectangle(89, 59, 20, 20), new Rectangle(89, 89, 20, 20),
                     new Rectangle(55, 89, 20, 20), new Rectangle(55, 57, 20, 20), new Rectangle(27, 57, 20, 20), 
-            new Rectangle(27, 87, 20, 20), new Rectangle(27, 57, 20, 20), new Rectangle(0, 57, 20, 20), new Rectangle(0, 87, 20, 20)};
+            new Rectangle(27, 87, 20, 20), new Rectangle(0, 57, 20, 20), new Rectangle(0, 87, 20, 20)};
 
         public static Rectangle[] Gel = { new Rectangle(417, 177, 20, 20), new Rectangle(417, 209, 20, 20) };
 
