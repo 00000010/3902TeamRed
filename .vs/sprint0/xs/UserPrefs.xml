@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/SpriteFactory.cs">
+    <Files>
+      <File FileName="sprint0/Constants.cs" Line="89" Column="1" />
+      <File FileName="sprint0/SpriteRectangle.cs" Line="280" Column="1" />
+      <File FileName="sprint0/SpriteFactory.cs" Line="35" Column="1" />
+      <File FileName="sprint0/Sprite.cs" Line="82" Column="1" />
+      <File FileName="sprint0/SpriteRightDamagedCommand.cs" Line="26" Column="14" />
+      <File FileName="sprint0/SpriteRightDamagedCommand (copy).cs" Line="21" Column="14" />
+      <File FileName="sprint0/LuigiStandingRightStillCommand.cs" Line="25" Column="53" />
+      <File FileName="sprint0/KeyboardController.cs" Line="47" Column="10" />
+      <File FileName="sprint0/Game1.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="sprint0" expanded="True">
+            <Node name="sprint0" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Content" expanded="True" />
+              <Node name="SpriteFactory.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

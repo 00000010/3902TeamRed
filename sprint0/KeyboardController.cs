@@ -43,14 +43,26 @@ namespace sprint0
                 }
             }
         }
+
         public void LoadDefaultKeys(Game1 game)
         {
-            this.RegisterCommand(Keys.Escape, new ExitCommand(game));
-            this.RegisterCommand(Keys.D0, new ExitCommand(game));
-            this.RegisterCommand(Keys.D1, new LuigiStandingRightStillCommand(game));
-            this.RegisterCommand(Keys.D2, new LuigiRunningRightStillCommand(game));
-            this.RegisterCommand(Keys.D3, new LuigiStandingRightMovingCommand(game));
-            this.RegisterCommand(Keys.D4, new LuigiRunningRightMovingCommand(game));
+            /* WASD and arrow keys for moving Link around */
+            this.RegisterCommand(Keys.A, new LinkRunningLeftCommand(game));
+            this.RegisterCommand(Keys.W, new LinkRunningBackwardCommand(game));
+            this.RegisterCommand(Keys.S, new LinkRunningForwardCommand(game));
+            this.RegisterCommand(Keys.D, new LinkRunningRightCommand(game));
+
+            this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
+            this.RegisterCommand(Keys.Up, new LinkRunningBackwardCommand(game));
+            this.RegisterCommand(Keys.Down, new LinkRunningForwardCommand(game));
+            this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
+
+            /* N and Z keys for Link attacking */
+            this.RegisterCommand(Keys.Z, new LinkAttackingLeftCommand(game));
+            this.RegisterCommand(Keys.N, new LinkAttackingLeftCommand(game));
+
+            /* Quit the game */
+            this.RegisterCommand(Keys.Q, new ExitCommand(game));
         }
     }
 }

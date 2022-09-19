@@ -1,14 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Reflection;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace sprint0
 {
-    internal class LuigiRunningRightStillCommand : ICommand
+    internal class LinkStandingRightDamagedCommand : ICommand
     {
         private Game1 game;
-        public LuigiRunningRightStillCommand(Game1 game)
+        public LinkStandingRightDamagedCommand(Game1 game)
         {
             this.game = game;
         }
@@ -17,7 +20,7 @@ namespace sprint0
             if (this.game.player is Sprite)
             {
                 Sprite player = (Sprite)this.game.player;
-                player.SourceRectangle = SpriteRectangle.LuigiRunningRight;
+                player.SourceRectangle = SpriteRectangle.LinkDamagedStandingRight;
                 player.Frame = 0;
                 player.Velocity = new Vector2(0, 0);
             }

@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
+    /// <summary>
+    /// Class <c>SpriteFactory</c> creates the sprites from the spritesheets when requested.
+    /// </summary>
     public class SpriteFactory
     {
-        private Texture2D luigiSpritesheet;
+        private Texture2D linkSpritesheet;
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance
         {
@@ -20,14 +23,28 @@ namespace sprint0
                 return instance;
             }
         }
-        private SpriteFactory() { }
+
+        private SpriteFactory() {}
+
+        /// <summary>
+        /// Load the sprite sheets.
+        /// </summary>
+        /// <param name="content"></param>
         public void LoadTextures(ContentManager content)
         {
-            luigiSpritesheet = content.Load<Texture2D>("smb_luigi_sheet");
+            linkSpritesheet = content.Load<Texture2D>("link");
         }
-        public ISprite Luigi(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+
+        /// <summary>
+        /// Create and return a Link sprite standing right at the specified position with the specified velocity.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="position"></param>
+        /// <param name="velocity"></param>
+        /// <returns></returns>
+        public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
         {
-            return new Sprite(luigiSpritesheet, SpriteRectangle.LuigiStandingRight, spriteBatch, position, velocity);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRight, spriteBatch, position, velocity, direction);
         }
     }
 }

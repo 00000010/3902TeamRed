@@ -30,8 +30,6 @@ namespace sprint0
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -39,9 +37,8 @@ namespace sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
             SpriteFactory.Instance.LoadTextures(Content);
-            player = SpriteFactory.Instance.Luigi(_spriteBatch, new Vector2(0, 0), new Vector2(0, 0));
+            player = SpriteFactory.Instance.Link(_spriteBatch, new Vector2(0, 0), new Vector2(0, 0), 0);
             updateables.Add(player);
             drawables.Add(player);
 
@@ -63,10 +60,6 @@ namespace sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
-
-            // TODO: Add your update logic here
             foreach (IUpdateable updateable in updateables)
             {
                 updateable.Update(gameTime);
@@ -78,8 +71,6 @@ namespace sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
             

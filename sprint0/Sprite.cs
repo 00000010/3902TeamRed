@@ -16,6 +16,7 @@ namespace sprint0
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+        public int Direction { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -32,7 +33,20 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        /// <summary>
+        /// Create a sprite from a spritesheet given its location from a
+        /// spritesheet and put it in the game at the specified position with a
+        /// velocity and direction.
+        /// </summary>
+        /// <param name="texture">the spritesheet</param>
+        /// <param name="sourceRectangle">the rectangle containing the sprite
+        /// from the spritesheet</param>
+        /// <param name="spriteBatch"></param>
+        /// <param name="position">where to put the sprite</param>
+        /// <param name="velocity">the velocity of the sprite when placed</param>
+        /// <param name="direction">the direction the sprite is facing (0 is up,
+        /// 1 is right, 2 is down, 3 is left)</param>
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
@@ -51,13 +65,14 @@ namespace sprint0
 
         public void Draw(GameTime gameTime)
         {
-            int height = SourceRectangle[Frame].Height * 10;
-            int width = SourceRectangle[Frame].Width * 10;
+            int height = SourceRectangle[Frame].Height;
+            int width = SourceRectangle[Frame].Width;
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
+
         private void UpdateVelocity()
         {
             // no-op
@@ -71,15 +86,14 @@ namespace sprint0
             // wrap around screen
             if (Position.X > 800)
             {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
+                this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
             }
 
             if (Position.Y > 480)
             {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
+                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
             }    
         }
-
 
         private void UpdateFrame()
         {
