@@ -21,6 +21,8 @@ namespace Client
         KeyboardController keyboard;
         MouseController mouse;
 
+        public Client client;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
