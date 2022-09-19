@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZOMmjmCzVC5U8nDR5jG0Q4tRuaIVTIROeerd9WhTOv/vKt94RDCwr5Oox2/7NXg18QZC5vw5WrE7M87L+jwJJw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\adamp\\source\\repos\\3902TeamRed\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adamp\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\adamp\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
