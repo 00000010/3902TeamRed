@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace sprint0
+namespace Client
 {
     public class Game1 : Game
     {
@@ -54,11 +54,11 @@ namespace sprint0
             mouse.LoadMouseCommands(this);
             updateables.Add(mouse);
 
-            font = Content.Load<SpriteFont>("Arial");
-            string website = "https://www.mariomayhem.com/downloads/sprites/smb1/smb_luigi_sheet.png";
-            string text = "Credits:\nProgram made by: Adam Perhala\nSprites from: " + website;
-            TextSprite textSprite = new TextSprite(_spriteBatch, new Vector2(100, 400), font, text, Color.Black);
-            drawables.Add(textSprite);
+            //font = Content.Load<SpriteFont>("Arial");
+            //string website = "https://www.mariomayhem.com/downloads/sprites/smb1/smb_luigi_sheet.png";
+            //string text = "Credits:\nProgram made by: Adam Perhala\nSprites from: " + website;
+            //TextSprite textSprite = new TextSprite(_spriteBatch, new Vector2(100, 400), font, text, Color.Black);
+            //drawables.Add(textSprite);
         }
 
         protected override void Update(GameTime gameTime)

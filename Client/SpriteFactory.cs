@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sprint0
+namespace Client
 {
     public class SpriteFactory
     {

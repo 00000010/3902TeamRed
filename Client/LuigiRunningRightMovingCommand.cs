@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using System.Windows.Input;
 
-namespace sprint0
+namespace Client
 {
     internal class LuigiRunningRightMovingCommand : ICommand
     {

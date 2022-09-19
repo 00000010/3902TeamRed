@@ -2,5 +2,5 @@
 
 Console.WriteLine("anything");
 
-using var game = new sprint0.Game1();
+using var game = new Client.Game1();
 game.Run();

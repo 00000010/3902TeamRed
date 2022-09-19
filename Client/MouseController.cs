@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace sprint0
+namespace Client
 {
     internal class MouseController : IController
     {

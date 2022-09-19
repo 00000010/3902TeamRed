@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sprint0
+namespace Client
 {
     enum MouseButton { Left, Right }
     internal class MouseCommand
