@@ -5,10 +5,10 @@ using System.Windows.Input;
 
 namespace sprint0
 {
-    internal class LinkRunningBackwardCommand : ICommand
+    internal class LinkRunningUpCommand : ICommand
     {
         private Game1 game;
-        public LinkRunningBackwardCommand(Game1 game)
+        public LinkRunningUpCommand(Game1 game)
         {
             this.game = game;
         }
@@ -19,12 +19,11 @@ namespace sprint0
                 Sprite player = (Sprite)this.game.player;
 
                 SpriteRectangle sR = new LinkRectangle();
-                sR = new Up(sR);
                 sR = new Running(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);
 
                 player.Frame = 0;
-                player.Velocity = new Vector2(0, -1);
+                player.Velocity = new Vector2(0, 1);
             }
         }
     }

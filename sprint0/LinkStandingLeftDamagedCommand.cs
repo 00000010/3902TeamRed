@@ -23,6 +23,7 @@ namespace sprint0
 
                 SpriteRectangle sR = new LinkRectangle();
                 sR = new Left(sR);
+                sR = new Damaged(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);
 
                 player.Frame = 0;

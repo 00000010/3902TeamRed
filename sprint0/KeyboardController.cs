@@ -48,18 +48,20 @@ namespace sprint0
         {
             /* WASD and arrow keys for moving Link around */
             this.RegisterCommand(Keys.A, new LinkRunningLeftCommand(game));
-            this.RegisterCommand(Keys.W, new LinkRunningBackwardCommand(game));
-            this.RegisterCommand(Keys.S, new LinkRunningForwardCommand(game));
+            this.RegisterCommand(Keys.W, new LinkRunningDownCommand(game));
+            this.RegisterCommand(Keys.S, new LinkRunningUpCommand(game));
             this.RegisterCommand(Keys.D, new LinkRunningRightCommand(game));
 
             this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
-            this.RegisterCommand(Keys.Up, new LinkRunningBackwardCommand(game));
-            this.RegisterCommand(Keys.Down, new LinkRunningForwardCommand(game));
+            this.RegisterCommand(Keys.Up, new LinkRunningDownCommand(game));
+            this.RegisterCommand(Keys.Down, new LinkRunningUpCommand(game));
             this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
 
             /* N and Z keys for Link attacking */
             this.RegisterCommand(Keys.Z, new LinkAttackingCommand(game));
             this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
+
+            this.RegisterCommand(Keys.E, new LinkStandingLeftDamagedCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));

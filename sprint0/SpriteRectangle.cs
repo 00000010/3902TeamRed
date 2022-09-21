@@ -63,21 +63,25 @@ namespace sprint0
         /// <returns></returns>
         public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
         {
+            int b = 0;
             int frames = finalizedRectangle.Frames();
             int colors = finalizedRectangle.Colors();
-            Rectangle[] frameCollection = new Rectangle[frames];
+            Rectangle[] frameCollection = new Rectangle[frames + (colors - 1)];
 
             for (int color = 0; color < colors; color++)
             {
                 for (int frame = 0; frame < frames; frame++)
                 {
-                    frameCollection[frame] = new Rectangle(
+                    frameCollection[frame + color] = new Rectangle(
                         finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES),
                         finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT,
                         Constants.LINK_WIDTH,
                         Constants.LINK_HEIGHT);
+                    b++;
                 }
             }
+            Console.WriteLine("b: " + b);
+            Console.WriteLine("Length: " + frameCollection.Length);
             return frameCollection;
         }
     }

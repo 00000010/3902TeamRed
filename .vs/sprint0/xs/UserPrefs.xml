@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/KeyboardController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/LinkRunningDownCommand.cs">
     <Files>
-      <File FileName="sprint0/Game1.cs" Line="77" Column="54" />
-      <File FileName="sprint0/Constants.cs" Line="67" Column="1" />
-      <File FileName="sprint0/SpriteRectangleNew.cs" Line="80" Column="14" />
-      <File FileName="sprint0/SpriteRectangle.cs" Line="43" Column="1" />
-      <File FileName="sprint0/SpriteFactory.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Sprite.cs" Line="7" Column="19" />
-      <File FileName="sprint0/LinkRunningRightCommand.cs" Line="25" Column="17" />
-      <File FileName="sprint0/LinkAttackingLeftCommand.cs" Line="26" Column="35" />
-      <File FileName="sprint0/LinkRectangle.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Attacking.cs" Line="1" Column="1" />
-      <File FileName="sprint0/LinkStandingRightDamagedCommand.cs" Line="23" Column="83" />
-      <File FileName="sprint0/KeyboardController.cs" Line="63" Column="1" />
+      <File FileName="sprint0/Game1.cs" Line="70" Column="1" />
+      <File FileName="sprint0/Constants.cs" Line="30" Column="12" />
+      <File FileName="sprint0/SpriteRectangleNew.cs" Line="57" Column="35" />
+      <File FileName="sprint0/SpriteFactory.cs" Line="11" Column="2" />
+      <File FileName="sprint0/Attacking.cs" Line="8" Column="41" />
+      <File FileName="sprint0/Sprite.cs" Line="38" Column="1" />
+      <File FileName="sprint0/LinkStandingRightCommand.cs" Line="24" Column="32" />
+      <File FileName="sprint0/Damaged.cs" Line="37" Column="1" />
+      <File FileName="sprint0/LinkRunningForwardCommand.cs" Line="24" Column="1" />
+      <File FileName="sprint0/LinkRunningBackwardCommand.cs" Line="5" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +23,7 @@
             <Node name="sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Content" expanded="True" />
-              <Node name="KeyboardController.cs" selected="True" />
+              <Node name="LinkRunningDownCommand.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -35,7 +36,4 @@
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
