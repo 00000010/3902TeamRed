@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace sprint0
 {
     /// <summary>
-    /// Class <c>SpriteRectangleNew</c> creates the frames for sprites.
+    /// Class <c>SpriteRectangle</c> creates the frames for sprites.
     /// </summary>
     public abstract class SpriteRectangle
     {
