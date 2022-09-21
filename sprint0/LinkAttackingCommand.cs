@@ -8,10 +8,10 @@ using System.Windows.Input;
 
 namespace sprint0
 {
-    internal class LinkAttackingLeftCommand : ICommand
+    internal class LinkAttackingCommand : ICommand
     {
         private Game1 game;
-        public LinkAttackingLeftCommand(Game1 game)
+        public LinkAttackingCommand(Game1 game)
         {
             this.game = game;
         }
@@ -21,9 +21,8 @@ namespace sprint0
             { 
                 Sprite player = (Sprite)this.game.player;
 
-                SpriteRectangleNew sR = new LinkRectangle();
+                SpriteRectangle sR = new LinkRectangle();
                 sR = new Attacking(sR);
-                sR = new Left(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);
 
                 player.Frame = 0;

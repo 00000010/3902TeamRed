@@ -10,14 +10,14 @@ namespace sprint0
     /// <summary>
     /// Class <c>SpriteRectangleNew</c> creates the frames for sprites.
     /// </summary>
-    public abstract class SpriteRectangleNew
+    public abstract class SpriteRectangle
     {
         // TODO: Enums needed?
         //public enum Character { LINK };
         //public enum State { STANDING, RUNNING, ATTACKING };
         //public enum Direction { LEFT, RIGHT, UP, DOWN };
         //public enum Color { GREEN, BLUE, RED };
-        //public enum Health { HEALTHY, DAMAGED };
+        public enum Health { HEALTHY, DAMAGED };
 
         //Character character = Character.LINK;
         //State state = State.STANDING;
@@ -61,7 +61,7 @@ namespace sprint0
         /// </summary>
         /// <param name="finalizedRectangle"></param>
         /// <returns></returns>
-        public Rectangle[] SourceRectangle(SpriteRectangleNew finalizedRectangle)
+        public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
         {
             int frames = finalizedRectangle.Frames();
             int colors = finalizedRectangle.Colors();
@@ -71,16 +71,13 @@ namespace sprint0
             {
                 for (int frame = 0; frame < frames; frame++)
                 {
-                    frameCollection[color] = new Rectangle(
-                        finalizedRectangle.SourceX() + color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES,
+                    frameCollection[frame] = new Rectangle(
+                        finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES),
                         finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT,
                         Constants.LINK_WIDTH,
                         Constants.LINK_HEIGHT);
-                    Console.WriteLine("X: " + finalizedRectangle.SourceX() + color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES);
-                    Console.WriteLine("Y: " + finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT);
                 }
             }
-            Console.WriteLine("Colors: " + colors);
             return frameCollection;
         }
     }

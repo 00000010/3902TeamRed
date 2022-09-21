@@ -58,8 +58,8 @@ namespace sprint0
             this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
 
             /* N and Z keys for Link attacking */
-            this.RegisterCommand(Keys.Z, new LinkAttackingLeftCommand(game));
-            this.RegisterCommand(Keys.N, new LinkAttackingLeftCommand(game));
+            this.RegisterCommand(Keys.Z, new LinkAttackingCommand(game));
+            this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));

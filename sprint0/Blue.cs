@@ -3,9 +3,9 @@ namespace sprint0
 {
     public class Blue : RectangleColorDecorator
     {
-        SpriteRectangleNew spriteRectangle;
+        SpriteRectangle spriteRectangle;
 
-        public Blue(SpriteRectangleNew spriteRectangle)
+        public Blue(SpriteRectangle spriteRectangle)
         {
             this.spriteRectangle = spriteRectangle;
         }

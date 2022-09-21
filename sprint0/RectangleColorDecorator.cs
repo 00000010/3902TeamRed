@@ -1,7 +1,7 @@
 ﻿using System;
 namespace sprint0
 {
-    public abstract class RectangleColorDecorator : SpriteRectangleNew
+    public abstract class RectangleColorDecorator : SpriteRectangle
     {
         public RectangleColorDecorator() {}
     }

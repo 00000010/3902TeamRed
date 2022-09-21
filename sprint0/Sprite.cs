@@ -11,6 +11,9 @@ namespace sprint0
 {
     internal class Sprite : ISprite
     {
+        // TODO: delete, for testing purposes
+        private int delay = 0;
+
         public Texture2D Texture { get; set; }
         public Rectangle[] SourceRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
@@ -97,7 +100,13 @@ namespace sprint0
 
         private void UpdateFrame()
         {
-            Frame++;
+            if (delay == 5)
+            {
+                Frame++;
+                delay = 0;
+            }
+            delay++;
+            //Frame++;
             if (Frame >= SourceRectangle.Length)
             {
                 Frame = 0;

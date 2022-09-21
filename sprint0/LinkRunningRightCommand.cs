@@ -18,10 +18,11 @@ namespace sprint0
             {
                 Sprite player = (Sprite)this.game.player;
 
-                SpriteRectangleNew sR = new LinkRectangle();
+                SpriteRectangle sR = new LinkRectangle();
                 sR = new Right(sR);
                 sR = new Running(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);
+                
                 player.Frame = 0;
                 player.Velocity = new Vector2(1, 0);
             }

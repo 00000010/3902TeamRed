@@ -3,9 +3,9 @@ namespace sprint0
 {
     public class Damaged : RectangleStateDecorator
     {
-        SpriteRectangleNew spriteRectangle;
+        SpriteRectangle spriteRectangle;
 
-        public Damaged(SpriteRectangleNew spriteRectangle)
+        public Damaged(SpriteRectangle spriteRectangle)
         {
             this.spriteRectangle = spriteRectangle;
         }

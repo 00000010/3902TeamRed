@@ -1,4 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "/Users/chicken/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.365178
-"/Users/chicken/3902TeamRed/sprint0/Content/link.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/link.xnb","TextureProcessor","Texture2DContent",17581,1010485,0.284481
+"/Users/chicken/3902TeamRed/sprint0/Content/Link.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Link.xnb","TextureProcessor","Texture2DContent",17581,1010485,0.278663
 "/Users/chicken/3902TeamRed/sprint0/Content/smb_luigi_sheet.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/smb_luigi_sheet.xnb","TextureProcessor","Texture2DContent",6625,304645,0.045571

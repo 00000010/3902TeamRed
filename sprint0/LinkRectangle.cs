@@ -1,7 +1,7 @@
 ﻿using System;
 namespace sprint0
 {
-    public class LinkRectangle : SpriteRectangleNew
+    public class LinkRectangle : SpriteRectangle
     {
         public LinkRectangle() {}
 

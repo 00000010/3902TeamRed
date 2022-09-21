@@ -44,7 +44,7 @@ namespace sprint0
         /// <returns></returns>
         public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRight, spriteBatch, position, velocity, direction);
+            return new Sprite(linkSpritesheet, new Rectangle[1], spriteBatch, position, velocity, direction);
         }
     }
 }

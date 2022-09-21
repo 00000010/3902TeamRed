@@ -20,7 +20,7 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
 
-#begin link.png
+#begin Link.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -30,7 +30,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:link.png
+/build:Link.png
 
 #begin smb_luigi_sheet.png
 /importer:TextureImporter

@@ -3,9 +3,9 @@ namespace sprint0
 {
     public class Right : RectangleDirectionDecorator
     {
-        SpriteRectangleNew spriteRectangle;
+        SpriteRectangle spriteRectangle;
 
-        public Right(SpriteRectangleNew spriteRectangle)
+        public Right(SpriteRectangle spriteRectangle)
         {
             this.spriteRectangle = spriteRectangle;
         }

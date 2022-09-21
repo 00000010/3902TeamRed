@@ -72,7 +72,7 @@ namespace sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             
             foreach (IDrawable drawable in drawables)
             {

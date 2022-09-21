@@ -20,7 +20,11 @@ namespace sprint0
             if (this.game.player is Sprite)
             {
                 Sprite player = (Sprite)this.game.player;
-                player.SourceRectangle = SpriteRectangle.LinkDamagedStandingLeft;
+
+                SpriteRectangle sR = new LinkRectangle();
+                sR = new Left(sR);
+                player.SourceRectangle = sR.SourceRectangle(sR);
+
                 player.Frame = 0;
                 player.Velocity = new Vector2(0, 0);
             }
