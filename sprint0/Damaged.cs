@@ -12,12 +12,12 @@ namespace sprint0
 
         public override int SourceX()
         {
-            return 0;
+            return this.spriteRectangle.SourceX();
         }
 
         public override int SourceY()
         {
-            return 0;
+            return this.spriteRectangle.SourceY();
         }
 
         public override int SourceWidth()

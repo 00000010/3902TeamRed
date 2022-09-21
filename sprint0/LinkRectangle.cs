@@ -3,16 +3,22 @@ namespace sprint0
 {
     public class LinkRectangle : SpriteRectangle
     {
-        public LinkRectangle() {}
+        private int x = 0;
+        private int y = 0;
+
+        public LinkRectangle(int x = 0, int y = 0) {
+            this.x = x;
+            this.y = y;
+        }
 
         public override int SourceX()
         {
-            return 0;
+            return this.x;
         }
 
         public override int SourceY()
         {
-            return 0;
+            return this.y;
         }
 
         public override int SourceWidth()

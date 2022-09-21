@@ -20,7 +20,7 @@ namespace sprint0
             if (this.game.player is Sprite)
             {
                 Sprite player = (Sprite)this.game.player;
-
+                
                 SpriteRectangle sR = new LinkRectangle();
                 sR = new Right(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);

@@ -61,7 +61,7 @@ namespace sprint0
             this.RegisterCommand(Keys.Z, new LinkAttackingCommand(game));
             this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
 
-            this.RegisterCommand(Keys.E, new LinkStandingLeftDamagedCommand(game));
+            this.RegisterCommand(Keys.E, new LinkDamagedCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));
