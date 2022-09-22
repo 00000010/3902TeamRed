@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace sprint0
@@ -101,7 +102,7 @@ namespace sprint0
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            
+
             foreach (IDrawable drawable in drawables)
             {
                 drawable.Draw(gameTime);
