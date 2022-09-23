@@ -61,6 +61,7 @@ namespace sprint0
             this.RegisterCommand(Keys.Z, new LinkAttackingCommand(game));
             this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
 
+            /* E key for Link being damaged in whatever state he's in */
             this.RegisterCommand(Keys.E, new LinkDamagedCommand(game));
 
             /* Quit the game */

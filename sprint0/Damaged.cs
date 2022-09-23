@@ -37,7 +37,7 @@ namespace sprint0
 
         public override int Colors()
         {
-            return 3;
+            return Constants.NUM_OF_COLORS;
         }
     }
 }

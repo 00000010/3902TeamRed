@@ -21,7 +21,8 @@ namespace sprint0
             { 
                 Sprite player = (Sprite)this.game.player;
 
-                SpriteRectangle sR = new LinkRectangle();
+                SpriteRectangle sR = new LinkRectangle(player.SourceRectangle[0].X,
+                    player.SourceRectangle[0].Y);
                 sR = new Attacking(sR);
                 player.SourceRectangle = sR.SourceRectangle(sR);
 

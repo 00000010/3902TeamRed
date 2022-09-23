@@ -63,15 +63,16 @@ namespace sprint0
         /// <returns></returns>
         public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
         {
+            /* TODO: change Frames() description; should be frames per color */
             int frames = finalizedRectangle.Frames();
             int colors = finalizedRectangle.Colors();
-            Rectangle[] frameCollection = new Rectangle[frames + (colors - 1)];
+            Rectangle[] frameCollection = new Rectangle[frames * colors];
 
             for (int color = 0; color < colors; color++)
             {
                 for (int frame = 0; frame < frames; frame++)
                 {
-                    frameCollection[frame + color] = new Rectangle(
+                    frameCollection[frames * color + frame] = new Rectangle(
                         finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES),
                         finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT,
                         Constants.LINK_WIDTH,
