@@ -1,21 +1,20 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/LinkAttackingCommand.cs">
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../.nuget/packages/monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.targets">
     <Files>
+      <File FileName="sprint0/Sprite.cs" Line="103" Column="28" />
       <File FileName="sprint0/Game1.cs" Line="77" Column="54" />
       <File FileName="sprint0/Constants.cs" Line="30" Column="12" />
-      <File FileName="sprint0/SpriteFactory.cs" Line="48" Column="10" />
-      <File FileName="sprint0/Sprite.cs" Line="100" Column="1" />
-      <File FileName="sprint0/SpriteRectangle.cs" Line="7" Column="1" />
-      <File FileName="sprint0/LinkRectangle.cs" Line="14" Column="42" />
-      <File FileName="sprint0/Damaged.cs" Line="34" Column="10" />
-      <File FileName="sprint0/KeyboardController.cs" Line="60" Column="50" />
-      <File FileName="sprint0/LinkRunningRightCommand.cs" Line="1" Column="1" />
-      <File FileName="sprint0/LinkDamagedCommand.cs" Line="26" Column="50" />
-      <File FileName="sprint0/LinkAttackingCommand.cs" Line="23" Column="1" />
+      <File FileName="sprint0/SpriteFactory.cs" Line="36" Column="60" />
+      <File FileName="sprint0/SpriteRectangle.cs" Line="81" Column="14" />
+      <File FileName="sprint0/LinkRectangle.cs" Line="15" Column="16" />
+      <File FileName="sprint0/LinkAttackingCommand.cs" Line="25" Column="50" />
+      <File FileName="sprint0/Attacking.cs" Line="20" Column="10" />
+      <File FileName="sprint0/Running.cs" Line="1" Column="1" />
+      <File FileName="sprint0/Damaged.cs" Line="7" Column="1" />
+      <File FileName="sprint0/LinkDamagedCommand.cs" Line="29" Column="1" />
+      <File FileName="sprint0/Content/obj/DesktopGL/net6.0/Content/.mgstats" Line="3" Column="1" />
+      <File FileName="../.nuget/packages/monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.targets" Line="142" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,7 +22,9 @@
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Content" expanded="True" />
+              <Node name="Content" expanded="True">
+                <Node name="Arial.spritefont" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -33,7 +34,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>

@@ -5,6 +5,8 @@ namespace sprint0
     {
         SpriteRectangle spriteRectangle;
 
+        //TODO: When Link is running, he appears to being twice as fast; fix this
+
         public Damaged(SpriteRectangle spriteRectangle)
         {
             this.spriteRectangle = spriteRectangle;

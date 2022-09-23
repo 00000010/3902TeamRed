@@ -82,4 +82,5 @@ C:/Users/adamp/OneDrive - The Ohio State University/OSU/AU22/CSE 3902/sprint0/sp
 /Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
 /Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
 /Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/link.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/LinkRevised.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Link.xnb

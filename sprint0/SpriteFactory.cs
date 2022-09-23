@@ -32,7 +32,8 @@ namespace sprint0
         /// <param name="content"></param>
         public void LoadTextures(ContentManager content)
         {
-            linkSpritesheet = content.Load<Texture2D>("link");
+            // TODO: if LinkRevised works, delete Link.png from project and rename LinkRevised to Link
+            linkSpritesheet = content.Load<Texture2D>("Link");
         }
 
         /// <summary>

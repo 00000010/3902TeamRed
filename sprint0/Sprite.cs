@@ -100,7 +100,7 @@ namespace sprint0
 
         private void UpdateFrame()
         {
-            if (delay == 5)
+            if (delay == 50)
             {
                 Frame++;
                 delay = 0;
