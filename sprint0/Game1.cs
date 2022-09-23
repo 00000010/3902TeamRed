@@ -16,10 +16,14 @@ namespace sprint0
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
 
+        public GameObjectManager manager;
+
         public ISprite player;
+        public ISprite arrow;
         SpriteFont font;
         KeyboardController keyboard;
         MouseController mouse;
+
 
         public Game1()
         {
@@ -44,6 +48,13 @@ namespace sprint0
             player = SpriteFactory.Instance.Luigi(_spriteBatch, new Vector2(0, 0), new Vector2(0, 0));
             updateables.Add(player);
             drawables.Add(player);
+
+            SpriteFactory.Instance.LoadZeldaTextures(Content);
+            arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0), new Vector2(10, 0));
+
+            manager = new GameObjectManager(this);
+            updateables.Add(manager);
+            drawables.Add(manager);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
@@ -81,7 +92,7 @@ namespace sprint0
 
             // TODO: Add your drawing code here
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             
             foreach (IDrawable drawable in drawables)
             {

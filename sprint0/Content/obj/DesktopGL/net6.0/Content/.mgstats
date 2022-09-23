@@ -1,3 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/adamp/source/repos/sprint0/sprint0/Content/Arial.spritefont","C:/Users/adamp/source/repos/sprint0/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.168654
-"C:/Users/adamp/source/repos/sprint0/sprint0/Content/smb_luigi_sheet.png","C:/Users/adamp/source/repos/sprint0/sprint0/Content/bin/DesktopGL/Content/smb_luigi_sheet.xnb","TextureProcessor","Texture2DContent",6625,304645,0.0263269
+"/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.45343
+"/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/smb_luigi_sheet.png","/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/smb_luigi_sheet.xnb","TextureProcessor","Texture2DContent",6625,304645,0.16621
+"/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/zeldaspritesheet.png","/Users/william/Desktop/3902/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/zeldaspritesheet.xnb","TextureProcessor","Texture2DContent",23303,523669,0.21159
