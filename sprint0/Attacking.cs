@@ -15,9 +15,10 @@ namespace sprint0
             return spriteRectangle.SourceX();
         }
 
+        // TODO: 2 is a magic number
         public override int SourceY()
         {
-            return spriteRectangle.SourceY() + Constants.LINK_HEIGHT * 2;
+            return Constants.LINK_HEIGHT * 2; //spriteRectangle.SourceY() + Constants.LINK_HEIGHT * 2
         }
 
         public override int SourceWidth()
@@ -30,6 +31,7 @@ namespace sprint0
             return spriteRectangle.SourceHeight() + Constants.LINK_HEIGHT;
         }
 
+        // TODO: 1 is a magic number
         public override int Frames()
         {
             return spriteRectangle.Frames() + 1;

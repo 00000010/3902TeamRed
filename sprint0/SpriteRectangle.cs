@@ -68,6 +68,7 @@ namespace sprint0
             int colors = finalizedRectangle.Colors();
             Rectangle[] frameCollection = new Rectangle[frames * colors];
 
+            Console.WriteLine("Frames: " + frames);
             for (int color = 0; color < colors; color++)
             {
                 for (int frame = 0; frame < frames; frame++)
@@ -77,6 +78,8 @@ namespace sprint0
                         finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT,
                         Constants.LINK_WIDTH,
                         Constants.LINK_HEIGHT);
+                    Console.WriteLine("X: " + (finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES)));
+                    Console.WriteLine("Y: " + (finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT));
                 }
             }
             return frameCollection;
