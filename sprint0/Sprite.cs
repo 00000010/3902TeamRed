@@ -54,36 +54,5 @@ namespace sprint0
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
-        //private void UpdateVelocity()
-        //{
-        //    // no-op
-        //    return;
-        //}
-
-        //private void UpdatePosition()
-        //{
-        //    Position += Velocity;
-
-        //    // wrap around screen
-        //    if (Position.X > 800)
-        //    {
-        //        this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
-        //    }
-
-        //    if (Position.Y > 480)
-        //    {
-        //        this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
-        //    }    
-        //}
-
-
-        //private void UpdateFrame()
-        //{
-        //    Frame++;
-        //    if (Frame >= SourceRectangle.Length)
-        //    {
-        //        Frame = 0;
-        //    }
-        //}
     }
 }
