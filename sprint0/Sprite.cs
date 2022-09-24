@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Sprite : ISprite
+    public class Sprite : ISprite
     {
         public Texture2D Texture { get; set; }
         public Rectangle[] SourceRectangle { get; set; }
