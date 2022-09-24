@@ -25,9 +25,9 @@ namespace sprint0
         {
             luigiSpritesheet = content.Load<Texture2D>("smb_luigi_sheet");
         }
-        public ISprite Luigi(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public ISprite Luigi(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Sprite(luigiSpritesheet, SpriteRectangle.LuigiStandingRight, spriteBatch, position, velocity);
+            return new Sprite(luigiSpritesheet, SpriteRectangle.LuigiStandingRight, spriteBatch, position);
         }
     }
 }
