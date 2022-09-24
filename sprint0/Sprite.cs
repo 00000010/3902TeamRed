@@ -40,14 +40,12 @@ namespace sprint0
             Frame = 0;
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            UpdateVelocity();
-            UpdatePosition();
-            UpdateFrame();
+            // no-op
         }
 
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
             int height = SourceRectangle[Frame].Height * 10;
             int width = SourceRectangle[Frame].Width * 10;
@@ -56,36 +54,36 @@ namespace sprint0
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
-        private void UpdateVelocity()
-        {
-            // no-op
-            return;
-        }
+        //private void UpdateVelocity()
+        //{
+        //    // no-op
+        //    return;
+        //}
 
-        private void UpdatePosition()
-        {
-            Position += Velocity;
+        //private void UpdatePosition()
+        //{
+        //    Position += Velocity;
 
-            // wrap around screen
-            if (Position.X > 800)
-            {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
-            }
+        //    // wrap around screen
+        //    if (Position.X > 800)
+        //    {
+        //        this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
+        //    }
 
-            if (Position.Y > 480)
-            {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
-            }    
-        }
+        //    if (Position.Y > 480)
+        //    {
+        //        this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
+        //    }    
+        //}
 
 
-        private void UpdateFrame()
-        {
-            Frame++;
-            if (Frame >= SourceRectangle.Length)
-            {
-                Frame = 0;
-            }
-        }
+        //private void UpdateFrame()
+        //{
+        //    Frame++;
+        //    if (Frame >= SourceRectangle.Length)
+        //    {
+        //        Frame = 0;
+        //    }
+        //}
     }
 }
