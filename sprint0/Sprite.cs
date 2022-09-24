@@ -15,7 +15,6 @@ namespace sprint0
         public Rectangle[] SourceRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
-        public Vector2 Velocity { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -32,12 +31,11 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
-            Velocity = velocity;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
