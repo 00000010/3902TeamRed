@@ -27,27 +27,27 @@ namespace sprint0
             this.enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
         }
 
-        public ISprite Stalfos(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Enemy Stalfos(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position, velocity);
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position);
         }
 
-        public ISprite Keese(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Enemy Keese(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position, velocity);
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position);
         }
 
-        public ISprite Gel(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Enemy Gel(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position, velocity);
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position);
         }
-        public ISprite Goriya(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Enemy Goriya(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Goriya, spriteBatch, position, velocity);
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Goriya, spriteBatch, position);
         }
-        public ISprite Octorok(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Enemy Octorok(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position, velocity);
+            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position);
         }
 
     }

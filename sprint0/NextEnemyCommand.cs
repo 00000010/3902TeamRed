@@ -17,15 +17,16 @@ namespace sprint0
         }
         public void Execute()
         {
-              
-            if (this.game.currEnemy is Enemy)
+            game.currIndex++;
+            if (game.currIndex >= game.enemies.Count)
             {
-                Enemy enemy = (Enemy)this.game.currEnemy;
-                this.game.currIndex++;
-                if (this.game.currIndex >= this.game.rectangles.Count) this.game.currIndex = 0;
-                enemy.SourceRectangle = this.game.rectangles[this.game.currIndex];
-                enemy.Frame = 0;
+                game.currIndex = 0;
             }
+            game.currEnemy = game.enemies[game.currIndex];
+            //game.currIndex++;
+            //if (game.currIndex >= game.rectangles.Count) game.currIndex = 0;
+            //game.currEnemy.SourceRectangle = game.rectangles[game.currIndex];
+            //game.currEnemy.Frame = 0;
         }
     }
 }

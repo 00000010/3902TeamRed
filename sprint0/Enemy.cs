@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Enemy : Sprite
+    public class Enemy : Sprite
     {
 
         //Constructor gets inherited from Sprite
-        public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity) 
-            : base(texture, sourceRectangle, spriteBatch, position, velocity)
+        public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
+            : base(texture, sourceRectangle, spriteBatch, position)
+        {
+        }
+
+        //Constructor that copies an enemy 
+        public Enemy(Enemy enemy)
+            : base(enemy.Texture, enemy.SourceRectangle, enemy.SpriteBatch, enemy.Position)
         {
         }
 

@@ -20,8 +20,8 @@ namespace sprint0
         
         //Player became a player class
         public Player player;
-        public List<Rectangle[]> rectangles = new List<Rectangle[]>();
-        public ISprite currEnemy;
+        public List<Enemy> enemies = new List<Enemy>();
+        public Enemy currEnemy;
         public int currIndex = 0;
 
         SpriteFont font;
@@ -57,12 +57,16 @@ namespace sprint0
             drawables.Add(player);
 
             //Add Enemies
-            rectangles.Add(EnemyRectangle.Stalfos);
-            rectangles.Add(EnemyRectangle.Keese);
-            rectangles.Add(EnemyRectangle.Goriya);
-            rectangles.Add(EnemyRectangle.Gel);
-            rectangles.Add(EnemyRectangle.Octorok);
-            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), new Vector2(0, 1));
+            enemies.Add(EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240)));
+            enemies.Add(EnemyFactory.Instance.Keese(_spriteBatch, new Vector2(500, 240)));
+            enemies.Add(EnemyFactory.Instance.Gel(_spriteBatch, new Vector2(500, 240)));
+            enemies.Add(EnemyFactory.Instance.Goriya(_spriteBatch, new Vector2(500, 240)));
+            enemies.Add(EnemyFactory.Instance.Octorok(_spriteBatch, new Vector2(400, 240)));
+            //rectangles.Add(EnemyRectangle.Keese);
+            //rectangles.Add(EnemyRectangle.Goriya);
+            //rectangles.Add(EnemyRectangle.Gel);
+            //rectangles.Add(EnemyRectangle.Octorok);
+            currEnemy = enemies[0];
             updateables.Add(currEnemy);
             drawables.Add(currEnemy);
             
