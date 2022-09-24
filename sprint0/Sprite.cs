@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Sprite : ISprite
+    public class Sprite : ISprite
     {
         public Texture2D Texture { get; set; }
         public Rectangle[] SourceRectangle { get; set; }
@@ -33,24 +33,23 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
-            Velocity = velocity;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             UpdateVelocity(gameTime);
             UpdatePosition();
             UpdateFrame();
         }
 
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
             int height = SourceRectangle[Frame].Height * 2;
             int width = SourceRectangle[Frame].Width * 2;
@@ -59,6 +58,7 @@ namespace sprint0
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
+
         protected virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
@@ -99,5 +99,6 @@ namespace sprint0
                 Frame = 0;
             }
         }
+
     }
 }

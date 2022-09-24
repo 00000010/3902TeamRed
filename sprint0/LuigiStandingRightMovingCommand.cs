@@ -17,13 +17,9 @@ namespace sprint0
         }
         public void Execute()
         {
-            if (this.game.player is Sprite)
-            {
-                Sprite player = (Sprite)this.game.player;
-                player.SourceRectangle = SpriteRectangle.LuigiStandingRight;
-                player.Frame = 0;
-                player.Velocity = new Vector2(0, 10);
-            }
+            game.player.SourceRectangle = SpriteRectangle.LuigiStandingRight;
+            game.player.Frame = 0;
+            game.player.Velocity = new Vector2(0, 10);
         }
     }
 }
