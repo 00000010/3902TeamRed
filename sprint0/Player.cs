@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Player : Sprite
+    public class Player : Sprite
     {
         public Vector2 Velocity { get; set; }
         public Player(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
