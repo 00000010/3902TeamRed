@@ -34,6 +34,9 @@ namespace sprint0
         public const int LINK_SHEET_HEIGHT = LINK_HEIGHT * NUM_OF_DIRECTIONS * NUM_OF_COLORS;
 
         public const int HORIZONTAL_SPACE_BETWEEN_STATES = LINK_WIDTH * NUM_OF_DIRECTIONS;
+
+        public const int STARTING_LINK_POSITION_X = 0;
+        public const int STARTING_LINK_POSITION_Y = 0;
     }
 }
 
