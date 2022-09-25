@@ -44,8 +44,9 @@ namespace sprint0
                 {
                     controllerMappings[key].Execute();
                 }
-                this.prevPressedKeys = pressedKeys;
             }
+
+            this.prevPressedKeys = pressedKeys;
         }
         public void LoadDefaultKeys(Game1 game)
         {

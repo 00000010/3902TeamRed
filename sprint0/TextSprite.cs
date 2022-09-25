@@ -11,6 +11,7 @@ namespace sprint0
     internal class TextSprite : ISprite
     {
         public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; set; }
         public SpriteFont SpriteFont { get; set; }
         public string Text { get; set; }
         public Color Color { get; set; }

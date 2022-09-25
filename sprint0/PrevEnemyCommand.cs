@@ -15,9 +15,9 @@ namespace sprint0
         }
         public void Execute()
         {
-            game.currIndex--;
-            if (game.currIndex < 0) game.currIndex = game.enemies.Count - 1;
-            game.currEnemy.SourceRectangle = game.enemies[game.currIndex];
+            game.currEnemyIndex--;
+            if (game.currEnemyIndex < 0) game.currEnemyIndex = game.enemies.Count - 1;
+            game.currEnemy.SourceRectangle = game.enemies[game.currEnemyIndex];
             game.currEnemy.Frame = 0;
         }
     }

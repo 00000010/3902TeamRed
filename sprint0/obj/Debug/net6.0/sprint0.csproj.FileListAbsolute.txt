@@ -83,3 +83,5 @@ C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.pdb
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.genruntimeconfig.cache
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\ref\sprint0.dll
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_sprite.xnb
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\zeldaspritesheet.xnb
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\goriyaspritesheet.xnb

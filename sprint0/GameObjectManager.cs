@@ -75,12 +75,12 @@ namespace sprint0
             }
         }
 
-        public void addArrow(ISprite arrow)
+        public void addProjectile(ISprite arrow)
         {
             arrowsInFlight.Add(arrow);
         }
 
-        public void removeArrow(ISprite arrow)
+        public void removeProjectile(ISprite arrow)
         {
             arrowsInFlight.Remove(arrow);
         }
@@ -95,10 +95,24 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            foreach (Sprite arrow in arrowsInFlight)
+            for (int i = 0; i < arrowsInFlight.Count; i++)
             {
-                arrow.Update(gameTime);
+                arrowsInFlight[i].Update(gameTime);
+                if (removeProjectileOutOfBounds(arrowsInFlight[i]))
+                {
+                    i--;
+                }
             }
+        }
+
+        private bool removeProjectileOutOfBounds(ISprite arrow)
+        {
+            if (arrow.Position.X > 800 || arrow.Position.X < 0 || arrow.Position.Y > 480 || arrow.Position.Y < 0)
+            {
+                removeProjectile(arrow);
+                return true;
+            }
+            return false;
         }
     }
 }

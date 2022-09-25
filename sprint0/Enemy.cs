@@ -24,6 +24,12 @@ namespace sprint0
         {
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            UpdateProjectile();
+        }
+
         /**
          * Handling the velocities of the different enemies
          */
@@ -63,6 +69,26 @@ namespace sprint0
             int frame = Frame;
             EnemyFrame.UpdateFrame(SourceRectangle, ref frame, Velocity);
             Frame = frame;
+        }
+
+        protected void UpdateProjectile()
+        {
+            if (SourceRectangle == EnemyRectangle.Goriya)
+            {
+                UpdateGoriyaProjectile();
+            }
+        }
+
+        protected void UpdateGoriyaProjectile()
+        {
+            //Randomizing when to shoot projectile
+            Random randomGen = new Random();
+            int shouldShoot = randomGen.Next(0, 250);
+            if (shouldShoot == 0)
+            {
+                ShootProjectileCommand command = new ShootProjectileCommand("boomerang");
+                command.Execute();
+            }
         }
     }
 }

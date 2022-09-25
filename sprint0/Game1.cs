@@ -18,13 +18,14 @@ namespace sprint0
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
         
-        //Player became a player class
         public Player player;
+
         public List<Rectangle[]> enemies = new List<Rectangle[]>();
         public Enemy currEnemy;
-        public int currIndex = 0;
+        public int currEnemyIndex = 0;
         public GameObjectManager manager;
         public ISprite arrow;
+        public ISprite boomerang;
 
         SpriteFont font;
         KeyboardController keyboard;
@@ -36,7 +37,6 @@ namespace sprint0
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            //TargetElapsedTime = TimeSpan.FromMilliseconds(200);
         }
 
         protected override void Initialize()
@@ -76,8 +76,11 @@ namespace sprint0
              * Add projectiles
              */
             SpriteFactory.Instance.LoadZeldaTextures(Content);
+            //Adding arrow
             arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0));
             arrow.Velocity = new Vector2(10, 0);
+            //Adding boomerang
+            boomerang = SpriteFactory.Instance.Boomerang(_spriteBatch, new Vector2(0, 0));
             manager = new GameObjectManager(this);
             updateables.Add(manager);
             drawables.Add(manager);
@@ -90,12 +93,6 @@ namespace sprint0
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
             updateables.Add(mouse);
-
-            //font = Content.Load<SpriteFont>("Arial");
-            //string website = "https://www.mariomayhem.com/downloads/sprites/smb1/smb_luigi_sheet.png";
-            //string text = "Credits:\nProgram made by: Adam Perhala\nSprites from: " + website;
-            //TextSprite textSprite = new TextSprite(_spriteBatch, new Vector2(100, 400), font, text, Color.Black);
-            //drawables.Add(textSprite);
         }
 
         protected override void Update(GameTime gameTime)
