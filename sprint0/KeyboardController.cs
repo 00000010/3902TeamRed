@@ -44,9 +44,8 @@ namespace sprint0
                 {
                     controllerMappings[key].Execute();
                 }
+                this.prevPressedKeys = pressedKeys;
             }
-
-            this.prevPressedKeys = pressedKeys;
         }
         public void LoadDefaultKeys(Game1 game)
         {
@@ -58,6 +57,7 @@ namespace sprint0
             this.RegisterCommand(Keys.D4, new LuigiRunningRightMovingCommand(game));
             this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
             this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
+            this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
         }
     }
 }

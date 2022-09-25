@@ -12,6 +12,7 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D luigiSpritesheet;
+        private Texture2D zeldaSpritesheet;
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance
         {
@@ -25,9 +26,17 @@ namespace sprint0
         {
             luigiSpritesheet = content.Load<Texture2D>("smb_luigi_sheet");
         }
+        public void LoadZeldaTextures(ContentManager content)
+        {
+            zeldaSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
+        }
         public ISprite Luigi(SpriteBatch spriteBatch, Vector2 position)
         {
             return new Sprite(luigiSpritesheet, SpriteRectangle.LuigiStandingRight, spriteBatch, position);
+        }
+        public ISprite Arrow(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Sprite(zeldaSpritesheet, new Rectangle[1], spriteBatch, position);
         }
     }
 }

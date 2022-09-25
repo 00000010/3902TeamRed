@@ -23,10 +23,13 @@ namespace sprint0
         public List<Rectangle[]> enemies = new List<Rectangle[]>();
         public Enemy currEnemy;
         public int currIndex = 0;
+        public GameObjectManager manager;
+        public ISprite arrow;
 
         SpriteFont font;
         KeyboardController keyboard;
         MouseController mouse;
+
 
         public Game1()
         {
@@ -70,8 +73,15 @@ namespace sprint0
             drawables.Add(player);
 
             /*
-             * Instantiate inputs
+             * Add projectiles
              */
+            SpriteFactory.Instance.LoadZeldaTextures(Content);
+            arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0));
+            arrow.Velocity = new Vector2(10, 0);
+            manager = new GameObjectManager(this);
+            updateables.Add(manager);
+            drawables.Add(manager);
+
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
             updateables.Add(keyboard);
@@ -103,7 +113,8 @@ namespace sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin();
+
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
             foreach (IDrawable drawable in drawables)
             {

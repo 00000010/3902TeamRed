@@ -100,5 +100,9 @@ namespace sprint0
             }
         }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
