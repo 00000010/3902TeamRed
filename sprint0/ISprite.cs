@@ -12,6 +12,7 @@ namespace sprint0
     {
         Vector2 Position { get; set; }
         Vector2 Velocity { get; set; }
+        Rectangle[] SourceRectangle { get; set; }
         SpriteBatch SpriteBatch { get; set; }
     }
 }

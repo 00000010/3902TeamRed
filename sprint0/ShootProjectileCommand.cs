@@ -41,14 +41,14 @@ namespace sprint0
 
         private void FirePlayerProjectile()
         {
-            if (game.arrow is Sprite)
+            if (game.arrow is Projectile)
             {
-                Sprite arrow = (Sprite)game.arrow;
-                Sprite copy = (Sprite)arrow.Clone();
+                Projectile arrow = (Projectile)game.arrow;
+                Projectile copy = (Projectile)arrow.Clone();
                 copy.Position = game.player.Position;
                 copy.Velocity = new Vector2(10, 0);
                 copy.SourceRectangle = SpriteRectangle.arrowRight;
-                manager.addProjectile(copy);
+                manager.addProjectile(copy, "right");
             }
         }
 
@@ -63,16 +63,35 @@ namespace sprint0
         //Different types of enemy projectiles
         private void FireGoriyaProjectile()
         {
-            if (game.boomerang is Sprite)
+            if (game.boomerang is Projectile)
             {
-                Sprite boomerang = (Sprite)game.boomerang;
-                Sprite copy = (Sprite)boomerang.Clone();
+                Projectile boomerang = (Projectile)game.boomerang;
+                string initFiringDirection = GetDirection(boomerang.Velocity);
+                boomerang.InitFiringDirection = initFiringDirection;
+                Projectile copy = (Projectile)boomerang.Clone();
                 copy.Position = game.currEnemy.Position;
                 //Goriya shoots boomerang in the direction of movement
                 copy.Velocity = game.currEnemy.Velocity * 5;
                 copy.SourceRectangle = boomerang.SourceRectangle;
-                manager.addProjectile(copy);
+                manager.addProjectile(copy, initFiringDirection);
             }
+        }
+
+        private static string GetDirection(Vector2 Velocity)
+        {
+            if (Velocity.X > 0)
+            {
+                return "right";
+            } 
+            else if (Velocity.X < 0)
+            {
+                return "left";
+            }
+            else if (Velocity.Y > 0)
+            {
+                return "up";
+            }
+            return "down";
         }
     }
 }

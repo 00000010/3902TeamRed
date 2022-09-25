@@ -12,6 +12,7 @@ namespace sprint0
     {
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+        public Rectangle[] SourceRectangle { get; set; }
         public SpriteFont SpriteFont { get; set; }
         public string Text { get; set; }
         public Color Color { get; set; }

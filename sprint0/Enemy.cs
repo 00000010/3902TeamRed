@@ -11,11 +11,13 @@ namespace sprint0
 {
     public class Enemy : Sprite
     {
+        public bool projectileInMotion;
 
         //Constructor gets inherited from Sprite
         public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
             : base(texture, sourceRectangle, spriteBatch, position)
         {
+            this.projectileInMotion = false;
         }
 
         //Constructor that copies an enemy 
@@ -26,6 +28,7 @@ namespace sprint0
 
         public override void Update(GameTime gameTime)
         {
+            if (projectileInMotion) return;
             base.Update(gameTime);
             UpdateProjectile();
         }
@@ -83,11 +86,12 @@ namespace sprint0
         {
             //Randomizing when to shoot projectile
             Random randomGen = new Random();
-            int shouldShoot = randomGen.Next(0, 250);
+            int shouldShoot = randomGen.Next(0, 50);
             if (shouldShoot == 0)
             {
                 ShootProjectileCommand command = new ShootProjectileCommand("boomerang");
                 command.Execute();
+                projectileInMotion = true;
             }
         }
     }

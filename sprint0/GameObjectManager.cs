@@ -7,7 +7,8 @@ namespace sprint0
     public class GameObjectManager : IUpdateable, IDrawable
     {
         private Game1 game;
-        public List<ISprite> arrowsInFlight = new List<ISprite>();
+        public List<ISprite> projectilesInFlight = new List<ISprite>();
+        public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
 
 
         public int DrawOrder => throw new NotImplementedException();
@@ -75,44 +76,65 @@ namespace sprint0
             }
         }
 
-        public void addProjectile(ISprite arrow)
+        public void addProjectile(ISprite projectile, string direction)
         {
-            arrowsInFlight.Add(arrow);
+            projectilesInFlight.Add(projectile);
+            initDirectionOfFire.Add(projectile, direction);
         }
 
-        public void removeProjectile(ISprite arrow)
+        public void removeProjectile(ISprite projectile)
         {
-            arrowsInFlight.Remove(arrow);
+            projectilesInFlight.Remove(projectile);
         }
 
         public void Draw(GameTime gameTime)
         {
-            foreach (Sprite arrow in arrowsInFlight)
+            foreach (Sprite projectile in projectilesInFlight)
             {
-                arrow.Draw(gameTime);
+                projectile.Draw(gameTime);
             }
         }
 
         public void Update(GameTime gameTime)
         {
-            for (int i = 0; i < arrowsInFlight.Count; i++)
+            for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                arrowsInFlight[i].Update(gameTime);
-                if (removeProjectileOutOfBounds(arrowsInFlight[i]))
+                projectilesInFlight[i].Update(gameTime);
+                if (ProjectileOutOfBounds(projectilesInFlight[i])
+                    || ProjectileBackToShooter(projectilesInFlight[i]))
                 {
+                    game.currEnemy.projectileInMotion = false;
                     i--;
                 }
             }
         }
 
-        private bool removeProjectileOutOfBounds(ISprite arrow)
+        private bool ProjectileOutOfBounds(ISprite projectile)
         {
-            if (arrow.Position.X > 800 || arrow.Position.X < 0 || arrow.Position.Y > 480 || arrow.Position.Y < 0)
-            {
-                removeProjectile(arrow);
+            if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
+            {   
+                removeProjectile(projectile);
                 return true;
             }
             return false;
+        }
+
+        private bool ProjectileBackToShooter(ISprite projectile)
+        {
+            string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
+            if (initDirection.Equals("right"))
+            {
+                return projectile.Position.X < game.currEnemy.Position.X;
+            }
+            else if (initDirection.Equals("left"))
+            {
+                return projectile.Position.X > game.currEnemy.Position.X;
+            }
+            else if (initDirection.Equals("up"))
+            {
+                return projectile.Position.Y > game.currEnemy.Position.Y;
+            }
+            return projectile.Position.Y < game.currEnemy.Position.Y;
         }
     }
 }

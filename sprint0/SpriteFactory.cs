@@ -39,12 +39,12 @@ namespace sprint0
         }
         public ISprite Arrow(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Sprite(projectileSpritesheet, new Rectangle[1], spriteBatch, position);
+            return new Projectile(projectileSpritesheet, new Rectangle[1], spriteBatch, position);
         }
 
         public ISprite Boomerang(SpriteBatch spriteBatch, Vector2 position)
         {
-            return new Sprite(boomerangSpritesheet, ProjectileRectangle.Boomerang, spriteBatch, position);
+            return new Projectile(boomerangSpritesheet, ProjectileRectangle.Boomerang, spriteBatch, position);
         }
     }
 }
