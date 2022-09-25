@@ -20,7 +20,7 @@ namespace sprint0
         
         //Player became a player class
         public Player player;
-        public List<Enemy> enemies = new List<Enemy>();
+        public List<Rectangle[]> enemies = new List<Rectangle[]>();
         public Enemy currEnemy;
         public int currIndex = 0;
 
@@ -57,16 +57,12 @@ namespace sprint0
             drawables.Add(player);
 
             //Add Enemies
-            enemies.Add(EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240)));
-            enemies.Add(EnemyFactory.Instance.Keese(_spriteBatch, new Vector2(500, 240)));
-            enemies.Add(EnemyFactory.Instance.Gel(_spriteBatch, new Vector2(500, 240)));
-            enemies.Add(EnemyFactory.Instance.Goriya(_spriteBatch, new Vector2(500, 240)));
-            enemies.Add(EnemyFactory.Instance.Octorok(_spriteBatch, new Vector2(400, 240)));
-            //rectangles.Add(EnemyRectangle.Keese);
-            //rectangles.Add(EnemyRectangle.Goriya);
-            //rectangles.Add(EnemyRectangle.Gel);
-            //rectangles.Add(EnemyRectangle.Octorok);
-            currEnemy = enemies[0];
+            enemies.Add(EnemyRectangle.Stalfos);
+            enemies.Add(EnemyRectangle.Keese);
+            enemies.Add(EnemyRectangle.Goriya);
+            enemies.Add(EnemyRectangle.Gel);
+            enemies.Add(EnemyRectangle.Octorok);
+            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240));
             updateables.Add(currEnemy);
             drawables.Add(currEnemy);
             
