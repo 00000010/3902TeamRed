@@ -8,6 +8,11 @@ namespace sprint0
     {
         private Game1 game;
         public List<ISprite> arrowsInFlight = new List<ISprite>();
+        public List<ISprite> toRemove = new List<ISprite>();
+        enum State {  COOLDOWN, READY };
+        State arrowState = State.READY;
+        readonly int coolDownTime = 100;
+        int coolDown;
 
 
         public int DrawOrder => throw new NotImplementedException();
@@ -21,6 +26,7 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            coolDown = 0;
         }
 
         event EventHandler<EventArgs> IUpdateable.EnabledChanged
@@ -77,12 +83,17 @@ namespace sprint0
 
         public void addArrow(ISprite arrow)
         {
-            arrowsInFlight.Add(arrow);
+            if (arrowState == State.READY)
+            {
+                arrowsInFlight.Add(arrow);
+                arrowState = State.COOLDOWN;
+            }
+
         }
 
-        public void removeArrow(ISprite arrow)
+        public void removeArrow()
         {
-            arrowsInFlight.Remove(arrow);
+            arrowsInFlight.RemoveAll(toRemove.Contains);
         }
 
         public void Draw(GameTime gameTime)
@@ -98,7 +109,25 @@ namespace sprint0
             foreach (Sprite arrow in arrowsInFlight)
             {
                 arrow.Update(gameTime);
+                if (arrow.Position.X >= 800)
+                {
+                    toRemove.Add(arrow);
+                }
             }
+
+            if(coolDown > 0)
+            {
+                coolDown--;
+            }
+            
+            if(coolDown == 0 && arrowState == State.COOLDOWN)
+            {
+                coolDown = coolDownTime;
+                arrowState = State.READY;
+                Console.WriteLine("Ready!");
+            }
+
+            removeArrow();
         }
     }
 }
