@@ -26,6 +26,7 @@ namespace sprint0
         public GameObjectManager manager;
         public ISprite arrow;
         public ISprite boomerang;
+        public ISprite rock;
 
         SpriteFont font;
         KeyboardController keyboard;
@@ -78,6 +79,8 @@ namespace sprint0
             arrow.Velocity = new Vector2(10, 0);
             //Adding boomerang
             boomerang = SpriteFactory.Instance.Boomerang(_spriteBatch, new Vector2(0, 0));
+            //Rock
+            rock = SpriteFactory.Instance.Rock(_spriteBatch, new Vector2(0, 0));
             manager = new GameObjectManager(this);
             updateables.Add(manager);
             drawables.Add(manager);
