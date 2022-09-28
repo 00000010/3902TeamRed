@@ -10,6 +10,7 @@ namespace sprint0
 {
     public class Player : Sprite
     {
+        private int delay = 0;
         public Vector2 Velocity { get; set; }
 
         public Player(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
@@ -27,8 +28,12 @@ namespace sprint0
 
         private void UpdateFrame(GameTime gameTime)
         {
-            Console.WriteLine("Frame: " + Frame);
-            Console.WriteLine("Lenght: " + SourceRectangle.Length);
+            //if (delay == 10)
+            //{
+            //    Frame++;
+            //    delay = 0;
+            //}
+            //delay++;
             Frame++;
             if (Frame >= SourceRectangle.Length)
             {
