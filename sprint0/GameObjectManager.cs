@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace sprint0
 {
@@ -125,22 +126,47 @@ namespace sprint0
         private bool ProjectileBackToShooter(ISprite projectile)
         {
             //Ensures that nothing happens if shooter is player
-            if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player")) return false;
-            
+            if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
+            {
+                return HandleShootingProjectilePlayer(projectile, game.player);
+            }
+            return HandleShootingProjectileEnemy(projectile, game.currEnemy);
+        }
+
+        private bool HandleShootingProjectilePlayer(ISprite projectile, Player player)
+        {
             string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
             if (initDirection.Equals("right"))
             {
-                return projectile.Position.X < game.currEnemy.Position.X;
+                return projectile.Position.X < player.Position.X;
             }
             else if (initDirection.Equals("left"))
             {
-                return projectile.Position.X > game.currEnemy.Position.X;
+                return projectile.Position.X > player.Position.X;
             }
             else if (initDirection.Equals("up"))
             {
-                return projectile.Position.Y > game.currEnemy.Position.Y;
+                return projectile.Position.Y > player.Position.Y;
             }
-            return projectile.Position.Y < game.currEnemy.Position.Y;
+            return projectile.Position.Y < player.Position.Y;
+        }
+
+        private bool HandleShootingProjectileEnemy(ISprite projectile, Enemy enemy)
+        {
+            string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
+            if (initDirection.Equals("right"))
+            {
+                return projectile.Position.X < enemy.Position.X;
+            }
+            else if (initDirection.Equals("left"))
+            {
+                return projectile.Position.X > enemy.Position.X;
+            }
+            else if (initDirection.Equals("up"))
+            {
+                return projectile.Position.Y > enemy.Position.Y;
+            }
+            return projectile.Position.Y < enemy.Position.Y;
         }
     }
 }
