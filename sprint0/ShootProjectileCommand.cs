@@ -8,27 +8,27 @@ namespace sprint0
     {
         private static Game1 game;
         public static GameObjectManager manager;
-        private string projectile;
+        private string shooter;
 
         //Constructor for the player to use
-        public ShootProjectileCommand(Game1 gameParam, string projectile = "player")
+        public ShootProjectileCommand(Game1 gameParam, string shooter = "player")
         {
             game = gameParam;
             manager = gameParam.manager;
-            this.projectile = projectile;
+            this.shooter = shooter;
         }
 
 
         //Constructor for enemies to use
-        public ShootProjectileCommand(string projectile = "player")
+        public ShootProjectileCommand(string shooter = "player")
         {
-            this.projectile = projectile;
+            this.shooter = shooter;
         }
 
         public void Execute()
         {
             //A player pr
-            if (projectile.Equals("player"))
+            if (shooter.Equals("player"))
             {
                 FirePlayerProjectile();
             } else
@@ -48,13 +48,13 @@ namespace sprint0
                 copy.Position = game.player.Position;
                 copy.Velocity = new Vector2(10, 0);
                 copy.SourceRectangle = SpriteRectangle.arrowRight;
-                manager.addProjectile(copy, "right");
+                manager.addProjectile(copy, "right", shooter);
             }
         }
 
         private void FireEnemyProjectile()
         {
-            if (projectile.Equals("boomerang"))
+            if (shooter.Equals("boomerang"))
             {
                 FireGoriyaProjectile();
             }
@@ -73,7 +73,7 @@ namespace sprint0
                 //Goriya shoots boomerang in the direction of movement
                 copy.Velocity = game.currEnemy.Velocity * 5;
                 copy.SourceRectangle = boomerang.SourceRectangle;
-                manager.addProjectile(copy, initFiringDirection);
+                manager.addProjectile(copy, initFiringDirection, shooter);
             }
         }
 

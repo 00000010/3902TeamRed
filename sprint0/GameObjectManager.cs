@@ -9,6 +9,7 @@ namespace sprint0
         private Game1 game;
         public List<ISprite> projectilesInFlight = new List<ISprite>();
         public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
+        public Dictionary<ISprite, string> shooterOfProjectile = new Dictionary<ISprite, string>();
 
 
         public int DrawOrder => throw new NotImplementedException();
@@ -76,10 +77,11 @@ namespace sprint0
             }
         }
 
-        public void addProjectile(ISprite projectile, string direction)
+        public void addProjectile(ISprite projectile, string direction, string shooter)
         {
             projectilesInFlight.Add(projectile);
             initDirectionOfFire.Add(projectile, direction);
+            shooterOfProjectile.Add(projectile, shooter);
         }
 
         public void removeProjectile(ISprite projectile)
@@ -100,6 +102,7 @@ namespace sprint0
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
                 projectilesInFlight[i].Update(gameTime);
+                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
                 if (ProjectileOutOfBounds(projectilesInFlight[i])
                     || ProjectileBackToShooter(projectilesInFlight[i]))
                 {
@@ -121,6 +124,9 @@ namespace sprint0
 
         private bool ProjectileBackToShooter(ISprite projectile)
         {
+            //Ensures that nothing happens if shooter is player
+            if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player")) return false;
+            
             string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
             if (initDirection.Equals("right"))
             {

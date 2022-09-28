@@ -68,9 +68,6 @@ namespace sprint0
             currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240));
             updateables.Add(currEnemy);
             drawables.Add(currEnemy);
-            
-            updateables.Add(player);
-            drawables.Add(player);
 
             /*
              * Add projectiles
