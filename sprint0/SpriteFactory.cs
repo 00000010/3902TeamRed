@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,9 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D linkSpritesheet;
+        private Texture2D projectileSpritesheet;
+        private Texture2D boomerangSpritesheet;
+
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance
         {
@@ -32,22 +36,42 @@ namespace sprint0
         /// <param name="content"></param>
         public void LoadTextures(ContentManager content)
         {
-            // TODO: if LinkRevised works, delete Link.png from project and rename LinkRevised to Link
             linkSpritesheet = content.Load<Texture2D>("Link");
         }
 
-        /// <summary>
-        /// Create and return a Link sprite standing right at the specified position with the specified velocity.
-        /// </summary>
-        /// <param name="spriteBatch"></param>
-        /// <param name="position"></param>
-        /// <param name="velocity"></param>
-        /// <returns></returns>
-        public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
+        // TODO: Fix the collateral damage here
+        ///// <summary>
+        ///// Create and return a Link sprite standing right at the specified position with the specified velocity.
+        ///// </summary>
+        ///// <param name="spriteBatch"></param>
+        ///// <param name="position"></param>
+        ///// <param name="velocity"></param>
+        ///// <returns></returns>
+        //public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
+        //{
+        //    Rectangle[] rectangles = new Rectangle[1];
+        //    rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
+        //    return new Sprite(linkSpritesheet, rectangles, spriteBatch, position, velocity, direction);
+
+        public void LoadZeldaTextures(ContentManager content)
         {
-            Rectangle[] rectangles = new Rectangle[1];
+            projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
+            boomerangSpritesheet = content.Load<Texture2D>("goriyaspritesheet");
+        }
+        public ISprite Link(SpriteBatch spriteBatch, Vector2 position)
+        {
+              Rectangle[] rectangles = new Rectangle[1];
             rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
-            return new Sprite(linkSpritesheet, rectangles, spriteBatch, position, velocity, direction);
+            return new Sprite(linkSpritesheet, rectangles, spriteBatch, position);
+        }
+        public ISprite Arrow(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(projectileSpritesheet, new Rectangle[1], spriteBatch, position);
+        }
+
+        public ISprite Boomerang(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(boomerangSpritesheet, ProjectileRectangle.Boomerang, spriteBatch, position);
         }
     }
 }

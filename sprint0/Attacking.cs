@@ -18,7 +18,7 @@ namespace sprint0
         // TODO: 2 is a magic number
         public override int SourceY()
         {
-            return Constants.LINK_HEIGHT * 2; //spriteRectangle.SourceY() + Constants.LINK_HEIGHT * 2
+            return Constants.LINK_HEIGHT * 2;
         }
 
         public override int SourceWidth()

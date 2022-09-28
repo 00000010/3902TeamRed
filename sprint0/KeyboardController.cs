@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,6 +74,10 @@ namespace sprint0
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));
+
+            this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
+            this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
+            this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
         }
     }
 }

@@ -79,7 +79,15 @@ namespace sprint0
                         Constants.LINK_HEIGHT);
                 }
             }
+            //for (int i = 0; i < frameCollection.Length; i++)
+            //{
+            //    Console.WriteLine("x: " + frameCollection[i].X);
+            //    Console.WriteLine("y: " + frameCollection[i].Y);
+            //}
+            //Console.WriteLine("________________");
             return frameCollection;
         }
+
+        public static Rectangle[] arrowRight = { new Rectangle(210, 200, 16, 5) };
     }
 }

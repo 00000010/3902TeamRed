@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:/Users/adamp/source/repos/sprint0/sprint0/obj/Debug/net6.0/sprint0.csproj.AssemblyReference.cache
 C:/Users/adamp/source/repos/sprint0/sprint0/obj/Debug/net6.0/sprint0.GeneratedMSBuildEditorConfig.editorconfig
 C:/Users/adamp/source/repos/sprint0/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfoInputs.cache
@@ -84,3 +85,39 @@ C:/Users/adamp/OneDrive - The Ohio State University/OSU/AU22/CSE 3902/sprint0/sp
 /Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
 /Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/LinkRevised.xnb
 /Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Link.xnb
+=======
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Font.xnb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Arial.xnb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/smb_luigi_sheet.xnb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.exe
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.deps.json
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.runtimeconfig.json
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.pdb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.AssemblyReference.cache
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfoInputs.cache
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfo.cs
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CoreCompileInputs.cache
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CopyComplete
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/refint/sprint0.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Zelda_sprite.xnb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/zeldaspritesheet.xnb
+C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/bin/Debug/net6.0/Content/goriyaspritesheet.xnb
+>>>>>>> AbdBranch
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/zeldaspritesheet.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/goriyaspritesheet.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Zelda_sprite.xnb

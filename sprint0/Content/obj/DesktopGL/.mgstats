@@ -1,3 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/Users/chicken/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.386564
-"/Users/chicken/3902TeamRed/sprint0/Content/Link.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Link.xnb","TextureProcessor","Texture2DContent",17860,1010485,0.087563
+"/Users/chicken/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.373866
+"/Users/chicken/3902TeamRed/sprint0/Content/goriyaspritesheet.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/goriyaspritesheet.xnb","TextureProcessor","Texture2DContent",24232,306437,0.048254
+"/Users/chicken/3902TeamRed/sprint0/Content/Link.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Link.xnb","TextureProcessor","Texture2DContent",17860,1010485,0.058385
+"/Users/chicken/3902TeamRed/sprint0/Content/Zelda_sprite.png","/Users/chicken/3902TeamRed/sprint0/Content/bin/DesktopGL/Zelda_sprite.xnb","TextureProcessor","Texture2DContent",10081,604893,0.039924

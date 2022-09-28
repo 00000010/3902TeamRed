@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Sprite : ISprite
+    public class Sprite : ISprite
     {
         // TODO: delete, for testing purposes
         private int delay = 0;
@@ -19,7 +19,9 @@ namespace sprint0
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+
         public int Direction { get; set; }
+        public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -46,71 +48,85 @@ namespace sprint0
         /// from the spritesheet</param>
         /// <param name="spriteBatch"></param>
         /// <param name="position">where to put the sprite</param>
-        /// <param name="velocity">the velocity of the sprite when placed</param>
-        /// <param name="direction">the direction the sprite is facing (0 is up,
-        /// 1 is right, 2 is down, 3 is left)</param>
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
-            Velocity = velocity;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            UpdateVelocity();
+            UpdateVelocity(gameTime);
             UpdatePosition();
             UpdateFrame();
         }
 
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
+//<<<<<<< HEAD
             int height = SourceRectangle[Frame].Height;
             int width = SourceRectangle[Frame].Width;
+//=======
+//            int height = SourceRectangle[Frame].Height * 2;
+//            int width = SourceRectangle[Frame].Width * 2;
+//>>>>>>> AbdBranch
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
 
-        private void UpdateVelocity()
+        protected virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
             return;
         }
 
-        private void UpdatePosition()
+        protected virtual void UpdatePosition()
         {
             Position += Velocity;
 
             // wrap around screen
             if (Position.X > 800)
             {
+//<<<<<<< HEAD
                 this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
+//=======
+//                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 2, Position.Y);
+//>>>>>>> AbdBranch
             }
 
             if (Position.Y > 480)
             {
                 this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
+                //this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 2);
             }    
         }
 
-        private void UpdateFrame()
+        protected virtual void UpdateFrame()
         {
-            if (delay == 5)
+            //Waits for 4 updates to occur before doing another update
+            if (NumUpdates < 4)
             {
-                Frame++;
-                delay = 0;
+                NumUpdates++;
+                return;
             }
-            delay++;
-            //Frame++;
+            NumUpdates = 0;
+
+            //Updates frame
+            Frame++;
             if (Frame >= SourceRectangle.Length)
             {
                 Frame = 0;
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

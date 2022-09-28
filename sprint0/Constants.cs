@@ -7,10 +7,6 @@ namespace sprint0
     {
         private Constants() { }
 
-        /* TODO: Clean this class up by photoshopping the spritesheet so frames
-         * are next to each other. May want to make separate spritesheets (one
-         * for Link, one for explosions, and one for items, for example) */
-
         /// <summary>
         /// Number of frames for the Link sprite running or attacking.
         /// </summary>

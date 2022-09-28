@@ -14,17 +14,13 @@ namespace sprint0
         }
         public void Execute()
         {
-            if (this.game.player is Sprite)
-            {
-                Sprite player = (Sprite)this.game.player;
-
-                SpriteRectangle sR = new LinkRectangle();
-                sR = new Left(sR);
-                sR = new Running(sR);
-                player.SourceRectangle = sR.SourceRectangle(sR);
-                player.Frame = 0;
-                player.Velocity = new Vector2(-1, 0);
-            }
+            SpriteRectangle sR = new LinkRectangle();
+            sR = new Left(sR);
+            sR = new Running(sR);
+            game.player.SourceRectangle = sR.SourceRectangle(sR);
+            
+            game.player.Frame = 0;
+            game.player.Velocity = new Vector2(-1, 0);
         }
     }
 }
