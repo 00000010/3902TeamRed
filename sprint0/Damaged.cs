@@ -9,6 +9,7 @@ namespace sprint0
 
         public Damaged(SpriteRectangle spriteRectangle)
         {
+            Console.WriteLine("Damaged called");
             this.spriteRectangle = spriteRectangle;
         }
 
@@ -34,7 +35,14 @@ namespace sprint0
 
         public override int Frames()
         {
-            return spriteRectangle.Frames();
+            int frames = spriteRectangle.Frames();
+            Console.WriteLine("frames before: " + frames);
+            if (frames == 1 || frames == 2)
+            {
+                frames = frames * 3;
+            }
+            Console.WriteLine("frames after: " + frames);
+            return frames;
         }
 
         public override int Colors()

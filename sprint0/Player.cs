@@ -28,13 +28,13 @@ namespace sprint0
 
         private void UpdateFrame(GameTime gameTime)
         {
-            //if (delay == 10)
-            //{
-            //    Frame++;
-            //    delay = 0;
-            //}
-            //delay++;
-            Frame++;
+            if (delay == 10)
+            {
+                Frame++;
+                delay = 0;
+            }
+            delay++;
+            //Frame++;
             if (Frame >= SourceRectangle.Length)
             {
                 Frame = 0;

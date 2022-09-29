@@ -17,19 +17,15 @@ namespace sprint0
         }
         public void Execute()
         {
-            if (this.game.player is Sprite)
-            { 
-                Sprite player = (Sprite)this.game.player;
+            SpriteRectangle sR = new LinkRectangle(
+                game.player.SourceRectangle[0].X,
+                game.player.SourceRectangle[0].Y,
+                game.player.SourceRectangle.Length);
+            sR = new Attacking(sR);
+            game.player.SourceRectangle = sR.SourceRectangle(sR);
 
-                SpriteRectangle sR = new LinkRectangle(
-                    game.player.SourceRectangle[0].X,
-                    game.player.SourceRectangle[0].Y);
-                sR = new Attacking(sR);
-                player.SourceRectangle = sR.SourceRectangle(sR);
-
-                player.Frame = 0;
-                player.Velocity = new Vector2(0, 0);
-            }
+            game.player.Frame = 0;
+            game.player.Velocity = new Vector2(0, 0);
         }
     }
 }

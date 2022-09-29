@@ -28,9 +28,13 @@ namespace sprint0
                 Constants.STARTING_LINK_POSITION_X,
                 Constants.STARTING_LINK_POSITION_Y);
 
-            /* Put reset of starting states of enemies, projectiles, items, etc. */
             game.player.Frame = 0;
             game.player.Velocity = new Vector2(0, 0);
+
+            /* Put reset of starting states of enemies, projectiles, items, etc. */
+            game.currEnemy.SourceRectangle = EnemyRectangle.Stalfos;
+            game.currEnemyIndex = 0;
+            game.currEnemy.Frame = 0;
         }
     }
 }

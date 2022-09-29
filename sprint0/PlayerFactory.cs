@@ -28,7 +28,11 @@ namespace sprint0
         public Player Link(SpriteBatch spriteBatch, Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[1];
-            rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
+            rectangles[0] = new Rectangle(
+                Constants.STARTING_LINK_POSITION_X,
+                Constants.STARTING_LINK_POSITION_Y,
+                Constants.LINK_WIDTH,
+                Constants.LINK_HEIGHT);
             return new Player(spritesheet, rectangles, spriteBatch, position);
         }
     }

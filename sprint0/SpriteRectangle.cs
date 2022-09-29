@@ -64,21 +64,48 @@ namespace sprint0
         public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
         {
             /* TODO: change Frames() description; should be frames per color */
-            int frames = finalizedRectangle.Frames();
             int colors = finalizedRectangle.Colors();
-            Rectangle[] frameCollection = new Rectangle[frames * colors];
-
+            int framesPerColor = finalizedRectangle.Frames() / colors;
+            Rectangle[] frameCollection = new Rectangle[colors * framesPerColor];
+            Console.WriteLine("colors: " + colors);
+            Console.WriteLine("framesPerColor: " + framesPerColor);
+            Console.WriteLine("frames: " + finalizedRectangle.Frames());
+            Console.WriteLine("Size: " + (colors * framesPerColor));
             for (int color = 0; color < colors; color++)
             {
-                for (int frame = 0; frame < frames; frame++)
+                for (int frame = 0; frame < framesPerColor; frame++)
                 {
-                    frameCollection[frames * color + frame] = new Rectangle(
+                    Console.WriteLine("i: " + ((framesPerColor * color) + frame));
+                    Console.WriteLine("frame: " + frame);
+                    frameCollection[(framesPerColor * color) + frame] = new Rectangle(
                         finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES),
-                        finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT,
+                        finalizedRectangle.SourceY() + (frame % framesPerColor) * Constants.LINK_HEIGHT,
                         Constants.LINK_WIDTH,
                         Constants.LINK_HEIGHT);
+                    Console.WriteLine("X: " + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES));
+                    Console.WriteLine("Y: " + (finalizedRectangle.SourceY() + frame * Constants.LINK_HEIGHT));
                 }
             }
+            /*
+             * Standing:         colors: 1 frames: 1 => 1 times
+             * color: 0 frame: 0 [0]
+             * Running:          colors: 1 frames: 2 => 2 times
+             * color: 0 frame: 0 [0]
+             * color: 0 frame: 1 [1]
+             * Standing damaged: colors: 3 frames: 3 => 3 times
+             * color: 0 frame: 0 [0]
+             * color: 1 frame: 0 [1]
+             * color: 2 frame: 0 [2]
+             * Running damaged:  colors: 3 frames: 6 => 6 times
+             * color: 0 frame: 0 [0]
+             * color: 0 frame: 1 [1]
+             * color: 1 frame: 0 [2]
+             * color: 1 frame: 1 [3]
+             * color: 2 frame: 0 [4]
+             * color: 2 frame: 1 [5]
+             * 
+             */
+            //Console.WriteLine("Official frames: " + frameCollection.Length);
             return frameCollection;
         }
 

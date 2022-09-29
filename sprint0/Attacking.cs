@@ -31,10 +31,15 @@ namespace sprint0
             return spriteRectangle.SourceHeight() + Constants.LINK_HEIGHT;
         }
 
-        // TODO: 1 is a magic number
         public override int Frames()
         {
-            return spriteRectangle.Frames() + 1;
+            int frames = 2; // not damaged => 2 frames
+            if (spriteRectangle.Frames() > 2) // damaged => 6 frames
+            {
+                frames = 6;
+            }
+            Console.WriteLine("Frames: " + frames);
+            return frames;
         }
 
         public override int Colors()

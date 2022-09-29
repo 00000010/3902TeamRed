@@ -1,28 +1,30 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Sprite.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Damaged.cs">
     <Files>
-      <File FileName="sprint0/SpriteRectangle.cs" Line="81" Column="14" />
-      <File FileName="sprint0/LinkRunningRightCommand.cs" Line="19" Column="34" />
-      <File FileName="sprint0/Sprite.cs" Line="16" Column="1" />
-      <File FileName="sprint0/Player.cs" Line="16" Column="1" />
-      <File FileName="sprint0/EnemyFrame.cs" Line="12" Column="37" />
-      <File FileName="sprint0/Game1.cs" Line="43" Column="1" />
-      <File FileName="sprint0/Enemy.cs" Line="12" Column="32" />
+      <File FileName="sprint0/Sprite.cs" Line="101" Column="1" />
+      <File FileName="sprint0/Player.cs" Line="30" Column="10" />
+      <File FileName="sprint0/Game1.cs" Line="68" Column="25" />
       <File FileName="sprint0/PlayerFactory.cs" Line="32" Column="1" />
-      <File FileName="sprint0/EnemyFactory.cs" Line="18" Column="10" />
-      <File FileName="sprint0/EnemyRectangle.cs" Line="15" Column="1" />
+      <File FileName="sprint0/EnemyFactory.cs" Line="33" Column="10" />
+      <File FileName="sprint0/ResetCommand.cs" Line="36" Column="38" />
+      <File FileName="sprint0/Enemy.cs" Line="15" Column="1" />
       <File FileName="sprint0/Program.cs" Line="4" Column="1" />
-      <File FileName="sprint0/ISprite.cs" Line="15" Column="43" />
+      <File FileName="sprint0/ISprite.cs" Line="17" Column="6" />
+      <File FileName="sprint0/ShootProjectileCommand.cs" Line="70" Column="27" />
+      <File FileName="sprint0/KeyboardController.cs" Line="48" Column="53" />
+      <File FileName="sprint0/Attacking.cs" Line="7" Column="1" />
+      <File FileName="sprint0/ICommand.cs" Line="11" Column="29" />
+      <File FileName="sprint0/Damaged.cs" Line="19" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
-            <Node name="sprint0" expanded="True" />
+            <Node name="sprint0" expanded="True">
+              <Node name="Content" expanded="True" />
+              <Node name="Damaged.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -31,7 +33,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>
