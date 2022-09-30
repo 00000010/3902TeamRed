@@ -8,27 +8,27 @@ namespace sprint0
     {
         private static Game1 game;
         public static GameObjectManager manager;
-        private string projectile;
+        private string shooter;
 
         //Constructor for the player to use
-        public ShootProjectileCommand(Game1 gameParam, string projectile = "player")
+        public ShootProjectileCommand(Game1 gameParam, string shooter = "player")
         {
             game = gameParam;
             manager = gameParam.manager;
-            this.projectile = projectile;
+            this.shooter = shooter;
         }
 
 
         //Constructor for enemies to use
-        public ShootProjectileCommand(string projectile = "player")
+        public ShootProjectileCommand(string shooter = "player")
         {
-            this.projectile = projectile;
+            this.shooter = shooter;
         }
 
         public void Execute()
         {
             //A player pr
-            if (projectile.Equals("player"))
+            if (shooter.Equals("player"))
             {
                 FirePlayerProjectile();
             } else
@@ -48,36 +48,64 @@ namespace sprint0
                 copy.Position = game.player.Position;
                 copy.Velocity = new Vector2(10, 0);
                 copy.SourceRectangle = SpriteRectangle.arrowRight;
-                manager.addProjectile(copy, "right");
+                manager.addProjectile(copy, "right", shooter);
             }
         }
 
         private void FireEnemyProjectile()
         {
-            if (projectile.Equals("boomerang"))
+            if (shooter.Equals("boomerang"))
             {
-                FireGoriyaProjectile();
+                FireDifferentEnemyProjectile(game.boomerang);
+            }
+            else if (shooter.Equals("rock"))
+            {
+                FireDifferentEnemyProjectile(game.rock);
             }
         }
 
         //Different types of enemy projectiles
-        private void FireGoriyaProjectile()
+        private void FireDifferentEnemyProjectile(ISprite gameProjectile)
         {
-            if (game.boomerang is Projectile)
+            if (gameProjectile is Projectile)
             {
-                Projectile boomerang = (Projectile)game.boomerang;
-                string initFiringDirection = GetDirection(boomerang.Velocity);
-                boomerang.InitFiringDirection = initFiringDirection;
-                Projectile copy = (Projectile)boomerang.Clone();
+                Projectile projectile = (Projectile)gameProjectile;
+                string initFiringDirection = GetDirectionEnemy(game.currEnemy, projectile.Velocity);
+                projectile.InitFiringDirection = initFiringDirection;
+                Projectile copy = (Projectile)projectile.Clone();
                 copy.Position = game.currEnemy.Position;
                 //Goriya shoots boomerang in the direction of movement
                 copy.Velocity = game.currEnemy.Velocity * 5;
-                copy.SourceRectangle = boomerang.SourceRectangle;
-                manager.addProjectile(copy, initFiringDirection);
+                HandleVelocityIfOctorok(copy, initFiringDirection);
+                copy.SourceRectangle = projectile.SourceRectangle;
+                manager.addProjectile(copy, initFiringDirection, shooter);
             }
         }
 
-        private static string GetDirection(Vector2 Velocity)
+        private void HandleVelocityIfOctorok(Projectile copy, string initFiringDirection)
+        {
+            if (copy.SourceRectangle != ProjectileRectangle.Rock) return;
+            
+            //We know Octorok is the one that fired now
+            if (initFiringDirection.Equals("down"))
+            {
+                copy.Velocity = new Vector2(0, 10);
+            }
+            else if (initFiringDirection.Equals("up"))
+            {
+                copy.Velocity = new Vector2(0, -10);
+            }
+            else if (initFiringDirection.Equals("left"))
+            {
+                copy.Velocity = new Vector2(-10, 0);
+            } 
+            else
+            {
+                copy.Velocity = new Vector2(10, 0);
+            }
+        }
+
+        private static string GetDirectionPlayer(Vector2 Velocity)
         {
             if (Velocity.X > 0)
             {
@@ -92,6 +120,41 @@ namespace sprint0
                 return "up";
             }
             return "down";
+        }
+
+        private static string GetDirectionEnemy(Enemy enemy, Vector2 Velocity)
+        {
+            if (enemy.SourceRectangle == EnemyRectangle.Octorok) return HandleInitialDirectionIfOctorok(enemy);
+            if (Velocity.X > 0)
+            {
+                return "right";
+            }
+            else if (Velocity.X < 0)
+            {
+                return "left";
+            }
+            else if (Velocity.Y > 0)
+            {
+                return "up";
+            }
+            return "down";
+        }
+
+        private static string HandleInitialDirectionIfOctorok(Enemy enemy)
+        {
+            if (enemy.Frame == 0)
+            {
+                return "down";
+            }
+            else if (enemy.Frame == 1)
+            {
+                return "left";
+            }
+            else if (enemy.Frame == 2)
+            {
+                return "up";
+            }
+            return "right";
         }
     }
 }

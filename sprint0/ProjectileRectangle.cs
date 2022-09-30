@@ -12,5 +12,7 @@ namespace sprint0
         //Boomerang
         public static Rectangle[] Boomerang = { new Rectangle(79, 402, 7, 10), new Rectangle(88, 402, 7, 10) ,
         new Rectangle(88, 420, 7, 10), new Rectangle(79, 420, 7, 10)};
+        //Rock
+        public static Rectangle[] Rock = { new Rectangle(68, 13, 7, 10)};
     }
 }
