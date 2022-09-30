@@ -86,7 +86,7 @@ namespace sprint0
         {
             if (copy.SourceRectangle != ProjectileRectangle.Rock) return;
             
-            //We now Octorok is the one that fired now
+            //We know Octorok is the one that fired now
             if (initFiringDirection.Equals("down"))
             {
                 copy.Velocity = new Vector2(0, 10);
