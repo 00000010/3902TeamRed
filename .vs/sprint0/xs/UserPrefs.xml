@@ -33,9 +33,8 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
-            <Node name="sprint0" expanded="True">
-              <Node name="Content" expanded="True" />
-            </Node>
+            <Node name="Solution Items" selected="True" />
+            <Node name="sprint0" expanded="True" />
           </Node>
         </State>
       </Pad>
