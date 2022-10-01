@@ -42,21 +42,23 @@ Move up:    'W' or ⬆ <br/>
 Move left:  'A' or ⬅ <br/>
 Move down:  'S' or ⬇ <br/>
 Move right: 'D' or ⮕ <br/>
-Attack:     'N' or 'Z' <br/> <br/>
+Attack:     'N' or 'Z' <br/>
 
-Damage Link: 'E' <br/> <br/>
+Damage Link: 'E' <br/>
 
 Shoot Projectile: 'L' <br/>
-Quit Game: '0' <br/> <br/>
+Quit Game: 'Q' <br/>
 
 Previous Block: 'T' <br/>
-Next Block: 'Y' <br/> <br/>
+Next Block: 'Y' <br/>
 
 Previous Item: 'U' <br/>
-Next Item: 'I' <br/> <br/>
+Next Item: 'I' <br/>
 
 Previous Enemy: 'O' <br/>
-Next Enemy: 'P' <br/> <br/>
+Next Enemy: 'P' <br/>
+
+Reset Link: 'R' <br/>
 
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
 ## Non-Required Tools and Processes
