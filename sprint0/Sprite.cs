@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Sprite : ISprite
+    public class Sprite : ISprite
     {
+        // TODO: delete, for testing purposes
+        private int delay = 0;
+
         public Texture2D Texture { get; set; }
         public Rectangle[] SourceRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+
+        public int Direction { get; set; }
+        public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -32,62 +38,95 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+        /// <summary>
+        /// Create a sprite from a spritesheet given its location from a
+        /// spritesheet and put it in the game at the specified position with a
+        /// velocity and direction.
+        /// </summary>
+        /// <param name="texture">the spritesheet</param>
+        /// <param name="sourceRectangle">the rectangle containing the sprite
+        /// from the spritesheet</param>
+        /// <param name="spriteBatch"></param>
+        /// <param name="position">where to put the sprite</param>
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
-            Velocity = velocity;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            UpdateVelocity();
+            UpdateVelocity(gameTime);
             UpdatePosition();
             UpdateFrame();
         }
 
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
-            int height = SourceRectangle[Frame].Height * 10;
-            int width = SourceRectangle[Frame].Width * 10;
+//<<<<<<< HEAD
+            int height = SourceRectangle[Frame].Height;
+            int width = SourceRectangle[Frame].Width;
+//=======
+//            int height = SourceRectangle[Frame].Height * 2;
+//            int width = SourceRectangle[Frame].Width * 2;
+//>>>>>>> AbdBranch
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
-        private void UpdateVelocity()
+
+        protected virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
             return;
         }
 
-        private void UpdatePosition()
+        protected virtual void UpdatePosition()
         {
             Position += Velocity;
 
             // wrap around screen
             if (Position.X > 800)
             {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
+//<<<<<<< HEAD
+                this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
+//=======
+//                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 2, Position.Y);
+//>>>>>>> AbdBranch
             }
 
             if (Position.Y > 480)
             {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
+                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
+                //this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 2);
             }    
         }
 
-
-        private void UpdateFrame()
+        protected virtual void UpdateFrame()
         {
+            //Waits for 4 updates to occur before doing another update
+            if (NumUpdates < 4)
+            {
+                NumUpdates++;
+                return;
+            }
+            NumUpdates = 0;
+
+            //Updates frame
             Frame++;
             if (Frame >= SourceRectangle.Length)
             {
                 Frame = 0;
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

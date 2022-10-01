@@ -4,14 +4,22 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace sprint0
 {
+    /// <summary>
+    /// Class <c>SpriteFactory</c> creates the sprites from the spritesheets when requested.
+    /// </summary>
     public class SpriteFactory
     {
-        private Texture2D luigiSpritesheet;
+        private Texture2D linkSpritesheet;
+        private Texture2D projectileSpritesheet;
+        private Texture2D boomerangSpritesheet;
+        private Texture2D octorokSpritesheet;
+
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance
         {
@@ -20,14 +28,57 @@ namespace sprint0
                 return instance;
             }
         }
-        private SpriteFactory() { }
+
+        private SpriteFactory() {}
+
+        /// <summary>
+        /// Load the sprite sheets.
+        /// </summary>
+        /// <param name="content"></param>
         public void LoadTextures(ContentManager content)
         {
-            luigiSpritesheet = content.Load<Texture2D>("smb_luigi_sheet");
+            linkSpritesheet = content.Load<Texture2D>("Link");
         }
-        public ISprite Luigi(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity)
+
+        // TODO: Fix the collateral damage here
+        ///// <summary>
+        ///// Create and return a Link sprite standing right at the specified position with the specified velocity.
+        ///// </summary>
+        ///// <param name="spriteBatch"></param>
+        ///// <param name="position"></param>
+        ///// <param name="velocity"></param>
+        ///// <returns></returns>
+        //public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
+        //{
+        //    Rectangle[] rectangles = new Rectangle[1];
+        //    rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
+        //    return new Sprite(linkSpritesheet, rectangles, spriteBatch, position, velocity, direction);
+
+        public void LoadZeldaTextures(ContentManager content)
         {
-            return new Sprite(luigiSpritesheet, SpriteRectangle.LuigiStandingRight, spriteBatch, position, velocity);
+            projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
+            boomerangSpritesheet = content.Load<Texture2D>("goriyaspritesheet");
+            octorokSpritesheet = content.Load<Texture2D>("OctorokSpritesheet");
+        }
+        public ISprite Link(SpriteBatch spriteBatch, Vector2 position)
+        {
+              Rectangle[] rectangles = new Rectangle[1];
+            rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
+            return new Sprite(linkSpritesheet, rectangles, spriteBatch, position);
+        }
+        public ISprite Arrow(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(projectileSpritesheet, new Rectangle[1], spriteBatch, position);
+        }
+
+        public ISprite Boomerang(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(boomerangSpritesheet, ProjectileRectangle.Boomerang, spriteBatch, position);
+        }
+
+        public ISprite Rock(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(octorokSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
         }
     }
 }
