@@ -38,7 +38,6 @@ namespace sprint0
             {
                 frames = 6;
             }
-            Console.WriteLine("Frames: " + frames);
             return frames;
         }
 

@@ -78,6 +78,10 @@ namespace sprint0
             this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
             this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
             this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
+            this.RegisterCommand(Keys.I, new NextItemCommand(game));
+            this.RegisterCommand(Keys.U, new PrevItemCommand(game));
+            this.RegisterCommand(Keys.T, new NextBlockCommand(game));
+            this.RegisterCommand(Keys.Y, new PrevBlockCommand(game));
         }
     }
 }

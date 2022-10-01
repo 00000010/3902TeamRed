@@ -14,7 +14,7 @@ namespace sprint0
         public bool projectileInMotion;
 
         //Constructor gets inherited from Sprite
-        public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
+        public Enemy(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
             : base(texture, sourceRectangle, spriteBatch, position)
         {
             this.projectileInMotion = false;
@@ -41,7 +41,7 @@ namespace sprint0
             //Setting the velocity's value too low to figure out if it changed
             Vector2 currVelocity = new Vector2(-100);
             EnemyVelocity.UpdateVelocity(gameTime, SourceRectangle, ref currVelocity);
-            
+
             if (currVelocity.X != -100)
             {
                 Velocity = currVelocity;
@@ -78,18 +78,22 @@ namespace sprint0
         {
             if (SourceRectangle == EnemyRectangle.Goriya)
             {
-                UpdateGoriyaProjectile();
+                UpdateEnemyProjectile("boomerang");
+            }
+            else if (SourceRectangle == EnemyRectangle.Octorok)
+            {
+                UpdateEnemyProjectile("rock");
             }
         }
 
-        protected void UpdateGoriyaProjectile()
+        protected void UpdateEnemyProjectile(String projectile)
         {
             //Randomizing when to shoot projectile
             Random randomGen = new Random();
             int shouldShoot = randomGen.Next(0, 50);
             if (shouldShoot == 0)
             {
-                ShootProjectileCommand command = new ShootProjectileCommand("boomerang");
+                ShootProjectileCommand command = new ShootProjectileCommand(projectile);
                 command.Execute();
                 projectileInMotion = true;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace sprint0
 {
@@ -9,6 +10,7 @@ namespace sprint0
         private Game1 game;
         public List<ISprite> projectilesInFlight = new List<ISprite>();
         public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
+        public Dictionary<ISprite, string> shooterOfProjectile = new Dictionary<ISprite, string>();
 
 
         public int DrawOrder => throw new NotImplementedException();
@@ -76,10 +78,11 @@ namespace sprint0
             }
         }
 
-        public void addProjectile(ISprite projectile, string direction)
+        public void addProjectile(ISprite projectile, string direction, string shooter)
         {
             projectilesInFlight.Add(projectile);
             initDirectionOfFire.Add(projectile, direction);
+            shooterOfProjectile.Add(projectile, shooter);
         }
 
         public void removeProjectile(ISprite projectile)
@@ -100,6 +103,7 @@ namespace sprint0
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
                 projectilesInFlight[i].Update(gameTime);
+                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
                 if (ProjectileOutOfBounds(projectilesInFlight[i])
                     || ProjectileBackToShooter(projectilesInFlight[i]))
                 {
@@ -121,20 +125,48 @@ namespace sprint0
 
         private bool ProjectileBackToShooter(ISprite projectile)
         {
+            //Ensures that nothing happens if shooter is player
+            if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
+            {
+                return HandleShootingProjectilePlayer(projectile, game.player);
+            }
+            return HandleShootingProjectileEnemy(projectile, game.currEnemy);
+        }
+
+        private bool HandleShootingProjectilePlayer(ISprite projectile, Player player)
+        {
             string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
             if (initDirection.Equals("right"))
             {
-                return projectile.Position.X < game.currEnemy.Position.X;
+                return projectile.Position.X < player.Position.X;
             }
             else if (initDirection.Equals("left"))
             {
-                return projectile.Position.X > game.currEnemy.Position.X;
+                return projectile.Position.X > player.Position.X;
             }
             else if (initDirection.Equals("up"))
             {
-                return projectile.Position.Y > game.currEnemy.Position.Y;
+                return projectile.Position.Y > player.Position.Y;
             }
-            return projectile.Position.Y < game.currEnemy.Position.Y;
+            return projectile.Position.Y < player.Position.Y;
+        }
+
+        private bool HandleShootingProjectileEnemy(ISprite projectile, Enemy enemy)
+        {
+            string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
+            if (initDirection.Equals("right"))
+            {
+                return projectile.Position.X < enemy.Position.X;
+            }
+            else if (initDirection.Equals("left"))
+            {
+                return projectile.Position.X > enemy.Position.X;
+            }
+            else if (initDirection.Equals("up"))
+            {
+                return projectile.Position.Y > enemy.Position.Y;
+            }
+            return projectile.Position.Y < enemy.Position.Y;
         }
     }
 }

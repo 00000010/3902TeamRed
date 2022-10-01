@@ -18,6 +18,7 @@ namespace sprint0
         private Texture2D linkSpritesheet;
         private Texture2D projectileSpritesheet;
         private Texture2D boomerangSpritesheet;
+        private Texture2D octorokSpritesheet;
 
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance
@@ -57,6 +58,7 @@ namespace sprint0
         {
             projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
             boomerangSpritesheet = content.Load<Texture2D>("goriyaspritesheet");
+            octorokSpritesheet = content.Load<Texture2D>("OctorokSpritesheet");
         }
         public ISprite Link(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -72,6 +74,11 @@ namespace sprint0
         public ISprite Boomerang(SpriteBatch spriteBatch, Vector2 position)
         {
             return new Projectile(boomerangSpritesheet, ProjectileRectangle.Boomerang, spriteBatch, position);
+        }
+
+        public ISprite Rock(SpriteBatch spriteBatch, Vector2 position)
+        {
+            return new Projectile(octorokSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
         }
     }
 }

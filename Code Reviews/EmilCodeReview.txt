@@ -1,0 +1,26 @@
+Readability code review:
+Author: Emil Pang
+Date: 10/1/2022
+Sprint: 2
+CS file being reviewed: Client.cs
+Author of file: Adam Perhala
+Number of minutes: 
+Comments on code readability:
+
+Code is readable considering that all of the functions are pretty short and have a specific purpose. For example, in the execute function, you can tell that the functionality for shooting projectiles for players is different than that for enemies because different methods are being called for each. 
+The code is also well commented where every part of the code that seems confusing contains a comment. For example, there are two constructors in the file, but the comments show that one of the constructors is meant to be for the player and the other is meant to be for enemies.
+The names chosen for variables in the code also seem suitable. I can tell from reading the variable names exactly what the variable is meant to do. There also does not seem to be any issues with C# capitalization conventions. 
+Overall, I would say that the code is good on readability.
+
+Code quality code review:
+Author: Emil Pang
+Date: 10/1/2022
+Sprint: 2
+CS file being reviewed: Server.cs
+Author of file: Adam Perhala
+Comments on code maintainability: 
+
+The code in general seems to have high cohesion, where all of the methods in the code seem to be related to one another and related to handling objects in general. The methods related to the bound conditions, however, can be placed in their own file for increased cohesion and because they seem like methods that can be used later on for collision for example. 
+Coupling in general seems loose for the code, although there are parts of the code that seem tightly coupled. For example, instead of using game.currEnemy.projectileInMotion, Enemy can instead have a GetProjectileStatus static method that returns the status of the projectile. By doing so, other classes are prevented from modifying projectile status and can only use the method to learn about the projectile status.
+Hypothetical change: An addition to the game could be creating a new type of projectile that player and enemies can shoot. This file could easily support this change because it doesn’t make any assumptions about the projectile being passed in and simply only knows that what’s being passed in is a projectile.
+
