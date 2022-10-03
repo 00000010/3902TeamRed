@@ -8,7 +8,7 @@ Current Revision: 10/01/22
 Hamdam Almehairbi (almeharibi.3) <br/>
 William Gilicinski (gilicinski.3) <br/>
 Owen Hennessey (hennesey.64) <br/>
-Abd Elraham Ibrahim (Ibrahim.281) <br/>
+Abd Elrahman Ibrahim (Ibrahim.281) <br/>
 Emil Pang (pang.216) <br/>
 Adam Perhala (perhala.3) <br/>
 
@@ -82,4 +82,7 @@ Currently there is a bug in the projectile class where if the projectile firing 
 two long the projectile will continue to draw and lengthen.  Arrow projectile appears to screen and flies successfully but does not
 originate from Link (Luigi) himself.  Link doesn't stay damaged when he changes direction.  Damage goes on infinitely.
 Attack goes on infinitely.
+
+## Trello link
+https://trello.com/b/5pvXlIry/team-redd
 
