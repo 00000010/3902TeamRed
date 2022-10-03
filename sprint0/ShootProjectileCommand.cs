@@ -46,6 +46,8 @@ namespace sprint0
                 Projectile copy = (Projectile)arrow.Clone();
                 copy.Position = game.player.Position;
                 copy.Velocity = game.player.Velocity * 5;
+                //Handling the initial case where link is still
+                if (copy.Velocity == new Vector2(0, 0)) copy.Velocity = new Vector2(0, 5); 
                 string initFiringDirection = GetDirection(copy.Velocity);
                 copy.SourceRectangle = HandleSpriteRectangle(SpriteRectangle.arrow, initFiringDirection);
                 manager.addProjectile(copy, initFiringDirection, shooter);
