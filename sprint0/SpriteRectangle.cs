@@ -81,6 +81,8 @@ namespace sprint0
             return frameCollection;
         }
 
-        public static Rectangle[] arrowRight = { new Rectangle(210, 200, 16, 5) };
+        //Right, up, left, down is the order
+        public static Rectangle[] arrow = { new Rectangle(210, 200, 16, 5), new Rectangle(123, 194, 10, 20),
+            new Rectangle(150, 200, 16, 5), new Rectangle(186, 196, 10, 20)};
     }
 }

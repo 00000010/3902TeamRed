@@ -104,8 +104,7 @@ namespace sprint0
             {
                 projectilesInFlight[i].Update(gameTime);
                 //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-                if (ProjectileOutOfBounds(projectilesInFlight[i])
-                    || ProjectileBackToShooter(projectilesInFlight[i]))
+                if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
                 {
                     game.currEnemy.projectileInMotion = false;
                     i--;
@@ -128,45 +127,32 @@ namespace sprint0
             //Ensures that nothing happens if shooter is player
             if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
             {
-                return HandleShootingProjectilePlayer(projectile, game.player);
+                return HandleShootingProjectile(projectile, game.player);
             }
-            return HandleShootingProjectileEnemy(projectile, game.currEnemy);
+            return HandleShootingProjectile(projectile, game.currEnemy);
         }
 
-        private bool HandleShootingProjectilePlayer(ISprite projectile, Player player)
+        private bool HandleShootingProjectile(ISprite projectile, ISprite sprite)
         {
+            if (projectile is Projectile)
+            {
+                Projectile copyProj = (Projectile)projectile;
+                if (copyProj.SourceRectangle != ProjectileRectangle.Boomerang) return false;
+            }
             string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
             if (initDirection.Equals("right"))
             {
-                return projectile.Position.X < player.Position.X;
+                return projectile.Position.X < sprite.Position.X;
             }
             else if (initDirection.Equals("left"))
             {
-                return projectile.Position.X > player.Position.X;
+                return projectile.Position.X > sprite.Position.X;
             }
             else if (initDirection.Equals("up"))
             {
-                return projectile.Position.Y > player.Position.Y;
+                return projectile.Position.Y > sprite.Position.Y;
             }
-            return projectile.Position.Y < player.Position.Y;
-        }
-
-        private bool HandleShootingProjectileEnemy(ISprite projectile, Enemy enemy)
-        {
-            string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
-            if (initDirection.Equals("right"))
-            {
-                return projectile.Position.X < enemy.Position.X;
-            }
-            else if (initDirection.Equals("left"))
-            {
-                return projectile.Position.X > enemy.Position.X;
-            }
-            else if (initDirection.Equals("up"))
-            {
-                return projectile.Position.Y > enemy.Position.Y;
-            }
-            return projectile.Position.Y < enemy.Position.Y;
+            return projectile.Position.Y < sprite.Position.Y;
         }
     }
 }

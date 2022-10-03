@@ -13,42 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../Downloads/sprint0/Content/ZeldaSpriteBlueCandle.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../Downloads/sprint0/Content/ZeldaSpriteBlueCandle.png;ZeldaSpriteBlueCandle.png
-
-#begin ../../../Downloads/sprint0/Content/ZeldaSpriteBomb.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../Downloads/sprint0/Content/ZeldaSpriteBomb.png;ZeldaSpriteBomb.png
-
-#begin ../../../Downloads/sprint0/Content/ZeldaSpriteBoomerang.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../Downloads/sprint0/Content/ZeldaSpriteBoomerang.png;ZeldaSpriteBoomerang.png
-
 #begin Arial.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -188,6 +152,18 @@
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteBlueCandle.png
 
+#begin ZeldaSpriteBlueCandle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ZeldaSpriteBlueCandle.png
+
 #begin ZeldaSpriteBlueRing.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -212,6 +188,18 @@
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteBomb.png
 
+#begin ZeldaSpriteBomb.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ZeldaSpriteBomb.png
+
 #begin ZeldaSpriteBookOfMagic.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -223,6 +211,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteBookOfMagic.png
+
+#begin ZeldaSpriteBoomerang.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ZeldaSpriteBoomerang.png
 
 #begin ZeldaSpriteBoomerang.png
 /importer:TextureImporter

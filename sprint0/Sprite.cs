@@ -66,13 +66,8 @@ namespace sprint0
 
         public virtual void Draw(GameTime gameTime)
         {
-//<<<<<<< HEAD
             int height = SourceRectangle[Frame].Height;
             int width = SourceRectangle[Frame].Width;
-//=======
-//            int height = SourceRectangle[Frame].Height * 2;
-//            int width = SourceRectangle[Frame].Width * 2;
-//>>>>>>> AbdBranch
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
@@ -92,17 +87,11 @@ namespace sprint0
             // wrap around screen
             if (Position.X > 800)
             {
-//<<<<<<< HEAD
                 this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
-//=======
-//                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 2, Position.Y);
-//>>>>>>> AbdBranch
             }
-
             if (Position.Y > 480)
             {
                 this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
-                //this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 2);
             }    
         }
 

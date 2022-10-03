@@ -45,10 +45,28 @@ namespace sprint0
                 Projectile arrow = (Projectile)game.arrow;
                 Projectile copy = (Projectile)arrow.Clone();
                 copy.Position = game.player.Position;
-                copy.Velocity = new Vector2(10, 0);
-                copy.SourceRectangle = SpriteRectangle.arrowRight;
-                manager.addProjectile(copy, "right", shooter);
+                copy.Velocity = game.player.Velocity * 5;
+                string initFiringDirection = GetDirection(copy.Velocity);
+                copy.SourceRectangle = HandleSpriteRectangle(SpriteRectangle.arrow, initFiringDirection);
+                manager.addProjectile(copy, initFiringDirection, shooter);
             }
+        }
+
+        private Rectangle[] HandleSpriteRectangle(Rectangle[] projectileRectangles, string initFiringDirection)
+        {
+            if (initFiringDirection.Equals("down"))
+            {
+                return new Rectangle[] { projectileRectangles[3] };
+            }
+            else if (initFiringDirection.Equals("up"))
+            {
+                return new Rectangle[] { projectileRectangles[1] };
+            }
+            else if (initFiringDirection.Equals("left"))
+            {
+                return new Rectangle[] { projectileRectangles[2] };
+            }
+            return new Rectangle[] { projectileRectangles[0] };
         }
 
         private void FireEnemyProjectile()
@@ -69,7 +87,7 @@ namespace sprint0
             if (gameProjectile is Projectile)
             {
                 Projectile projectile = (Projectile)gameProjectile;
-                string initFiringDirection = GetDirectionEnemy(game.currEnemy, projectile.Velocity);
+                string initFiringDirection = GetDirection(projectile.Velocity, "enemy");
                 projectile.InitFiringDirection = initFiringDirection;
                 Projectile copy = (Projectile)projectile.Clone();
                 copy.Position = game.currEnemy.Position;
@@ -104,30 +122,16 @@ namespace sprint0
             }
         }
 
-        private static string GetDirectionPlayer(Vector2 Velocity)
+        private static string GetDirection(Vector2 Velocity, string shooter = "player")
         {
+            if (shooter.Equals("enemy") && game.currEnemy.SourceRectangle == EnemyRectangle.Octorok)
+            {
+                return HandleInitialDirectionIfOctorok(game.currEnemy);
+            }
             if (Velocity.X > 0)
             {
                 return "right";
             } 
-            else if (Velocity.X < 0)
-            {
-                return "left";
-            }
-            else if (Velocity.Y > 0)
-            {
-                return "up";
-            }
-            return "down";
-        }
-
-        private static string GetDirectionEnemy(Enemy enemy, Vector2 Velocity)
-        {
-            if (enemy.SourceRectangle == EnemyRectangle.Octorok) return HandleInitialDirectionIfOctorok(enemy);
-            if (Velocity.X > 0)
-            {
-                return "right";
-            }
             else if (Velocity.X < 0)
             {
                 return "left";
