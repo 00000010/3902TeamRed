@@ -18,7 +18,7 @@ namespace sprint0
         public Rectangle[] SourceRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
-        public Vector2 Velocity { get; set; }
+        //public Vector2 Velocity { get; set; }
 
         public int Direction { get; set; }
         public int NumUpdates { get; set; }
@@ -61,7 +61,7 @@ namespace sprint0
         {
             UpdateVelocity(gameTime);
             UpdatePosition();
-            UpdateFrame();
+            UpdateFrame(gameTime);
         }
 
         public virtual void Draw(GameTime gameTime)
@@ -74,15 +74,15 @@ namespace sprint0
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
 
-        protected virtual void UpdateVelocity(GameTime gameTime)
+        public virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
             return;
         }
 
-        protected virtual void UpdatePosition()
+        public virtual void UpdatePosition()
         {
-            Position += Velocity;
+            //Position += Velocity;
 
             // wrap around screen
             if (Position.X > 800)
@@ -95,7 +95,7 @@ namespace sprint0
             }    
         }
 
-        protected virtual void UpdateFrame()
+        public virtual void UpdateFrame(GameTime gameTime)
         {
             //Waits for 4 updates to occur before doing another update
             if (NumUpdates < 4)
