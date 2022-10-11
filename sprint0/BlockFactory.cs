@@ -11,10 +11,6 @@ namespace sprint0
 {
     internal class BlockFactory
     {
-        private Texture2D GreenBlock;
-        private Texture2D BlackBlock;
-        private Texture2D PurpleBlock;
-
         private static BlockFactory instance = new BlockFactory();
         public static BlockFactory Instance
         {
@@ -24,28 +20,44 @@ namespace sprint0
             }
         }
         private BlockFactory() { }
-        public void LoadTextures(ContentManager content)
+
+        public Block ZeldaGreenBlock(Vector2 position)
         {
-            GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
-            BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
-            PurpleBlock = content.Load<Texture2D>("ZeldaLadxBlock");
+            return new ZeldaGreenBlock(position);
         }
 
-        public Sprite ZeldaGreen(SpriteBatch spriteBatch, Vector2 position)
+        public Block ZeldaBlackBlock(Vector2 position)
         {
-            return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+            return new ZeldaBlackBlock(position);
         }
 
-        public Sprite ZeldaBlack(SpriteBatch spriteBatch, Vector2 position)
+        public Block ZeldaPurpleBlock(Vector2 position)
         {
-            return new Sprite(BlackBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+            return new ZeldaPurpleBlock(position);
         }
-
-        public Sprite ZeldaPurple(SpriteBatch spriteBatch, Vector2 position)
-        {
-            return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position);
-        }
-
     }
 
+    internal class ZeldaGreenBlock : Block
+    {
+        public ZeldaGreenBlock(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaGreen(position);
+        }
+    }
+
+    internal class ZeldaBlackBlock : Block
+    {
+        public ZeldaBlackBlock(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaBlack(position);
+        }
+    }
+
+    internal class ZeldaPurpleBlock : Block
+    {
+        public ZeldaPurpleBlock(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaPurple(position);
+        }
+    }
 }

@@ -1,29 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static sprint0.SpriteRectangle;
 
 namespace sprint0
 {
-    public class ItemFactory
+    internal class ItemFactory
     {
-        private Texture2D Arrow;
-        private Texture2D BlueCandle;
-        private Texture2D Bomb;
-        private Texture2D Boomerang;
-        private Texture2D Bow;
-        private Texture2D Clock;
-        private Texture2D Compass;
-        private Texture2D Fairy;
-        private Texture2D Food;
-        private Texture2D Heart;
-        private Texture2D HeartContainer;
-        private Texture2D Key;
-        private Texture2D Letter;
         private static ItemFactory instance = new ItemFactory();
         public static ItemFactory Instance
         {
@@ -33,87 +23,160 @@ namespace sprint0
             }
         }
         private ItemFactory() { }
-        public void LoadTextures(ContentManager content)
+        public Item ZeldaBlueCandle(Vector2 position)
         {
-            Arrow = content.Load<Texture2D>("ZeldaSpriteArrow");
-            BlueCandle = content.Load<Texture2D>("ZeldaSpriteBlueCandle");
-            Bomb = content.Load<Texture2D>("ZeldaSpriteBomb");
-            Boomerang = content.Load<Texture2D>("ZeldaSpriteBoomerang");
-            Bow = content.Load<Texture2D>("ZeldaSpriteBow");
-            Clock = content.Load<Texture2D>("ZeldaSpriteClock");
-            Compass = content.Load<Texture2D>("ZeldaSpriteCompass");
-            Fairy = content.Load<Texture2D>("ZeldaSpriteFairy");
-            Food = content.Load<Texture2D>("ZeldaSpriteFood");
-            Heart = content.Load<Texture2D>("ZeldaSpriteHeart");
-            HeartContainer = content.Load<Texture2D>("ZeldaSpriteHeartContainer");
-            Key = content.Load<Texture2D>("ZeldaSpriteKey");
-            Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
+            return new ZeldaBlueCandle(position);
         }
 
-        public Sprite ZeldaArrow(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaBomb(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrow, spriteBatch, position);
+            return new ZeldaBomb(position);
         }
 
-        public Sprite ZeldaBlueCandle(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaBoomerang(Vector2 position)
         {
-            return new Sprite(BlueCandle, ItemRectangle.Candle, spriteBatch, position);
+            return new ZeldaBoomerang(position);
+        }
+        
+        public Item ZeldaBow(Vector2 position)
+        {
+            return new ZeldaBow(position);
         }
 
-        public Sprite ZeldaBomb(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaClock(Vector2 position)
         {
-            return new Sprite(Bomb, ItemRectangle.Bomb, spriteBatch, position);
+            return new ZeldaClock(position);
         }
 
-        public Sprite ZeldaBoomerang(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaCompass(Vector2 position)
         {
-            return new Sprite(Boomerang, ItemRectangle.Boomerang, spriteBatch, position);
+            return new ZeldaCompass(position);
         }
 
-        public Sprite ZeldaBow(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaFairy(Vector2 position)
         {
-            return new Sprite(Bow, ItemRectangle.BowArrow, spriteBatch, position);
+            return new ZeldaFairy(position);
         }
 
-        public Sprite ZeldaClock(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaFood(Vector2 position)
         {
-            return new Sprite(Clock, ItemRectangle.Clock, spriteBatch, position);
+            return new ZeldaFood(position);
         }
 
-        public Sprite ZeldaCompass(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaHeart(Vector2 position)
         {
-            return new Sprite(Compass, ItemRectangle.Compass, spriteBatch, position);
+            return new ZeldaHeart(position);
         }
 
-        public Sprite ZeldaFairy(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaHeartContainer(Vector2 position)
         {
-            return new Sprite(Fairy, ItemRectangle.Fairy, spriteBatch, position);
+            return new ZeldaHeartContainer(position);
         }
 
-        public Sprite ZeldaFood(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaKey(Vector2 position)
         {
-            return new Sprite(Food, ItemRectangle.Food, spriteBatch, position);
+            return new ZeldaKey(position);
         }
 
-        public Sprite ZeldaHeart(SpriteBatch spriteBatch, Vector2 position)
+        public Item ZeldaLetter(Vector2 position)
         {
-            return new Sprite(Heart, ItemRectangle.Heart, spriteBatch, position);
+            return new ZeldaLetter(position);
         }
+    }
 
-        public Sprite ZeldaHeartContainer(SpriteBatch spriteBatch, Vector2 position)
+    internal class ZeldaBlueCandle : Item
+    {
+        public ZeldaBlueCandle(Vector2 position)
         {
-            return new Sprite(HeartContainer, ItemRectangle.HeartContainer, spriteBatch, position);
+            Sprite = SpriteFactory.Instance.ZeldaBlueCandle(position);
         }
+    }
 
-        public Sprite ZeldaKey(SpriteBatch spriteBatch, Vector2 position)
+    internal class ZeldaBomb : Item
+    {
+        public ZeldaBomb(Vector2 position)
         {
-            return new Sprite(Key, ItemRectangle.Key, spriteBatch, position);
+            Sprite = SpriteFactory.Instance.ZeldaBomb(position);
         }
+    }
 
-        public Sprite ZeldaLetter(SpriteBatch spriteBatch, Vector2 position)
+    internal class ZeldaBoomerang : Item
+    {
+        public ZeldaBoomerang(Vector2 position)
         {
-            return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position);
+            Sprite = SpriteFactory.Instance.ZeldaBoomerang(position);
         }
+    }
 
+    internal class ZeldaBow : Item
+    {
+        public ZeldaBow(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaBow(position);
+        }
+    }
+
+    internal class ZeldaClock : Item
+    {
+        public ZeldaClock(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaClock(position);
+        }
+    }
+
+    internal class ZeldaCompass : Item
+    {
+        public ZeldaCompass(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaCompass(position);
+        }
+    }
+
+    internal class ZeldaFairy : Item
+    {
+        public ZeldaFairy(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaFairy(position);
+        }
+    }
+
+    internal class ZeldaFood : Item
+    {
+        public ZeldaFood(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaFood(position);
+        }
+    }
+
+    internal class ZeldaHeart : Item
+    {
+        public ZeldaHeart(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaHeart(position);
+        }
+    }
+
+    internal class ZeldaHeartContainer : Item
+    {
+        public ZeldaHeartContainer(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaHeartContainer(position);
+        }
+    }
+
+    internal class ZeldaKey : Item
+    {
+        public ZeldaKey(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaKey(position);
+        }
+    }
+
+    internal class ZeldaLetter : Item
+    {
+        public ZeldaLetter(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaLetter(position);
+        }
     }
 }
