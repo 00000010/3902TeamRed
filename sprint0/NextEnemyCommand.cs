@@ -17,10 +17,30 @@ namespace sprint0
         }
         public void Execute()
         {
-            game.currEnemyIndex++;
-            if (game.currEnemyIndex >= game.enemies.Count) game.currEnemyIndex = 0;
-            game.currEnemy.SourceRectangle = game.enemies[game.currEnemyIndex];
-            game.currEnemy.Frame = 0;
+            game.manager.RemoveObject(game.enemy);
+
+            if (game.enemy is Stalfos)
+            {
+                game.enemy = EnemyFactory.Instance.Keese(game.enemy.Position);
+            }
+            else if (game.enemy is Keese)
+            {
+                game.enemy = EnemyFactory.Instance.Gel(game.enemy.Position);
+            }
+            else if (game.enemy is Gel)
+            {
+                game.enemy = EnemyFactory.Instance.Goriya(game.enemy.Position);
+            }
+            else if (game.enemy is Goriya)
+            {
+                game.enemy = EnemyFactory.Instance.Octorok(game.enemy.Position);
+            }
+            else if (game.enemy is Octorok)
+            {
+                game.enemy = EnemyFactory.Instance.Stalfos(game.enemy.Position);
+            }
+
+            game.manager.AddObject(game.enemy);
         }
     }
 }
