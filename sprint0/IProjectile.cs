@@ -10,8 +10,8 @@ namespace sprint0
     public interface IProjectile : IDrawable, IUpdateable
     {
         public Sprite Sprite { get; set; }
-        public Vector2 Position { get; set; }
-        public Vector2 Velocity { get; set; }
+        public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
+        public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
     }
 }

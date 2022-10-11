@@ -11,8 +11,7 @@ namespace sprint0
     public interface ISprite : IUpdateable, IDrawable
     {
         Vector2 Position { get; set; }
-        //Vector2 Velocity { get; set; }
-        //Rectangle[] SourceRectangle { get; set; }
+        Vector2 Velocity { get; set; }
         SpriteBatch SpriteBatch { get; set; }
     }
 }
