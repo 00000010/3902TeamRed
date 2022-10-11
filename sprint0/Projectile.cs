@@ -11,10 +11,9 @@ namespace sprint0
 {
     public class Projectile : IProjectile
     {
-        //public string InitFiringDirection { get; set; }
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
-        public Vector2 Velocity { get; set; }
+        public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
@@ -38,33 +37,7 @@ namespace sprint0
 
         public virtual void Update(GameTime gameTime)
         {
-            Position += Velocity;
             Sprite.Update(gameTime);
         }
-        //public Projectile(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
-        //    //: base(texture, sourceRectangle, spriteBatch, position)
-        //{
-        //}
-
-        //public override void UpdateVelocity(GameTime gameTime)
-        //{
-        //    if (SourceRectangle != ProjectileRectangle.Boomerang) return;
-        //    if (InitFiringDirection.Equals("left")) 
-        //    {
-        //        Velocity = new Vector2(Velocity.X + (float) 0.05, 0);
-        //    } 
-        //    else if (InitFiringDirection.Equals("right"))
-        //    {
-        //        Velocity = new Vector2(Velocity.X - (float)0.05, 0);
-        //    }
-        //    else if (InitFiringDirection.Equals("up"))
-        //    {
-        //        Velocity = new Vector2(0, Velocity.Y + (float)0.05);
-        //    }
-        //    else
-        //    {
-        //        Velocity = new Vector2(0, Velocity.Y - (float)0.05);
-        //    }
-        //}
     }
 }

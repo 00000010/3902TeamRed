@@ -18,7 +18,7 @@ namespace sprint0
         public Rectangle[] SourceRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
-        //public Vector2 Velocity { get; set; }
+        public Vector2 Velocity { get; set; }
 
         public int Direction { get; set; }
         public int NumUpdates { get; set; }
@@ -53,6 +53,7 @@ namespace sprint0
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
+            Velocity = Vector2.Zero;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
@@ -77,21 +78,20 @@ namespace sprint0
         public virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
-            return;
         }
 
         public virtual void UpdatePosition()
         {
-            //Position += Velocity;
+            Position += Velocity;
 
             // wrap around screen
             if (Position.X > 800)
             {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
+                Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
             }
             if (Position.Y > 480)
             {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
+                Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
             }    
         }
 
@@ -111,11 +111,6 @@ namespace sprint0
             {
                 Frame = 0;
             }
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }
