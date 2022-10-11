@@ -1,159 +1,282 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System.Numerics;
+//using System.Numerics;
+using System.Diagnostics;
 
 namespace sprint0
 {
-    public class GameObjectManager : IUpdateable, IDrawable
+    public class GameObjectManager
     {
         private Game1 game;
-        public List<ISprite> projectilesInFlight = new List<ISprite>();
+        private IPlayer player;
+
+        public List<Projectile> projectilesInFlight = new List<Projectile>();
         public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
         public Dictionary<ISprite, string> shooterOfProjectile = new Dictionary<ISprite, string>();
 
-
-        public int DrawOrder => throw new NotImplementedException();
-
-        public bool Visible => throw new NotImplementedException();
-
-        public bool Enabled => throw new NotImplementedException();
-
-        public int UpdateOrder => throw new NotImplementedException();
+        private List<object> objectsToAdd = new List<object>();
+        private List<object> objectsToRemove = new List<object>();
 
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            player = game.player;
         }
 
-        event EventHandler<EventArgs> IUpdateable.EnabledChanged
+        public void UpdatePlayerState()
         {
-            add
+            if (player.Velocity == Vector2.Zero)
             {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
+                player.State = State.STANDING;
             }
         }
 
-        event EventHandler<EventArgs> IUpdateable.UpdateOrderChanged
+        public void UpdatePlayerSprite()
         {
-            add
+
+            Vector2 velocity = player.Velocity;
+
+            if (velocity.X == 0)
             {
-                throw new NotImplementedException();
+                if (velocity.Y < 0)
+                {
+                    player.Direction = Direction.UP;
+                }
+                else if (velocity.Y > 0)
+                {
+                    player.Direction = Direction.DOWN;
+                }
             }
 
-            remove
+            if (velocity.Y == 0)
             {
-                throw new NotImplementedException();
+                if (velocity.X < 0)
+                {
+                    player.Direction = Direction.LEFT;
+                }
+                else if (velocity.X > 0)
+                {
+                    player.Direction = Direction.RIGHT;
+                }
             }
+
+
+            if (player.TakingDamage)
+            {
+                switch (player.State)
+                {
+                    case State.RUNNING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningUpDamaged(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningDownDamaged(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningLeftDamaged(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningRightDamaged(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case State.STANDING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingUpDamaged(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingDownDamaged(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingLeftDamaged(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingRightDamaged(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (player.State)
+                {
+                    case State.RUNNING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningUp(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningDown(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningLeft(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkRunningRight(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case State.STANDING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingUp(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingDown(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingLeft(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkStandingRight(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            player.Velocity = velocity;
         }
 
-        event EventHandler<EventArgs> IDrawable.DrawOrderChanged
+
+        public void AddObject(object obj)
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
+            objectsToAdd.Add(obj);
         }
-
-        event EventHandler<EventArgs> IDrawable.VisibleChanged
+        public void RemoveObject(object obj)
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
+            objectsToRemove.Add(obj);
         }
 
-        public void addProjectile(ISprite projectile, string direction, string shooter)
-        {
-            projectilesInFlight.Add(projectile);
-            initDirectionOfFire.Add(projectile, direction);
-            shooterOfProjectile.Add(projectile, shooter);
-        }
+        //public void addProjectile(Projectile projectile, string direction, string shooter)
+        //{
+        //    projectilesInFlight.Add(projectile);
+        //    initDirectionOfFire.Add(projectile, direction);
+        //    shooterOfProjectile.Add(projectile, shooter);
+        //}
 
-        public void removeProjectile(ISprite projectile)
-        {
-            projectilesInFlight.Remove(projectile);
-        }
+        //public void removeProjectile(Projectile projectile)
+        //{
+        //    projectilesInFlight.Remove(projectile);
+        //}
 
-        public void Draw(GameTime gameTime)
-        {
-            foreach (Sprite projectile in projectilesInFlight)
-            {
-                projectile.Draw(gameTime);
-            }
-        }
+        //public void Draw(GameTime gameTime)
+        //{
+        //    foreach (Sprite projectile in projectilesInFlight)
+        //    {
+        //        projectile.Draw(gameTime);
+        //    }
+        //}
 
         public void Update(GameTime gameTime)
         {
-            for (int i = 0; i < projectilesInFlight.Count; i++)
+
+            foreach (object obj in objectsToRemove)
             {
-                projectilesInFlight[i].Update(gameTime);
-                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-                if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
+                if (obj is IDrawable)
                 {
-                    game.currEnemy.projectileInMotion = false;
-                    i--;
+                    game.drawables.Remove((IDrawable)obj);
+                }
+
+                if (obj is IUpdateable)
+                {
+                    game.updateables.Remove((IUpdateable)obj);
                 }
             }
+
+            objectsToRemove.Clear();
+
+            foreach (object obj in objectsToAdd)
+            {
+                if (obj is IDrawable)
+                {
+                    game.drawables.Add((IDrawable)obj);
+                }
+
+                if (obj is IUpdateable)
+                {
+                    game.updateables.Add((IUpdateable)obj);
+                }
+            }
+
+            objectsToAdd.Clear();
+
+            //for (int i = 0; i < projectilesInFlight.Count; i++)
+            //{
+            //    projectilesInFlight[i].Update(gameTime);
+            //    //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
+            //    if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
+            //    {
+            //        //game.currEnemy.projectileInMotion = false;
+            //        i--;
+            //    }
+            //}
+
+            
         }
 
-        private bool ProjectileOutOfBounds(ISprite projectile)
-        {
-            if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
-            {   
-                removeProjectile(projectile);
-                return true;
-            }
-            return false;
-        }
+        //private bool ProjectileOutOfBounds(Projectile projectile)
+        //{
+        //    if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
+        //    {   
+        //        removeProjectile(projectile);
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
-        private bool ProjectileBackToShooter(ISprite projectile)
-        {
-            //Ensures that nothing happens if shooter is player
-            if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
-            {
-                return HandleShootingProjectile(projectile, game.player);
-            }
-            return HandleShootingProjectile(projectile, game.currEnemy);
-        }
+        //private bool ProjectileBackToShooter(Projectile projectile)
+        //{
+        //    //Ensures that nothing happens if shooter is player
+        //    if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
+        //    {
+        //        return HandleShootingProjectile(projectile, game.player);
+        //    }
+        //    //return HandleShootingProjectile(projectile, game.currEnemy);
+        //    return false;
+        //}
 
-        private bool HandleShootingProjectile(ISprite projectile, ISprite sprite)
-        {
-            if (projectile is Projectile)
-            {
-                Projectile copyProj = (Projectile)projectile;
-                if (copyProj.SourceRectangle != ProjectileRectangle.Boomerang) return false;
-            }
-            string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
-            if (initDirection.Equals("right"))
-            {
-                return projectile.Position.X < sprite.Position.X;
-            }
-            else if (initDirection.Equals("left"))
-            {
-                return projectile.Position.X > sprite.Position.X;
-            }
-            else if (initDirection.Equals("up"))
-            {
-                return projectile.Position.Y > sprite.Position.Y;
-            }
-            return projectile.Position.Y < sprite.Position.Y;
-        }
+        //    private bool HandleShootingProjectile(Projectile projectile, IPlayer sprite)
+        //    {
+        //        if (projectile is Projectile)
+        //        {
+        //            Projectile copyProj = (Projectile)projectile;
+        //            if (copyProj.SourceRectangle != ProjectileRectangle.Boomerang) return false;
+        //        }
+        //        string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
+        //        if (initDirection.Equals("right"))
+        //        {
+        //            return projectile.Position.X < sprite.Position.X;
+        //        }
+        //        else if (initDirection.Equals("left"))
+        //        {
+        //            return projectile.Position.X > sprite.Position.X;
+        //        }
+        //        else if (initDirection.Equals("up"))
+        //        {
+        //            return projectile.Position.Y > sprite.Position.Y;
+        //        }
+        //        return projectile.Position.Y < sprite.Position.Y;
+        //    }
     }
 }
 
