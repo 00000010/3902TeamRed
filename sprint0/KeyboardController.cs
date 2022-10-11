@@ -15,6 +15,7 @@ namespace sprint0
     internal class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+        private Dictionary<Keys, ICommand> controllerMappingsUnpress;
 
         private Keys[] prevPressedKeys = new Keys[0];
 
@@ -28,15 +29,27 @@ namespace sprint0
         public KeyboardController()
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
+            controllerMappingsUnpress = new Dictionary<Keys, ICommand>();
         }
         public void RegisterCommand(Keys key, ICommand command)
         {
             controllerMappings.Add(key, command);
         }
-
+        public void RegisterCommandUnpress(Keys key, ICommand command)
+        {
+            controllerMappingsUnpress.Add(key, command);
+        }
         public void Update(GameTime gameTime)
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+
+            foreach (Keys key in prevPressedKeys)
+            {
+                if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
+                {
+                    controllerMappingsUnpress[key].Execute();
+                }
+            }
 
             foreach (Keys key in pressedKeys)
             {
@@ -52,22 +65,28 @@ namespace sprint0
         public void LoadDefaultKeys(Game1 game)
         {
             /* WASD and arrow keys for moving Link around */
-            this.RegisterCommand(Keys.A, new LinkRunningLeftCommand(game));
-            this.RegisterCommand(Keys.W, new LinkRunningDownCommand(game));
-            this.RegisterCommand(Keys.S, new LinkRunningUpCommand(game));
-            this.RegisterCommand(Keys.D, new LinkRunningRightCommand(game));
+            this.RegisterCommand(Keys.W, new PlayerRunningCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.A, new PlayerRunningCommand(game, Direction.LEFT));
+            this.RegisterCommand(Keys.S, new PlayerRunningCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.D, new PlayerRunningCommand(game, Direction.RIGHT));
 
-            this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
-            this.RegisterCommand(Keys.Up, new LinkRunningDownCommand(game));
-            this.RegisterCommand(Keys.Down, new LinkRunningUpCommand(game));
-            this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
+
+            this.RegisterCommandUnpress(Keys.W, new PlayerStandingCommand(game, Direction.UP));
+            this.RegisterCommandUnpress(Keys.A, new PlayerStandingCommand(game, Direction.LEFT));
+            this.RegisterCommandUnpress(Keys.S, new PlayerStandingCommand(game, Direction.DOWN));
+            this.RegisterCommandUnpress(Keys.D, new PlayerStandingCommand(game, Direction.RIGHT));
+
+            //this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
+            //this.RegisterCommand(Keys.Up, new LinkRunningDownCommand(game));
+            //this.RegisterCommand(Keys.Down, new LinkRunningUpCommand(game));
+            //this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
 
             /* N and Z keys for Link attacking */
-            this.RegisterCommand(Keys.Z, new LinkAttackingCommand(game));
-            this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
+            this.RegisterCommand(Keys.Z, new PlayerArrowCommand(game));
+            //this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
 
             /* E key for Link being damaged in whatever state he's in */
-            this.RegisterCommand(Keys.E, new LinkDamagedCommand(game));
+            this.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
 
             /* R key for resetting Link */
             this.RegisterCommand(Keys.R, new ResetCommand(game));
@@ -77,7 +96,7 @@ namespace sprint0
 
             this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
             this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
-            this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
+            //this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
             this.RegisterCommand(Keys.I, new NextItemCommand(game));
             this.RegisterCommand(Keys.U, new PrevItemCommand(game));
             this.RegisterCommand(Keys.T, new NextBlockCommand(game));

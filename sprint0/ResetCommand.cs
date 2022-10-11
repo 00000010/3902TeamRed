@@ -17,24 +17,24 @@ namespace sprint0
         }
         public void Execute()
         {
-            SpriteRectangle sR = new LinkRectangle();
-            game.player.SourceRectangle = new Rectangle[1];
-            game.player.SourceRectangle[0] = new Rectangle(
-                Constants.STARTING_LINK_POSITION_X,
-                Constants.STARTING_LINK_POSITION_Y,
-                Constants.LINK_WIDTH,
-                Constants.LINK_HEIGHT);
-            game.player.Position = new Vector2(
-                Constants.STARTING_LINK_POSITION_X,
-                Constants.STARTING_LINK_POSITION_Y);
+            //SpriteRectangle sR = new LinkRectangle();
+            //game.player.SourceRectangle = new Rectangle[1];
+            //game.player.SourceRectangle[0] = new Rectangle(
+            //    Constants.STARTING_LINK_POSITION_X,
+            //    Constants.STARTING_LINK_POSITION_Y,
+            //    Constants.LINK_WIDTH,
+            //    Constants.LINK_HEIGHT);
+            //game.player.Position = new Vector2(
+            //    Constants.STARTING_LINK_POSITION_X,
+            //    Constants.STARTING_LINK_POSITION_Y);
 
-            game.player.Frame = 0;
-            game.player.Velocity = new Vector2(0, 0);
+            //game.player.Frame = 0;
+            //game.player.Velocity = new Vector2(0, 0);
 
-            /* Put reset of starting states of enemies, projectiles, items, etc. */
-            game.currEnemy.SourceRectangle = EnemyRectangle.Stalfos;
-            game.currEnemyIndex = 0;
-            game.currEnemy.Frame = 0;
+            ///* Put reset of starting states of enemies, projectiles, items, etc. */
+            //game.currEnemy.SourceRectangle = EnemyRectangle.Stalfos;
+            //game.currEnemyIndex = 0;
+            //game.currEnemy.Frame = 0;
         }
     }
 }
