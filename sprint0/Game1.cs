@@ -138,7 +138,8 @@ namespace sprint0
             updateables.Add(mouse);
 
             loader = new LevelLoader(this);
-            loader.printOut("TestLevel");
+            loader.LoadLevel("TestLevel");
+            Console.WriteLine(loader.ToString());
         }
 
         protected override void Update(GameTime gameTime)

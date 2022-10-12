@@ -16,14 +16,14 @@ namespace sprint0
         public string ObjectType { get; set; }
         public string ObjectName { get; set; }
         public string Location { get; set; }
-        public int numX { get; set; }
-        public int numY { get; set; }
+        public int NumX { get; set; }
+        public int NumY { get; set; }
 
         public ItemObject()
         {
             Location = "0 0";
-            numX = 1;
-            numY = 1;
+            NumX = 1;
+            NumY = 1;
         }
 
         public void parseData(IEnumerable<XElement> attributes)
@@ -34,6 +34,15 @@ namespace sprint0
                 string value = attribute.Value;
                 this.GetType().GetProperty(name).SetValue(this, value);
             }
+        }
+
+        public override string ToString()
+        {
+            return ($"Type: {this.ObjectType}\n" +
+                    $"Name: {this.ObjectName}\n" +
+                    $"Location: {this.Location}\n" +
+                    $"NumX: {this.NumX}\n" +
+                    $"NumY: {this.NumY}\n");
         }
 
     }

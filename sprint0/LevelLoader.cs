@@ -18,7 +18,12 @@ namespace sprint0
         public Game1 game;
         public GameObjectManager gameObjectManager;
 
-        public List<ItemObject> itemObjList = new List<ItemObject>();
+        public ItemObject background;
+        public List<ItemObject> blockList = new List<ItemObject>();
+        public List<ItemObject> enemyList = new List<ItemObject>();
+        public List<ItemObject> playerList = new List<ItemObject>();
+        public List<ItemObject> itemList = new List<ItemObject>();
+        public List<ItemObject> allItems = new List<ItemObject>();
 
         public LevelLoader(Game1 game)
         {
@@ -27,7 +32,7 @@ namespace sprint0
         }
 
 
-        public void printOut(String levelName)
+        public void LoadLevel(String levelName)
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
@@ -57,10 +62,26 @@ namespace sprint0
                 IEnumerable<XElement> attributes = item.Elements();
                 itemObj.parseData(attributes);
 
-                itemObjList.Add(itemObj);
+                allItems.Add(itemObj);
+          
             }
         }
 
+            public override string ToString()
+        {
+            string fullString = "All Items\n";
+            foreach (ItemObject item in allItems)
+            {
+                fullString += "\n" + item.ToString();
+            }
+            return fullString;
+        }
+
+        public void UnloadLevel()
+        {
+
+        }
     }
+
 }
 
