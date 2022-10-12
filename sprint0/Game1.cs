@@ -28,6 +28,7 @@ namespace sprint0
         SpriteFont font;
         KeyboardController keyboard;
         MouseController mouse;
+        LevelLoader loader;
 
         public Game1()
         {
@@ -76,6 +77,10 @@ namespace sprint0
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
             updateables.Add(mouse);
+
+            loader = new LevelLoader(this);
+            loader.LoadLevel("TestLevel");
+            Console.WriteLine(loader.ToString());
         }
 
         protected override void Update(GameTime gameTime)

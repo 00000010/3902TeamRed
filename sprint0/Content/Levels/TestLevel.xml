@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Asset>
+        <Item>
+            <ObjectType>Background</ObjectType>
+            <ObjectName>BaseRoom</ObjectName>
+            <Location>0 0</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+
