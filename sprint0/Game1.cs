@@ -1,6 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Controllers;
+using sprint0.Enemies;
+using sprint0.Factories;
+using sprint0.Interfaces;
+using sprint0.Rectangles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -63,69 +68,44 @@ namespace sprint0
             EnemyFactory.Instance.LoadTextures(Content);
             ItemFactory.Instance.LoadTextures(Content);
             BlockFactory.Instance.LoadTextures(Content);
+            SpriteFactory.Instance.LoadZeldaTextures(Content);
+
+            manager = new GameObjectManager(this);
+            updateables.Add(manager);
+            drawables.Add(manager);
 
             //Add Player
-            player = PlayerFactory.Instance.Link(_spriteBatch, new Vector2(0, 0));
-
+            player = PlayerFactory.Instance.Link(_spriteBatch, new Vector2(0, 0), manager);
             updateables.Add(player);
             drawables.Add(player);
 
             //Add Enemies
-            enemies.Add(EnemyRectangle.Stalfos);
-            enemies.Add(EnemyRectangle.Keese);
-            enemies.Add(EnemyRectangle.Goriya);
-            enemies.Add(EnemyRectangle.Gel);
-            enemies.Add(EnemyRectangle.Octorok);
-            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240));
+            enemies = EnemyFactory.Instance.getAllEnemyRectangles();
+            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), manager);
             updateables.Add(currEnemy);
             drawables.Add(currEnemy);
 
             //Add item sprites to list
-            items.Add(ItemFactory.Instance.ZeldaArrow(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBow(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBlueCandle(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBomb(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBoomerang(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaClock(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaCompass(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaFairy(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaFood(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaHeart(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaHeartContainer(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaKey(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaLetter(_spriteBatch, new Vector2(200, 200)));
+            items = ItemFactory.Instance.getAllItems(_spriteBatch);
 
             // first item
-            item = new Item(items[0].Texture, items[0].SourceRectangle, _spriteBatch, items[0].Position);
-
-            //add blocks to list
-            blocks.Add(BlockFactory.Instance.ZeldaBlack(_spriteBatch, new Vector2(400, 400)));
-            blocks.Add(BlockFactory.Instance.ZeldaGreen(_spriteBatch, new Vector2(400, 400)));
-            blocks.Add(BlockFactory.Instance.ZeldaPurple(_spriteBatch, new Vector2(400, 400)));
-
-            //first block
-            block = new Block(blocks[0].Texture, blocks[0].SourceRectangle, _spriteBatch, blocks[0].Position);
-            updateables.Add(block);
-            drawables.Add(block);
-
-            //drawables and updateables
+            item = ItemFactory.Instance.ZeldaArrow(_spriteBatch, new Vector2(200, 200), manager);
             updateables.Add(item);
             drawables.Add(item);
 
-            /*
-             * Add projectiles
-             */
-            SpriteFactory.Instance.LoadZeldaTextures(Content);
-            //Adding arrow
+            //add blocks to list
+            blocks = BlockFactory.Instance.getAllBlocks(_spriteBatch);
+
+            //first block
+            block = BlockFactory.Instance.ZeldaBlack(_spriteBatch, new Vector2(400, 400), manager);
+            updateables.Add(block);
+            drawables.Add(block);
+            
+
+            //Add projectiles
             arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0));
-            arrow.Velocity = new Vector2(10, 0);
-            //Adding boomerang
             boomerang = SpriteFactory.Instance.Boomerang(_spriteBatch, new Vector2(0, 0));
-            //Rock
             rock = SpriteFactory.Instance.Rock(_spriteBatch, new Vector2(0, 0));
-            manager = new GameObjectManager(this);
-            updateables.Add(manager);
-            drawables.Add(manager);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);

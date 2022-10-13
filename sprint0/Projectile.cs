@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using sprint0.Interfaces;
+using sprint0.Rectangles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -37,5 +39,6 @@ namespace sprint0
                 Velocity = new Vector2(0, Velocity.Y - (float)0.05);
             }
         }
+
     }
 }

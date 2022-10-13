@@ -10,7 +10,7 @@ namespace sprint0
 {
     public class Block : Sprite
     {
-        
+
         public Vector2 Velocity { get; set; }
         public Block(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
             : base(texture, sourceRectangle, spriteBatch, position)

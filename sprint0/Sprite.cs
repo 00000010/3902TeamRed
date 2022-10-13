@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Sprite : ISprite
+    public class Sprite : Interfaces.ISprite
     {
         // TODO: delete, for testing purposes
         private int delay = 0;
