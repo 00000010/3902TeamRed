@@ -25,6 +25,17 @@ namespace sprint0.Factories
         private Texture2D HeartContainer;
         private Texture2D Key;
         private Texture2D Letter;
+        private Texture2D Map;
+        private Texture2D Recorder;
+        private Texture2D Raft;
+        private Texture2D Rupy;
+        private Texture2D RedRing;
+        private Texture2D BlueRing;
+        private Texture2D Sword;
+        private Texture2D Stepladder;
+        private Texture2D FiveRupy;
+        private Texture2D WhiteSword;
+        private Texture2D Triforce;
         private static ItemFactory instance = new ItemFactory();
         public static ItemFactory Instance
         {
@@ -49,6 +60,17 @@ namespace sprint0.Factories
             HeartContainer = content.Load<Texture2D>("ZeldaSpriteHeartContainer");
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
+            Map = content.Load<Texture2D>("ZeldaSpriteMap");
+            Recorder = content.Load<Texture2D>("ZeldaSpriteRecorder");
+            Raft = content.Load<Texture2D>("ZeldaSpriteRaft");
+            Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
+            RedRing = content.Load<Texture2D>("ZeldaSpriteRedRing");
+            BlueRing = content.Load<Texture2D>("ZeldaSpriteBlueRing");
+            Sword = content.Load<Texture2D>("ZeldaSpriteSword");
+            Stepladder = content.Load<Texture2D>("ZeldaSpriteStepladder");
+            FiveRupy = content.Load<Texture2D>("ZeldaSprite5Rupies");
+            WhiteSword = content.Load<Texture2D>("ZeldaSpriteWhiteSword");
+            Triforce = content.Load<Texture2D>("ZeldaSpriteTriforce");
         }
 
         public List<Sprite> getAllItems(SpriteBatch _spriteBatch)
@@ -199,6 +221,104 @@ namespace sprint0.Factories
             }
             return letter;
         }
-
+        public Item ZeldaMap(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item map = new Item(Map, ItemRectangle.Letter, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(map);
+            }
+            return map;
+        }
+        public Item ZeldaRecorder(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item recorder = new Item(Recorder, ItemRectangle.Recorder, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(recorder);
+            }
+            return recorder;
+        }
+        public Item ZeldaRaft(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item raft = new Item(Raft, ItemRectangle.Raft, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(raft);
+            }
+            return raft;
+        }
+        public Item ZeldaRupy(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item rupy = new Item(Rupy, ItemRectangle.Rupy, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(rupy);
+            }
+            return rupy;
+        }
+        public Item ZeldaRedRing(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item redring = new Item(RedRing, ItemRectangle.Ring, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(redring);
+            }
+            return redring;
+        }
+        public Item ZeldaBlueRing(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item bluering = new Item(BlueRing, ItemRectangle.Ring, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(bluering);
+            }
+            return bluering;
+        }
+        public Item ZeldaBlueSword(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item sword = new Item(Sword, ItemRectangle.Sword, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(sword);
+            }
+            return sword;
+        }
+        public Item ZeldaBlueStepladder(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item stepladder = new Item(Stepladder, ItemRectangle.StepLadder, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(stepladder);
+            }
+            return stepladder;
+        }
+        public Item ZeldaFiveRupy(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item fiverupy = new Item(FiveRupy, ItemRectangle.Rupy, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(fiverupy);
+            }
+            return fiverupy;
+        }
+        public Item ZeldaWhiteSword(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item whitesword = new Item(WhiteSword, ItemRectangle.Sword, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(whitesword);
+            }
+            return whitesword;
+        }
+        public Item ZeldaTriforce(SpriteBatch spriteBatch, Vector2 position, GameObjectManager manager = null)
+        {
+            Item triforce = new Item(Triforce, ItemRectangle.Triforce, spriteBatch, position);
+            if (manager != null)
+            {
+                manager.addItem(triforce);
+            }
+            return triforce;
+        }
     }
 }

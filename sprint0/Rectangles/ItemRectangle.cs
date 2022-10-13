@@ -35,6 +35,26 @@ namespace sprint0.Rectangles
         //used for both normal and magical keys
         public static Rectangle[] Key = { new Rectangle(0, 0, 8, 16) };
 
+        //letter and map
         public static Rectangle[] Letter = { new Rectangle(0, 0, 8, 16) };
+
+        public static Rectangle[] Recorder = { new Rectangle(0, 0, 3,16) };
+
+        public static Rectangle[] Raft = { new Rectangle(0, 0, 14, 16) };
+
+        public static Rectangle[] PowerBracelet = { new Rectangle(0, 0, 8, 14) };
+        
+        //used for both rupy and 5rupy
+        public static Rectangle[] Rupy = { new Rectangle(0, 0, 8, 16) };
+        
+        //used for both red and blue rings
+        public static Rectangle[] Ring = { new Rectangle(0, 0, 8, 16) };
+
+        //normal and white sword
+        public static Rectangle[] Sword = { new Rectangle(0, 0, 7, 16) };
+
+        public static Rectangle[] StepLadder = { new Rectangle(0, 0, 16, 16) };
+
+        public static Rectangle[] Triforce = { new Rectangle(0, 0, 10, 10) };
     }
 }
