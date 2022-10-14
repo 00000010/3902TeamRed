@@ -16,24 +16,36 @@ namespace sprint0
         public string ObjectType { get; set; }
         public string ObjectName { get; set; }
         public string Location { get; set; }
+        public string Dimension { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
         public int NumX { get; set; }
         public int NumY { get; set; }
 
         public ItemObject()
         {
+            Dimension = "1 1";
             Location = "0 0";
-            NumX = 1;
-            NumY = 1;
         }
 
         public void parseData(IEnumerable<XElement> attributes)
         {
             foreach(XElement attribute in attributes)
             {
+                //Tag element of XML
                 string name = attribute.Name.ToString();
+                //Data of each XML element
                 string value = attribute.Value;
+                //Sets the data into the right variable using the tag name
                 this.GetType().GetProperty(name).SetValue(this, value);
             }
+            string[] splitLocation = this.Location.Split(' ');
+            PosX = Int32.Parse(splitLocation[0]);
+            PosY = Int32.Parse(splitLocation[1]);
+
+            string[] splitDimension = this.Dimension.Split(' ');
+            NumX = Int32.Parse(splitDimension[0]);
+            NumY = Int32.Parse(splitDimension[1]);
         }
 
         public override string ToString()

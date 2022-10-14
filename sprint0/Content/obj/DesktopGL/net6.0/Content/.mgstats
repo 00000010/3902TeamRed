@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.429385
+"/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.311362
 "/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/goriyaspritesheet.png","/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/goriyaspritesheet.xnb","TextureProcessor","Texture2DContent",24232,306437,0.061352
 "/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/Link.png","/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Link.xnb","TextureProcessor","Texture2DContent",17860,1010485,0.044249
 "/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/OctorokSpritesheet.png","/Users/william/Desktop/3902v2/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/OctorokSpritesheet.xnb","TextureProcessor","Texture2DContent",13494,242893,0.023157

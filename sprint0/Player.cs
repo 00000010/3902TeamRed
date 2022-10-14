@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,58 +7,38 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Player : Sprite
+    internal class Player : IPlayer
     {
-        private int delay = 0;
-        public Vector2 Velocity { get; set; }
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
+        public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
+        public Direction Direction { get; set; }
+        public State State { get; set; }
+        public bool TakingDamage { get; set; }
+        public GameTime LastDamaged { get; set; }
 
-        public Player(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position) 
-            : base(texture, sourceRectangle, spriteBatch, position)
+        public bool Enabled => throw new NotImplementedException();
+
+        public int UpdateOrder => throw new NotImplementedException();
+
+        public int DrawOrder => throw new NotImplementedException();
+
+        public bool Visible => throw new NotImplementedException();
+
+        public event EventHandler<EventArgs> EnabledChanged;
+        public event EventHandler<EventArgs> UpdateOrderChanged;
+        public event EventHandler<EventArgs> DrawOrderChanged;
+        public event EventHandler<EventArgs> VisibleChanged;
+        
+        public Player() { }
+        public virtual void Draw(GameTime gameTime)
         {
-            Velocity = Vector2.Zero;
+            Sprite.Draw(gameTime);
         }
 
-        public override void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            UpdateVelocity(gameTime);
-            UpdatePosition(gameTime);
-            UpdateFrame(gameTime);
-        }
-
-        private void UpdateFrame(GameTime gameTime)
-        {
-            if (delay == 10)
-            {
-                Frame++;
-                delay = 0;
-            }
-            delay++;
-            //Frame++;
-            if (Frame >= SourceRectangle.Length)
-            {
-                Frame = 0;
-            }
-        }
-
-        private void UpdatePosition(GameTime gameTime)
-        {
-            Position += Velocity;
-
-            // wrap around screen
-            if (Position.X > 800)
-            {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width * 10, Position.Y);
-            }
-
-            if (Position.Y > 480)
-            {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height * 10);
-            }
-        }
-
-        private void UpdateVelocity(GameTime gameTime)
-        {
-            // no-op
+            Sprite.Update(gameTime);
         }
     }
 }

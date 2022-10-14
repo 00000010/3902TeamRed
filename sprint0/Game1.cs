@@ -13,28 +13,17 @@ namespace sprint0
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public SpriteBatch _spriteBatch;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
         
-        public Player player;
+        public IPlayer player;
+        public IBlock block;
+        public IItem item;
+        public IEnemy enemy;
 
-        public List<Rectangle[]> enemies = new List<Rectangle[]>();
-        public Enemy currEnemy;
-        public int currEnemyIndex = 0;
         public GameObjectManager manager;
-        public ISprite arrow;
-        public ISprite boomerang;
-        public ISprite rock;
-
-        public Item item;
-        public List<Sprite> items = new List<Sprite>();
-        public int currItemIndex = 0;
-
-        public Block block;
-        public List<Sprite> blocks = new List<Sprite>();
-        public int currBlockIndex = 0;
 
         SpriteFont font;
         KeyboardController keyboard;
@@ -56,83 +45,35 @@ namespace sprint0
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            /*
-             * Instantiate player object
-             */
-            PlayerFactory.Instance.LoadTextures(Content);
-            EnemyFactory.Instance.LoadTextures(Content);
-            ItemFactory.Instance.LoadTextures(Content);
-            BlockFactory.Instance.LoadTextures(Content);
+           
+            SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             //Add Player
-            player = PlayerFactory.Instance.Link(_spriteBatch, new Vector2(0, 0));
-
+            player = PlayerFactory.Instance.Link(new Vector2(0, 0));
             updateables.Add(player);
             drawables.Add(player);
 
-            //Add Enemies
-            enemies.Add(EnemyRectangle.Stalfos);
-            enemies.Add(EnemyRectangle.Keese);
-            enemies.Add(EnemyRectangle.Goriya);
-            enemies.Add(EnemyRectangle.Gel);
-            enemies.Add(EnemyRectangle.Octorok);
-            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240));
-            updateables.Add(currEnemy);
-            drawables.Add(currEnemy);
-
-            //Add item sprites to list
-            items.Add(ItemFactory.Instance.ZeldaArrow(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBow(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBlueCandle(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBomb(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaBoomerang(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaClock(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaCompass(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaFairy(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaFood(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaHeart(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaHeartContainer(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaKey(_spriteBatch, new Vector2(200, 200)));
-            items.Add(ItemFactory.Instance.ZeldaLetter(_spriteBatch, new Vector2(200, 200)));
-
-            // first item
-            item = new Item(items[0].Texture, items[0].SourceRectangle, _spriteBatch, items[0].Position);
-
-            //add blocks to list
-            blocks.Add(BlockFactory.Instance.ZeldaBlack(_spriteBatch, new Vector2(400, 400)));
-            blocks.Add(BlockFactory.Instance.ZeldaGreen(_spriteBatch, new Vector2(400, 400)));
-            blocks.Add(BlockFactory.Instance.ZeldaPurple(_spriteBatch, new Vector2(400, 400)));
-
-            //first block
-            block = new Block(blocks[0].Texture, blocks[0].SourceRectangle, _spriteBatch, blocks[0].Position);
-            updateables.Add(block);
+            //Add Block
+            block = BlockFactory.Instance.ZeldaBlackBlock(new Vector2(100, 100));
             drawables.Add(block);
 
-            //drawables and updateables
-            updateables.Add(item);
+            //Add item
+            item = ItemFactory.Instance.ZeldaBlueCandle(new Vector2(200, 200));
             drawables.Add(item);
 
-            /*
-             * Add projectiles
-             */
-            SpriteFactory.Instance.LoadZeldaTextures(Content);
-            //Adding arrow
-            arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0));
-            arrow.Velocity = new Vector2(10, 0);
-            //Adding boomerang
-            boomerang = SpriteFactory.Instance.Boomerang(_spriteBatch, new Vector2(0, 0));
-            //Rock
-            rock = SpriteFactory.Instance.Rock(_spriteBatch, new Vector2(0, 0));
+            //Add enemy
+            enemy = EnemyFactory.Instance.Octorok(new Vector2(300, 300));
+            updateables.Add(enemy);
+            drawables.Add(enemy);
+
             manager = new GameObjectManager(this);
-            updateables.Add(manager);
-            drawables.Add(manager);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
             updateables.Add(keyboard);
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+            
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
             updateables.Add(mouse);
@@ -148,6 +89,8 @@ namespace sprint0
             {
                 updateable.Update(gameTime);
             }
+
+            manager.Update(gameTime);
 
             base.Update(gameTime);
         }

@@ -3,15 +3,16 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+//using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class PlayerFactory
+    internal class PlayerFactory
     {
-        private Texture2D spritesheet;
         private static PlayerFactory instance = new PlayerFactory();
         public static PlayerFactory Instance
         {
@@ -21,19 +22,22 @@ namespace sprint0
             }
         }
         private PlayerFactory() { }
-        public void LoadTextures(ContentManager content)
+
+        public Player Link(Vector2 position)
         {
-            spritesheet = content.Load<Texture2D>("Link");
+            return new Link(position);
         }
-        public Player Link(SpriteBatch spriteBatch, Vector2 position)
+    }
+
+    internal class Link : Player
+    {
+        public Link(Vector2 position)
         {
-            Rectangle[] rectangles = new Rectangle[1];
-            rectangles[0] = new Rectangle(
-                Constants.STARTING_LINK_POSITION_X,
-                Constants.STARTING_LINK_POSITION_Y,
-                Constants.LINK_WIDTH,
-                Constants.LINK_HEIGHT);
-            return new Player(spritesheet, rectangles, spriteBatch, position);
+            Sprite = SpriteFactory.Instance.LinkStandingDown(position);
+            Velocity = Vector2.Zero;
+            Direction = Direction.DOWN;
+            State = State.STANDING;
+            TakingDamage = false;
         }
     }
 }

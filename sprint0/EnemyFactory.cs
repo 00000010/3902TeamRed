@@ -11,7 +11,6 @@ namespace sprint0
 {
     public class EnemyFactory
     {
-        private Texture2D enemiesSpritesheet;
         private static EnemyFactory instance = new EnemyFactory();
 
         public static EnemyFactory Instance
@@ -22,33 +21,69 @@ namespace sprint0
             }
         }
         private EnemyFactory() { }
-        public void LoadTextures(ContentManager content)
+
+        public Enemy Stalfos(Vector2 position)
         {
-            this.enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
+            return new Stalfos(position);
         }
 
-        public Enemy Stalfos(SpriteBatch spriteBatch, Vector2 position)
+        public Enemy Keese(Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position);
+            return new Keese(position);
         }
 
-        public Enemy Keese(SpriteBatch spriteBatch, Vector2 position)
+        public Enemy Gel(Vector2 position)
         {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position);
+            return new Gel(position);
+        }
+        public Enemy Goriya(Vector2 position)
+        {
+            return new Goriya(position);
+        }
+        public Enemy Octorok(Vector2 position)
+        {
+            return new Octorok(position);
         }
 
-        public Enemy Gel(SpriteBatch spriteBatch, Vector2 position)
-        {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position);
-        }
-        public Enemy Goriya(SpriteBatch spriteBatch, Vector2 position)
-        {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Goriya, spriteBatch, position);
-        }
-        public Enemy Octorok(SpriteBatch spriteBatch, Vector2 position)
-        {
-            return new Enemy(this.enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position);
-        }
+    }
 
+    internal class Stalfos : Enemy
+    {
+        public Stalfos(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.Stalfos(position);
+        }
+    }
+
+    internal class Keese : Enemy
+    {
+        public Keese(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.Keese(position);
+        }
+    }
+
+    internal class Gel : Enemy
+    {
+        public Gel(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.Gel(position);
+        }
+    }
+
+    internal class Goriya : Enemy
+    {
+        public Goriya(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.Goriya(position);
+        }
+    }
+
+    internal class Octorok : Enemy
+    {
+        public Octorok(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.Octorok(position);
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace sprint0
         //public enum State { STANDING, RUNNING, ATTACKING };
         //public enum Direction { LEFT, RIGHT, UP, DOWN };
         //public enum Color { GREEN, BLUE, RED };
-        public enum Health { HEALTHY, DAMAGED };
+        //public enum Health { HEALTHY, DAMAGED };
 
         //Character character = Character.LINK;
         //State state = State.STANDING;
@@ -84,5 +84,110 @@ namespace sprint0
         //Right, up, left, down is the order
         public static Rectangle[] arrow = { new Rectangle(210, 200, 16, 5), new Rectangle(123, 194, 10, 20),
             new Rectangle(150, 200, 16, 5), new Rectangle(186, 196, 10, 20)};
+
+        public static Rectangle[] Empty =
+        {
+            new Rectangle(0, 0, 0, 0)
+        };
+
+        public static Rectangle[] LinkRunningRight =
+        {
+            new Rectangle(130, 10, 18, 18),
+            new Rectangle(130, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningLeft =
+        {
+            new Rectangle(50, 10, 18, 18),
+            new Rectangle(50, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningDown =
+        {
+            new Rectangle(10, 10, 18, 18),
+            new Rectangle(10, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningUp =
+        {
+            new Rectangle(90, 10, 18, 18),
+            new Rectangle(90, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingRight =
+        {
+            new Rectangle(130, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingLeft =
+        {
+            new Rectangle(50, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingDown =
+        {
+            new Rectangle(10, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingUp =
+        {
+            new Rectangle(90, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningRightDamaged =
+{
+            new Rectangle(130, 10, 18, 18),
+            new Rectangle(130, 50, 18, 18),
+            new Rectangle(291, 10, 18, 18),
+            new Rectangle(291, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningLeftDamaged =
+        {
+            new Rectangle(50, 10, 18, 18),
+            new Rectangle(50, 50, 18, 18),
+            new Rectangle(211, 10, 18, 18),
+            new Rectangle(211, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningDownDamaged =
+        {
+            new Rectangle(10, 10, 18, 18),
+            new Rectangle(10, 50, 18, 18),
+            new Rectangle(171, 10, 18, 18),
+            new Rectangle(171, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkRunningUpDamaged =
+        {
+            new Rectangle(90, 10, 18, 18),
+            new Rectangle(90, 50, 18, 18),
+            new Rectangle(251, 10, 18, 18),
+            new Rectangle(251, 50, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingRightDamaged =
+        {
+            new Rectangle(130, 10, 18, 18),
+            new Rectangle(291, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingLeftDamaged =
+        {
+            new Rectangle(50, 10, 18, 18),
+            new Rectangle(211, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingDownDamaged =
+        {
+            new Rectangle(10, 10, 18, 18),
+            new Rectangle(171, 10, 18, 18)
+        };
+
+        public static Rectangle[] LinkStandingUpDamaged =
+        {
+            new Rectangle(90, 10, 18, 18),
+            new Rectangle(251, 10, 18, 18)
+        };
     }
 }

@@ -53,6 +53,7 @@ namespace sprint0
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
+            Velocity = Vector2.Zero;
             SpriteBatch = spriteBatch;
             Frame = 0;
         }
@@ -61,7 +62,7 @@ namespace sprint0
         {
             UpdateVelocity(gameTime);
             UpdatePosition();
-            UpdateFrame();
+            UpdateFrame(gameTime);
         }
 
         public virtual void Draw(GameTime gameTime)
@@ -74,28 +75,27 @@ namespace sprint0
             SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
         }
 
-        protected virtual void UpdateVelocity(GameTime gameTime)
+        public virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op
-            return;
         }
 
-        protected virtual void UpdatePosition()
+        public virtual void UpdatePosition()
         {
             Position += Velocity;
 
             // wrap around screen
             if (Position.X > 800)
             {
-                this.Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
+                Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
             }
             if (Position.Y > 480)
             {
-                this.Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
+                Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
             }    
         }
 
-        protected virtual void UpdateFrame()
+        public virtual void UpdateFrame(GameTime gameTime)
         {
             //Waits for 4 updates to occur before doing another update
             if (NumUpdates < 4)
@@ -111,11 +111,6 @@ namespace sprint0
             {
                 Frame = 0;
             }
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }

@@ -8,40 +8,26 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Block : Sprite
+    internal class Block : IBlock
     {
-        
-        public Vector2 Velocity { get; set; }
-        public Block(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
-            : base(texture, sourceRectangle, spriteBatch, position)
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
+        public int DrawOrder => throw new NotImplementedException();
+        public bool Visible => throw new NotImplementedException();
+
+        public Block() { }
+
+        public event EventHandler<EventArgs> DrawOrderChanged;
+        public event EventHandler<EventArgs> VisibleChanged;
+
+        public virtual void Update(GameTime gameTime)
         {
-            Velocity = Vector2.Zero;
+            Sprite.Update(gameTime);
         }
 
-        public override void Update(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
-            UpdateVelocity(gameTime);
-            UpdatePosition(gameTime);
-            UpdateFrame(gameTime);
-        }
-
-        private void UpdateFrame(GameTime gameTime)
-        {
-            Frame++;
-            if (Frame >= SourceRectangle.Length)
-            {
-                Frame = 0;
-            }
-        }
-
-        private void UpdatePosition(GameTime gameTime)
-        {
-            Position += Velocity;
-        }
-
-        private void UpdateVelocity(GameTime gameTime)
-        {
-            // no-op
+            Sprite.Draw(gameTime);
         }
     }
 }

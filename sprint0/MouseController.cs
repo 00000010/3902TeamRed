@@ -52,10 +52,10 @@ namespace sprint0
             Rectangle q4 = new Rectangle((int)resolution.X / 2, (int)resolution.Y / 2, (int)resolution.X / 2, (int)resolution.Y / 2);
 
             this.RegisterCommand(new MouseCommand(MouseButton.Right, screen), new ExitCommand(game));
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, q1), new LinkStandingRightCommand(game));
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, q2), new LinkRunningRightCommand(game));
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, q3), new LinkRunningRightCommand(game));
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, q4), new LinkRunningRightCommand(game));
+            //this.RegisterCommand(new MouseCommand(MouseButton.Left, q1), new LinkStandingRightCommand(game));
+            //this.RegisterCommand(new MouseCommand(MouseButton.Left, q2), new LinkRunningRightCommand(game));
+            //this.RegisterCommand(new MouseCommand(MouseButton.Left, q3), new LinkRunningRightCommand(game));
+            //this.RegisterCommand(new MouseCommand(MouseButton.Left, q4), new LinkRunningRightCommand(game));
         }
     }
 }
