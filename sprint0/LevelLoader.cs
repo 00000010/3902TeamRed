@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
+using System.Reflection;
 
 namespace sprint0
 { 
@@ -17,13 +18,15 @@ namespace sprint0
 
         public Game1 game;
         public GameObjectManager gameObjectManager;
+        public Sprite link;
+        public int pixelLength = 16;
 
         public ItemObject background;
-        public List<ItemObject> blockList = new List<ItemObject>();
-        public List<ItemObject> enemyList = new List<ItemObject>();
-        public List<ItemObject> playerList = new List<ItemObject>();
-        public List<ItemObject> itemList = new List<ItemObject>();
-        public List<ItemObject> allItems = new List<ItemObject>();
+
+        //List of all Objects made using factory
+        public List<object> allItems = new List<object>();
+        //List of XML things (Not real objects)
+        public List<ItemObject> allItemObjects = new List<ItemObject>();
 
         public LevelLoader(Game1 game)
         {
@@ -31,7 +34,12 @@ namespace sprint0
             this.gameObjectManager = game.manager;
         }
 
-
+        /*
+         * Loads the room level
+         * 
+         * levelName is a string which is the title of the XML document that
+         * holds the data.
+         */
         public void LoadLevel(String levelName)
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -62,24 +70,99 @@ namespace sprint0
                 IEnumerable<XElement> attributes = item.Elements();
                 itemObj.parseData(attributes);
 
-                allItems.Add(itemObj);
-          
+                allItemObjects.Add(itemObj);
+
+                int orgX = itemObj.PosX;
+                int orgY = itemObj.PosY;
+
+                //Double for creates the dimensions possible.
+                for (int i = 0; i < itemObj.NumY; i++)
+                {
+                    for (int j = 0; j < itemObj.NumX; j++)
+                    {
+
+                        //Creates vector for the final position
+                        Vector2 position = new Vector2(itemObj.PosX, itemObj.PosY);
+                        object[] parameterArray = new object[] { position };
+
+                        MethodInfo method;
+
+                        /*
+                         * CAN BE DATA DRIVEN, NOT SURE HOW
+                         * 
+                         * The switch case takes in the item type, finds the correct
+                         * constuctor method, than invokes it. That means the objectName
+                         * must match the correct method in the factories
+                         */
+                        switch (itemObj.ObjectType)
+                        {
+                            case ("Sprite"):
+                                method = SpriteFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
+                                Sprite newSprite = (Sprite)method.Invoke(SpriteFactory.Instance, parameterArray);
+                                gameObjectManager.AddObject(newSprite);
+                                allItems.Add(newSprite);
+                                break;
+
+                            case ("Item"):
+                                method = ItemFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
+                                Item newItem = (Item)method.Invoke(ItemFactory.Instance, parameterArray);
+                                gameObjectManager.AddObject(newItem);
+                                allItems.Add(newItem);
+                                break;
+
+                            case ("Player"):
+                                method = PlayerFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
+                                Player newPlayer = (Player)method.Invoke(PlayerFactory.Instance, parameterArray);
+                                gameObjectManager.AddObject(newPlayer);
+                                allItems.Add(newPlayer);
+                                break;
+
+                            case ("Block"):
+                                method = BlockFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
+                                Block newBlock = (Block)method.Invoke(BlockFactory.Instance, parameterArray);
+                                gameObjectManager.AddObject(newBlock);
+                                allItems.Add(newBlock);
+                                break;
+
+                            case ("Enemy"):
+                                method = EnemyFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
+                                Enemy newEnemy = (Enemy)method.Invoke(EnemyFactory.Instance, parameterArray);
+                                gameObjectManager.AddObject(newEnemy);
+                                allItems.Add(newEnemy);
+                                break;
+                            default:
+                                Console.WriteLine("ERROR: Type not found");
+                                break;
+                        }
+                        itemObj.PosX = itemObj.PosX + pixelLength;
+                    }
+                    itemObj.PosX = orgX;
+                    itemObj.PosY = itemObj.PosY + pixelLength;
+                }
+
+
             }
         }
 
-            public override string ToString()
+        //Prints the contents of the level
+        public override string ToString()
         {
             string fullString = "All Items\n";
-            foreach (ItemObject item in allItems)
+            foreach (ItemObject item in allItemObjects)
             {
                 fullString += "\n" + item.ToString();
             }
             return fullString;
         }
 
+        //Unloads all objects from a level
         public void UnloadLevel()
         {
-
+            foreach (object item in allItems)
+            {
+                gameObjectManager.RemoveObject(item);
+            }
+            allItemObjects.Clear();
         }
     }
 
