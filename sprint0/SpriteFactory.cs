@@ -16,31 +16,12 @@ namespace sprint0
     /// <summary>
     /// Class <c>SpriteFactory</c> creates the sprites from the spritesheets when requested.
     /// </summary>
-    public class SpriteFactory : ObjectFactory
+    public class SpriteFactory
     {
-        private Texture2D linkSpritesheet;
-        private Texture2D enemiesSpritesheet;
-        private Texture2D projectileSpritesheet;
-        private Texture2D boomerangSpritesheet;
-        private Texture2D octorokSpritesheet;
-
-        private Texture2D GreenBlock;
-        private Texture2D BlackBlock;
-        private Texture2D PurpleBlock;
-
-        private Texture2D Arrow;
-        private Texture2D BlueCandle;
-        private Texture2D Bomb;
-        private Texture2D Boomerang;
-        private Texture2D Bow;
-        private Texture2D Clock;
-        private Texture2D Compass;
-        private Texture2D Fairy;
-        private Texture2D Food;
-        private Texture2D Heart;
-        private Texture2D HeartContainer;
-        private Texture2D Key;
-        private Texture2D Letter;
+        private Texture2D dungeonSheet;
+        private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
+        private Texture2D GreenBlock, BlackBlock, PurpleBlock;
+        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
 
         private SpriteBatch spriteBatch;
 
@@ -63,6 +44,7 @@ namespace sprint0
         {
             this.spriteBatch = spriteBatch;
 
+            dungeonSheet = content.Load<Texture2D>("DungeonBackground");
             linkSpritesheet = content.Load<Texture2D>("Link");
 
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
@@ -108,6 +90,14 @@ namespace sprint0
         public void LoadZeldaTextures(ContentManager content)
         {
 
+        }
+
+        /*
+         * Background
+         */
+        public Sprite Dungeon(Vector2 position)
+        {
+            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position);
         }
 
         /*

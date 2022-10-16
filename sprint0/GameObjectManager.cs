@@ -15,6 +15,9 @@ namespace sprint0
         public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
         public Dictionary<ISprite, string> shooterOfProjectile = new Dictionary<ISprite, string>();
 
+        public List<IUpdateable> updateables = new List<IUpdateable>();
+        public List<IDrawable> drawables = new List<IDrawable>();
+
         private List<object> objectsToAdd = new List<object>();
         private List<object> objectsToRemove = new List<object>();
 
@@ -34,7 +37,6 @@ namespace sprint0
 
         public void UpdatePlayerSprite()
         {
-
             Vector2 velocity = player.Velocity;
 
             if (velocity.X == 0)
@@ -60,7 +62,6 @@ namespace sprint0
                     player.Direction = Direction.RIGHT;
                 }
             }
-
 
             if (player.TakingDamage)
             {
@@ -157,11 +158,20 @@ namespace sprint0
             player.Velocity = velocity;
         }
 
-
-        public void AddObject(object obj)
+        /**
+         * Add the object to the manager. If preference is set, the object will be drawn first. Preference should only be set for one object added.
+         */
+        public void AddObject(object obj, bool preference)
         {
-            objectsToAdd.Add(obj);
+            if (preference)
+            {
+                objectsToAdd.Insert(0, obj);
+            } else
+            {
+                objectsToAdd.Add(obj);
+            }
         }
+
         public void RemoveObject(object obj)
         {
             objectsToRemove.Add(obj);
@@ -189,17 +199,16 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-
             foreach (object obj in objectsToRemove)
             {
                 if (obj is IDrawable)
                 {
-                    game.drawables.Remove((IDrawable)obj);
+                    drawables.Remove((IDrawable)obj);
                 }
 
                 if (obj is IUpdateable)
                 {
-                    game.updateables.Remove((IUpdateable)obj);
+                    updateables.Remove((IUpdateable)obj);
                 }
             }
 
@@ -209,12 +218,12 @@ namespace sprint0
             {
                 if (obj is IDrawable)
                 {
-                    game.drawables.Add((IDrawable)obj);
+                    drawables.Add((IDrawable)obj);
                 }
 
                 if (obj is IUpdateable)
                 {
-                    game.updateables.Add((IUpdateable)obj);
+                    updateables.Add((IUpdateable)obj);
                 }
             }
 
@@ -230,8 +239,14 @@ namespace sprint0
             //        i--;
             //    }
             //}
+        }
 
-            
+        public void Draw(GameTime gameTime)
+        {
+            foreach (IDrawable drawable in drawables)
+            {
+                drawable.Draw(gameTime);
+            }
         }
 
         //private bool ProjectileOutOfBounds(Projectile projectile)

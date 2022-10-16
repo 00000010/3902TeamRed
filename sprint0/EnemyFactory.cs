@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class EnemyFactory : ObjectFactory
+    public class EnemyFactory
     {
         private static EnemyFactory instance = new EnemyFactory();
 

@@ -47,6 +47,7 @@ namespace sprint0
             {
                 if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
                 {
+                    Console.WriteLine("prev pressed key");
                     controllerMappingsUnpress[key].Execute();
                 }
             }
@@ -55,6 +56,7 @@ namespace sprint0
             {
                 if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
                 {
+                    Console.WriteLine("pressed key");
                     controllerMappings[key].Execute();
                 }
             }
@@ -69,7 +71,6 @@ namespace sprint0
             this.RegisterCommand(Keys.A, new PlayerRunningCommand(game, Direction.LEFT));
             this.RegisterCommand(Keys.S, new PlayerRunningCommand(game, Direction.DOWN));
             this.RegisterCommand(Keys.D, new PlayerRunningCommand(game, Direction.RIGHT));
-
 
             this.RegisterCommandUnpress(Keys.W, new PlayerStandingCommand(game, Direction.UP));
             this.RegisterCommandUnpress(Keys.A, new PlayerStandingCommand(game, Direction.LEFT));

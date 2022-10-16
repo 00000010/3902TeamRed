@@ -3,8 +3,18 @@
     <Asset>
         <Item>
             <ObjectType>Sprite</ObjectType>
-            <ObjectName>LinkRunningRight</ObjectName>
-            <Location>0 0</Location>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>LinkStandingUp</ObjectName>
+            <Location>390 364</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>300 364</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class ProjectileFactory : ObjectFactory
+    internal class ProjectileFactory
     {
         private static ProjectileFactory instance = new ProjectileFactory();
         public static ProjectileFactory Instance { get { return instance; } }

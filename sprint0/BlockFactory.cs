@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class BlockFactory : ObjectFactory
+    internal class BlockFactory
     {
         private static BlockFactory instance = new BlockFactory();
         public static BlockFactory Instance

@@ -60,7 +60,7 @@ namespace sprint0
                 game.item = ItemFactory.Instance.ZeldaBlueCandle(game.item.Position);
             }
 
-            game.manager.AddObject(game.item);
+            game.manager.AddObject(game.item, false);
         }
     }
 }

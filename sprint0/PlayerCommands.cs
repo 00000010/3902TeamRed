@@ -135,7 +135,7 @@ namespace sprint0
         public void Execute()
         {
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
-            manager.AddObject(arrow);
+            manager.AddObject(arrow, false);
         }
     }
 }

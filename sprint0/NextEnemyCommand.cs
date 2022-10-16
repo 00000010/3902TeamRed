@@ -40,7 +40,7 @@ namespace sprint0
                 game.enemy = EnemyFactory.Instance.Stalfos(game.enemy.Position);
             }
 
-            game.manager.AddObject(game.enemy);
+            game.manager.AddObject(game.enemy, false);
         }
     }
 }

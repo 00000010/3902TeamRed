@@ -12,7 +12,7 @@ using static sprint0.SpriteRectangle;
 
 namespace sprint0
 {
-    internal class ItemFactory : ObjectFactory
+    internal class ItemFactory
     {
         private static ItemFactory instance = new ItemFactory();
         public static ItemFactory Instance
