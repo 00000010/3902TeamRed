@@ -22,9 +22,10 @@ namespace sprint0
         public int pixelLength = 16;
 
         public ItemObject background;
+        private ObjectFactory objFactory;
 
         //List of all Objects made using factory
-        public List<object> allItems = new List<object>();
+        public List<Object> allItems = new List<Object>();
         //List of XML things (Not real objects)
         public List<ItemObject> allItemObjects = new List<ItemObject>();
 
@@ -46,13 +47,13 @@ namespace sprint0
             string sFile;
 
             //Gets file location based on operating system
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Content/Levels/{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Content\Levels\{levelName}.xml");
             }
             else
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Content\Levels\{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Content/Levels/{levelName}.xml");
             }
             string sFilePath = Path.GetFullPath(sFile);
             XDocument level = XDocument.Load(sFilePath);
@@ -80,60 +81,27 @@ namespace sprint0
                 {
                     for (int j = 0; j < itemObj.NumX; j++)
                     {
-
                         //Creates vector for the final position
                         Vector2 position = new Vector2(itemObj.PosX, itemObj.PosY);
                         object[] parameterArray = new object[] { position };
 
+                        Object thing = new object();
+                        Object classThing = new object();
                         MethodInfo method;
 
                         /*
-                         * CAN BE DATA DRIVEN, NOT SURE HOW
-                         * 
-                         * The switch case takes in the item type, finds the correct
+                         * Takes in the item type, finds the correct
                          * constuctor method, than invokes it. That means the objectName
                          * must match the correct method in the factories
                          */
-                        switch (itemObj.ObjectType)
-                        {
-                            case ("Sprite"):
-                                method = SpriteFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
-                                Sprite newSprite = (Sprite)method.Invoke(SpriteFactory.Instance, parameterArray);
-                                gameObjectManager.AddObject(newSprite);
-                                allItems.Add(newSprite);
-                                break;
+                        string factoryString = "sprint0." + itemObj.ObjectType + "Factory"; // get type name
+                        Type type = Type.GetType(factoryString); // get type from name
+                        classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
+                        method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
+                        thing = method.Invoke(classThing, parameterArray); // call method and get its object
 
-                            case ("Item"):
-                                method = ItemFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
-                                Item newItem = (Item)method.Invoke(ItemFactory.Instance, parameterArray);
-                                gameObjectManager.AddObject(newItem);
-                                allItems.Add(newItem);
-                                break;
-
-                            case ("Player"):
-                                method = PlayerFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
-                                Player newPlayer = (Player)method.Invoke(PlayerFactory.Instance, parameterArray);
-                                gameObjectManager.AddObject(newPlayer);
-                                allItems.Add(newPlayer);
-                                break;
-
-                            case ("Block"):
-                                method = BlockFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
-                                Block newBlock = (Block)method.Invoke(BlockFactory.Instance, parameterArray);
-                                gameObjectManager.AddObject(newBlock);
-                                allItems.Add(newBlock);
-                                break;
-
-                            case ("Enemy"):
-                                method = EnemyFactory.Instance.GetType().GetMethod(itemObj.ObjectName);
-                                Enemy newEnemy = (Enemy)method.Invoke(EnemyFactory.Instance, parameterArray);
-                                gameObjectManager.AddObject(newEnemy);
-                                allItems.Add(newEnemy);
-                                break;
-                            default:
-                                Console.WriteLine("ERROR: Type not found");
-                                break;
-                        }
+                        gameObjectManager.AddObject(thing);
+                        allItems.Add(thing);
                         itemObj.PosX = itemObj.PosX + pixelLength;
                     }
                     itemObj.PosX = orgX;

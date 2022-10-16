@@ -16,7 +16,7 @@ namespace sprint0
     /// <summary>
     /// Class <c>SpriteFactory</c> creates the sprites from the spritesheets when requested.
     /// </summary>
-    public class SpriteFactory
+    public class SpriteFactory : ObjectFactory
     {
         private Texture2D linkSpritesheet;
         private Texture2D enemiesSpritesheet;
