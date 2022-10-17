@@ -290,9 +290,24 @@ namespace sprint0
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position);
         }
 
-        public Sprite Goriya(Vector2 position)
+        public Sprite GoriyaLeft(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.Goriya, spriteBatch, position);
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position);
+        }
+
+        public Sprite GoriyaRight(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaRight, spriteBatch, position);
+        }
+
+        public Sprite GoriyaUp(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaUp, spriteBatch, position);
+        }
+
+        public Sprite GoriyaDown(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaDown, spriteBatch, position);
         }
 
         public Sprite Gel(Vector2 position)

@@ -75,7 +75,10 @@ namespace sprint0
     {
         public Goriya(Vector2 position)
         {
-            Sprite = SpriteFactory.Instance.Goriya(position);
+            Sprite = SpriteFactory.Instance.GoriyaLeft(position);
+            Velocity = new Vector2(-1, 0);
+            Direction = Direction.LEFT;
+            State = State.RUNNING;
         }
     }
 
@@ -84,6 +87,7 @@ namespace sprint0
         public Octorok(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.Octorok(position);
+            Velocity = Vector2.Zero;
         }
     }
 }

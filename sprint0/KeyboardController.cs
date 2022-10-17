@@ -76,10 +76,15 @@ namespace sprint0
             this.RegisterCommandUnpress(Keys.S, new PlayerStandingCommand(game, Direction.DOWN));
             this.RegisterCommandUnpress(Keys.D, new PlayerStandingCommand(game, Direction.RIGHT));
 
-            //this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
-            //this.RegisterCommand(Keys.Up, new LinkRunningDownCommand(game));
-            //this.RegisterCommand(Keys.Down, new LinkRunningUpCommand(game));
-            //this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
+            this.RegisterCommand(Keys.Left, new PlayerRunningCommand(game, Direction.LEFT));
+            this.RegisterCommand(Keys.Up, new PlayerRunningCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.Down, new PlayerRunningCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.Right, new PlayerRunningCommand(game, Direction.RIGHT));
+
+            this.RegisterCommandUnpress(Keys.Up, new PlayerStandingCommand(game, Direction.UP));
+            this.RegisterCommandUnpress(Keys.Left, new PlayerStandingCommand(game, Direction.LEFT));
+            this.RegisterCommandUnpress(Keys.Down, new PlayerStandingCommand(game, Direction.DOWN));
+            this.RegisterCommandUnpress(Keys.Right, new PlayerStandingCommand(game, Direction.RIGHT));
 
             /* N and Z keys for Link attacking */
             this.RegisterCommand(Keys.Z, new PlayerArrowCommand(game));
