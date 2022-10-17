@@ -14,11 +14,8 @@ namespace sprint0
     {
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
-
-        public List<IUpdateable> updateables = new List<IUpdateable>();
-        public List<IDrawable> drawables = new List<IDrawable>();
         
-        public IPlayer player;
+        //public IPlayer player;
         public IBlock block;
         public IItem item;
         public IEnemy enemy;
@@ -45,51 +42,27 @@ namespace sprint0
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-           
+
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
-            //Add Player
-            player = PlayerFactory.Instance.Link(new Vector2(0, 0));
-            updateables.Add(player);
-            drawables.Add(player);
-
-            //Add Block
-            block = BlockFactory.Instance.ZeldaBlackBlock(new Vector2(100, 100));
-            drawables.Add(block);
-
-            //Add item
-            item = ItemFactory.Instance.ZeldaBlueCandle(new Vector2(200, 200));
-            drawables.Add(item);
-
-            //Add enemy
-            enemy = EnemyFactory.Instance.Octorok(new Vector2(300, 300));
-            updateables.Add(enemy);
-            drawables.Add(enemy);
-
             manager = new GameObjectManager(this);
-
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
-            updateables.Add(keyboard);
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
             
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
-            updateables.Add(mouse);
 
             loader = new LevelLoader(this);
-            loader.LoadLevel("TestLevel");
+            loader.LoadLevel("Level1");
             Console.WriteLine(loader.ToString());
         }
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IUpdateable updateable in updateables)
-            {
-                updateable.Update(gameTime);
-            }
-
+            keyboard.Update(gameTime);
+            mouse.Update(gameTime);
             manager.Update(gameTime);
 
             base.Update(gameTime);
@@ -97,15 +70,10 @@ namespace sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
-            foreach (IDrawable drawable in drawables)
-            {
-                drawable.Draw(gameTime);
-            }
-
+            manager.Draw(gameTime);
             _spriteBatch.End();
 
             base.Draw(gameTime);

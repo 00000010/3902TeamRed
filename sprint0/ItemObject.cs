@@ -35,7 +35,7 @@ namespace sprint0
                 //Tag element of XML
                 string name = attribute.Name.ToString();
                 //Data of each XML element
-                string value = attribute.Value;
+                dynamic value = attribute.Value;
                 //Sets the data into the right variable using the tag name
                 this.GetType().GetProperty(name).SetValue(this, value);
             }

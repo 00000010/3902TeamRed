@@ -11,18 +11,14 @@ using System.Xml;
 using System.Reflection;
 
 namespace sprint0
-{ 
-
+{
     public class LevelLoader
     {
-
         public Game1 game;
         public GameObjectManager gameObjectManager;
-        public Sprite link;
         public int pixelLength = 16;
 
         public ItemObject background;
-        private ObjectFactory objFactory;
 
         //List of all Objects made using factory
         public List<Object> allItems = new List<Object>();
@@ -64,7 +60,6 @@ namespace sprint0
 
             IEnumerable<XElement> items = asset.Elements("Item");
 
-
             foreach (XElement item in items)
             {
                 ItemObject itemObj = new ItemObject();
@@ -94,21 +89,26 @@ namespace sprint0
                          * constuctor method, than invokes it. That means the objectName
                          * must match the correct method in the factories
                          */
-                        string factoryString = "sprint0." + itemObj.ObjectType + "Factory"; // get type name
+                        string factoryString = GetThisNamespace() + "." + itemObj.ObjectType + "Factory"; // get type name
                         Type type = Type.GetType(factoryString); // get type from name
                         classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
                         method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                         thing = method.Invoke(classThing, parameterArray); // call method and get its object
 
-                        gameObjectManager.AddObject(thing);
+                        if (itemObj.ObjectType == "Player")
+                        {
+                            gameObjectManager.AddPlayer(thing);
+                        } else
+                        {
+                            // TODO: this is to ensure background gets drawn first, but there's probably a better way...
+                            gameObjectManager.AddObject(thing);
+                        }
                         allItems.Add(thing);
                         itemObj.PosX = itemObj.PosX + pixelLength;
                     }
                     itemObj.PosX = orgX;
                     itemObj.PosY = itemObj.PosY + pixelLength;
                 }
-
-
             }
         }
 
@@ -132,7 +132,11 @@ namespace sprint0
             }
             allItemObjects.Clear();
         }
-    }
 
+        private string GetThisNamespace()
+        {
+            return GetType().Namespace;
+        }
+    }
 }
 

@@ -7,6 +7,10 @@ namespace sprint0
     {
         private Constants() { }
 
+        // Screen width and height as constants so no weird stretching
+        public const int SCREEN_WIDTH = 256;
+        public const int SCREEN_HEIGHT = 176;
+
         /// <summary>
         /// Number of frames for the Link sprite running or attacking.
         /// </summary>
