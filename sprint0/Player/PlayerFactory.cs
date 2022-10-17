@@ -33,9 +33,9 @@ namespace sprint0
     {
         public Link(Vector2 position)
         {
-            Sprite = SpriteFactory.Instance.LinkStandingDown(position);
+            Sprite = SpriteFactory.Instance.LinkStandingUp(position);
             Velocity = Vector2.Zero;
-            Direction = Direction.DOWN;
+            Direction = Direction.UP;
             State = State.STANDING;
             TakingDamage = false;
         }

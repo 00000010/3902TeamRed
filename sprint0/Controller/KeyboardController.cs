@@ -70,7 +70,6 @@ namespace sprint0
             this.RegisterCommand(Keys.S, new PlayerRunningCommand(game, Direction.DOWN));
             this.RegisterCommand(Keys.D, new PlayerRunningCommand(game, Direction.RIGHT));
 
-
             this.RegisterCommandUnpress(Keys.W, new PlayerStandingCommand(game, Direction.UP));
             this.RegisterCommandUnpress(Keys.A, new PlayerStandingCommand(game, Direction.LEFT));
             this.RegisterCommandUnpress(Keys.S, new PlayerStandingCommand(game, Direction.DOWN));

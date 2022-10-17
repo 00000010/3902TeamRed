@@ -69,3 +69,4 @@
 /Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
 /Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
 /Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
+/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBackground.xnb
