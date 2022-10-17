@@ -11,20 +11,16 @@ namespace sprint0
     internal class PlayerRunningCommand : ICommand
     {
         private Game1 game;
-        //private IPlayer player;
         private GameObjectManager manager;
         private Direction direction;
         public PlayerRunningCommand(Game1 game, Direction direction)
         {
             this.game = game;
             this.direction = direction;
-            //player = game.player;
             manager = game.manager;
         }
         public void Execute()
         {
-            //game.player.Direction = direction;
-            //game.player.State = State.RUNNING;
             manager.player.Direction = direction;
             manager.player.State = State.RUNNING;
 
@@ -51,13 +47,9 @@ namespace sprint0
                 default:
                     break;
             }
-            //Vector2 oldVelocity = game.player.Velocity;
             Vector2 oldVelocity = manager.player.Velocity;
-            //Debug.WriteLine(game.player.Velocity);
             Debug.WriteLine(manager.player.Velocity);
-            //game.player.Velocity = oldVelocity + newVelocity;
             manager.player.Velocity = oldVelocity + newVelocity;
-            //Debug.WriteLine(game.player.Velocity);
             Debug.WriteLine(manager.player.Velocity);
             manager.UpdatePlayerSprite();
         }
@@ -74,7 +66,6 @@ namespace sprint0
         {
             this.game = game;
             this.direction = direction;
-            //player = game.player;
             manager = game.manager;
         }
 
@@ -99,10 +90,7 @@ namespace sprint0
                 default:
                     break;
             }
-
-            //Vector2 oldVelocity = player.Velocity;
             Vector2 oldVelocity = manager.player.Velocity;
-            //player.Velocity = oldVelocity + newVelocity;
             manager.player.Velocity = oldVelocity + newVelocity;
 
             manager.UpdatePlayerState();
@@ -120,7 +108,6 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
-            //player = game.player;
             player = manager.player;
         }
 
@@ -140,7 +127,6 @@ namespace sprint0
         public PlayerArrowCommand(Game1 game)
         {
             this.game = game;
-            //player = game.player;
             manager = game.manager;
             player = manager.player;
         }

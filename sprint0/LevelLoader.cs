@@ -95,7 +95,7 @@ namespace sprint0
                         method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                         thing = method.Invoke(classThing, parameterArray); // call method and get its object
 
-                        if (itemObj.Playable)
+                        if (itemObj.ObjectType == "Player")
                         {
                             gameObjectManager.AddPlayer(thing);
                         } else

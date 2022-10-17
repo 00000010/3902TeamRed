@@ -158,7 +158,7 @@ namespace sprint0
         }
 
         /**
-         * Add the object to the manager. If preference is set, the object will be drawn first. Preference should only be set for one object added (TODO: this is a bad restriction).
+         * Add the object to the manager.
          * An object is not playable.
          */
         public void AddObject(object obj)

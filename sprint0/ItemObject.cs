@@ -13,7 +13,6 @@ namespace sprint0
 {
     public class ItemObject
     {
-        public dynamic Playable { get; set; }
         public string ObjectType { get; set; }
         public string ObjectName { get; set; }
         public string Location { get; set; }
@@ -40,8 +39,6 @@ namespace sprint0
                 //Sets the data into the right variable using the tag name
                 this.GetType().GetProperty(name).SetValue(this, value);
             }
-            Playable = Boolean.Parse(Playable);
-
             string[] splitLocation = this.Location.Split(' ');
             PosX = Int32.Parse(splitLocation[0]);
             PosY = Int32.Parse(splitLocation[1]);
@@ -53,8 +50,7 @@ namespace sprint0
 
         public override string ToString()
         {
-            return ($"Playable: {this.Playable}\n" +
-                    $"Type: {this.ObjectType}\n" +
+            return ($"Type: {this.ObjectType}\n" +
                     $"Name: {this.ObjectName}\n" +
                     $"Location: {this.Location}\n" +
                     $"NumX: {this.NumX}\n" +

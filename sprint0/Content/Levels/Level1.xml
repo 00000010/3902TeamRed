@@ -2,25 +2,21 @@
 <XnaContent>
     <Asset>
         <Item>
-            <Playable>false</Playable>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
             <Location>272 224</Location>
         </Item>
         <Item>
-            <Playable>true</Playable>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>390 364</Location>
         </Item>
         <Item>
-            <Playable>false</Playable>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
             <Location>300 364</Location>
         </Item>
         <Item>
-            <Playable>false</Playable>
             <ObjectType>Block</ObjectType>
             <ObjectName>ZeldaGreenBlock</ObjectName>
             <Location>16 16</Location>
