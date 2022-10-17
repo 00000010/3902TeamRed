@@ -60,7 +60,7 @@ namespace sprint0
                 game.item = ItemFactory.Instance.ZeldaHeart(game.item.Position);
             }
 
-            game.manager.AddObject(game.item, false);
+            game.manager.AddObject(game.item);
         }
     }
 }

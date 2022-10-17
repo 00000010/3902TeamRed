@@ -9,7 +9,8 @@ namespace sprint0
     public class GameObjectManager
     {
         private Game1 game;
-        private IPlayer player;
+
+        public IPlayer player;
 
         public List<Projectile> projectilesInFlight = new List<Projectile>();
         public Dictionary<ISprite, string> initDirectionOfFire = new Dictionary<ISprite, string>();
@@ -24,7 +25,7 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
-            player = game.player;
+            //player = game.player;
         }
 
         public void UpdatePlayerState()
@@ -38,7 +39,6 @@ namespace sprint0
         public void UpdatePlayerSprite()
         {
             Vector2 velocity = player.Velocity;
-
             if (velocity.X == 0)
             {
                 if (velocity.Y < 0)
@@ -62,7 +62,6 @@ namespace sprint0
                     player.Direction = Direction.RIGHT;
                 }
             }
-
             if (player.TakingDamage)
             {
                 switch (player.State)
@@ -159,17 +158,18 @@ namespace sprint0
         }
 
         /**
-         * Add the object to the manager. If preference is set, the object will be drawn first. Preference should only be set for one object added.
+         * Add the object to the manager. If preference is set, the object will be drawn first. Preference should only be set for one object added (TODO: this is a bad restriction).
+         * An object is not playable.
          */
-        public void AddObject(object obj, bool preference)
+        public void AddObject(object obj)
         {
-            if (preference)
-            {
-                objectsToAdd.Insert(0, obj);
-            } else
-            {
-                objectsToAdd.Add(obj);
-            }
+            objectsToAdd.Add(obj);
+        }
+
+        public void AddPlayer(object player)
+        {
+            this.player = (IPlayer)player;
+            AddObject(player);
         }
 
         public void RemoveObject(object obj)
@@ -226,9 +226,12 @@ namespace sprint0
                     updateables.Add((IUpdateable)obj);
                 }
             }
-
             objectsToAdd.Clear();
 
+            foreach(IUpdateable updateable in updateables)
+            {
+                updateable.Update(gameTime);
+            }
             //for (int i = 0; i < projectilesInFlight.Count; i++)
             //{
             //    projectilesInFlight[i].Update(gameTime);

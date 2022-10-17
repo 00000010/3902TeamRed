@@ -47,7 +47,6 @@ namespace sprint0
             {
                 if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
                 {
-                    Console.WriteLine("prev pressed key");
                     controllerMappingsUnpress[key].Execute();
                 }
             }
@@ -56,7 +55,6 @@ namespace sprint0
             {
                 if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
                 {
-                    Console.WriteLine("pressed key");
                     controllerMappings[key].Execute();
                 }
             }

@@ -32,7 +32,7 @@ namespace sprint0
                 game.block = BlockFactory.Instance.ZeldaBlackBlock(game.block.Position);
             }
             
-            game.manager.AddObject(game.block, false);           
+            game.manager.AddObject(game.block);           
         }
     }
 }

@@ -16,7 +16,6 @@ namespace sprint0
     {
         public Game1 game;
         public GameObjectManager gameObjectManager;
-        public Sprite link;
         public int pixelLength = 16;
 
         public ItemObject background;
@@ -71,7 +70,6 @@ namespace sprint0
 
                 int orgX = itemObj.PosX;
                 int orgY = itemObj.PosY;
-                bool preference = false;
 
                 //Double for creates the dimensions possible.
                 for (int i = 0; i < itemObj.NumY; i++)
@@ -97,12 +95,14 @@ namespace sprint0
                         method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                         thing = method.Invoke(classThing, parameterArray); // call method and get its object
 
-                        // TODO: this is to ensure background gets drawn first, but there's probably a better way...
-                        if (classThing.ToString().Equals("Sprite"))
+                        if (itemObj.Playable)
                         {
-                            preference = true;
+                            gameObjectManager.AddPlayer(thing);
+                        } else
+                        {
+                            // TODO: this is to ensure background gets drawn first, but there's probably a better way...
+                            gameObjectManager.AddObject(thing);
                         }
-                        gameObjectManager.AddObject(thing, preference);
                         allItems.Add(thing);
                         itemObj.PosX = itemObj.PosX + pixelLength;
                     }

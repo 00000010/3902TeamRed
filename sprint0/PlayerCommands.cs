@@ -23,8 +23,10 @@ namespace sprint0
         }
         public void Execute()
         {
-            game.player.Direction = direction;
-            game.player.State = State.RUNNING;
+            //game.player.Direction = direction;
+            //game.player.State = State.RUNNING;
+            manager.player.Direction = direction;
+            manager.player.State = State.RUNNING;
 
             Vector2 newVelocity = Vector2.Zero;
 
@@ -32,24 +34,31 @@ namespace sprint0
             {
                 case Direction.LEFT:
                     newVelocity.X -= 1;
+                    manager.player.Direction = Direction.LEFT;
                     break;
                 case Direction.RIGHT:
                     newVelocity.X += 1;
+                    manager.player.Direction = Direction.RIGHT;
                     break;
                 case Direction.UP:
                     newVelocity.Y -= 1;
+                    manager.player.Direction = Direction.UP;
                     break;
                 case Direction.DOWN:
                     newVelocity.Y += 1;
+                    manager.player.Direction = Direction.DOWN;
                     break;
                 default:
                     break;
             }
-
-            Vector2 oldVelocity = game.player.Velocity;
-            Debug.WriteLine(game.player.Velocity);
-            game.player.Velocity = oldVelocity + newVelocity;
-            Debug.WriteLine(game.player.Velocity);
+            //Vector2 oldVelocity = game.player.Velocity;
+            Vector2 oldVelocity = manager.player.Velocity;
+            //Debug.WriteLine(game.player.Velocity);
+            Debug.WriteLine(manager.player.Velocity);
+            //game.player.Velocity = oldVelocity + newVelocity;
+            manager.player.Velocity = oldVelocity + newVelocity;
+            //Debug.WriteLine(game.player.Velocity);
+            Debug.WriteLine(manager.player.Velocity);
             manager.UpdatePlayerSprite();
         }
     }
@@ -65,7 +74,7 @@ namespace sprint0
         {
             this.game = game;
             this.direction = direction;
-            player = game.player;
+            //player = game.player;
             manager = game.manager;
         }
 
@@ -91,8 +100,10 @@ namespace sprint0
                     break;
             }
 
-            Vector2 oldVelocity = player.Velocity;
-            player.Velocity = oldVelocity + newVelocity;
+            //Vector2 oldVelocity = player.Velocity;
+            Vector2 oldVelocity = manager.player.Velocity;
+            //player.Velocity = oldVelocity + newVelocity;
+            manager.player.Velocity = oldVelocity + newVelocity;
 
             manager.UpdatePlayerState();
             manager.UpdatePlayerSprite();
@@ -109,7 +120,8 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
-            player = game.player;
+            //player = game.player;
+            player = manager.player;
         }
 
         public void Execute()
@@ -128,14 +140,15 @@ namespace sprint0
         public PlayerArrowCommand(Game1 game)
         {
             this.game = game;
-            player = game.player;
+            //player = game.player;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
         {
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
-            manager.AddObject(arrow, false);
+            manager.AddObject(arrow);
         }
     }
 }

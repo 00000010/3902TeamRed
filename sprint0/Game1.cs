@@ -15,7 +15,7 @@ namespace sprint0
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
         
-        public IPlayer player;
+        //public IPlayer player;
         public IBlock block;
         public IItem item;
         public IEnemy enemy;
@@ -42,7 +42,7 @@ namespace sprint0
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-           
+
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             manager = new GameObjectManager(this);
@@ -73,7 +73,6 @@ namespace sprint0
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            player.Draw(gameTime);
             manager.Draw(gameTime);
             _spriteBatch.End();
 
