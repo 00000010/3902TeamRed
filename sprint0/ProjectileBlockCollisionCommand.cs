@@ -9,11 +9,11 @@ namespace sprint0
 {
     internal class ProjectileBlockCollisionCommand : ICommand
     {
-        ISprite projectile;
-        ISprite block;
+        IObject projectile;
+        IObject block;
         string intersectionLoc;
         GameObjectManager manager;
-        public ProjectileBlockCollisionCommand(ISprite projectile, ISprite block, string intersectionLoc, GameObjectManager manager)
+        public ProjectileBlockCollisionCommand(IObject projectile, IObject block, string intersectionLoc, GameObjectManager manager)
         {
             this.projectile = projectile;
             this.block = block;
@@ -23,7 +23,7 @@ namespace sprint0
 
         public void Execute()
         {
-            manager.removeProjectile(projectile); //projectile breaks when hits block
+            manager.removeProjectile((IProjectile)projectile); //projectile breaks when hits block
             //boomerang enemy breaks since they wait for the boomerang even though it is removed.
         }
     }

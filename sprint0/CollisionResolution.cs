@@ -17,7 +17,7 @@ namespace sprint0
         {
             Dictionary<Tuple<Type, Type>, Type> dic = manager.collisionResolutionDic;
             Type type = dic.GetValueOrDefault(new Tuple<Type, Type>(sprite1.GetType(), sprite2.GetType()));
-            ConstructorInfo ctor = type.GetConstructor(new[] { typeof(ISprite), typeof(ISprite), typeof(string), typeof(GameObjectManager) });
+            ConstructorInfo ctor = type.GetConstructor(new[] { typeof(IObject), typeof(IObject), typeof(string), typeof(GameObjectManager) });
             ICommand command;
             if (ctor != null)
             {

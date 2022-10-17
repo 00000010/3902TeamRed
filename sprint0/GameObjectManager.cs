@@ -31,6 +31,16 @@ namespace sprint0
 
         private void PopulateCollisionResolutionDic()
         {
+            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaBlackBlock")),
+                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaGreenBlock")),
+                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaPurpleBlock")),
+                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Stalfos")),
+                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Octorok")),
+                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Block")),
                 Type.GetType("sprint0.EnemyBlockCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Enemy")),

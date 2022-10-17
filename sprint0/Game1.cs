@@ -66,6 +66,7 @@ namespace sprint0
             drawables.Add(enemy);
 
             manager = new GameObjectManager(this);
+            manager.AddObject(block);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);

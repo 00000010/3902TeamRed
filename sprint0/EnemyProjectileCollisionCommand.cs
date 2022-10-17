@@ -9,11 +9,11 @@ namespace sprint0
 {
     internal class EnemyProjectileCollisionCommand : ICommand
     {
-        ISprite enemy;
-        ISprite projectile;
+        IObject enemy;
+        IObject projectile;
         string intersectionLoc;
         GameObjectManager manager;
-        public EnemyProjectileCollisionCommand(ISprite enemy, ISprite projectile, string intersectionLoc, GameObjectManager manager)
+        public EnemyProjectileCollisionCommand(IObject enemy, IObject projectile, string intersectionLoc, GameObjectManager manager)
         {
             this.enemy = enemy;
             this.projectile = projectile;
