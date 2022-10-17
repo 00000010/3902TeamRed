@@ -62,22 +62,6 @@ namespace sprint0
             }
         }
 
-        ///**
-        // * Handling the position of the enemies
-        // */
-        //public override void UpdatePosition()
-        //{
-        //    Position += Velocity;
-        //    if (Position.X > 800 || Position.X < 0)
-        //    {
-        //        Position = new Vector2(Position.X - Velocity.X, Position.Y);
-        //    }
-        //    if (Position.Y > 480 || Position.Y < 0)
-        //    {
-        //        Position = new Vector2(Position.X, Position.Y - Velocity.Y);
-        //    }
-        //}
-
         //protected void UpdateProjectile()
         //{
         //    if (SourceRectangle == EnemyRectangle.Goriya)

@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
+
+namespace sprint0
+{
+    internal class ProjectileBlockCollisionCommand : ICommand
+    {
+        ISprite projectile;
+        ISprite block;
+        string intersectionLoc;
+        GameObjectManager manager;
+        public ProjectileBlockCollisionCommand(ISprite projectile, ISprite block, string intersectionLoc, GameObjectManager manager)
+        {
+            this.projectile = projectile;
+            this.block = block;
+            this.intersectionLoc = intersectionLoc;
+            this.manager = manager;
+        }
+
+        public void Execute()
+        {
+            manager.removeProjectile(projectile); //projectile breaks when hits block
+            //boomerang enemy breaks since they wait for the boomerang even though it is removed.
+        }
+    }
+}

@@ -25,10 +25,6 @@ namespace sprint0
             {
                 UpdateKeeseMovement(gameTime, ref Velocity);
             }
-            else if (sourceRectangle == EnemyRectangle.Octorok)
-            {
-                UpdateOctorokMovement(gameTime, ref Velocity);
-            }
         }
 
         public static void UpdateGoriyaFrame(Vector2 velocity, ref Sprite testSprite)
@@ -106,11 +102,6 @@ namespace sprint0
             int randomSpeedY = randomGen.Next(-1, 2);
 
             Velocity = new Vector2(randomSpeedX, randomSpeedY);
-        }
-
-        public static void UpdateOctorokMovement(GameTime gameTime, ref Vector2 Velocity)
-        {
-            Velocity = new Vector2(0, 0);
         }
     }
 }

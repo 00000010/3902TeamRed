@@ -51,7 +51,23 @@ namespace sprint0
         };
 
         //Spinny and shoots things
-        public static Rectangle[] Octorok = { 
+        //public static Rectangle[] OctorokDown = { 
+        //    new Rectangle(0, 0, 20, 20)
+        //};
+
+        //public static Rectangle[] OctorokLeft = {
+        //    new Rectangle(28, 0, 20, 20)
+        //};
+
+        //public static Rectangle[] OctorokUp = {
+        //    new Rectangle(58, 0, 20, 20)
+        //};
+
+        //public static Rectangle[] OctorokRight = {
+        //    new Rectangle(88, 0, 20, 20)
+        //};
+
+        public static Rectangle[] Octorok = {
             new Rectangle(0, 0, 20, 20),
             new Rectangle(28, 0, 20, 20),
             new Rectangle(58, 0, 20, 20),

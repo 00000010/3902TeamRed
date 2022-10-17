@@ -87,6 +87,7 @@ namespace sprint0
         public Octorok(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.Octorok(position);
+            Direction = Direction.DOWN;
             Velocity = Vector2.Zero;
         }
     }

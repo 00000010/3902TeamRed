@@ -20,7 +20,7 @@ namespace sprint0
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
 
-        public int Direction { get; set; }
+        public Direction Direction { get; set; }
         public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();

@@ -292,28 +292,53 @@ namespace sprint0
 
         public Sprite GoriyaLeft(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position);
+            result.Direction = Direction.DOWN;
+            return result;
         }
 
         public Sprite GoriyaRight(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaRight, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaRight, spriteBatch, position);
+            result.Direction = Direction.RIGHT;
+            return result;
         }
 
         public Sprite GoriyaUp(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaUp, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaUp, spriteBatch, position);
+            result.Direction = Direction.UP;
+            return result;
         }
 
         public Sprite GoriyaDown(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaDown, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaDown, spriteBatch, position);
+            result.Direction = Direction.DOWN;
+            return result;
         }
 
         public Sprite Gel(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position);
         }
+        //public Sprite OctorokLeft(Vector2 position)
+        //{
+        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokLeft, spriteBatch, position);
+        //}
+        //public Sprite OctorokRight(Vector2 position)
+        //{
+        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokRight, spriteBatch, position);
+        //}
+        //public Sprite OctorokDown(Vector2 position)
+        //{
+        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokDown, spriteBatch, position);
+        //}
+        //public Sprite OctorokUp(Vector2 position)
+        //{
+        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokUp, spriteBatch, position);
+        //}
+
         public Sprite Octorok(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position);
