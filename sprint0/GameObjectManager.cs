@@ -219,9 +219,10 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            // Ensure Link does not keep attacking, but only with each press
             if (player.State == State.ATTACKING)
             {
-                if (rotation == 10)
+                if (rotation == 7)
                 {
                     player.State = State.STANDING;
                     UpdatePlayerSprite();

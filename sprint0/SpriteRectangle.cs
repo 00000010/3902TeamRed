@@ -196,24 +196,48 @@ namespace sprint0
         public static Rectangle[] LinkAttackingRight =
         {
             new Rectangle(120, 80, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
             new Rectangle(120, 120, 40, 40)
         };
 
         public static Rectangle[] LinkAttackingLeft =
         {
             new Rectangle(40, 80, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
             new Rectangle(40, 120, 40, 40)
         };
 
         public static Rectangle[] LinkAttackingDown =
         {
             new Rectangle(0, 80, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
             new Rectangle(0, 120, 40, 40)
         };
 
         public static Rectangle[] LinkAttackingUp =
         {
             new Rectangle(80, 80, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
             new Rectangle(80, 120, 40, 40)
         };
     }
