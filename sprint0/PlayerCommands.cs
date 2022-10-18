@@ -98,6 +98,24 @@ namespace sprint0
         }
     }
 
+    internal class PlayerAttackingCommand : ICommand
+    {
+        private Game1 game;
+        private IPlayer player;
+        private GameObjectManager manager;
+
+        public PlayerAttackingCommand(Game1 game)
+        {
+            this.game = game;
+            manager = game.manager;
+        }
+
+        public void Execute()
+        {
+            Console.WriteLine("Attacking not implemented!");
+        }
+    }
+
     internal class PlayerDamageCommand : ICommand
     {
         private Game1 game;
@@ -128,11 +146,11 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
-            player = manager.player;
         }
 
         public void Execute()
         {
+            player = manager.player;
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
             manager.AddObject(arrow);
         }

@@ -82,7 +82,7 @@ namespace sprint0
 
             /* N and Z keys for Link attacking */
             this.RegisterCommand(Keys.Z, new PlayerArrowCommand(game));
-            //this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
+            this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* E key for Link being damaged in whatever state he's in */
             this.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
