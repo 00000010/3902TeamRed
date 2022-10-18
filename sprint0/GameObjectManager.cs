@@ -24,7 +24,6 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
-            //player = game.player;
         }
 
         public void UpdatePlayerState()
@@ -61,9 +60,9 @@ namespace sprint0
                     player.Direction = Direction.RIGHT;
                 }
             }
+
             if (player.TakingDamage)
             {
-                Console.WriteLine("Taking damage!");
                 switch (player.State)
                 {
                     case State.RUNNING:

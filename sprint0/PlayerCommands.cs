@@ -49,7 +49,7 @@ namespace sprint0
             }
             Vector2 oldVelocity = manager.player.Velocity;
             Debug.WriteLine(manager.player.Velocity);
-            manager.player.Velocity = oldVelocity + newVelocity;
+            manager.player.Velocity = Vector2.Normalize(oldVelocity + newVelocity);
             Debug.WriteLine(manager.player.Velocity);
             manager.UpdatePlayerSprite();
         }
@@ -90,8 +90,7 @@ namespace sprint0
                 default:
                     break;
             }
-            Vector2 oldVelocity = manager.player.Velocity;
-            manager.player.Velocity = oldVelocity + newVelocity;
+            manager.player.Velocity = Vector2.Zero;
 
             manager.UpdatePlayerState();
             manager.UpdatePlayerSprite();
