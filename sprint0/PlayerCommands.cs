@@ -108,11 +108,11 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
-            player = manager.player;
         }
 
         public void Execute()
         {
+            player = manager.player; // player must be set here; if set in constructor, player is null since it has not been added to the manager yet
             player.TakingDamage = !player.TakingDamage;
             manager.UpdatePlayerSprite();
         }

@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-//using System.Numerics;
 using System.Diagnostics;
 
 namespace sprint0
@@ -64,6 +63,7 @@ namespace sprint0
             }
             if (player.TakingDamage)
             {
+                Console.WriteLine("Taking damage!");
                 switch (player.State)
                 {
                     case State.RUNNING:
