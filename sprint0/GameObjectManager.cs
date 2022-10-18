@@ -21,6 +21,8 @@ namespace sprint0
         private List<object> objectsToAdd = new List<object>();
         private List<object> objectsToRemove = new List<object>();
 
+        private int rotation = 0;
+
         public GameObjectManager(Game1 game)
         {
             this.game = game;
@@ -150,7 +152,6 @@ namespace sprint0
                         }
                         break;
                     case State.ATTACKING:
-                        Console.WriteLine("Attacking!");
                         switch (player.Direction)
                         {
                             case Direction.UP:
@@ -218,6 +219,17 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            if (player.State == State.ATTACKING)
+            {
+                if (rotation == 10)
+                {
+                    player.State = State.STANDING;
+                    UpdatePlayerSprite();
+                    rotation = 0;
+                }
+                rotation++;
+            }
+
             foreach (object obj in objectsToRemove)
             {
                 if (obj is IDrawable)
@@ -251,6 +263,7 @@ namespace sprint0
             {
                 updateable.Update(gameTime);
             }
+
             //for (int i = 0; i < projectilesInFlight.Count; i++)
             //{
             //    projectilesInFlight[i].Update(gameTime);

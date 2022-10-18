@@ -208,7 +208,7 @@ namespace sprint0
         public static Rectangle[] LinkAttackingDown =
         {
             new Rectangle(0, 80, 40, 40),
-            new Rectangle(0, 120, 18, 40)
+            new Rectangle(0, 120, 40, 40)
         };
 
         public static Rectangle[] LinkAttackingUp =
