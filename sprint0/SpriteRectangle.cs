@@ -191,5 +191,29 @@ namespace sprint0
             new Rectangle(90, 10, 18, 18),
             new Rectangle(251, 10, 18, 18)
         };
+
+        public static Rectangle[] LinkAttackingRight =
+        {
+            new Rectangle(120, 80, 40, 40),
+            new Rectangle(120, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingLeft =
+        {
+            new Rectangle(40, 80, 40, 40),
+            new Rectangle(40, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingDown =
+        {
+            new Rectangle(0, 80, 40, 40),
+            new Rectangle(0, 120, 18, 40)
+        };
+
+        public static Rectangle[] LinkAttackingUp =
+        {
+            new Rectangle(80, 80, 40, 40),
+            new Rectangle(80, 120, 40, 40)
+        };
     }
 }

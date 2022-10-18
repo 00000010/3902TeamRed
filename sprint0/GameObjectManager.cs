@@ -149,6 +149,26 @@ namespace sprint0
                                 break;
                         }
                         break;
+                    case State.ATTACKING:
+                        Console.WriteLine("Attacking!");
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingUp(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingDown(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingLeft(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingRight(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                     default:
                         break;
                 }

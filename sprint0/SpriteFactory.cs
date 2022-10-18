@@ -190,6 +190,28 @@ namespace sprint0
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDownDamaged, spriteBatch, position);
         }
 
+        /*
+         * Link attacking
+         */
+        public Sprite LinkAttackingRight(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRight, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingLeft(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeft, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingUp(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUp, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingDown(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDown, spriteBatch, position);
+        }
 
         public Sprite ZeldaGreen(Vector2 position)
         {

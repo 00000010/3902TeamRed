@@ -101,6 +101,7 @@ namespace sprint0
     {
         private Game1 game;
         private IPlayer player;
+        private Direction direction;
         private GameObjectManager manager;
 
         public PlayerAttackingCommand(Game1 game)
@@ -111,7 +112,10 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Attacking not implemented!");
+            player = manager.player;
+            player.State = State.ATTACKING;
+            player.Velocity = Vector2.Zero; // TODO: not sure if needed
+            manager.UpdatePlayerSprite();
         }
     }
 
