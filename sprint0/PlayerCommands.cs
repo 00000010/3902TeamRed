@@ -30,27 +30,68 @@ namespace sprint0
             {
                 case Direction.LEFT:
                     newVelocity.X -= 1;
-                    manager.player.Direction = Direction.LEFT;
                     break;
                 case Direction.RIGHT:
                     newVelocity.X += 1;
-                    manager.player.Direction = Direction.RIGHT;
                     break;
                 case Direction.UP:
                     newVelocity.Y -= 1;
-                    manager.player.Direction = Direction.UP;
                     break;
                 case Direction.DOWN:
                     newVelocity.Y += 1;
-                    manager.player.Direction = Direction.DOWN;
                     break;
                 default:
                     break;
             }
             Vector2 oldVelocity = manager.player.Velocity;
             Debug.WriteLine(manager.player.Velocity);
-            manager.player.Velocity = Vector2.Normalize(oldVelocity + newVelocity);
+            manager.player.Velocity = oldVelocity + newVelocity;
             Debug.WriteLine(manager.player.Velocity);
+            manager.UpdatePlayerSprite();
+        }
+    }
+
+    internal class PlayerStandingCommand : ICommand
+    {
+        private Game1 game;
+        private IPlayer player;
+        private GameObjectManager manager;
+        private Direction direction;
+
+        public PlayerStandingCommand(Game1 game, Direction direction)
+        {
+            this.game = game;
+            this.direction = direction;
+            manager = game.manager;
+            player = manager.player;
+        }
+
+        public void Execute()
+        {
+            Vector2 newVelocity = Vector2.Zero;
+
+            switch (direction)
+            {
+                case Direction.LEFT:
+                    newVelocity.X += 1;
+                    break;
+                case Direction.RIGHT:
+                    newVelocity.X -= 1;
+                    break;
+                case Direction.UP:
+                    newVelocity.Y += 1;
+                    break;
+                case Direction.DOWN:
+                    newVelocity.Y -= 1;
+                    break;
+                default:
+                    break;
+            }
+
+            Vector2 oldVelocity = player.Velocity;
+            player.Velocity = oldVelocity + newVelocity;
+
+            manager.UpdatePlayerState();
             manager.UpdatePlayerSprite();
         }
     }
