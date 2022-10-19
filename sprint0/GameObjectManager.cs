@@ -320,33 +320,8 @@ namespace sprint0
              */
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
-
+            //UpdateProjectileMotion(gameTime, projectilesInFlight, this);
         }
-
-
-        //public void UpdateProjectileMotion(GameTime gameTime)
-        //{
-        //    for (int i = 0; i < projectilesInFlight.Count; i++)
-        //    {
-        //        projectilesInFlight[i].Update(gameTime);
-        //        //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-        //        if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
-        //        {
-        //            game.currEnemy.projectileInMotion = false;
-        //            i--;
-        //        }
-        //    }
-        //}
-
-        //private bool ProjectileOutOfBounds(ISprite projectile)
-        //{
-        //    if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
-        //    {
-        //        removeProjectile(projectile);
-        //        return true;
-        //    }
-        //    return false;
-        //}
 
         //private bool ProjectileBackToShooter(ISprite projectile)
         //{

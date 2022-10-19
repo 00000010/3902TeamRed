@@ -73,7 +73,7 @@ namespace sprint0
                 Rectangle intersect = Rectangle.Intersect(playerRect, enemyRect);
                 if (!intersect.IsEmpty)
                 {
-                    string intersectionLoc = GetIntersectionLocation(player.Sprite.SourceRectangle[player.Sprite.Frame], intersect);
+                    string intersectionLoc = GetIntersectionLocation(playerRect, intersect);
                     CollisionResolution.CallCorrespondingCommand(player, currEnemy, manager, intersectionLoc);
                 }
             }
@@ -208,24 +208,24 @@ namespace sprint0
 
         private static string GetIntersectionLocation(Rectangle Moving, Rectangle intersect)
         {
-            //if it returns left then the moving object collided with the left of the non moving object (or moving)
-            if (intersect.Height > intersect.Width) //left-right collision
+            //Left-Right
+            if (intersect.Height > intersect.Width && Moving.Right == intersect.Right)
             {
-                if (Moving.Right == intersect.Right)
-                {
-                    return "right";
-                }
+                return "right";
+            }
+            else if (intersect.Height > intersect.Width && Moving.Left == intersect.Left)
+            {
                 return "left";
+            }
+            //Top-Bottom
+            else if (Moving.Top == intersect.Top)
+            {
+                return "bottom";
             }
             else
             {
-                if (Moving.Top == intersect.Top)
-                {
-                    return "bottom";
-                }
                 return "top";
             }
-
         }
     }
 }
