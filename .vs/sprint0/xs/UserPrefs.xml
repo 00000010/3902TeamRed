@@ -1,17 +1,31 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/PlayerCommands.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/KeyboardController.cs">
     <Files>
-      <File FileName="sprint0/GameObjectManager.cs" Line="23" Column="1" />
-      <File FileName="sprint0/PlayerCommands.cs" Line="114" Column="10" />
-      <File FileName="sprint0/KeyboardController.cs" Line="85" Column="73" />
-      <File FileName="sprint0/Game1.cs" Line="78" Column="1" />
+      <File FileName="sprint0/GameObjectManager.cs" Line="283" Column="14" />
+      <File FileName="sprint0/PlayerCommands.cs" Line="77" Column="1" />
+      <File FileName="sprint0/KeyboardController.cs" Line="50" Column="44" />
+      <File FileName="sprint0/Game1.cs" Line="59" Column="50" />
+      <File FileName="sprint0/SpriteRectangle.cs" Line="219" Column="1" />
+      <File FileName="sprint0/LevelLoader.cs" Line="105" Column="33" />
+      <File FileName="sprint0/Content/Levels/Level1.xml" Line="1" Column="1" />
+      <File FileName="sprint0/Sprite.cs" Line="27" Column="1" />
+      <File FileName="sprint0/Player.cs" Line="24" Column="9" />
+      <File FileName="sprint0/Enemy.cs" Line="18" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
-              <Node name="Content" expanded="True" />
+              <Node name="Content" expanded="True">
+                <Node name="Levels" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -21,11 +35,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

@@ -55,14 +55,15 @@ namespace sprint0
         }
     }
 
-    internal class PlayerStandingCommand : ICommand
+    internal class PlayerStopRunningCommand : ICommand
     {
         private Game1 game;
         private IPlayer player;
         private GameObjectManager manager;
         private Direction direction;
 
-        public PlayerStandingCommand(Game1 game, Direction direction)
+        // Stop running in the CURRENT direction but keep running in other directions if key pressed
+        public PlayerStopRunningCommand(Game1 game, Direction direction)
         {
             this.game = game;
             this.direction = direction;
@@ -71,29 +72,27 @@ namespace sprint0
 
         public void Execute()
         {
-            Vector2 newVelocity = Vector2.Zero;
-
+            Vector2 newVelocity = manager.player.Velocity;
             switch (direction)
             {
                 case Direction.LEFT:
-                    newVelocity.X += 1;
-                    break;
                 case Direction.RIGHT:
-                    newVelocity.X -= 1;
+                    newVelocity.X = 0;
                     break;
                 case Direction.UP:
-                    newVelocity.Y += 1;
-                    break;
                 case Direction.DOWN:
-                    newVelocity.Y -= 1;
+                    newVelocity.Y = 0;
                     break;
                 default:
                     break;
             }
-            manager.player.Velocity = Vector2.Zero;
-
-            manager.UpdatePlayerState();
+            manager.player.Velocity = newVelocity;
+            if (manager.player.Velocity == Vector2.Zero)
+            {
+                manager.player.State = State.STANDING;
+            }
             manager.UpdatePlayerSprite();
+            manager.UpdatePlayerState();
         }
     }
 
@@ -114,7 +113,7 @@ namespace sprint0
         {
             player = manager.player;
             player.State = State.ATTACKING;
-            player.Velocity = Vector2.Zero; // TODO: not sure if needed
+            player.Velocity = Vector2.Zero; // TODO: comment this line out to make Link attack and kind of keep running; causes weird bug where Link can somehow disappear...; need to decide whether to fix this or call it a feature
             manager.UpdatePlayerSprite();
         }
     }

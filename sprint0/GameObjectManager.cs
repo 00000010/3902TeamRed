@@ -222,7 +222,7 @@ namespace sprint0
             // Ensure Link does not keep attacking, but only with each press
             if (player.State == State.ATTACKING)
             {
-                if (rotation == 7)
+                if (rotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
                 {
                     player.State = State.STANDING;
                     UpdatePlayerSprite();
