@@ -26,28 +26,28 @@ namespace sprint0
             {
                 if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
-                    player.Position -= new Vector2(0, 10);
+                    player.Position -= new Vector2(0, 2);
                 }
             }
             else if (intersectionLoc == "bottom")
             {
                 if (player.Velocity.Y < 0)
                 {
-                    player.Position += new Vector2(0, 10);
+                    player.Position += new Vector2(0, 2);
                 }
             }
             else if (intersectionLoc == "left")
             {
                 if (player.Velocity.X < 0)
                 {
-                    player.Position += new Vector2(10, 0);
+                    player.Position += new Vector2(2, 0);
                 }
             }
             else //right
             {
                 if (player.Velocity.X > 0)
                 {
-                    player.Position -= new Vector2(10, 0);
+                    player.Position -= new Vector2(2, 0);
                 }
             }
         }

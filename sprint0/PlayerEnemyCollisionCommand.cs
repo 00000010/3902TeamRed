@@ -29,28 +29,28 @@ namespace sprint0
             {
                 if (player.Velocity.Y > 0 && enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
                 {
-                    player.Position -= new Vector2(0, 10);
+                    player.Position -= new Vector2(0, 5);
                 }
             }
             else if (intersectionLoc == "bottom")
             {
                 if (player.Velocity.Y < 0 && enemy.Velocity.Y > 0)
                 {
-                    player.Position += new Vector2(0, 10);
+                    player.Position += new Vector2(0, 5);
                 }
             }
             else if (intersectionLoc == "left")
             {
                 if (player.Velocity.X < 0 && enemy.Velocity.X > 0)
                 {
-                    player.Position += new Vector2(10, 0);
+                    player.Position += new Vector2(5, 0);
                 }
             }
             else //right
             {
                 if (player.Velocity.X > 0 && enemy.Velocity.X < 0)
                 {
-                    player.Position -= new Vector2(10, 0);
+                    player.Position -= new Vector2(5, 0);
                 }
             }
         }

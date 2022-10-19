@@ -23,7 +23,7 @@ namespace sprint0
 
         public void Execute()
         {
-            manager.removeProjectile((IProjectile)projectile); //projectile breaks when hits block
+            manager.objectsToRemove.Add(projectile);
             //boomerang enemy breaks since they wait for the boomerang even though it is removed.
         }
     }

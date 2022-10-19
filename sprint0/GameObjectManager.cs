@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 //using System.Numerics;
 using System.Diagnostics;
+using System.Net;
 
 namespace sprint0
 {
@@ -18,12 +19,11 @@ namespace sprint0
         public List<IEnemy> enemies = new List<IEnemy>();
         public List<IBlock> blocks = new List<IBlock>();
         public List<IItem> items = new List<IItem>();
-        public Dictionary<IProjectile, string> initDirectionOfFire = new Dictionary<IProjectile, string>();
         public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
         public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
 
-        private List<object> objectsToAdd = new List<object>();
-        private List<object> objectsToRemove = new List<object>();
+        public List<object> objectsToAdd = new List<object>();
+        public List<object> objectsToRemove = new List<object>();
 
         private int attackingRotation = 0;
         private int damageRotation = 0;
@@ -114,9 +114,7 @@ namespace sprint0
 
         public void UpdatePlayerSprite()
         {
-
             Vector2 velocity = player.Velocity;
-
             if (velocity.X == 0)
             {
                 if (velocity.Y < 0)
@@ -140,7 +138,6 @@ namespace sprint0
                     player.Direction = Direction.RIGHT;
                 }
             }
-
 
             if (player.TakingDamage)
             {
@@ -179,6 +176,25 @@ namespace sprint0
                                 break;
                             case Direction.RIGHT:
                                 player.Sprite = SpriteFactory.Instance.LinkStandingRightDamaged(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case State.ATTACKING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingUpDamaged(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingDownDamaged(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingLeftDamaged(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingRightDamaged(player.Position);
                                 break;
                             default:
                                 break;
@@ -230,6 +246,25 @@ namespace sprint0
                                 break;
                         }
                         break;
+                    case State.ATTACKING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingUp(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingDown(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingLeft(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkAttackingRight(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -237,11 +272,21 @@ namespace sprint0
             player.Velocity = velocity;
         }
 
-
+        /**
+         * Add the object to the manager.
+         * An object is not playable.
+         */
         public void AddObject(object obj)
         {
             objectsToAdd.Add(obj);
         }
+
+        public void AddPlayer(object player)
+        {
+            this.player = (IPlayer)player;
+            AddObject(player);
+        }
+
         public void RemoveObject(object obj)
         {
             objectsToRemove.Add(obj);
@@ -249,6 +294,28 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            // Ensure Link does not keep attacking, but only with each press
+            if (player.State == State.ATTACKING)
+            {
+                if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
+                {
+                    player.State = State.STANDING;
+                    UpdatePlayerSprite();
+                    attackingRotation = 0;
+                }
+                attackingRotation++;
+            }
+
+            if (player.TakingDamage)
+            {
+                if (damageRotation == 300)
+                {
+                    player.TakingDamage = !player.TakingDamage;
+                    UpdatePlayerSprite();
+                    damageRotation = 0;
+                }
+                damageRotation++;
+            }
 
             foreach (object obj in objectsToRemove)
             {
@@ -320,12 +387,20 @@ namespace sprint0
 
             objectsToAdd.Clear();
 
+            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+
+            foreach (IUpdateable updateable in updateables)
+            {
+                updateable.Update(gameTime);
+            }
+
+            objectsToAdd.Clear();
+
             /*
              * UpdateProjectileMotion(gameTime);
              */
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
-            //UpdateProjectileMotion(gameTime, projectilesInFlight, this);
         }
 
         public void Draw(GameTime gameTime)
