@@ -21,7 +21,8 @@ namespace sprint0
         private List<object> objectsToAdd = new List<object>();
         private List<object> objectsToRemove = new List<object>();
 
-        private int rotation = 0;
+        private int attackingRotation = 0;
+        private int damageRotation = 0;
 
         public GameObjectManager(Game1 game)
         {
@@ -222,13 +223,24 @@ namespace sprint0
             // Ensure Link does not keep attacking, but only with each press
             if (player.State == State.ATTACKING)
             {
-                if (rotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
+                if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
                 {
                     player.State = State.STANDING;
                     UpdatePlayerSprite();
-                    rotation = 0;
+                    attackingRotation = 0;
                 }
-                rotation++;
+                attackingRotation++;
+            }
+
+            if (player.TakingDamage)
+            {
+                if (damageRotation == 300)
+                {
+                    player.TakingDamage = !player.TakingDamage;
+                    UpdatePlayerSprite();
+                    damageRotation = 0;
+                }
+                damageRotation++;
             }
 
             foreach (object obj in objectsToRemove)

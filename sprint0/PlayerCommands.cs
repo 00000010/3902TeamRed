@@ -87,12 +87,8 @@ namespace sprint0
                     break;
             }
             manager.player.Velocity = newVelocity;
-            if (manager.player.Velocity == Vector2.Zero)
-            {
-                manager.player.State = State.STANDING;
-            }
-            manager.UpdatePlayerSprite();
             manager.UpdatePlayerState();
+            manager.UpdatePlayerSprite();
         }
     }
 
