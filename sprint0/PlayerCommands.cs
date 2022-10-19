@@ -11,20 +11,18 @@ namespace sprint0
     internal class PlayerRunningCommand : ICommand
     {
         private Game1 game;
-        //private IPlayer player;
         private GameObjectManager manager;
         private Direction direction;
         public PlayerRunningCommand(Game1 game, Direction direction)
         {
             this.game = game;
             this.direction = direction;
-            //player = game.player;
             manager = game.manager;
         }
         public void Execute()
         {
-            game.player.Direction = direction;
-            game.player.State = State.RUNNING;
+            manager.player.Direction = direction;
+            manager.player.State = State.RUNNING;
 
             Vector2 newVelocity = Vector2.Zero;
 
@@ -45,11 +43,10 @@ namespace sprint0
                 default:
                     break;
             }
-
-            Vector2 oldVelocity = game.player.Velocity;
-            Debug.WriteLine(game.player.Velocity);
-            game.player.Velocity = oldVelocity + newVelocity;
-            Debug.WriteLine(game.player.Velocity);
+            Vector2 oldVelocity = manager.player.Velocity;
+            Debug.WriteLine(manager.player.Velocity);
+            manager.player.Velocity = oldVelocity + newVelocity;
+            Debug.WriteLine(manager.player.Velocity);
             manager.UpdatePlayerSprite();
         }
     }
@@ -65,8 +62,8 @@ namespace sprint0
         {
             this.game = game;
             this.direction = direction;
-            player = game.player;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -99,6 +96,65 @@ namespace sprint0
         }
     }
 
+    internal class PlayerStopRunningCommand : ICommand
+    {
+        private Game1 game;
+        private IPlayer player;
+        private GameObjectManager manager;
+        private Direction direction;
+
+        // Stop running in the CURRENT direction but keep running in other directions if key pressed
+        public PlayerStopRunningCommand(Game1 game, Direction direction)
+        {
+            this.game = game;
+            this.direction = direction;
+            manager = game.manager;
+        }
+
+        public void Execute()
+        {
+            Vector2 newVelocity = manager.player.Velocity;
+            switch (direction)
+            {
+                case Direction.LEFT:
+                case Direction.RIGHT:
+                    newVelocity.X = 0;
+                    break;
+                case Direction.UP:
+                case Direction.DOWN:
+                    newVelocity.Y = 0;
+                    break;
+                default:
+                    break;
+            }
+            manager.player.Velocity = newVelocity;
+            manager.UpdatePlayerState();
+            manager.UpdatePlayerSprite();
+        }
+    }
+
+    internal class PlayerAttackingCommand : ICommand
+    {
+        private Game1 game;
+        private IPlayer player;
+        private Direction direction;
+        private GameObjectManager manager;
+
+        public PlayerAttackingCommand(Game1 game)
+        {
+            this.game = game;
+            manager = game.manager;
+        }
+
+        public void Execute()
+        {
+            player = manager.player;
+            player.State = State.ATTACKING;
+            player.Velocity = Vector2.Zero; // TODO: comment this line out to make Link attack and kind of keep running; causes weird bug where Link can somehow disappear...; need to decide whether to fix this or call it a feature
+            manager.UpdatePlayerSprite();
+        }
+    }
+
     internal class PlayerDamageCommand : ICommand
     {
         private Game1 game;
@@ -109,11 +165,11 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
-            player = game.player;
         }
 
         public void Execute()
         {
+            player = manager.player; // player must be set here; if set in constructor, player is null since it has not been added to the manager yet
             player.TakingDamage = !player.TakingDamage;
             manager.UpdatePlayerSprite();
         }
@@ -128,12 +184,12 @@ namespace sprint0
         public PlayerArrowCommand(Game1 game)
         {
             this.game = game;
-            player = game.player;
             manager = game.manager;
         }
 
         public void Execute()
         {
+            player = manager.player;
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
             manager.AddObject(arrow);
         }

@@ -18,29 +18,10 @@ namespace sprint0
     /// </summary>
     public class SpriteFactory
     {
-        private Texture2D linkSpritesheet;
-        private Texture2D enemiesSpritesheet;
-        private Texture2D projectileSpritesheet;
-        private Texture2D boomerangSpritesheet;
-        private Texture2D octorokSpritesheet;
-
-        private Texture2D GreenBlock;
-        private Texture2D BlackBlock;
-        private Texture2D PurpleBlock;
-
-        private Texture2D Arrow;
-        private Texture2D BlueCandle;
-        private Texture2D Bomb;
-        private Texture2D Boomerang;
-        private Texture2D Bow;
-        private Texture2D Clock;
-        private Texture2D Compass;
-        private Texture2D Fairy;
-        private Texture2D Food;
-        private Texture2D Heart;
-        private Texture2D HeartContainer;
-        private Texture2D Key;
-        private Texture2D Letter;
+        private Texture2D dungeonSheet;
+        private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
+        private Texture2D GreenBlock, BlackBlock, PurpleBlock;
+        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
 
         private SpriteBatch spriteBatch;
 
@@ -63,6 +44,7 @@ namespace sprint0
         {
             this.spriteBatch = spriteBatch;
 
+            dungeonSheet = content.Load<Texture2D>("DungeonBackground");
             linkSpritesheet = content.Load<Texture2D>("Link");
 
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
@@ -108,6 +90,14 @@ namespace sprint0
         public void LoadZeldaTextures(ContentManager content)
         {
 
+        }
+
+        /*
+         * Background
+         */
+        public Sprite Dungeon(Vector2 position)
+        {
+            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position);
         }
 
         /*
@@ -178,7 +168,7 @@ namespace sprint0
         }
 
         /*
-         * Link standing
+         * Link standing and damaged
          */
         public Sprite LinkStandingRightDamaged(Vector2 position)
         {
@@ -200,6 +190,51 @@ namespace sprint0
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDownDamaged, spriteBatch, position);
         }
 
+        /*
+         * Link attacking and damaged
+         */
+        public Sprite LinkAttackingRightDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRightDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingLeftDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeftDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingUpDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUpDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingDownDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDownDamaged, spriteBatch, position);
+        }
+
+        /*
+         * Link attacking
+         */
+        public Sprite LinkAttackingRight(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRight, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingLeft(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeft, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingUp(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUp, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingDown(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDown, spriteBatch, position);
+        }
 
         public Sprite ZeldaGreen(Vector2 position)
         {

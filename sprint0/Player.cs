@@ -38,6 +38,7 @@ namespace sprint0
 
         public virtual void Update(GameTime gameTime)
         {
+            Sprite.Position += Velocity;
             Sprite.Update(gameTime);
         }
     }
