@@ -168,7 +168,7 @@ namespace sprint0
         }
 
         /*
-         * Link standing
+         * Link standing and damaged
          */
         public Sprite LinkStandingRightDamaged(Vector2 position)
         {
@@ -188,6 +188,29 @@ namespace sprint0
         public Sprite LinkStandingDownDamaged(Vector2 position)
         {
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDownDamaged, spriteBatch, position);
+        }
+
+        /*
+         * Link attacking and damaged
+         */
+        public Sprite LinkAttackingRightDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRightDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingLeftDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeftDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingUpDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUpDamaged, spriteBatch, position);
+        }
+
+        public Sprite LinkAttackingDownDamaged(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDownDamaged, spriteBatch, position);
         }
 
         /*
