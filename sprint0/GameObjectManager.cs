@@ -17,7 +17,7 @@ namespace sprint0
         public List<IItem> items = new List<IItem>();
         public Dictionary<IProjectile, string> initDirectionOfFire = new Dictionary<IProjectile, string>();
         public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
-        public Dictionary<Tuple<Type, Type>, Type> collisionResolutionDic = new Dictionary<Tuple<Type, Type>, Type>();
+        public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
 
         private List<object> objectsToAdd = new List<object>();
         private List<object> objectsToRemove = new List<object>();
@@ -31,31 +31,21 @@ namespace sprint0
 
         private void PopulateCollisionResolutionDic()
         {
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaBlackBlock")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Block"),
                 Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaGreenBlock")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaPurpleBlock")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Stalfos")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Octorok")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Block")),
-                Type.GetType("sprint0.EnemyBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Enemy")),
-                Type.GetType("sprint0.EnemyEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Projectile")),
-                Type.GetType("sprint0.EnemyProjectileCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Block")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Enemy")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Item")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Projectile"),
+                Type.GetType("sprint0.PlayerProjectileCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Item"),
                 Type.GetType("sprint0.PlayerItemCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"),
-                Type.GetType("sprint0.Projectile")), Type.GetType("PlayerProjectileCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Projectile"), Type.GetType("sprint0.Block")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Enemy"),
+                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Enemy"),
+                Type.GetType("sprint0.EnemyEnemyCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Projectile"),
+                Type.GetType("sprint0.EnemyProjectileCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Block"),
+                Type.GetType("sprint0.EnemyBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Projectile", "Block"),
                 Type.GetType("sprint0.ProjectileBlockCollisionCommand"));
         }
 
