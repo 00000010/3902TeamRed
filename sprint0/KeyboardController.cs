@@ -31,14 +31,17 @@ namespace sprint0
             controllerMappings = new Dictionary<Keys, ICommand>();
             controllerMappingsUnpress = new Dictionary<Keys, ICommand>();
         }
+
         public void RegisterCommand(Keys key, ICommand command)
         {
             controllerMappings.Add(key, command);
         }
+
         public void RegisterCommandUnpress(Keys key, ICommand command)
         {
             controllerMappingsUnpress.Add(key, command);
         }
+
         public void Update(GameTime gameTime)
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
@@ -58,7 +61,6 @@ namespace sprint0
                     controllerMappings[key].Execute();
                 }
             }
-
             this.prevPressedKeys = pressedKeys;
         }
 
@@ -70,19 +72,14 @@ namespace sprint0
             this.RegisterCommand(Keys.S, new PlayerRunningCommand(game, Direction.DOWN));
             this.RegisterCommand(Keys.D, new PlayerRunningCommand(game, Direction.RIGHT));
 
-            this.RegisterCommandUnpress(Keys.W, new PlayerStandingCommand(game, Direction.UP));
-            this.RegisterCommandUnpress(Keys.A, new PlayerStandingCommand(game, Direction.LEFT));
-            this.RegisterCommandUnpress(Keys.S, new PlayerStandingCommand(game, Direction.DOWN));
-            this.RegisterCommandUnpress(Keys.D, new PlayerStandingCommand(game, Direction.RIGHT));
-
-            //this.RegisterCommand(Keys.Left, new LinkRunningLeftCommand(game));
-            //this.RegisterCommand(Keys.Up, new LinkRunningDownCommand(game));
-            //this.RegisterCommand(Keys.Down, new LinkRunningUpCommand(game));
-            //this.RegisterCommand(Keys.Right, new LinkRunningRightCommand(game));
+            this.RegisterCommandUnpress(Keys.W, new PlayerStopRunningCommand(game, Direction.UP));
+            this.RegisterCommandUnpress(Keys.A, new PlayerStopRunningCommand(game, Direction.LEFT));
+            this.RegisterCommandUnpress(Keys.S, new PlayerStopRunningCommand(game, Direction.DOWN));
+            this.RegisterCommandUnpress(Keys.D, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
             /* N and Z keys for Link attacking */
             this.RegisterCommand(Keys.Z, new PlayerArrowCommand(game));
-            //this.RegisterCommand(Keys.N, new LinkAttackingCommand(game));
+            this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* E key for Link being damaged in whatever state he's in */
             this.RegisterCommand(Keys.E, new PlayerDamageCommand(game));

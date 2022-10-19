@@ -20,7 +20,7 @@ namespace sprint0
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
 
-        public int Direction { get; set; }
+        public Direction Direction { get; set; }
         public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
@@ -87,12 +87,20 @@ namespace sprint0
             // wrap around screen
             if (Position.X > 800)
             {
-                Position = new Vector2(0 - SourceRectangle[Frame].Width, Position.Y);
+                Position = new Vector2(0, Position.Y);
             }
-            if (Position.Y > 480)
+            else if (Position.X < 0)
             {
-                Position = new Vector2(Position.X, 0 - SourceRectangle[Frame].Height);
-            }    
+                Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
+            }
+            else if (Position.Y > 480)
+            {
+                Position = new Vector2(Position.X, 0);
+            } 
+            else if (Position.Y < 0)
+            {
+                Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
+            }
         }
 
         public virtual void UpdateFrame(GameTime gameTime)

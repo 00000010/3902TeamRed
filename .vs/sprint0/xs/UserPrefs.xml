@@ -1,26 +1,13 @@
-﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/LevelLoader.cs">
-    <Files>
-      <File FileName="sprint0/LevelLoader.cs" Line="36" Column="1" />
-      <File FileName="sprint0/GameObjectManager.cs" Line="205" Column="1" />
-      <File FileName="sprint0/Content/Levels/Level1.xml" Line="5" Column="31" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="sprint0" expanded="True">
-            <Node name="sprint0" expanded="True">
-              <Node name="Content" expanded="True">
-                <Node name="bin" expanded="True" />
-                <Node name="Levels" expanded="True" />
-              </Node>
-              <Node name="LevelLoader.cs" selected="True" />
-            </Node>
-          </Node>
+          <Node name="sprint0" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
@@ -28,7 +15,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

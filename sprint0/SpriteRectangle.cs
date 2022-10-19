@@ -12,55 +12,25 @@ namespace sprint0
     /// </summary>
     public abstract class SpriteRectangle
     {
-        // TODO: Enums needed?
-        //public enum Character { LINK };
-        //public enum State { STANDING, RUNNING, ATTACKING };
-        //public enum Direction { LEFT, RIGHT, UP, DOWN };
-        //public enum Color { GREEN, BLUE, RED };
-        //public enum Health { HEALTHY, DAMAGED };
-
-        //Character character = Character.LINK;
-        //State state = State.STANDING;
-        //Direction direction = Direction.LEFT;
-        //Color color = Color.GREEN;
-        //Health health = Health.HEALTHY;
-
-        /// <summary>
-        /// Top left corner x-coordinate of rectangle containing sprites.
-        /// </summary>
-        /// <returns>The x-coordinate in pixels.</returns>
+        // Top left corner x-coordinate of rectangle containing sprites.
         public abstract int SourceX();
-        /// <summary>
-        /// Top left corner y-coordinate of rectangle containing sprites.
-        /// </summary>
-        /// <returns>The y-coordinate in pixels.</returns>
+
+        // Top left corner y-coordinate of rectangle containing sprites.
         public abstract int SourceY();
-        /// <summary>
-        /// The width of the rectangle containing the sprites.
-        /// </summary>
-        /// <returns>The width of the rectangle in pixels.</returns>
+
+        // The width of the rectangle containing the sprites.
         public abstract int SourceWidth();
-        /// <summary>
-        /// The height of the rectangle containing the sprites.
-        /// </summary>
-        /// <returns>The height of the rectangle in pixels.</returns>
+
+        // The height of the rectangle containing the sprites.
         public abstract int SourceHeight();
-        /// <summary>
-        /// The number of frames total for the sprite.
-        /// </summary>
-        /// <returns>The number of frames in the animation.</returns>
+
+        // The number of frames total for the sprite.
         public abstract int Frames();
-        /// <summary>
-        /// The number of colors the sprite will have.
-        /// </summary>
-        /// <returns>The number of colors the sprite will assume.</returns>
+
+        // The number of colors the sprite will have.
         public abstract int Colors();
 
-        /// <summary>
-        /// Create an array of rectangles, with each rectangle containing one frame of the sprite.
-        /// </summary>
-        /// <param name="finalizedRectangle"></param>
-        /// <returns></returns>
+        // Create an array of rectangles, with each rectangle containing one frame of the sprite.
         public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
         {
             int colors = finalizedRectangle.Colors();
@@ -94,102 +64,199 @@ namespace sprint0
 
         public static Rectangle[] LinkRunningRight =
         {
-            new Rectangle(130, 10, 18, 18),
-            new Rectangle(130, 50, 18, 18)
+            new Rectangle(120, 0, 40, 40),
+            new Rectangle(120, 40, 40, 40)
         };
 
         public static Rectangle[] LinkRunningLeft =
         {
-            new Rectangle(50, 10, 18, 18),
-            new Rectangle(50, 50, 18, 18)
+            new Rectangle(40, 0, 40, 40),
+            new Rectangle(40, 40, 40, 40)
         };
 
         public static Rectangle[] LinkRunningDown =
         {
-            new Rectangle(10, 10, 18, 18),
-            new Rectangle(10, 50, 18, 18)
+            new Rectangle(0, 0, 40, 40),
+            new Rectangle(0, 40, 40, 40)
         };
 
         public static Rectangle[] LinkRunningUp =
         {
-            new Rectangle(90, 10, 18, 18),
-            new Rectangle(90, 50, 18, 18)
+            new Rectangle(80, 0, 40, 40),
+            new Rectangle(80, 40, 40, 40)
         };
 
         public static Rectangle[] LinkStandingRight =
         {
-            new Rectangle(130, 10, 18, 18)
+            new Rectangle(120, 0, 40, 40)
         };
 
         public static Rectangle[] LinkStandingLeft =
         {
-            new Rectangle(50, 10, 18, 18)
+            new Rectangle(40, 0, 40, 40)
         };
 
         public static Rectangle[] LinkStandingDown =
         {
-            new Rectangle(10, 10, 18, 18)
+            new Rectangle(0, 0, 40, 40)
         };
 
         public static Rectangle[] LinkStandingUp =
         {
-            new Rectangle(90, 10, 18, 18)
+            new Rectangle(80, 0, 40, 40)
         };
 
         public static Rectangle[] LinkRunningRightDamaged =
 {
-            new Rectangle(130, 10, 18, 18),
-            new Rectangle(130, 50, 18, 18),
-            new Rectangle(291, 10, 18, 18),
-            new Rectangle(291, 50, 18, 18)
+            new Rectangle(120, 0, 40, 40),
+            new Rectangle(120, 40, 40, 40),
+            new Rectangle(280, 0, 40, 40),
+            new Rectangle(280, 40, 40, 40)
         };
 
         public static Rectangle[] LinkRunningLeftDamaged =
         {
-            new Rectangle(50, 10, 18, 18),
-            new Rectangle(50, 50, 18, 18),
-            new Rectangle(211, 10, 18, 18),
-            new Rectangle(211, 50, 18, 18)
+            new Rectangle(40, 0, 40, 40),
+            new Rectangle(40, 40, 40, 40),
+            new Rectangle(200, 0, 40, 40),
+            new Rectangle(200, 40, 40, 40)
         };
 
+        // TODO: looks weird
         public static Rectangle[] LinkRunningDownDamaged =
         {
-            new Rectangle(10, 10, 18, 18),
-            new Rectangle(10, 50, 18, 18),
-            new Rectangle(171, 10, 18, 18),
-            new Rectangle(171, 50, 18, 18)
+            new Rectangle(0, 0, 40, 40),
+            new Rectangle(0, 40, 40, 40),
+            new Rectangle(160, 0, 40, 40),
+            new Rectangle(160, 40, 40, 40)
         };
 
         public static Rectangle[] LinkRunningUpDamaged =
         {
-            new Rectangle(90, 10, 18, 18),
-            new Rectangle(90, 50, 18, 18),
-            new Rectangle(251, 10, 18, 18),
-            new Rectangle(251, 50, 18, 18)
+            new Rectangle(80, 0, 40, 40),
+            new Rectangle(80, 40, 40, 40),
+            new Rectangle(240, 0, 40, 40),
+            new Rectangle(240, 40, 40, 40)
         };
 
         public static Rectangle[] LinkStandingRightDamaged =
         {
-            new Rectangle(130, 10, 18, 18),
-            new Rectangle(291, 10, 18, 18)
+            new Rectangle(120, 0, 40, 40),
+            new Rectangle(280, 0, 40, 40)
         };
 
         public static Rectangle[] LinkStandingLeftDamaged =
         {
-            new Rectangle(50, 10, 18, 18),
-            new Rectangle(211, 10, 18, 18)
+            new Rectangle(40, 0, 40, 40),
+            new Rectangle(200, 0, 40, 40)
         };
 
         public static Rectangle[] LinkStandingDownDamaged =
         {
-            new Rectangle(10, 10, 18, 18),
-            new Rectangle(171, 10, 18, 18)
+            new Rectangle(0, 0, 40, 40),
+            new Rectangle(160, 40, 40, 40)
         };
 
         public static Rectangle[] LinkStandingUpDamaged =
         {
-            new Rectangle(90, 10, 18, 18),
-            new Rectangle(251, 10, 18, 18)
+            new Rectangle(80, 0, 40, 40),
+            new Rectangle(240, 40, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingRight =
+        {
+            new Rectangle(120, 80, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingLeft =
+        {
+            new Rectangle(40, 80, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingDown =
+        {
+            new Rectangle(0, 80, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingUp =
+        {
+            new Rectangle(80, 80, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingRightDamaged =
+        {
+            new Rectangle(120, 80, 40, 40),
+            new Rectangle(280, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(280, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(280, 120, 40, 40),
+            new Rectangle(120, 120, 40, 40),
+            new Rectangle(280, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingLeftDamaged =
+        {
+            new Rectangle(40, 80, 40, 40),
+            new Rectangle(200, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(200, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(200, 120, 40, 40),
+            new Rectangle(40, 120, 40, 40),
+            new Rectangle(200, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingDownDamaged =
+        {
+            new Rectangle(0, 80, 40, 40),
+            new Rectangle(160, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(160, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(160, 120, 40, 40),
+            new Rectangle(0, 120, 40, 40),
+            new Rectangle(160, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkAttackingUpDamaged =
+        {
+            new Rectangle(80, 80, 40, 40),
+            new Rectangle(240, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(240, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(240, 120, 40, 40),
+            new Rectangle(80, 120, 40, 40),
+            new Rectangle(240, 120, 40, 40)
         };
     }
 }

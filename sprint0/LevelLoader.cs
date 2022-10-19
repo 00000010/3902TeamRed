@@ -98,9 +98,12 @@ namespace sprint0
                         if (itemObj.ObjectType == "Player")
                         {
                             gameObjectManager.AddPlayer(thing);
-                        } else
+                        } else 
                         {
-                            // TODO: this is to ensure background gets drawn first, but there's probably a better way...
+                            if (itemObj.ObjectType == "Sprite")
+                            {
+                                
+                            }
                             gameObjectManager.AddObject(thing);
                         }
                         allItems.Add(thing);

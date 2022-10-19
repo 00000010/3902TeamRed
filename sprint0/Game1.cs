@@ -46,6 +46,8 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             manager = new GameObjectManager(this);
+            manager.AddObject(block); // CollisionDevBranch
+
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
 
