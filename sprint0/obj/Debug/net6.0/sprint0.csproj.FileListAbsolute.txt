@@ -215,3 +215,11 @@ C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
 C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
 C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
 >>>>>>> CollisionDevBranch
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.AssemblyReference.cache
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfoInputs.cache
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfo.cs
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CoreCompileInputs.cache
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.dll
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\refint\sprint0.dll
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.pdb

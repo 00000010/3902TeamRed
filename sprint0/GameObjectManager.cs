@@ -9,7 +9,10 @@ namespace sprint0
     public class GameObjectManager
     {
         private Game1 game;
-        private IPlayer player;
+        public IPlayer player;
+
+        public List<IUpdateable> updateables = new List<IUpdateable>();
+        public List<IDrawable> drawables = new List<IDrawable>();
 
         public List<IProjectile> projectilesInFlight = new List<IProjectile>();
         public List<IEnemy> enemies = new List<IEnemy>();
@@ -22,10 +25,12 @@ namespace sprint0
         private List<object> objectsToAdd = new List<object>();
         private List<object> objectsToRemove = new List<object>();
 
+        private int attackingRotation = 0;
+        private int damageRotation = 0;
+
         public GameObjectManager(Game1 game)
         {
             this.game = game;
-            player = game.player;
             PopulateCollisionResolutionDic();
         }
 
@@ -249,12 +254,12 @@ namespace sprint0
             {
                 if (obj is IDrawable)
                 {
-                    game.drawables.Remove((IDrawable)obj);
+                    drawables.Remove((IDrawable)obj);
                 }
 
                 if (obj is IUpdateable)
                 {
-                    game.updateables.Remove((IUpdateable)obj);
+                    updateables.Remove((IUpdateable)obj);
                 }
 
                 if (obj is IProjectile)
@@ -284,12 +289,12 @@ namespace sprint0
             {
                 if (obj is IDrawable)
                 {
-                    game.drawables.Add((IDrawable)obj);
+                    drawables.Add((IDrawable)obj);
                 }
 
                 if (obj is IUpdateable)
                 {
-                    game.updateables.Add((IUpdateable)obj);
+                    updateables.Add((IUpdateable)obj);
                 }
 
                 if (obj is IProjectile)
@@ -321,6 +326,14 @@ namespace sprint0
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
             //UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+        }
+
+        public void Draw(GameTime gameTime)
+        {
+            foreach (IDrawable drawable in drawables)
+            {
+                drawable.Draw(gameTime);
+            }
         }
 
         //private bool ProjectileBackToShooter(ISprite projectile)

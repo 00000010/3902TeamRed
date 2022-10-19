@@ -102,24 +102,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/chicken/.nuget/packages/": {}
+    "C:\\Users\\Abdelrahman\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chicken/3902TeamRed/sprint0/sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\sprint0.csproj",
       "projectName": "sprint0",
-      "projectPath": "/Users/chicken/3902TeamRed/sprint0/sprint0.csproj",
-      "packagesPath": "/Users/chicken/.nuget/packages/",
-      "outputPath": "/Users/chicken/3902TeamRed/sprint0/obj/",
+      "projectPath": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\sprint0.csproj",
+      "packagesPath": "C:\\Users\\Abdelrahman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/chicken/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Abdelrahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -163,16 +171,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/chicken/3902TeamRed/sprint0/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
