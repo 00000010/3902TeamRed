@@ -18,9 +18,10 @@ namespace sprint0
     /// </summary>
     public class SpriteFactory
     {
-        private Texture2D dungeonSheet;
+        private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
         private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
+        private Texture2D waterBlock;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
 
         private SpriteBatch spriteBatch;
@@ -36,15 +37,29 @@ namespace sprint0
 
         private SpriteFactory() {}
 
-        /// <summary>
-        /// Load the sprite sheets.
-        /// </summary>
-        /// <param name="content"></param>
+        // Load the sprite sheets.
         public void LoadTextures(ContentManager content, SpriteBatch spriteBatch)
         {
             this.spriteBatch = spriteBatch;
 
             dungeonSheet = content.Load<Texture2D>("DungeonBackground");
+            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
+            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
+            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
+            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
+            dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
+            dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
+            dungeonSand = content.Load<Texture2D>("DungeonSand");
+            dungeonMonster1 = content.Load<Texture2D>("DungeonMonster1");
+            dungeonMonster2 = content.Load<Texture2D>("DungeonMonster2");
+            dungeonMonster1Faded = content.Load<Texture2D>("DungeonMonster1Faded");
+            dungeonMonster2Faded = content.Load<Texture2D>("DungeonMonster2Faded");
+            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
+            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
+            dungeonStairs = content.Load<Texture2D>("DungeonStairs");
+
+            waterBlock = content.Load<Texture2D>("WaterBlock");
+
             linkSpritesheet = content.Load<Texture2D>("Link");
 
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
@@ -73,20 +88,6 @@ namespace sprint0
             //projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
         }
 
-        // TODO: Fix the collateral damage here
-        ///// <summary>
-        ///// Create and return a Link sprite standing right at the specified position with the specified velocity.
-        ///// </summary>
-        ///// <param name="spriteBatch"></param>
-        ///// <param name="position"></param>
-        ///// <param name="velocity"></param>
-        ///// <returns></returns>
-        //public ISprite Link(SpriteBatch spriteBatch, Vector2 position, Vector2 velocity, int direction)
-        //{
-        //    Rectangle[] rectangles = new Rectangle[1];
-        //    rectangles[0] = new Rectangle(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y, Constants.LINK_WIDTH, Constants.LINK_HEIGHT);
-        //    return new Sprite(linkSpritesheet, rectangles, spriteBatch, position, velocity, direction);
-
         public void LoadZeldaTextures(ContentManager content)
         {
 
@@ -98,6 +99,99 @@ namespace sprint0
         public Sprite Dungeon(Vector2 position)
         {
             return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position);
+        }
+
+        /*
+         * Background blocks
+         */
+        public Sprite DungeonBlock(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBlock.Width, dungeonBlock.Height) };
+            return new Sprite(dungeonBlock, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonDoorNorth(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorNorth.Width, dungeonDoorNorth.Height) };
+            return new Sprite(dungeonDoorNorth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonDoorSouth(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorSouth.Width, dungeonDoorSouth.Height) };
+            return new Sprite(dungeonDoorSouth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonDoorEast(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorEast.Width, dungeonDoorEast.Height) };
+            return new Sprite(dungeonDoorEast, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonDoorWest(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorWest.Width, dungeonDoorWest.Height) };
+            return new Sprite(dungeonDoorWest, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonBadDoorNorth(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBadDoorNorth.Width, dungeonBadDoorNorth.Height) };
+            return new Sprite(dungeonBadDoorNorth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonBadDoorSouth(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBadDoorSouth.Width, dungeonBadDoorSouth.Height) };
+            return new Sprite(dungeonBadDoorSouth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonSand(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonSand.Width, dungeonSand.Height) };
+            return new Sprite(dungeonSand, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster1(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster2(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster1Faded(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
+            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster2Faded(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
+            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonAbyss(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonAbyss.Width, dungeonAbyss.Height) };
+            return new Sprite(dungeonAbyss, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonStairs(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonStairs.Width, dungeonStairs.Height) };
+            return new Sprite(dungeonStairs, rectangles, spriteBatch, position);
+        }
+
+        public Sprite WaterBlock(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, waterBlock.Width, waterBlock.Height) };
+            return new Sprite(waterBlock, rectangles, spriteBatch, position);
         }
 
         /*

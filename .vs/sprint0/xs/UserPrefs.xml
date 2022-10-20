@@ -1,13 +1,35 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Content/Levels/Level1.xml">
+    <Files>
+      <File FileName="sprint0/Game1.cs" Line="26" Column="29" />
+      <File FileName="sprint0/KeyboardController.cs" Line="12" Column="1" />
+      <File FileName="sprint0/GameObjectManager.cs" Line="304" Column="1" />
+      <File FileName="sprint0/PlayerCommands.cs" Line="133" Column="10" />
+      <File FileName="sprint0/CollisionResolution.cs" Line="28" Column="10" />
+      <File FileName="sprint0/LevelLoader.cs" Line="48" Column="24" />
+      <File FileName="sprint0/LoadLevelCommand.cs" Line="23" Column="36" />
+      <File FileName="sprint0/MouseController.cs" Line="55" Column="106" />
+      <File FileName="sprint0/Constants.cs" Line="41" Column="43" />
+      <File FileName="sprint0/Content/Levels/Level1.xml" Line="27" Column="26" />
+      <File FileName="sprint0/SpriteFactory.cs" Line="45" Column="1" />
+      <File FileName="sprint0/SpriteRectangle.cs" Line="54" Column="121" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="sprint0" expanded="True" selected="True" />
+          <Node name="sprint0" expanded="True">
+            <Node name="sprint0" expanded="True">
+              <Node name="Content" expanded="True">
+                <Node name="Levels" expanded="True" />
+                <Node name="Arial.spritefont" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

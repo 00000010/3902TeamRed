@@ -97,6 +97,8 @@ namespace sprint0
             this.RegisterCommand(Keys.U, new PrevItemCommand(game));
             this.RegisterCommand(Keys.T, new NextBlockCommand(game));
             this.RegisterCommand(Keys.Y, new PrevBlockCommand(game));
+
+            this.RegisterCommand(Keys.H, new LoadLevelCommand(game));
         }
     }
 }

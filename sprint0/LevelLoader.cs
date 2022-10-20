@@ -20,6 +20,8 @@ namespace sprint0
 
         public ItemObject background;
 
+        private int levelNum = 0;
+
         //List of all Objects made using factory
         public List<Object> allItems = new List<Object>();
         //List of XML things (Not real objects)
@@ -29,18 +31,27 @@ namespace sprint0
         {
             this.game = game;
             this.gameObjectManager = game.manager;
+            levelNum = game.level;
         }
 
         /*
-         * Loads the room level
+         * Loads the next room level as dictated by the level reported by Game.
          * 
-         * levelName is a string which is the title of the XML document that
-         * holds the data.
+         * If on the last level, this method goes to the first level.
          */
-        public void LoadLevel(String levelName)
+        public void LoadNextLevel()
         {
+            if (levelNum >= Constants.NUM_OF_LEVELS)
+            {
+                levelNum = 0;
+            }
+            levelNum++;
+
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
+            string levelName = "Level" + levelNum.ToString();
+
+            Console.WriteLine("Loading " + levelName);
 
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))

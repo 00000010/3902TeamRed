@@ -215,3 +215,18 @@ C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
 C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
 C:/Users/Abdelrahman/Documents/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
 >>>>>>> CollisionDevBranch
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorEast.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorNorth.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorSouth.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorWest.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster1.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster2.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonSand.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBlock.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBadDoorNorth.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBadDoorSouth.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonAbyss.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster1Faded.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster2Faded.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/WaterBlock.xnb
+/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonStairs.xnb

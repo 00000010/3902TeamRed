@@ -21,11 +21,13 @@ namespace sprint0
         public IEnemy enemy;
 
         public GameObjectManager manager;
+        public LevelLoader loader;
+
+        public int level = 0;
 
         SpriteFont font;
         KeyboardController keyboard;
         MouseController mouse;
-        LevelLoader loader;
 
         public Game1()
         {
@@ -57,7 +59,7 @@ namespace sprint0
             mouse.LoadMouseCommands(this);
 
             loader = new LevelLoader(this);
-            loader.LoadLevel("Level1");
+            loader.LoadNextLevel();
             Console.WriteLine(loader.ToString());
         }
 
