@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+//using System.Numerics;
 using System.Diagnostics;
+using System.Net;
 
 namespace sprint0
 {
     public class GameObjectManager
     {
         private Game1 game;
-
         public IPlayer player;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
@@ -18,12 +19,11 @@ namespace sprint0
         public List<IEnemy> enemies = new List<IEnemy>();
         public List<IBlock> blocks = new List<IBlock>();
         public List<IItem> items = new List<IItem>();
-        public Dictionary<IProjectile, string> initDirectionOfFire = new Dictionary<IProjectile, string>();
         public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
-        public Dictionary<Tuple<Type, Type>, Type> collisionResolutionDic = new Dictionary<Tuple<Type, Type>, Type>();
+        public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
 
-        private List<object> objectsToAdd = new List<object>();
-        private List<object> objectsToRemove = new List<object>();
+        public List<object> objectsToAdd = new List<object>();
+        public List<object> objectsToRemove = new List<object>();
 
         private int attackingRotation = 0;
         private int damageRotation = 0;
@@ -36,31 +36,21 @@ namespace sprint0
 
         private void PopulateCollisionResolutionDic()
         {
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaBlackBlock")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Block"),
                 Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaGreenBlock")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.ZeldaPurpleBlock")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Stalfos")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Link"), Type.GetType("sprint0.Octorok")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Block")),
-                Type.GetType("sprint0.EnemyBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Enemy")),
-                Type.GetType("sprint0.EnemyEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Enemy"), Type.GetType("sprint0.Projectile")),
-                Type.GetType("sprint0.EnemyProjectileCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Block")),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Enemy")),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"), Type.GetType("sprint0.Item")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Projectile"),
+                Type.GetType("sprint0.PlayerProjectileCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Item"),
                 Type.GetType("sprint0.PlayerItemCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Player"),
-                Type.GetType("sprint0.Projectile")), Type.GetType("PlayerProjectileCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<Type, Type>(Type.GetType("sprint0.Projectile"), Type.GetType("sprint0.Block")),
+            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Enemy"),
+                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Enemy"),
+                Type.GetType("sprint0.EnemyEnemyCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Projectile"),
+                Type.GetType("sprint0.EnemyProjectileCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Block"),
+                Type.GetType("sprint0.EnemyBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Projectile", "Block"),
                 Type.GetType("sprint0.ProjectileBlockCollisionCommand"));
         }
 
@@ -397,21 +387,12 @@ namespace sprint0
 
             objectsToAdd.Clear();
 
-            foreach(IUpdateable updateable in updateables)
+            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+
+            foreach (IUpdateable updateable in updateables)
             {
                 updateable.Update(gameTime);
             }
-
-            //for (int i = 0; i < projectilesInFlight.Count; i++)
-            //{
-            //    projectilesInFlight[i].Update(gameTime);
-            //    //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-            //    if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
-            //    {
-            //        //game.currEnemy.projectileInMotion = false;
-            //        i--;
-            //    }
-            //}
 
             objectsToAdd.Clear();
 
@@ -420,7 +401,6 @@ namespace sprint0
              */
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
-
         }
 
         public void Draw(GameTime gameTime)
@@ -430,30 +410,6 @@ namespace sprint0
                 drawable.Draw(gameTime);
             }
         }
-
-        //public void UpdateProjectileMotion(GameTime gameTime)
-        //{
-        //    for (int i = 0; i < projectilesInFlight.Count; i++)
-        //    {
-        //        projectilesInFlight[i].Update(gameTime);
-        //        //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-        //        if (ProjectileOutOfBounds(projectilesInFlight[i]) || ProjectileBackToShooter(projectilesInFlight[i]))
-        //        {
-        //            game.currEnemy.projectileInMotion = false;
-        //            i--;
-        //        }
-        //    }
-        //}
-
-        //private bool ProjectileOutOfBounds(ISprite projectile)
-        //{
-        //    if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
-        //    {
-        //        removeProjectile(projectile);
-        //        return true;
-        //    }
-        //    return false;
-        //}
 
         //private bool ProjectileBackToShooter(ISprite projectile)
         //{

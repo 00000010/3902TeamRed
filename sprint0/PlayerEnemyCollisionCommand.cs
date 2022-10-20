@@ -23,34 +23,34 @@ namespace sprint0
 
         public void Execute()
         {
-            Player Player = (Player)player;
-            Enemy Enemy = (Enemy)enemy;
+            Player player = (Player)this.player;
+            Enemy enemy = (Enemy)this.enemy;
             if (intersectionLoc == "top")
             {
-                if (Player.Velocity.Y > 0 && Enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
+                if (player.Velocity.Y > 0 && enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
                 {
-                    Enemy.Velocity = -Enemy.Velocity;  //enemy changes direction
+                    player.Position -= new Vector2(0, 5);
                 }
             }
             else if (intersectionLoc == "bottom")
             {
-                if (Player.Velocity.Y < 0 && Enemy.Velocity.Y > 0)
+                if (player.Velocity.Y < 0 && enemy.Velocity.Y > 0)
                 {
-                    Enemy.Velocity = -Enemy.Velocity;
+                    player.Position += new Vector2(0, 5);
                 }
             }
             else if (intersectionLoc == "left")
             {
-                if (Player.Velocity.X < 0 && Enemy.Velocity.X > 0)
+                if (player.Velocity.X < 0 && enemy.Velocity.X > 0)
                 {
-                    Enemy.Velocity = -Enemy.Velocity;
+                    player.Position += new Vector2(5, 0);
                 }
             }
             else //right
             {
-                if (Player.Velocity.X > 0 && Enemy.Velocity.X < 0)
+                if (player.Velocity.X > 0 && enemy.Velocity.X < 0)
                 {
-                    Enemy.Velocity = -Enemy.Velocity;
+                    player.Position -= new Vector2(5, 0);
                 }
             }
         }

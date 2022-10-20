@@ -24,7 +24,7 @@ namespace sprint0
         public void Execute()
         {
             //enemy needs to take damage, and die after a few projectile hits
-            manager.removeProjectile((IProjectile)projectile);
+            manager.objectsToRemove.Add(projectile);
         }
     }
 }

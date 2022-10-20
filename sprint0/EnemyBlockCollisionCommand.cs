@@ -23,33 +23,33 @@ namespace sprint0
 
         public void Execute()
         {
-            Enemy Enemy = (Enemy)enemy;
+            Enemy enemy = (Enemy)this.enemy;
             if (intersectionLoc == "top")
             {
-                if (Enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
+                if (enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
-                    Enemy.Velocity = Vector2.Zero;
+                    enemy.Position -= new Vector2(0, 10);
                 }
             }
             else if (intersectionLoc == "bottom")
             {
-                if (Enemy.Velocity.Y < 0)
+                if (enemy.Velocity.Y < 0)
                 {
-                    Enemy.Velocity = Vector2.Zero;
+                    enemy.Position += new Vector2(0, 10);
                 }
             }
             else if (intersectionLoc == "left")
             {
-                if (Enemy.Velocity.X < 0)
+                if (enemy.Velocity.X < 0)
                 {
-                    Enemy.Velocity = Vector2.Zero;
+                    enemy.Position += new Vector2(10, 0);
                 }
             }
             else //right
             {
-                if (Enemy.Velocity.X > 0)
+                if (enemy.Velocity.X > 0)
                 {
-                    Enemy.Velocity = Vector2.Zero;
+                    enemy.Position -= new Vector2(10, 0);
                 }
             }
         }

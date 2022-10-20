@@ -84,6 +84,9 @@ namespace sprint0
         {
             Position += Velocity;
 
+            //Don't wrap around screen for projectiles
+            if (SourceRectangle == ItemRectangle.BowArrow) return;
+
             // wrap around screen
             if (Position.X > 800)
             {

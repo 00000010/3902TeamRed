@@ -422,7 +422,7 @@ namespace sprint0
         public Sprite GoriyaLeft(Vector2 position)
         {
             Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position);
-            result.Direction = Direction.DOWN;
+            result.Direction = Direction.LEFT;
             return result;
         }
 

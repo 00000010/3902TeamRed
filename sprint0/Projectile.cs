@@ -39,5 +39,25 @@ namespace sprint0
         {
             Sprite.Update(gameTime);
         }
+
+        public static void UpdateProjectileMotion(GameTime gameTime, List<IProjectile> projectilesInFlight, GameObjectManager manager)
+        {
+            for (int i = 0; i < projectilesInFlight.Count; i++)
+            {
+                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
+                //ProjectileBackToShooter(projectilesInFlight[i])
+                if (ProjectileOutOfBounds(projectilesInFlight[i], manager)) i--;
+            }
+        }
+
+        private static bool ProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
+        {
+            if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
+            {
+                manager.removeProjectile(projectile);
+                return true;
+            }
+            return false;
+        }
     }
 }

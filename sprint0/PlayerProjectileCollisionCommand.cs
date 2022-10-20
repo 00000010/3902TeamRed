@@ -24,7 +24,7 @@ namespace sprint0
         public void Execute()
         {
             //link takes damage
-            manager.removeProjectile((IProjectile)projectile);
+            manager.objectsToRemove.Add(projectile);
             //projectile removed when hits enemy (cant implement yet because enemy waits for boomerang even though it is removed)
         }
     }

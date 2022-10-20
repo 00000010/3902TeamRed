@@ -28,7 +28,7 @@ namespace sprint0
             Dictionary<IObject, string> shooterOfProjectileObjects = new Dictionary<IObject, string>();
             foreach (KeyValuePair<IProjectile, string> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
-            HandlePlayerAgainstProjectiles(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
+            //HandlePlayerAgainstProjectiles(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
             HandlePlayerAgainstEnemies(objectPlayer, objectEnemies, manager);
             HandlePlayerAgainstBlocks(objectPlayer, objectBlocks, manager);
             HandlePlayerAgainstItems(objectPlayer, objectItems, manager);
@@ -73,7 +73,7 @@ namespace sprint0
                 Rectangle intersect = Rectangle.Intersect(playerRect, enemyRect);
                 if (!intersect.IsEmpty)
                 {
-                    string intersectionLoc = GetIntersectionLocation(player.Sprite.SourceRectangle[player.Sprite.Frame], intersect);
+                    string intersectionLoc = GetIntersectionLocation(playerRect, intersect);
                     CollisionResolution.CallCorrespondingCommand(player, currEnemy, manager, intersectionLoc);
                 }
             }
@@ -128,7 +128,7 @@ namespace sprint0
                 for (int j = 0; j < projectiles.Count; j++)
                 {
                     IObject currProjectile = projectiles.ElementAt(j);
-                    if (shooterOfProjectile.GetValueOrDefault(currProjectile) != "player") continue;
+                    //if (shooterOfProjectile.GetValueOrDefault(currProjectile) != "player") continue;
                     Rectangle projectileRect = new Rectangle((int)currProjectile.Position.X,
                     (int)currProjectile.Position.Y, currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Width,
                     currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Height);
@@ -189,7 +189,7 @@ namespace sprint0
         {
             for (int i = 0; i < projectiles.Count; i++)
             {
-                Rectangle proejctileRect = new Rectangle((int)projectiles.ElementAt(i).Position.X,
+                Rectangle projectileRect = new Rectangle((int)projectiles.ElementAt(i).Position.X,
                     (int)projectiles.ElementAt(i).Position.Y, projectiles.ElementAt(i).Sprite.SourceRectangle[projectiles.ElementAt(i).Sprite.Frame].Width,
                     projectiles.ElementAt(i).Sprite.SourceRectangle[projectiles.ElementAt(i).Sprite.Frame].Height);
                 for (int j = 0; j < blocks.Count; j++)
@@ -197,7 +197,7 @@ namespace sprint0
                     Rectangle blockRect = new Rectangle((int)blocks.ElementAt(j).Position.X,
                     (int)blocks.ElementAt(j).Position.Y, blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Width,
                     blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Height);
-                    Rectangle intersect = Rectangle.Intersect(blockRect, proejctileRect);
+                    Rectangle intersect = Rectangle.Intersect(blockRect, projectileRect);
                     if (!intersect.IsEmpty)
                     {
                         CollisionResolution.CallCorrespondingCommand(projectiles.ElementAt(i), blocks.ElementAt(j), manager, "");
@@ -208,24 +208,24 @@ namespace sprint0
 
         private static string GetIntersectionLocation(Rectangle Moving, Rectangle intersect)
         {
-            //if it returns left then the moving object collided with the left of the non moving object (or moving)
-            if (intersect.Height > intersect.Width) //left-right collision
+            //Left-Right
+            if (intersect.Height > intersect.Width && Moving.Right == intersect.Right)
             {
-                if (Moving.Right == intersect.Right)
-                {
-                    return "right";
-                }
+                return "right";
+            }
+            else if (intersect.Height > intersect.Width && Moving.Left == intersect.Left)
+            {
                 return "left";
+            }
+            //Top-Bottom
+            else if (Moving.Top == intersect.Top)
+            {
+                return "bottom";
             }
             else
             {
-                if (Moving.Top == intersect.Top)
-                {
-                    return "bottom";
-                }
                 return "top";
             }
-
         }
     }
 }

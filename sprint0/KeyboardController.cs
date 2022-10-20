@@ -77,8 +77,18 @@ namespace sprint0
             this.RegisterCommandUnpress(Keys.S, new PlayerStopRunningCommand(game, Direction.DOWN));
             this.RegisterCommandUnpress(Keys.D, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
-            /* N and Z keys for Link attacking */
-            this.RegisterCommand(Keys.Z, new PlayerArrowCommand(game));
+            this.RegisterCommand(Keys.Up, new PlayerRunningCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.Left, new PlayerRunningCommand(game, Direction.LEFT));
+            this.RegisterCommand(Keys.Down, new PlayerRunningCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.Right, new PlayerRunningCommand(game, Direction.RIGHT));
+
+            this.RegisterCommandUnpress(Keys.Up, new PlayerStopRunningCommand(game, Direction.UP));
+            this.RegisterCommandUnpress(Keys.Left, new PlayerStopRunningCommand(game, Direction.LEFT));
+            this.RegisterCommandUnpress(Keys.Down, new PlayerStopRunningCommand(game, Direction.DOWN));
+            this.RegisterCommandUnpress(Keys.Right, new PlayerStopRunningCommand(game, Direction.RIGHT));
+
+            /* L and Z keys for Link attacking */
+            this.RegisterCommand(Keys.L, new PlayerArrowCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* E key for Link being damaged in whatever state he's in */
