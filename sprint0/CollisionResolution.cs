@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using sprint0.Commands;
-using sprint0.Enemies;
-using sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -14,163 +12,66 @@ namespace sprint0
 {
     public class CollisionResolution
     {
-        //Calls the command that corresponds to the collision
-        //intersectionLoc can be left,right,top, or bottom
-        public static void PlayerAgainstProjectile(ISprite player, ISprite projectile, GameObjectManager manager)
+        public static void CallCorrespondingCommand(IObject sprite1, IObject sprite2, GameObjectManager manager,
+            string intersectionLoc)
         {
-            //link takes damage
+            Dictionary<Tuple<string, string>, Type> dic = manager.collisionResolutionDic;
+            Type type = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()), 
+                                                TypeToString(sprite2.GetType())));
+            ConstructorInfo ctor = type.GetConstructor(new[] { typeof(IObject), typeof(IObject), typeof(string), typeof(GameObjectManager) });
+            ICommand command;
+            if (ctor != null)
+            {
+                object[] collidingObjects = new object[] { sprite1, sprite2, intersectionLoc, manager };
+                command = (ICommand)ctor.Invoke(collidingObjects);
+                command.Execute();
+            }
+        }
 
-            //projectile removed when hits enemy (cant implement yet because enemy waits for boomerang even though it is removed)
-        }
-        public static void PlayerAgainstEnemy(ISprite player, ISprite enemy, String intersectionLoc)
+        private static string TypeToString(Type type)
         {
-            Player Player = (Player)player;
-            Enemy Enemy = (Enemy)enemy;
-            if (intersectionLoc == "top")
-            {
-                if (Player.Velocity.Y > 0 && Enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
-                {
-                    Enemy.Velocity = -Enemy.Velocity;  //enemy changes direction
-                }
-            }
-            else if (intersectionLoc == "bottom")
-            {
-                if (Player.Velocity.Y < 0 && Enemy.Velocity.Y > 0)
-                {
-                    Enemy.Velocity = -Enemy.Velocity;  
-                }
-            }
-            else if (intersectionLoc == "left")
-            {
-                if (Player.Velocity.X < 0 && Enemy.Velocity.X > 0)
-                {
-                    Enemy.Velocity = -Enemy.Velocity;
-                }
-            }
-            else //right
-            {
-                if (Player.Velocity.X > 0 && Enemy.Velocity.X < 0)
-                {
-                    Enemy.Velocity = -Enemy.Velocity;
-                }
-            }
-        }
-        public static void PlayerAgainstBlock(ISprite player, ISprite block, String intersectionLoc)
-        {
-            Player Player = (Player)player;
-            if (intersectionLoc == "top")
-            {
-                if (Player.Velocity.Y > 0)  // if the velocity is directed towards the block
-                {
-                    Player.Velocity = Vector2.Zero;
-                }
-            }
-            else if (intersectionLoc == "bottom")
-            {
-                if (Player.Velocity.Y < 0)
-                {
-                    Player.Velocity = Vector2.Zero;
-                }
-            }
-            else if (intersectionLoc == "left")
-            {
-                if (Player.Velocity.X < 0)
-                {
-                    Player.Velocity = Vector2.Zero;
-                }
-            }
-            else //right
-            {
-                if (Player.Velocity.X > 0)
-                {
-                    Player.Velocity = Vector2.Zero;
-                }
-            }
-        }
-        public static void PlayerAgainstItem(ISprite player, ISprite item)
-        {
-            //link will have all items to start with, they wont pick up any items yet
-        }
-        public static void EnemyAgainstProjectile(ISprite enemy, ISprite projectile, GameObjectManager manager)
-        {
-            //enemy needs to take damage, and die after a few projectile hits
-            manager.projectilesInFlight.Remove(projectile);
-        }
-        public static void EnemyAgainstEnemy(ISprite enemy, ISprite enemy2, String intersectionLoc)
-        {
+            string result = "";
 
-            Enemy Enemy1 = (Enemy)enemy;
-            Enemy Enemy2 = (Enemy)enemy2;
-            if (intersectionLoc == "top")
+            if (type.Equals(Type.GetType("sprint0.Link")))
             {
-                if (Enemy1.Velocity.Y > 0 && Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 AND enemy2 moving towards enemy1
-                {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
-                }
+                result = "Link";
             }
-            else if (intersectionLoc == "bottom")
+            else if (type.Equals(Type.GetType("sprint0.ZeldaBlackBlock")) 
+                || type.Equals(Type.GetType("sprint0.ZeldaGreenBlock"))
+                || type.Equals(Type.GetType("sprint0.ZeldaPurpleBlock")))
             {
-                if (Enemy1.Velocity.Y < 0 && Enemy2.Velocity.Y > 0)
-                {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
-                }
+                result = "Block";
             }
-            else if (intersectionLoc == "left")
+            else if (type.Equals(Type.GetType("sprint0.ZeldaBlueCandle"))
+                || type.Equals(Type.GetType("sprint0.ZeldaBomb"))
+                || type.Equals(Type.GetType("sprint0.ZeldaBoomerang"))
+                || type.Equals(Type.GetType("sprint0.ZeldaBow"))
+                || type.Equals(Type.GetType("sprint0.ZeldaClock"))
+                || type.Equals(Type.GetType("sprint0.ZeldaCompass"))
+                || type.Equals(Type.GetType("sprint0.ZeldaFairy"))
+                || type.Equals(Type.GetType("sprint0.ZeldaFood"))
+                || type.Equals(Type.GetType("sprint0.ZeldaHeart"))
+                || type.Equals(Type.GetType("sprint0.ZeldaHeartContainer"))
+                || type.Equals(Type.GetType("sprint0.ZeldaKey"))
+                || type.Equals(Type.GetType("sprint0.ZeldaLetter")))
             {
-                if (Enemy1.Velocity.X < 0 && Enemy2.Velocity.X > 0)
-                {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
-                }
+                result = "Item";
             }
-            else //right
+            else if (type.Equals(Type.GetType("sprint0.Stalfos"))
+                || type.Equals(Type.GetType("sprint0.Keese"))
+                || type.Equals(Type.GetType("sprint0.Gel"))
+                || type.Equals(Type.GetType("sprint0.Goriya"))
+                || type.Equals(Type.GetType("sprint0.Octorok")))
             {
-                if (Enemy1.Velocity.X > 0 && Enemy2.Velocity.X < 0)
-                {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
-                }
+                result = "Enemy";
             }
-        }
-        
-        public static void EnemyAgainstBlock(ISprite enemy, ISprite block, String intersectionLoc)
-        {
-            Enemy Enemy = (Enemy)enemy;
-            if (intersectionLoc == "top")
+
+            else if (type.Equals(Type.GetType("sprint0.ZeldaArrow")))
             {
-                if (Enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
-                {
-                    Enemy.Velocity = Vector2.Zero;
-                }
+                result = "Projectile";
             }
-            else if (intersectionLoc == "bottom")
-            {
-                if (Enemy.Velocity.Y < 0)
-                {
-                    Enemy.Velocity = Vector2.Zero;
-                }
-            }
-            else if (intersectionLoc == "left")
-            {
-                if (Enemy.Velocity.X < 0)
-                {
-                    Enemy.Velocity = Vector2.Zero;
-                }
-            }
-            else //right
-            {
-                if (Enemy.Velocity.X > 0)
-                {
-                    Enemy.Velocity = Vector2.Zero;
-                }
-            }
-        }
-        public static void ProjectileAgainstBlock(ISprite projectile, ISprite block, GameObjectManager manager)
-        {
-            manager.projectilesInFlight.Remove(projectile); //projectile breaks when hits block
-            //boomerang enemy breaks since they wait for the boomerang even though it is removed.
+
+            return result;
         }
     }
 }

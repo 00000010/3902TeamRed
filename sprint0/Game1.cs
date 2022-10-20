@@ -1,11 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using sprint0.Controllers;
-using sprint0.Enemies;
-using sprint0.Factories;
-using sprint0.Interfaces;
-using sprint0.Rectangles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,28 +13,17 @@ namespace sprint0
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-
-        public List<IUpdateable> updateables = new List<IUpdateable>();
-        public List<IDrawable> drawables = new List<IDrawable>();
+        public SpriteBatch _spriteBatch;
         
-        public Player player;
+        //public IPlayer player;
+        public IBlock block;
+        public IItem item;
+        public IEnemy enemy;
 
-        public List<Rectangle[]> enemies = new List<Rectangle[]>();
-        public Enemy currEnemy;
-        public int currEnemyIndex = 0;
         public GameObjectManager manager;
-        public ISprite arrow;
-        public ISprite boomerang;
-        public ISprite rock;
+        public LevelLoader loader;
 
-        public Item item;
-        public List<Sprite> items = new List<Sprite>();
-        public int currItemIndex = 0;
-
-        public Block block;
-        public List<Sprite> blocks = new List<Sprite>();
-        public int currBlockIndex = 0;
+        public int level = 0;
 
         SpriteFont font;
         KeyboardController keyboard;
@@ -61,83 +45,39 @@ namespace sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            /*
-             * Instantiate player object
-             */
-            PlayerFactory.Instance.LoadTextures(Content);
-            EnemyFactory.Instance.LoadTextures(Content);
-            ItemFactory.Instance.LoadTextures(Content);
-            BlockFactory.Instance.LoadTextures(Content);
-            SpriteFactory.Instance.LoadZeldaTextures(Content);
+            SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             manager = new GameObjectManager(this);
-            updateables.Add(manager);
-            drawables.Add(manager);
-
-            //Add Player
-            player = PlayerFactory.Instance.Link(_spriteBatch, new Vector2(0, 0), manager);
-            updateables.Add(player);
-            drawables.Add(player);
-
-            //Add Enemies
-            enemies = EnemyFactory.Instance.getAllEnemyRectangles();
-            currEnemy = EnemyFactory.Instance.Stalfos(_spriteBatch, new Vector2(500, 240), manager);
-            updateables.Add(currEnemy);
-            drawables.Add(currEnemy);
-
-            //Add item sprites to list
-            items = ItemFactory.Instance.getAllItems(_spriteBatch);
-
-            // first item
-            item = ItemFactory.Instance.ZeldaArrow(_spriteBatch, new Vector2(200, 200), manager);
-            updateables.Add(item);
-            drawables.Add(item);
-
-            //add blocks to list
-            blocks = BlockFactory.Instance.getAllBlocks(_spriteBatch);
-
-            //first block
-            block = BlockFactory.Instance.ZeldaBlack(_spriteBatch, new Vector2(400, 400), manager);
-            updateables.Add(block);
-            drawables.Add(block);
-            
-
-            //Add projectiles
-            arrow = SpriteFactory.Instance.Arrow(_spriteBatch, new Vector2(0, 0));
-            boomerang = SpriteFactory.Instance.Boomerang(_spriteBatch, new Vector2(0, 0));
-            rock = SpriteFactory.Instance.Rock(_spriteBatch, new Vector2(0, 0));
+            manager.AddObject(block); // CollisionDevBranch
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
-            updateables.Add(keyboard);
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+            
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
-            updateables.Add(mouse);
+
+            loader = new LevelLoader(this);
+            loader.LoadNextLevel();
+            Console.WriteLine(loader.ToString());
         }
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IUpdateable updateable in updateables)
-            {
-                updateable.Update(gameTime);
-            }
+            keyboard.Update(gameTime);
+            mouse.Update(gameTime);
+            manager.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
-            foreach (IDrawable drawable in drawables)
-            {
-                drawable.Draw(gameTime);
-            }
-
+            manager.Draw(gameTime);
             _spriteBatch.End();
 
             base.Draw(gameTime);

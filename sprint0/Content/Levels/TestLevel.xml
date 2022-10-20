@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>LinkRunningRight</ObjectName>
+            <Location>0 0</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>ZeldaGreenBlock</ObjectName>
+            <Location>16 16</Location>
+            <Dimension>3 3</Dimension>
+        </Item>
+    </Asset>
+</XnaContent>
+

@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint0.Interfaces;
-using sprint0.Rectangles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,34 +9,55 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Projectile : Sprite
+    public class Projectile : IProjectile, IObject
     {
-        public string InitFiringDirection {get;set;}
-        public Projectile(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
-            : base(texture, sourceRectangle, spriteBatch, position)
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
+        public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
+        public Direction Direction { get; set; }
+
+        public int DrawOrder => throw new NotImplementedException();
+
+        public bool Visible => throw new NotImplementedException();
+
+        public bool Enabled => throw new NotImplementedException();
+
+        public int UpdateOrder => throw new NotImplementedException();
+
+        public event EventHandler<EventArgs> DrawOrderChanged;
+        public event EventHandler<EventArgs> VisibleChanged;
+        public event EventHandler<EventArgs> EnabledChanged;
+        public event EventHandler<EventArgs> UpdateOrderChanged;
+
+        public Projectile() { }
+        public virtual void Draw(GameTime gameTime)
         {
+            Sprite.Draw(gameTime);
         }
 
-        protected override void UpdateVelocity(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            if (SourceRectangle != ProjectileRectangle.Boomerang) return;
-            if (InitFiringDirection.Equals("left")) 
+            Sprite.Update(gameTime);
+        }
+
+        public static void UpdateProjectileMotion(GameTime gameTime, List<IProjectile> projectilesInFlight, GameObjectManager manager)
+        {
+            for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                Velocity = new Vector2(Velocity.X + (float) 0.05, 0);
-            } 
-            else if (InitFiringDirection.Equals("right"))
-            {
-                Velocity = new Vector2(Velocity.X - (float)0.05, 0);
-            }
-            else if (InitFiringDirection.Equals("up"))
-            {
-                Velocity = new Vector2(0, Velocity.Y + (float)0.05);
-            }
-            else
-            {
-                Velocity = new Vector2(0, Velocity.Y - (float)0.05);
+                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
+                //ProjectileBackToShooter(projectilesInFlight[i])
+                if (ProjectileOutOfBounds(projectilesInFlight[i], manager)) i--;
             }
         }
 
+        private static bool ProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
+        {
+            if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
+            {
+                manager.removeProjectile(projectile);
+                return true;
+            }
+            return false;
+        }
     }
 }
