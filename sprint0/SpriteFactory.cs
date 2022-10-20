@@ -152,30 +152,6 @@ namespace sprint0
             return new Sprite(dungeonSand, rectangles, spriteBatch, position);
         }
 
-        public Sprite DungeonMonster1(Vector2 position)
-        {
-            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
-            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position);
-        }
-
-        public Sprite DungeonMonster2(Vector2 position)
-        {
-            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
-            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position);
-        }
-
-        public Sprite DungeonMonster1Faded(Vector2 position)
-        {
-            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
-            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position);
-        }
-
-        public Sprite DungeonMonster2Faded(Vector2 position)
-        {
-            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
-            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
-        }
-
         public Sprite DungeonAbyss(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonAbyss.Width, dungeonAbyss.Height) };
@@ -471,6 +447,30 @@ namespace sprint0
         public Sprite Octorok(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster1(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster2(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster1Faded(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
+            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonMonster2Faded(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
+            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
         }
 
         public Sprite ZeldaArrow(Vector2 position)

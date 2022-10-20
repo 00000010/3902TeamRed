@@ -16,7 +16,8 @@ namespace sprint0
             string intersectionLoc)
         {
             Dictionary<Tuple<string, string>, Type> dic = manager.collisionResolutionDic;
-            Type type = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()), 
+
+            Type type = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()),
                                                 TypeToString(sprite2.GetType())));
             ConstructorInfo ctor = type.GetConstructor(new[] { typeof(IObject), typeof(IObject), typeof(string), typeof(GameObjectManager) });
             ICommand command;
@@ -36,9 +37,10 @@ namespace sprint0
             {
                 result = "Link";
             }
-            else if (type.Equals(Type.GetType("sprint0.ZeldaBlackBlock")) 
+            else if (type.Equals(Type.GetType("sprint0.ZeldaBlackBlock"))
                 || type.Equals(Type.GetType("sprint0.ZeldaGreenBlock"))
-                || type.Equals(Type.GetType("sprint0.ZeldaPurpleBlock")))
+                || type.Equals(Type.GetType("sprint0.ZeldaPurpleBlock"))
+                || type.Equals(Type.GetType("sprint0.DungeonBlock")))
             {
                 result = "Block";
             }
@@ -61,7 +63,9 @@ namespace sprint0
                 || type.Equals(Type.GetType("sprint0.Keese"))
                 || type.Equals(Type.GetType("sprint0.Gel"))
                 || type.Equals(Type.GetType("sprint0.Goriya"))
-                || type.Equals(Type.GetType("sprint0.Octorok")))
+                || type.Equals(Type.GetType("sprint0.Octorok"))
+                || type.Equals(Type.GetType("sprint0.DungeonMonster1"))
+                || type.Equals(Type.GetType("sprint0.DungeonMonster2")))
             {
                 result = "Enemy";
             }

@@ -14,18 +14,7 @@
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
-            <Location>390 364</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>Keese</ObjectName>
-            <Location>300 364</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>ZeldaGreenBlock</ObjectName>
-            <Location>16 16</Location>
-            <Dimension>3 3</Dimension>
+            <Location>380 348</Location>
         </Item>
     </Asset>
 </XnaContent>

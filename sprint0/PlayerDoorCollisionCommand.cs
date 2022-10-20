@@ -7,12 +7,12 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace sprint0
 {
-    internal class PlayerBlockCollisionCommand : ICommand
+    internal class PlayerDoorCollisionCommand : ICommand
     {
         IObject player;
         IObject block;
         string intersectionLoc;
-        public PlayerBlockCollisionCommand(IObject player, IObject block, string intersectionLoc, GameObjectManager manager)
+        public PlayerDoorCollisionCommand(IObject player, IObject block, string intersectionLoc, GameObjectManager manager)
         {
             this.player = player;
             this.block = block;

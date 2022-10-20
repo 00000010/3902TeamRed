@@ -45,6 +45,25 @@ namespace sprint0
             return new Octorok(position);
         }
 
+        public Enemy DungeonMonster1(Vector2 position)
+        {
+            return new DungeonMonster1(position);
+        }
+
+        public Enemy DungeonMonster2(Vector2 position)
+        {
+            return new DungeonMonster2(position);
+        }
+
+        public Enemy DungeonMonster1Faded(Vector2 position)
+        {
+            return new DungeonMonster1Faded(position);
+        }
+
+        public Enemy DungeonMonster2Faded(Vector2 position)
+        {
+            return new DungeonMonster2Faded(position);
+        }
     }
 
     internal class Stalfos : Enemy
@@ -87,6 +106,45 @@ namespace sprint0
         public Octorok(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.Octorok(position);
+            Direction = Direction.DOWN;
+            Velocity = Vector2.Zero;
+        }
+    }
+
+    internal class DungeonMonster1 : Enemy
+    {
+        public DungeonMonster1(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster1(position);
+            Velocity = Vector2.Zero;
+        }
+    }
+
+    internal class DungeonMonster2 : Enemy
+    {
+        public DungeonMonster2(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster2(position);
+            Direction = Direction.DOWN;
+            Velocity = Vector2.Zero;
+        }
+    }
+
+    internal class DungeonMonster1Faded : Enemy
+    {
+        public DungeonMonster1Faded(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster1Faded(position);
+            Direction = Direction.DOWN;
+            Velocity = Vector2.Zero;
+        }
+    }
+
+    internal class DungeonMonster2Faded : Enemy
+    {
+        public DungeonMonster2Faded(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster2Faded(position);
             Direction = Direction.DOWN;
             Velocity = Vector2.Zero;
         }

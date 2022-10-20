@@ -112,6 +112,7 @@ namespace sprint0
             }
         }
 
+        // TODO: Can we data drive this?
         public void UpdatePlayerSprite()
         {
             Vector2 velocity = player.Velocity;

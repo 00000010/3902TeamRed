@@ -61,9 +61,8 @@ namespace sprint0
 
         private static void HandlePlayerAgainstEnemies(IObject player, List<IObject> enemies, GameObjectManager manager)
         {
-            Rectangle playerRect = new Rectangle((int)player.Position.X,
-                (int)player.Position.Y, player.Sprite.SourceRectangle[player.Sprite.Frame].Width,
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height);
+            Rectangle playerRect = new Rectangle((int)player.Position.X + 14,
+                (int)player.Position.Y + 13, Constants.TRUE_LINK_WIDTH, Constants.TRUE_LINK_HEIGHT);
             for (int i = 0; i < enemies.Count; i++)
             {
                 IObject currEnemy = enemies.ElementAt(i);
@@ -81,9 +80,9 @@ namespace sprint0
 
         private static void HandlePlayerAgainstBlocks(IObject player, List<IObject> blocks, GameObjectManager manager)
         {
-            Rectangle playerRect = new Rectangle((int)player.Position.X,
-                (int)player.Position.Y, player.Sprite.SourceRectangle[player.Sprite.Frame].Width / 2,
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height);
+            Rectangle playerRect = new Rectangle((int)player.Position.X + 14,
+                (int)player.Position.Y + 13, Constants.TRUE_LINK_WIDTH,
+                Constants.TRUE_LINK_HEIGHT); // TODO: contains magic numbers!
             for (int i = 0; i < blocks.Count; i++)
             {
                 IObject currBlock = blocks.ElementAt(i);

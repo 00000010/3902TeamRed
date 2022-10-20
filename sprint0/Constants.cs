@@ -23,6 +23,8 @@ namespace sprint0
         /// </summary>
         public const int LINK_WIDTH = 40;
         public const int LINK_HEIGHT = 40;
+        public const int TRUE_LINK_WIDTH = 16;
+        public const int TRUE_LINK_HEIGHT = 16;
 
         public const int NUM_OF_DIRECTIONS = 4;
         public const int NUM_OF_COLORS = 3;

@@ -41,6 +41,7 @@ namespace sprint0
          */
         public void LoadNextLevel()
         {
+            UnloadLevel();
             if (levelNum >= Constants.NUM_OF_LEVELS)
             {
                 levelNum = 0;
@@ -50,8 +51,6 @@ namespace sprint0
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
             string levelName = "Level" + levelNum.ToString();
-
-            Console.WriteLine("Loading " + levelName);
 
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
