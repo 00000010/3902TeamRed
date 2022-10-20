@@ -36,10 +36,12 @@ namespace sprint0
         {
             return new Gel(position);
         }
+
         public Enemy Goriya(Vector2 position)
         {
             return new Goriya(position);
         }
+
         public Enemy Octorok(Vector2 position)
         {
             return new Octorok(position);

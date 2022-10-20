@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -320,7 +320,6 @@ namespace sprint0
         {
             return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position);
         }
-
 
         /*
          * Items

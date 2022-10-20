@@ -22,32 +22,32 @@ namespace sprint0
         public void Execute()
         {
             Player player = (Player)this.player;
-            if (intersectionLoc == "top")
+            if (intersectionLoc.Contains("top"))
             {
                 if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
-                    player.Position -= new Vector2(0, 2);
+                    player.Position -= new Vector2(0,2);
                 }
             }
-            else if (intersectionLoc == "bottom")
+            if (intersectionLoc.Contains("bottom"))
             {
                 if (player.Velocity.Y < 0)
                 {
                     player.Position += new Vector2(0, 2);
                 }
             }
-            else if (intersectionLoc == "left")
-            {
-                if (player.Velocity.X < 0)
-                {
-                    player.Position += new Vector2(2, 0);
-                }
-            }
-            else //right
+            if (intersectionLoc.Contains("left"))
             {
                 if (player.Velocity.X > 0)
                 {
                     player.Position -= new Vector2(2, 0);
+                }
+            }
+            if (intersectionLoc.Contains("right"))
+            {
+                if (player.Velocity.X < 0)
+                {
+                    player.Position += new Vector2(2, 0);
                 }
             }
         }

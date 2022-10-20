@@ -1,10 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-//using System.Numerics;
 using System.Diagnostics;
 using System.Net;
-
 namespace sprint0
 {
     public class GameObjectManager
@@ -112,7 +110,6 @@ namespace sprint0
             }
         }
 
-        // TODO: Can we data drive this?
         public void UpdatePlayerSprite()
         {
             Vector2 velocity = player.Velocity;

@@ -25,32 +25,32 @@ namespace sprint0
         {
             Player player = (Player)this.player;
             Enemy enemy = (Enemy)this.enemy;
-            if (intersectionLoc == "top")
+            if (intersectionLoc.Contains("top"))
             {
-                if (player.Velocity.Y > 0 && enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
+                if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
                 {
                     player.Position -= new Vector2(0, 5);
                 }
             }
-            else if (intersectionLoc == "bottom")
+            if (intersectionLoc.Contains("bottom"))
             {
-                if (player.Velocity.Y < 0 && enemy.Velocity.Y > 0)
+                if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
                 {
                     player.Position += new Vector2(0, 5);
                 }
             }
-            else if (intersectionLoc == "left")
+            if (intersectionLoc.Contains("left"))
             {
-                if (player.Velocity.X < 0 && enemy.Velocity.X > 0)
-                {
-                    player.Position += new Vector2(5, 0);
-                }
-            }
-            else //right
-            {
-                if (player.Velocity.X > 0 && enemy.Velocity.X < 0)
+                if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
                 {
                     player.Position -= new Vector2(5, 0);
+                }
+            }
+            if (intersectionLoc.Contains("right"))
+            {
+                if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
+                {
+                    player.Position += new Vector2(5, 0);
                 }
             }
         }

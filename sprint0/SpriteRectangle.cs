@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,7 +107,7 @@ namespace sprint0
         };
 
         public static Rectangle[] LinkRunningRightDamaged =
-{
+        {
             new Rectangle(120, 0, 40, 40),
             new Rectangle(120, 40, 40, 40),
             new Rectangle(280, 0, 40, 40),

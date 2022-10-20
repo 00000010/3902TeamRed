@@ -25,33 +25,33 @@ namespace sprint0
         {
             Enemy Enemy1 = (Enemy)enemy1;
             Enemy Enemy2 = (Enemy)enemy2;
-            if (intersectionLoc == "top")
+            if (intersectionLoc.Contains("top"))
             {
-                if (Enemy1.Velocity.Y > 0 && Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 AND enemy2 moving towards enemy1
+                if (Enemy1.Velocity.Y > 0 || Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 OR enemy2 moving towards enemy1
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
                     Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
-            else if (intersectionLoc == "bottom")
+            if (intersectionLoc.Contains("bottom"))
             {
-                if (Enemy1.Velocity.Y < 0 && Enemy2.Velocity.Y > 0)
+                if (Enemy1.Velocity.Y < 0 || Enemy2.Velocity.Y > 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
                     Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
-            else if (intersectionLoc == "left")
+            if (intersectionLoc.Contains("left"))
             {
-                if (Enemy1.Velocity.X < 0 && Enemy2.Velocity.X > 0)
+                if (Enemy1.Velocity.X > 0 || Enemy2.Velocity.X < 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
                     Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
-            else //right
+            if (intersectionLoc.Contains("right"))
             {
-                if (Enemy1.Velocity.X > 0 && Enemy2.Velocity.X < 0)
+                if (Enemy1.Velocity.X < 0 || Enemy2.Velocity.X > 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
                     Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
