@@ -12,42 +12,42 @@
             <Location>496 296</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>400 272</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>384 288</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>416 288</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>368 304</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>432 304</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>384 320</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>416 320</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>400 336</Location>
         </Item>

@@ -27,31 +27,31 @@
             <Location>384 368</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>320 272</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>448 272</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>384 304</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>320 336</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>448 336</Location>
             <Dimension>2 1</Dimension>

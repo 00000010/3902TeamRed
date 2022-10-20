@@ -65,7 +65,9 @@ namespace sprint0
                 || type.Equals(Type.GetType("sprint0.Goriya"))
                 || type.Equals(Type.GetType("sprint0.Octorok"))
                 || type.Equals(Type.GetType("sprint0.DungeonMonster1"))
-                || type.Equals(Type.GetType("sprint0.DungeonMonster2")))
+                || type.Equals(Type.GetType("sprint0.DungeonMonster2"))
+                || type.Equals(Type.GetType("sprint0.DungeonMonster1Faded"))
+                || type.Equals(Type.GetType("sprint0.DungeonMonster2Faded")))
             {
                 result = "Enemy";
             }

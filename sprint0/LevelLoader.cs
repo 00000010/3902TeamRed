@@ -52,6 +52,8 @@ namespace sprint0
             string sFile;
             string levelName = "Level" + levelNum.ToString();
 
+            Console.WriteLine("Loading " + levelName);
+
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {

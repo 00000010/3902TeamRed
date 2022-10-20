@@ -12,13 +12,13 @@
             <Location>284 296</Location>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>336 288</Location>
             <Dimension>2 3</Dimension>
         </Item>
         <Item>
-            <ObjectType>Sprite</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>432 288</Location>
             <Dimension>2 3</Dimension>

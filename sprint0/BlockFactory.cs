@@ -35,6 +35,11 @@ namespace sprint0
         {
             return new ZeldaPurpleBlock(position);
         }
+
+        public Block DungeonBlock(Vector2 position)
+        {
+            return new DungeonBlock(position);
+        }
     }
 
     internal class ZeldaGreenBlock : Block
@@ -58,6 +63,14 @@ namespace sprint0
         public ZeldaPurpleBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaPurple(position);
+        }
+    }
+
+    internal class DungeonBlock : Block
+    {
+        public DungeonBlock(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonBlock(position);
         }
     }
 }
