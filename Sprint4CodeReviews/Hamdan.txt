@@ -16,6 +16,6 @@ with the collision using ctor.Invoke, which takes in a list of objects and calls
 the correct command using ConstructorInfo. 
 
 Function being reviewed: PlayerBlockCollisionCommand
-The code works, player can't move through block object, but the player gets pushed back
-repeatedly instead of stopping, so we might want to fix that later on or leave it
-as it is.
+The code works, player can't move through block object, but the player stops 
+moving through the block by getting pushed back repeatedly, so we might want to 
+fix that later on or leave it as it is.
