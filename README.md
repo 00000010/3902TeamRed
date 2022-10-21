@@ -1,6 +1,6 @@
 # 3902TeamRed
 
-Current Revision: 10/01/22
+Current Revision: 10/20/22
 
 <!-- TEAM MEMBERS -->
 ## Team Members
@@ -16,24 +16,29 @@ Adam Perhala (perhala.3) <br/>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-We have been working on our own version of the Legend of Zelda and we're so glad to let you get your first look.
+We have been working on our own version of the first level of the Legend of Zelda and we're so glad to let you get your first look.
 
 
 <!-- FILE DESCRIPTIONS -->
 ## File Descriptions
 
 Exit Command - Allows user to quit game <br/>
-Game1 - Provides basis for game to load up and start <br/>
+Game1 – Loads in the content and level loader <br/>
 ICommand - Interface for Commands <br/>
 IControllers - Interface for keyboard controllers <br/>
 ISprite - Interface for the many in game sprites <br/>
+IObject: Generic interface used for CollisionDetection and CollisionResolution <br/>
+IProjectile/IEnemy/IItem/IPlayer/IBlock: Interfaces for the different objects in the game <br/>
+Enemy/Item/Block/Projectile/Player: Concrete classes for the objects in the game <br/>
 KeyBoardController - Implementation of the IController interface. Provides mapping for D pad keys allowing for movement of user sprite. <br/>
-LuigiRunning…Command - Each provides commands that induce motion upon the user sprite. <br/>
+PlayerProjectilesCollisionCommand, …CollisionCommand – All 8 commands to resolve the collisions that occur in the game <br/>
+CollisionDetection/CollisionResolution – To detect and resolve collisions <br/>
 MouseCommand/MouseController- Provides for mouse motion and clicking <br/>
 Sprite - Implements Sprite and allows for motion and drawing updates. <br/>
-SpriteFactory - Produces Sprite imagery <br/>
-SpriteRectangle - Allows for proper Sprite sizing <br/>
+SpriteFactory, …Factory – Instantiate all the objects in the game<br/>
+SpriteRectangle, …Rectangle - Allows for proper Sprite sizing <br/>
 TextSprite - Allows for text output to the screen <br/>
+LevelLoader – Loads the level and all of the game objects <br/>
 
 <!-- PROGRAM CONTROLS -->
 ## Program Controls
@@ -60,6 +65,8 @@ Next Enemy: 'P' <br/>
 
 Reset Link: 'R' <br/>
 
+Load a new room: 'H' <br/>
+
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
 ## Non-Required Tools and Processes
 
@@ -68,20 +75,18 @@ Trello:      trello.com     (Task Managment)  <br/>
 Sprite Cow:  spritecow.com  (Used to find sprite coordinates on sprite sheet) <br/>
 Discord:     discord.com    (Used to collaborate vitually) <br/> <br/>
 
-The team has been working (with Adam taking point) on getting a working implementation of multiplayer going
-for the Legend of Zelda.  He has been working on the client and one server to allow for 2 person play and has gotten
-a loosely working implementation going.
+The team has been working (with Adam taking point) on getting a working implementation of multiplayer going for the Legend of Zelda.  He has been working on the client and one server to allow for 2 person play and has gotten a loosely working implementation going.
 
 ## Backlog
 Besides the known bugs (documented below), there are no items currently in the backlog.
+We did a lot of refactoring this sprint, and in the process, enemies lost their functionality to shoot projectiles. We’ll have them shooting projectiles again next sprint. We’ll also add the ability to differentiate between Link projectiles and enemy projectiles.
+Implement functionality to move between rooms through doors.
+At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution command is called as a result. We still need to implement functionality to allow for Link to pick up items.
+
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
-
-Currently there is a bug in the projectile class where if the projectile firing button where if it is held for
-two long the projectile will continue to draw and lengthen.  Arrow projectile appears to screen and flies successfully but does not
-originate from Link (Luigi) himself.  Link doesn't stay damaged when he changes direction.  Damage goes on infinitely.
-Attack goes on infinitely.
+Link can move outside the room because the room background does not take the whole screen yet
 
 ## Trello link
 https://trello.com/b/5pvXlIry/team-redd
