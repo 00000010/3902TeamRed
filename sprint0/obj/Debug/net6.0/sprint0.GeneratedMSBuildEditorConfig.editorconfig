@@ -7,4 +7,8 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = sprint0
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\
+=======
+build_property.ProjectDir = /Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/
+>>>>>>> dev

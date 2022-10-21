@@ -19,7 +19,7 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D dungeonSheet;
-        private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
+        private Texture2D linkSpritesheet, enemiesSpritesheet;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
 
@@ -66,11 +66,6 @@ namespace sprint0
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
-
-            //boomerangSpritesheet = content.Load<Texture2D>("goriyaspritesheet");
-            //octorokSpritesheet = content.Load<Texture2D>("OctorokSpritesheet");
-
-            //projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
         }
 
         // TODO: Fix the collateral damage here
