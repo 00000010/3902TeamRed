@@ -15,5 +15,9 @@ namespace sprint0
         public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
         public State State { get; set; }
+        /// <summary>
+        /// Scale of 1-10, with 1 being weakest and 10 being strongest. 0 indicates no damage if Link collides with it.
+        /// </summary>
+        public int CollideDamage { get; set; }
     }
 }

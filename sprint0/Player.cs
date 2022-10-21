@@ -25,6 +25,8 @@ namespace sprint0
 
         public bool Visible => throw new NotImplementedException();
 
+        public int Damaged { get; set; }
+
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
         public event EventHandler<EventArgs> DrawOrderChanged;

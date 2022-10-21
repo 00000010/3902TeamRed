@@ -25,6 +25,8 @@ namespace sprint0
 
         public int UpdateOrder => throw new NotImplementedException();
 
+        public int CollideDamage { get; set; }
+
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
         public event EventHandler<EventArgs> EnabledChanged;
@@ -40,7 +42,6 @@ namespace sprint0
             Sprite.Update(gameTime);
             UpdateEnemyVelocity(gameTime);
         }
-
 
         /**
          * handling the velocities of the different enemies

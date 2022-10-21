@@ -13,6 +13,8 @@ namespace sprint0
         IObject enemy;
         string intersectionLoc;
         GameObjectManager manager;
+        IPlayer managedPlayer;
+
         public PlayerEnemyCollisionCommand(IObject player, IObject enemy, string intersectionLoc, GameObjectManager manager)
         {
             this.player = player;
@@ -25,6 +27,9 @@ namespace sprint0
         {
             Player player = (Player)this.player;
             Enemy enemy = (Enemy)this.enemy;
+
+            managedPlayer = manager.player;
+
             if (intersectionLoc.Contains("top"))
             {
                 if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
@@ -52,6 +57,13 @@ namespace sprint0
                 {
                     player.Position += new Vector2(5, 0);
                 }
+            }
+
+            if (enemy.CollideDamage > 0)
+            {
+                managedPlayer.TakingDamage = true;
+                managedPlayer.Damaged = enemy.CollideDamage;
+                manager.UpdatePlayerSprite();
             }
         }
     }

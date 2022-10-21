@@ -204,7 +204,6 @@ namespace sprint0
             }
             else
             {
-                Console.WriteLine("Player state: " + player.State);
                 switch (player.State)
                 {
                     case State.RUNNING:
@@ -326,7 +325,7 @@ namespace sprint0
 
             if (player.TakingDamage)
             {
-                if (damageRotation == 300)
+                if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
                 {
                     player.TakingDamage = !player.TakingDamage;
                     UpdatePlayerSprite();

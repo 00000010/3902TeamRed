@@ -189,7 +189,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Throw command");
             player = manager.player;
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
             player.State = State.THROWING;

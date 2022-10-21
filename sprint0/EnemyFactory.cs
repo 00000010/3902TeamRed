@@ -24,47 +24,65 @@ namespace sprint0
 
         public Enemy Stalfos(Vector2 position)
         {
-            return new Stalfos(position);
+            Enemy enemy = new Keese(position);
+            enemy.CollideDamage = 2;
+            return enemy;
         }
 
         public Enemy Keese(Vector2 position)
         {
-            return new Keese(position);
+            Enemy enemy = new Keese(position);
+            enemy.CollideDamage = 2;
+            return enemy;
         }
 
         public Enemy Gel(Vector2 position)
         {
-            return new Gel(position);
+            Enemy enemy = new Gel(position);
+            enemy.CollideDamage = 2;
+            return enemy;
         }
 
         public Enemy Goriya(Vector2 position)
         {
-            return new Goriya(position);
+            Enemy enemy = new Goriya(position);
+            enemy.CollideDamage = 0;
+            return enemy;
         }
 
         public Enemy Octorok(Vector2 position)
         {
-            return new Octorok(position);
+            Enemy enemy = new Octorok(position);
+            enemy.CollideDamage = 3;
+            return enemy;
         }
 
         public Enemy DungeonMonster1(Vector2 position)
         {
-            return new DungeonMonster1(position);
+            Enemy enemy = new DungeonMonster1(position);
+            enemy.CollideDamage = 0;
+            return enemy;
         }
 
         public Enemy DungeonMonster2(Vector2 position)
         {
-            return new DungeonMonster2(position);
+            Enemy enemy = new DungeonMonster2(position);
+            enemy.CollideDamage = 0;
+            return enemy;
         }
 
         public Enemy DungeonMonster1Faded(Vector2 position)
         {
-            return new DungeonMonster1Faded(position);
+            Enemy enemy = new DungeonMonster1Faded(position);
+            enemy.CollideDamage = 0;
+            return enemy;
         }
 
         public Enemy DungeonMonster2Faded(Vector2 position)
         {
-            return new DungeonMonster2Faded(position);
+            Enemy enemy = new DungeonMonster2Faded(position);
+            enemy.CollideDamage = 0;
+            return enemy;
         }
     }
 
