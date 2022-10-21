@@ -81,11 +81,6 @@ namespace sprint0
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
-
-            //boomerangSpritesheet = content.Load<Texture2D>("goriyaspritesheet");
-            //octorokSpritesheet = content.Load<Texture2D>("OctorokSpritesheet");
-
-            //projectileSpritesheet = content.Load<Texture2D>("zeldaspritesheet");
         }
 
         public void LoadZeldaTextures(ContentManager content)

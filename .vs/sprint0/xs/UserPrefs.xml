@@ -1,16 +1,31 @@
-﻿<Properties StartupConfiguration="{E2C24F3C-0826-4EDA-B215-FAEF35452B3E}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="../.nuget/packages/monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.targets">
+﻿<Properties StartupConfiguration="{63D94353-3BD6-4E1F-B285-06380108B934}|Default">
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/LoadLevelCommand.cs">
     <Files>
-      <File FileName="../.nuget/packages/monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.targets" Line="142" Column="5" />
+      <File FileName="sprint0/PlayerCommands.cs" Line="197" Column="10" />
+      <File FileName="sprint0/ItemFactory.cs" Line="118" Column="1" />
+      <File FileName="sprint0/SpriteRectangle.cs" Line="266" Column="11" />
+      <File FileName="sprint0/Player.cs" Line="28" Column="41" />
+      <File FileName="sprint0/Enums.cs" Line="13" Column="28" />
+      <File FileName="sprint0/GameObjectManager.cs" Line="334" Column="34" />
+      <File FileName="sprint0/IEnemy.cs" Line="18" Column="22" />
+      <File FileName="sprint0/PlayerEnemyCollisionCommand.cs" Line="63" Column="14" />
+      <File FileName="sprint0/IPlayer.cs" Line="19" Column="41" />
+      <File FileName="sprint0/CollisionDetection.cs" Line="42" Column="1" />
+      <File FileName="sprint0/ISprite.cs" Line="8" Column="1" />
+      <File FileName="sprint0/SpriteFactory.cs" Line="26" Column="1" />
+      <File FileName="sprint0/Sprite.cs" Line="22" Column="1" />
+      <File FileName="sprint0/LoadLevelCommand.cs" Line="24" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
-            <Node name="sprint0" expanded="True" />
+            <Node name="sprint0" expanded="True">
+              <Node name="LoadLevelCommand.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -19,8 +34,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
