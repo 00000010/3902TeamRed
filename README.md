@@ -128,6 +128,8 @@ Next Enemy: 'P' <br/>
 
 Reset Link: 'R' <br/>
 
+Load a new room: 'H' <br/>
+
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
 ## Non-Required Tools and Processes
 
@@ -141,17 +143,17 @@ for the Legend of Zelda.  He has been working on the client and one server to al
 a loosely working implementation going.
 
 ## Backlog
-Besides the known bugs (documented below), there are no items currently in the backlog.
+We did a lot of refactoring this sprint, and in the process, enemies lost their functionality to shoot projectiles. We’ll have them shooting projectiles again next sprint. We’ll also add the ability to differentiate between Link projectiles and enemy projectiles. </br>
+Implement functionality to move between rooms through doors. <br/>
+At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution command is called as a result. We still need to implement functionality to allow for Link to pick up items.<br/>
+
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
+Link can move outside the room because the room background does not take the whole screen yet<br/>
 
-Currently there is a bug in the projectile class where if the projectile firing button where if it is held for
-two long the projectile will continue to draw and lengthen.  Arrow projectile appears to screen and flies successfully but does not
-originate from Link (Luigi) himself.  Link doesn't stay damaged when he changes direction.  Damage goes on infinitely.
-Attack goes on infinitely.
+## Trello link
+https://trello.com/b/5pvXlIry/team-redd
 
-<!-- TRELLO LINK -->
-## <a href="https://trello.com/b/5pvXlIry/team-redd" target="_blank">Trello Link</a>
 
 
