@@ -78,15 +78,14 @@ Discord:     discord.com    (Used to collaborate vitually) <br/> <br/>
 The team has been working (with Adam taking point) on getting a working implementation of multiplayer going for the Legend of Zelda.  He has been working on the client and one server to allow for 2 person play and has gotten a loosely working implementation going.
 
 ## Backlog
-Besides the known bugs (documented below), there are no items currently in the backlog.
-We did a lot of refactoring this sprint, and in the process, enemies lost their functionality to shoot projectiles. We’ll have them shooting projectiles again next sprint. We’ll also add the ability to differentiate between Link projectiles and enemy projectiles.
-Implement functionality to move between rooms through doors.
-At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution command is called as a result. We still need to implement functionality to allow for Link to pick up items.
+We did a lot of refactoring this sprint, and in the process, enemies lost their functionality to shoot projectiles. We’ll have them shooting projectiles again next sprint. We’ll also add the ability to differentiate between Link projectiles and enemy projectiles. </br>
+Implement functionality to move between rooms through doors.</br>
+At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution command is called as a result. We still need to implement functionality to allow for Link to pick up items.</br>
 
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
-Link can move outside the room because the room background does not take the whole screen yet
+Link can move outside the room because the room background does not take the whole screen yet</br>
 
 ## Trello link
 https://trello.com/b/5pvXlIry/team-redd
