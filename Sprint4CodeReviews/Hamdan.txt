@@ -1,5 +1,5 @@
 Author: Hamdan Almehairbi
-Person being reviewed: Abdelrahman
+Person being reviewed: Abdelrahman Ibrahim
 Sprint 4
 Date: 21/10/2022
 Class being reviewed: CollisionDetection
