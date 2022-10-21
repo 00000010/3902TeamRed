@@ -53,10 +53,6 @@ namespace sprint0
 
         public static Rectangle[] Background = { new Rectangle(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT) };
 
-        //Right, up, left, down is the order
-        public static Rectangle[] arrow = { new Rectangle(210, 200, 16, 5), new Rectangle(123, 194, 10, 20),
-            new Rectangle(150, 200, 16, 5), new Rectangle(186, 196, 10, 20)};
-
         public static Rectangle[] Empty =
         {
             new Rectangle(0, 0, 0, 0)
@@ -257,6 +253,26 @@ namespace sprint0
             new Rectangle(240, 120, 40, 40),
             new Rectangle(80, 120, 40, 40),
             new Rectangle(240, 120, 40, 40)
+        };
+
+        public static Rectangle[] LinkThrowingUp =
+        {
+            new Rectangle(80, 80, 40, 40)
+        };
+
+        public static Rectangle[] LinkThrowingDown =
+        {
+            new Rectangle(0, 80, 40, 40)
+        };
+
+        public static Rectangle[] LinkThrowingLeft =
+        {
+            new Rectangle(40, 80, 40, 40)
+        };
+
+        public static Rectangle[] LinkThrowingRight =
+        {
+            new Rectangle(120, 80, 40, 40)
         };
     }
 }

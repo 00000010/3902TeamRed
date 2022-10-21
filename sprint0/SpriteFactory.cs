@@ -306,6 +306,30 @@ namespace sprint0
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDown, spriteBatch, position);
         }
 
+        /*
+         * Link throwing an arrow.
+         * TODO: not sure if this sheet contains Link throwing an arrow...
+         */
+        public Sprite LinkThrowingUp(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingUp, spriteBatch, position);
+        }
+
+        public Sprite LinkThrowingDown(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingDown, spriteBatch, position);
+        }
+
+        public Sprite LinkThrowingLeft(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingLeft, spriteBatch, position);
+        }
+
+        public Sprite LinkThrowingRight(Vector2 position)
+        {
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingRight, spriteBatch, position);
+        }
+
         public Sprite ZeldaGreen(Vector2 position)
         {
             return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position);
@@ -472,6 +496,7 @@ namespace sprint0
             return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
         }
 
+        // TODO: dictionary with key as direction for these
         public Sprite ZeldaArrowUp(Vector2 position)
         {
             return new Sprite(Arrow, ItemRectangle.BowArrowUp, spriteBatch, position);

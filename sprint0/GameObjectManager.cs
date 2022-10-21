@@ -204,6 +204,7 @@ namespace sprint0
             }
             else
             {
+                Console.WriteLine("Player state: " + player.State);
                 switch (player.State)
                 {
                     case State.RUNNING:
@@ -263,6 +264,25 @@ namespace sprint0
                                 break;
                         }
                         break;
+                    case State.THROWING:
+                        switch (player.Direction)
+                        {
+                            case Direction.UP:
+                                player.Sprite = SpriteFactory.Instance.LinkThrowingUp(player.Position);
+                                break;
+                            case Direction.DOWN:
+                                player.Sprite = SpriteFactory.Instance.LinkThrowingDown(player.Position);
+                                break;
+                            case Direction.LEFT:
+                                player.Sprite = SpriteFactory.Instance.LinkThrowingLeft(player.Position);
+                                break;
+                            case Direction.RIGHT:
+                                player.Sprite = SpriteFactory.Instance.LinkThrowingRight(player.Position);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -293,7 +313,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             // Ensure Link does not keep attacking, but only with each press
-            if (player.State == State.ATTACKING)
+            if (player.State == State.ATTACKING || player.State == State.THROWING)
             {
                 if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
                 {
