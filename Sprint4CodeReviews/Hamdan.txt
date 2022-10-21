@@ -1,0 +1,21 @@
+Author: Hamdan Almehairbi
+Person being reviewed: Abdelrahman
+Sprint 4
+Date: 21/10/2022
+Class being reviewed: CollisionDetection
+The structure of the code is great. First all enemies/blocks/projectiles/blocks
+are added to their own list. Each list is checked for collision using the rectangle
+intersect method. If there is an intersection, then there is a collision and the
+direction of the collision is found. Then collisionresolution is called to resolve
+what should happen with the information gathered as to what to objects are
+colliding, and the direction. I don't see any issues and overall it is great code.
+
+Function being reviewed: CollisionResolution
+CollisionResolution is great as well since it calls the correct command that deals
+with the collision using ctor.Invoke, which takes in a list of objects and calls
+the correct command using ConstructorInfo. 
+
+Function being reviewed: PlayerBlockCollisionCommand
+The code works, player can't move through block object, but the player gets pushed back
+repeatedly instead of stopping, so we might want to fix that later on or leave it
+as it is.
