@@ -341,7 +341,7 @@ namespace sprint0
 
         public Sprite ZeldaBow(Vector2 position)
         {
-            return new Sprite(Bow, ItemRectangle.BowArrow, spriteBatch, position);
+            return new Sprite(Bow, ItemRectangle.BowArrowUp, spriteBatch, position); // TODO: BowArrow to BowArrowUp?
         }
 
         public Sprite ZeldaClock(Vector2 position)
@@ -472,9 +472,24 @@ namespace sprint0
             return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
         }
 
-        public Sprite ZeldaArrow(Vector2 position)
+        public Sprite ZeldaArrowUp(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrow, spriteBatch, position);
+            return new Sprite(Arrow, ItemRectangle.BowArrowUp, spriteBatch, position);
+        }
+
+        public Sprite ZeldaArrowDown(Vector2 position)
+        {
+            return new Sprite(Arrow, ItemRectangle.BowArrowDown, spriteBatch, position);
+        }
+
+        public Sprite ZeldaArrowLeft(Vector2 position)
+        {
+            return new Sprite(Arrow, ItemRectangle.BowArrowLeft, spriteBatch, position);
+        }
+
+        public Sprite ZeldaArrowRight(Vector2 position)
+        {
+            return new Sprite(Arrow, ItemRectangle.BowArrowRight, spriteBatch, position);
         }
     }
 }

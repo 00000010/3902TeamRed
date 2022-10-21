@@ -25,22 +25,25 @@ namespace sprint0
     {
         public ZeldaArrow(Vector2 position, Direction direction)
         {
-            Sprite = SpriteFactory.Instance.ZeldaArrow(position);
 
             Vector2 velocity = Vector2.Zero;
 
             switch (direction)
             {
                 case Direction.LEFT:
+                    Sprite = SpriteFactory.Instance.ZeldaArrowLeft(position);
                     velocity.X -= 5;
                     break;
                 case Direction.RIGHT:
+                    Sprite = SpriteFactory.Instance.ZeldaArrowRight(position);
                     velocity.X += 5;
                     break;
                 case Direction.UP:
+                    Sprite = SpriteFactory.Instance.ZeldaArrowUp(position);
                     velocity.Y -= 5;
                     break;
                 case Direction.DOWN:
+                    Sprite = SpriteFactory.Instance.ZeldaArrowDown(position);
                     velocity.Y += 5;
                     break;
                 default:

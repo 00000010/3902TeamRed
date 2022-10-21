@@ -10,7 +10,10 @@ namespace sprint0
     public class ItemRectangle
     {
         //used for both arrow and silverarrow and bow
-        public static Rectangle[] BowArrow = { new Rectangle(0, 0, 5, 16) };
+        public static Rectangle[] BowArrowUp = { new Rectangle(6, 0, 5, 16) };
+        public static Rectangle[] BowArrowDown = { new Rectangle(6, 16, 5, 16) };
+        public static Rectangle[] BowArrowLeft = { new Rectangle(16, 5, 16, 5) };
+        public static Rectangle[] BowArrowRight = { new Rectangle(16, 21, 16, 5) };
 
         //red and blue candle
         public static Rectangle[] Candle = { new Rectangle(0, 0, 8, 16) };
