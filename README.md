@@ -74,6 +74,7 @@ collision detection and handling, inclusion of all in game items and enemies, an
 ### MovementDirection - Player movement handling
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Left.cs" target="_blank">Left.cs</a>
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Right.cs" target="_blank">Right.cs</a>
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Up.cs" target="_blank">Up.cs</a>
 
 ### Player - Player generation/Movement/Collision/Damaging/Attacking
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Player/IPlayer.cs" target="_blank">IPlayer.cs</a>
