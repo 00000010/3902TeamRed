@@ -25,10 +25,10 @@ collision detection and handling, inclusion of all in game items and enemies, an
 ## Folder Descriptions
 
 ### Block - Block generation and collision
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/Block.cs" target="_blank">Block.cs</a>
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/BlockFactory.cs" target="_blank">BlockFactory.cs</a>
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/BlockRectangle.cs" target="_blank">BlockRectangle.cs</a>
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/IBlock.cs" target="_blank">IBlock.cs</a>
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/Block.cs" target="_blank">Block.cs</a> - Enables Updateable and Drawable Capabilities
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/BlockFactory.cs" target="_blank">BlockFactory.cs</a> - Produces all blocks
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/BlockRectangle.cs" target="_blank">BlockRectangle.cs</a> - Holds default block size data
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/IBlock.cs" target="_blank">IBlock.cs</a> - Block Interface
 
 ### Content - Sprites and Imagery files
 
@@ -165,6 +165,6 @@ originate from Link (Luigi) himself.  Link doesn't stay damaged when he changes 
 Attack goes on infinitely.
 
 <!-- TRELLO LINK -->
-## Trello link
-https://trello.com/b/5pvXlIry/team-redd
+## <a href="https://trello.com/b/5pvXlIry/team-redd" target="_blank">Trello Link</a>
+
 
