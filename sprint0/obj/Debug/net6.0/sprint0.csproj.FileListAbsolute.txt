@@ -69,3 +69,5 @@
 /Users/william/Desktop/3902v2/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
 /Users/william/Desktop/3902v2/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
 /Users/william/Desktop/3902v2/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
+/Users/william/Desktop/3902v2/3902TeamRed/sprint0/bin/Debug/net6.0/Content/GridSquare.xnb
+/Users/william/Desktop/3902v2/3902TeamRed/sprint0/bin/Debug/net6.0/Content/SaveIcon.xnb

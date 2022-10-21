@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Asset>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>GridSquare</ObjectName>
+            <Location>0 0</Location>
+            <Dimension>16 11</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>SaveIconBlock</ObjectName>
+            <Location>200 200</Location>
+            <Dimension>1 1</Dimension>
+        </Item>
+    </Asset>
+</XnaContent>

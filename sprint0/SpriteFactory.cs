@@ -27,6 +27,8 @@ namespace sprint0
         private Texture2D GreenBlock;
         private Texture2D BlackBlock;
         private Texture2D PurpleBlock;
+        private Texture2D GridSquareBlock;
+        private Texture2D SaveIcon;
 
         private Texture2D Arrow;
         private Texture2D BlueCandle;
@@ -68,6 +70,8 @@ namespace sprint0
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
             BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
             PurpleBlock = content.Load<Texture2D>("ZeldaLadxBlock");
+            GridSquareBlock = content.Load<Texture2D>("GridSquare");
+            SaveIcon = content.Load<Texture2D>("SaveIcon");
 
             Arrow = content.Load<Texture2D>("ZeldaSpriteArrow");
             BlueCandle = content.Load<Texture2D>("ZeldaSpriteBlueCandle");
@@ -214,6 +218,16 @@ namespace sprint0
         public Sprite ZeldaPurple(Vector2 position)
         {
             return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+        }
+
+        public Sprite GridSquare(Vector2 position)
+        {
+            return new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+        }
+
+        public Sprite SaveIconBlock(Vector2 position)
+        {
+            return new Sprite(SaveIcon, BlockRectangle.NormalBlock, spriteBatch, position);
         }
 
 

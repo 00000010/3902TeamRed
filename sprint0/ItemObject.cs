@@ -28,6 +28,24 @@ namespace sprint0
             Location = "0 0";
         }
 
+        public ItemObject(string type, string name, string dimension, Vector2 position )
+        {
+            this.ObjectType = type;
+            this.ObjectName = name;
+            this.Dimension = dimension;
+            string Location = position.ToString();
+
+            string[] split = Location.Split(' ');
+            this.PosX = Int32.Parse(split[0].Substring(3));
+            this.PosY = Int32.Parse(split[1].Substring(2, split[1].Length - 3));
+
+            this.Location = $"{this.PosX} {this.PosY}";
+
+            string[] splitDimension = dimension.Split(' ');
+            this.NumX = Int32.Parse(splitDimension[0]);
+            this.NumY = Int32.Parse(splitDimension[1]);
+        }
+
         public void parseData(IEnumerable<XElement> attributes)
         {
             foreach(XElement attribute in attributes)

@@ -29,6 +29,7 @@ namespace sprint0
         KeyboardController keyboard;
         MouseController mouse;
         LevelLoader loader;
+        LevelCreator creator;
 
         public Game1()
         {
@@ -54,7 +55,7 @@ namespace sprint0
             drawables.Add(player);
 
             //Add Block
-            block = BlockFactory.Instance.ZeldaBlackBlock(new Vector2(100, 100));
+            block = BlockFactory.Instance.ZeldaBlackBlock(new Vector2(16, 16));
             drawables.Add(block);
 
             //Add item
@@ -78,9 +79,8 @@ namespace sprint0
             mouse.LoadMouseCommands(this);
             updateables.Add(mouse);
 
-            loader = new LevelLoader(this);
-            loader.LoadLevel("TestLevel");
-            Console.WriteLine(loader.ToString());
+            creator = new LevelCreator(this, resolution);
+
         }
 
         protected override void Update(GameTime gameTime)

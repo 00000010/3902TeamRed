@@ -18,6 +18,8 @@ namespace sprint0
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
+        public bool canPress = true;
+
         public bool Enabled => throw new NotImplementedException();
 
         public int UpdateOrder => throw new NotImplementedException();
@@ -32,10 +34,19 @@ namespace sprint0
         {
             foreach (MouseCommand mouseCommand in mouseMappings.Keys)
             {
-                if (mouseCommand.Equals(Mouse.GetState())) 
+                if (mouseCommand.Equals(Mouse.GetState()) && canPress) 
                 {
                     mouseMappings[mouseCommand].Execute();
                 }
+            }
+
+            if(Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                canPress = false;
+            }
+            else
+            {
+                canPress = true;
             }
 
         }
@@ -57,5 +68,28 @@ namespace sprint0
             //this.RegisterCommand(new MouseCommand(MouseButton.Left, q3), new LinkRunningRightCommand(game));
             //this.RegisterCommand(new MouseCommand(MouseButton.Left, q4), new LinkRunningRightCommand(game));
         }
+
+        public void LoadLevelCreatorCommands(Game1 game, LevelLoader loader)
+        {
+            int blockLength = 16;
+            int gridLength = 16;
+            int gridHeight = 11;
+            int totalGridSquares = gridLength * gridHeight;
+            Rectangle gridArea = new Rectangle(0, 0, blockLength * gridLength, blockLength * gridHeight);
+            Rectangle[] gridSquares = new Rectangle[totalGridSquares];
+
+            for(int i = 0; i < gridHeight; i++)
+            {
+                for(int j = 0; j < gridLength; j++)
+                {
+                    Rectangle newRec = new Rectangle(blockLength * j, blockLength * i, blockLength, blockLength);
+                    Console.WriteLine(newRec.ToString());
+                    this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new PlaceBlockCommand(game, new Vector2(newRec.X, newRec.Y), loader));
+                }
+            }
+            Rectangle saveRec = new Rectangle(200, 200, 16, 16);
+            this.RegisterCommand(new MouseCommand(MouseButton.Left, saveRec), new SaveLevelCommand(game, loader));
+        }
+
     }
 }
