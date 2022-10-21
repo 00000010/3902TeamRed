@@ -1,6 +1,6 @@
 # 3902TeamRed
 
-Current Revision: 10/01/22
+Current Revision: 10/21/22
 
 <!-- TEAM MEMBERS -->
 ## Team Members
@@ -16,11 +16,92 @@ Adam Perhala (perhala.3) <br/>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-We have been working on our own version of the Legend of Zelda and we're so glad to let you get your first look.
+The Legend of Zelda done our way.  Current iteration is complete with full implementation of entire first dungeon, <br/>
+collision detection and handling, inclusion of all in game items and enemies, and a level loader for handling switching rooms <br/>
 
 
-<!-- FILE DESCRIPTIONS -->
-## File Descriptions
+
+<!-- FOLDER DESCRIPTIONS -->
+## Folder Descriptions
+
+####Block - Block generation and collision
+* <a href="https://github.com/00000010/3902TeamRed/blob/main/sprint0/Block.cs" target="_blank">Block.cs</a>
+* BlockFactory.cs
+* BlockRectangle.cs
+* IBlock.cs
+
+####Content - Sprites and Imagery files
+
+####Controller - Interface for controllers and default key mappings
+* IController.cs
+* KeyboardController.cs
+
+####Decorators
+
+####Enemy - Enemy generation/Movement/Collision/Damaging
+* Enemy.cs
+* EnemyFactory.cs
+* EnemyFrame.cs
+* EnemyRectangle.cs
+* EnemyVelocity.cs
+* IEnemy.cs
+
+####Game - Opening/Loading levels/Running/Stopping the game
+* Constants.cs
+* Enums.cs
+* ExitCommand.cs
+* Game1.cs
+* GameObjectManager.cs
+* ICommand.cs
+* LevelLoader.cs
+* Program.cs
+* ResetCommand.cs
+
+####Item - Item generation/Movement/Collision/Pickup
+* IItem.cs
+* Item.cs
+* ItemFactory.cs
+* ItemObject.cs
+* ItemRectangle.cs
+
+####Link - Image of Link
+* LinkRectangle.cs
+
+####Mouse - Mouse button mappings
+* MouseCommand.cs
+* MouseController.cs
+
+####MovementDirection - Player movement handling
+* Left.cs
+* Right.cs
+* Up.cs
+
+####Player - Player generation/Movement/Collision/Damaging/Attacking
+* IPlayer.cs
+* Player.cs
+* PlayerCommands.cs
+* PlayerFactory.cs
+
+####Projectile - Projectile generation/Movement/Collision/Damaging
+* IProjectiles.cs
+* Projectile.cs
+* ProjectileFactory.cs
+* ProjectileRectangle.cs
+
+####ScreenDisplay - Key mappings for the display of all necessary objects
+* NextBlockCommand.cs
+* NextEnemyCommand.cs
+* NextItemCommand.cs
+* PrevBlockCommand.cs
+* PrevEnemyCommand.cs
+* PrevItemCommand.cs
+
+####Sprite - Image display for all Players/Items/Blocks/Enemies/Text
+* ISprite.cs
+* Sprite.cs
+* SpriteFactory.cs
+* SpriteRectangle.cs
+* TextSprite.cs
 
 Exit Command - Allows user to quit game <br/>
 Game1 - Provides basis for game to load up and start <br/>
@@ -83,6 +164,7 @@ two long the projectile will continue to draw and lengthen.  Arrow projectile ap
 originate from Link (Luigi) himself.  Link doesn't stay damaged when he changes direction.  Damage goes on infinitely.
 Attack goes on infinitely.
 
+<!-- TRELLO LINK -->
 ## Trello link
 https://trello.com/b/5pvXlIry/team-redd
 
