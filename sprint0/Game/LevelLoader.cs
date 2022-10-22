@@ -57,11 +57,11 @@ namespace sprint0
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Content\Levels\{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{levelName}.xml");
             }
             else
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Content/Levels/{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{levelName}.xml");
             }
             string sFilePath = Path.GetFullPath(sFile);
             XDocument level = XDocument.Load(sFilePath);

@@ -118,7 +118,7 @@ namespace sprint0
         {
             int offset = 12;
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y+offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width-(offset*2),
+                (int)player.Position.Y+offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset*2),
                 player.Sprite.SourceRectangle[player.Sprite.Frame].Height-(offset*2));
             for (int i = 0; i < blocks.Count; i++)
             {

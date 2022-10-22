@@ -445,22 +445,6 @@ namespace sprint0
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position);
         }
-        //public Sprite OctorokLeft(Vector2 position)
-        //{
-        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokLeft, spriteBatch, position);
-        //}
-        //public Sprite OctorokRight(Vector2 position)
-        //{
-        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokRight, spriteBatch, position);
-        //}
-        //public Sprite OctorokDown(Vector2 position)
-        //{
-        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokDown, spriteBatch, position);
-        //}
-        //public Sprite OctorokUp(Vector2 position)
-        //{
-        //    return new Sprite(enemiesSpritesheet, EnemyRectangle.OctorokUp, spriteBatch, position);
-        //}
 
         public Sprite Octorok(Vector2 position)
         {
