@@ -34,13 +34,13 @@ namespace sprint0
 
         private void PopulateCollisionResolutionDic()
         {
-            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Block"),
+            collisionResolutionDic.Add(new Tuple<string, string>("Player", "Block"),
                 Type.GetType("sprint0.PlayerBlockCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Projectile"),
+            collisionResolutionDic.Add(new Tuple<string, string>("Player", "Projectile"),
                 Type.GetType("sprint0.PlayerProjectileCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Item"),
+            collisionResolutionDic.Add(new Tuple<string, string>("Player", "Item"),
                 Type.GetType("sprint0.PlayerItemCollisionCommand"));
-            collisionResolutionDic.Add(new Tuple<string, string>("Link", "Enemy"),
+            collisionResolutionDic.Add(new Tuple<string, string>("Player", "Enemy"),
                 Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Enemy"),
                 Type.GetType("sprint0.EnemyEnemyCollisionCommand"));

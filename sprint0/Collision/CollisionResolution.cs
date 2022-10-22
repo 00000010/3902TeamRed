@@ -30,54 +30,7 @@ namespace sprint0
 
         private static string TypeToString(Type type)
         {
-            string result = "";
-
-            Console.WriteLine("type: " + type.ToString());
-            if (type.Equals(Type.GetType("sprint0.Link")))
-            {
-                result = "Link";
-            }
-            else if (type.Equals(Type.GetType("sprint0.ZeldaBlackBlock"))
-                || type.Equals(Type.GetType("sprint0.ZeldaGreenBlock"))
-                || type.Equals(Type.GetType("sprint0.ZeldaPurpleBlock"))
-                || type.Equals(Type.GetType("sprint0.DungeonBlock")))
-            {
-                result = "Block";
-            }
-            else if (type.Equals(Type.GetType("sprint0.ZeldaBlueCandle"))
-                || type.Equals(Type.GetType("sprint0.ZeldaBomb"))
-                || type.Equals(Type.GetType("sprint0.ZeldaBoomerang"))
-                || type.Equals(Type.GetType("sprint0.ZeldaBow"))
-                || type.Equals(Type.GetType("sprint0.ZeldaClock"))
-                || type.Equals(Type.GetType("sprint0.ZeldaCompass"))
-                || type.Equals(Type.GetType("sprint0.ZeldaFairy"))
-                || type.Equals(Type.GetType("sprint0.ZeldaFood"))
-                || type.Equals(Type.GetType("sprint0.ZeldaHeart"))
-                || type.Equals(Type.GetType("sprint0.ZeldaHeartContainer"))
-                || type.Equals(Type.GetType("sprint0.ZeldaKey"))
-                || type.Equals(Type.GetType("sprint0.ZeldaLetter")))
-            {
-                result = "Item";
-            }
-            else if (type.Equals(Type.GetType("sprint0.Stalfos"))
-                || type.Equals(Type.GetType("sprint0.Keese"))
-                || type.Equals(Type.GetType("sprint0.Gel"))
-                || type.Equals(Type.GetType("sprint0.Goriya"))
-                || type.Equals(Type.GetType("sprint0.Octorok"))
-                || type.Equals(Type.GetType("sprint0.DungeonMonster1"))
-                || type.Equals(Type.GetType("sprint0.DungeonMonster2"))
-                || type.Equals(Type.GetType("sprint0.DungeonMonster1Faded"))
-                || type.Equals(Type.GetType("sprint0.DungeonMonster2Faded")))
-            {
-                result = "Enemy";
-            }
-
-            else if (type.Equals(Type.GetType("sprint0.ZeldaArrow")))
-            {
-                result = "Projectile";
-            }
-
-            return result;
+            return type.BaseType.Name;
         }
     }
 }
