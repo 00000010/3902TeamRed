@@ -46,6 +46,21 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>352 352</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>480 304</Location>
+        </Item>
     </Asset>
 </XnaContent>
 

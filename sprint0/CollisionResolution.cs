@@ -32,6 +32,7 @@ namespace sprint0
         {
             string result = "";
 
+            Console.WriteLine("type: " + type.ToString());
             if (type.Equals(Type.GetType("sprint0.Link")))
             {
                 result = "Link";

@@ -27,6 +27,21 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>320 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 320</Location>
+        </Item>
     </Asset>
 </XnaContent>
 
