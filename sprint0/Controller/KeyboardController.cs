@@ -91,11 +91,8 @@ namespace sprint0
             this.RegisterCommand(Keys.L, new PlayerArrowCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
-            /* E key for Link being damaged in whatever state he's in */
-            this.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
-
-            /* R key for resetting Link */
-            this.RegisterCommand(Keys.R, new ResetCommand(game));
+            /* Reload the current level */
+            this.RegisterCommand(Keys.R, new ReloadLevelCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));

@@ -41,6 +41,46 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>464 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>400 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>432 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>400 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>432 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>480 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>464 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>352 352</Location>
+        </Item>
     </Asset>
 </XnaContent>
 

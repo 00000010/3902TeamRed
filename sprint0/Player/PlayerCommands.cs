@@ -155,25 +155,25 @@ namespace sprint0
         }
     }
 
-    internal class PlayerDamageCommand : ICommand
-    {
-        private Game1 game;
-        private IPlayer player;
-        private GameObjectManager manager;
+    //internal class PlayerDamageCommand : ICommand
+    //{
+    //    private Game1 game;
+    //    private IPlayer player;
+    //    private GameObjectManager manager;
 
-        public PlayerDamageCommand(Game1 game)
-        {
-            this.game = game;
-            manager = game.manager;
-        }
+    //    public PlayerDamageCommand(Game1 game)
+    //    {
+    //        this.game = game;
+    //        manager = game.manager;
+    //    }
 
-        public void Execute()
-        {
-            player = manager.player; // player must be set here; if set in constructor, player is null since it has not been added to the manager yet
-            player.TakingDamage = !player.TakingDamage;
-            manager.UpdatePlayerSprite();
-        }
-    }
+    //    public void Execute()
+    //    {
+    //        player = manager.player; // player must be set here; if set in constructor, player is null since it has not been added to the manager yet
+    //        player.TakingDamage = !player.TakingDamage;
+    //        manager.UpdatePlayerSprite();
+    //    }
+    //}
 
     internal class PlayerArrowCommand : ICommand
     {

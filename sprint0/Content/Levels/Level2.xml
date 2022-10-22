@@ -16,6 +16,21 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>320 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>304 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>320 336</Location>
+        </Item>
     </Asset>
 </XnaContent>
 

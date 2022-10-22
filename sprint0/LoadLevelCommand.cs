@@ -23,4 +23,23 @@ namespace sprint0
             loader.LoadNextLevel();
         }
     }
+
+    internal class ReloadLevelCommand : ICommand
+    {
+        private Game1 game;
+        private LevelLoader loader;
+
+        public ReloadLevelCommand(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            loader = game.loader;
+            loader.UnloadLevel();
+            loader.ResetLevelNum();
+            loader.LoadNextLevel();
+        }
+    }
 }

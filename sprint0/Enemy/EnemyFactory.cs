@@ -24,7 +24,7 @@ namespace sprint0
 
         public Enemy Stalfos(Vector2 position)
         {
-            Enemy enemy = new Keese(position);
+            Enemy enemy = new Stalfos(position);
             enemy.CollideDamage = 2;
             return enemy;
         }

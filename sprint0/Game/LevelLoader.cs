@@ -106,7 +106,7 @@ namespace sprint0
                         classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
                         method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                         thing = method.Invoke(classThing, parameterArray); // call method and get its object
-
+                        Console.WriteLine("thing: " + thing);
                         if (itemObj.ObjectType == "Player")
                         {
                             gameObjectManager.AddPlayer(thing);
@@ -125,6 +125,15 @@ namespace sprint0
                     itemObj.PosY = itemObj.PosY + pixelLength;
                 }
             }
+            Console.WriteLine(this.ToString());
+        }
+
+        /// <summary>
+        /// Resets level number to previous.
+        /// </summary>
+        public void ResetLevelNum()
+        {
+            levelNum--;
         }
 
         //Prints the contents of the level
