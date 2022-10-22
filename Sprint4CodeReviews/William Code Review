@@ -1,0 +1,24 @@
+Author of review: William Gilicinski
+Date: 10/22/2022
+Sprint 3
+
+Name of file being reviewed: Readme
+Author of the file: Owen
+Minutes taken to complete review: 5
+
+The readme file has been upgraded significantly as well as a file organization was implemented into the repo. The links in the readme to the specific files are extremely useful as its a quick way to navigate the page.
+
+
+Author of review: William Gilicinski
+Date: 10/22/2022
+Sprint 3
+
+Name of file being reviewed: TestLevel.xml
+Author of the file: Owen
+Minutes taken to complete review: 5
+Specific comments on code quality
+
+As the XML format is pretty readable due to readability is not an issue. In regards to the code quality, because the XML was written manually if new objects are added to the game, this would also have to be updated manually
+
+Hypothetical change:
+Create a function that takes all the items from a list or dictionary that can output the XML

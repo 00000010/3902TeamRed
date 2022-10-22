@@ -3,6 +3,17 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# 3902 Team Red specific
+*.mgcontent
+*.json
+*.dll
+*.pdb
+*.editorconfig
+*.cache
+*.props
+*.targets
+*.mgstats
+
 # User-specific files
 *.rsuser
 *.suo
