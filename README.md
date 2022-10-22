@@ -139,8 +139,6 @@ Next Item: 'I' <br/>
 Previous Enemy: 'O' <br/>
 Next Enemy: 'P' <br/>
 
-Reset Link: 'R' <br/>
-
 Load a new room: 'H' <br/>
 
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
@@ -163,13 +161,14 @@ Implement functionality to move between rooms through doors. <br/>
 At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution <br/>
 command is called as a result. <br/>
 We still need to implement functionality to allow for Link to pick up items.<br/>
+*Please see the Trello list "Backlog" for a full detail of all items here, as well as complete descriptions.*
 
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
-Link and enemies can move outside the room because the room background does not take the whole screen yet<br/>
-When loading in a stalfos the keese sprite appears but it behaves like a stalfos<br/>
 Collisions occur but Link violently shakes while he's colliding<br/>
+Link does not move in completely expected ways when multiple movement keys are pressed (WASD)<br/>
+*Please see the Trello list "Buglog" for a full detail of all items here, as well as complete descriptions.*
 
 ## <a href="https://trello.com/b/5pvXlIry/team-redd" target="_blank">Trello link</a>
 
