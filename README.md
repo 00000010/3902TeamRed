@@ -173,6 +173,20 @@ Link does not move in completely expected ways when multiple movement keys are p
 ## <a href="https://trello.com/b/5pvXlIry/team-redd" target="_blank">Trello link</a>
 
 ## Sprint 3 Reflection
-In terms of general administration, while we continued to have trouble determining who did what work, towards the end of this sprint we discovered it was actually easier to compile a list (that anyone could contribute to) of all things that needed complete, with full descriptions so anyone could claim that item to complete. This free-for-all approach works well assuming descriptions are complete. Unfortunately, this approach was not official and was only finalized in Trello towards the end. In other words, while we did not have a list per se, we did discuss during meetings what needed complete and added it to our own to-do lists.
-This approach will be very helpful for next sprint. Integration between Discord (our primary communication) and Trello will also speed up this process, although this was implemented rather late in this sprint. Before next sprint, this integration needs to be refined since currently we get notifications for unnecessary Trello changes, such as labeling, rule creation, renaming cards, etc. We should only have notifications for card creation and card movement
+The team managed its task by assigning the majority of the team to level loading,
+and two people to collision handling and collision resolution. The team was aware that there were code smells
+causing technical debt from the previous Sprints, to resolve this the code was completely refactored. 
+This change did make the level loading process much easier and reduced technical debt. A few things broke during
+this change that were fixed, and what we could not fix was put in the backlog. The change was constructive and made
+the code more readable. 
+In terms of planning for the next Sprints, we could have team meetings more often to discuss possible changes/bug fixes. 
+In terms of general administration, while we continued to have trouble determining who did what work, towards the end of
+this sprint we discovered it was actually easier to compile a list (that anyone could contribute to) of all things that 
+needed complete, with full descriptions so anyone could claim that item to complete. This free-for-all approach works well
+assuming descriptions are complete. Unfortunately, this approach was not official and was only finalized in Trello towards
+the end. In other words, while we did not have a list per se, we did discuss during meetings what needed complete and added
+it to our own to-do lists. This approach will be very helpful for next sprint. Integration between Discord (our primary 
+communication) and Trello will also speed up this process, although this was implemented rather late in this sprint. Before
+next sprint, this integration needs to be refined since currently we get notifications for unnecessary Trello changes, such
+as labeling, rule creation, renaming cards, etc. We should only have notifications for card creation and card movement
 
