@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>384 236</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>384 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>496 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>284 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonSand</ObjectName>
+            <Location>304 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster1</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster2</ObjectName>
+            <Location>368 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorSouth</ObjectName>
+            <Location>320 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorNorth</ObjectName>
+            <Location>320 236</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>336 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster1Faded</ObjectName>
+            <Location>384 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster2Faded</ObjectName>
+            <Location>400 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>304 256</Location>
+            <Dimension>1 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonStairs</ObjectName>
+            <Location>320 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaBomb</ObjectName>
+            <Location>416 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaBlueCandle</ObjectName>
+            <Location>436 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaBoomerang</ObjectName>
+            <Location>452 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaBow</ObjectName>
+            <Location>464 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaClock</ObjectName>
+            <Location>480 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaCompass</ObjectName>
+            <Location>320 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaFairy</ObjectName>
+            <Location>336 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaFood</ObjectName>
+            <Location>352 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaHeart</ObjectName>
+            <Location>368 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaHeartContainer</ObjectName>
+            <Location>384 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaKey</ObjectName>
+            <Location>400 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaLetter</ObjectName>
+            <Location>416 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>432 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>448 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>464 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Gel</ObjectName>
+            <Location>480 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Octorok</ObjectName>
+            <Location>304 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaGreen</ObjectName>
+            <Location>320 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaBlack</ObjectName>
+            <Location>336 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaPurple</ObjectName>
+            <Location>352 288</Location>
+        </Item>
+        <!--<Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonAbyss</ObjectName>
+            <Location>384 288</Location>
+        </Item>-->
+    </Asset>
+</XnaContent>
