@@ -182,6 +182,11 @@
             <ObjectName>ZeldaPurple</ObjectName>
             <Location>352 288</Location>
         </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>ZeldaArrowUp</ObjectName>
+            <Location>372 288</Location>
+        </Item>
         <!--<Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonAbyss</ObjectName>
