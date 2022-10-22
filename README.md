@@ -69,6 +69,7 @@ collision detection and handling, inclusion of all in game items and enemies, an
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item" target="_blank">Item</a> - Item generation/Movement/Collision/Pickup
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item/IItem.cs" target="_blank">IItem.cs</a> - Item Interface
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item/IObject.cs" target="_blank">IObject.cs</a> - Object Interface
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item/Item.cs" target="_blank">Item.cs</a> - Enables Updateable and Drawable capabilities
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item/ItemFactory.cs" target="_blank">ItemFactory.cs</a> - Creates all Items
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Item/ItemObject.cs" target="_blank">ItemObject.cs</a> - Allows for XML parsing
