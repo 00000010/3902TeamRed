@@ -4,15 +4,16 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/owenhennessey/.nuget/packages/</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/owenhennessey/.nuget/packages/</NuGetPackageFolders>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Abdelrahman\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.2.1</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.3.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="/Users/owenhennessey/.nuget/packages/" />
+    <SourceRoot Include="C:\Users\Abdelrahman\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.props" Condition="Exists('$(NuGetPackageRoot)monogame.content.builder.task/3.8.1.303/build/MonoGame.Content.Builder.Task.props')" />
+    <Import Project="$(NuGetPackageRoot)monogame.content.builder.task\3.8.1.303\build\MonoGame.Content.Builder.Task.props" Condition="Exists('$(NuGetPackageRoot)monogame.content.builder.task\3.8.1.303\build\MonoGame.Content.Builder.Task.props')" />
   </ImportGroup>
 </Project>
