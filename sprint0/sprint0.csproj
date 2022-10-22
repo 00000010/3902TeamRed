@@ -26,7 +26,6 @@
     <None Remove="Controller\" />
     <None Remove="Game\" />
     <None Remove="Decorators\" />
-    <None Remove="Collision\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -53,7 +52,6 @@
     <Folder Include="Controller\" />
     <Folder Include="Game\" />
     <Folder Include="Decorators\" />
-    <Folder Include="Collision\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
