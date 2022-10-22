@@ -20,7 +20,6 @@
     <None Remove="ScreenDisplay\" />
     <None Remove="Item\" />
     <None Remove="Player\" />
-    <None Remove="Mouse\" />
     <None Remove="MovementDirection\" />
     <None Remove="Link\" />
     <None Remove="Controller\" />
@@ -46,7 +45,6 @@
     <Folder Include="ScreenDisplay\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
-    <Folder Include="Mouse\" />
     <Folder Include="MovementDirection\" />
     <Folder Include="Link\" />
     <Folder Include="Controller\" />

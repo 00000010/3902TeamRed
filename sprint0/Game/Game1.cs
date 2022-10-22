@@ -27,7 +27,6 @@ namespace sprint0
 
         SpriteFont font;
         KeyboardController keyboard;
-        MouseController mouse;
 
         public Game1()
         {
@@ -54,9 +53,6 @@ namespace sprint0
             keyboard.LoadDefaultKeys(this);
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
-            
-            mouse = new MouseController(resolution);
-            mouse.LoadMouseCommands(this);
 
             loader = new LevelLoader(this);
             loader.LoadNextLevel();
@@ -66,7 +62,6 @@ namespace sprint0
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update(gameTime);
-            mouse.Update(gameTime);
             manager.Update(gameTime);
 
             base.Update(gameTime);
