@@ -15,6 +15,7 @@ namespace sprint0
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
         public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
+        public Vector2 InitPosition { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -44,27 +45,32 @@ namespace sprint0
         {
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-                if (ProjectileOutOfBounds(projectilesInFlight[i], manager) || ProjectileBackToShooter(projectilesInFlight[i])) i--;
+                HandleProjectileOutOfBounds(projectilesInFlight[i], manager);
+                HandleProjectileBackToShooter(projectilesInFlight[i], manager);
             }
             UpdateVelocityBoomerang(projectilesInFlight, manager);
         }
 
-        private static bool ProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
+        private static bool HandleProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
         {
-            Type typeOfProj = projectile.GetType();
-            string projTypeName = typeOfProj.Name;
             if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
             {
-                manager.removeProjectile(projectile);
+                manager.RemoveObject(projectile);
                 return true;
             }
             return false;
         }
 
-        private static bool ProjectileBackToShooter(IProjectile projectile)
+
+        //Make enemy own projectiles that it shoots
+        private static bool HandleProjectileBackToShooter(IProjectile projectile, GameObjectManager manager)
         {
-            return false;
+            bool result = (projectile.Direction == Direction.LEFT && projectile.Position.X > projectile.InitPosition.X)
+                || (projectile.Direction == Direction.RIGHT && projectile.Position.X < projectile.InitPosition.X)
+                || (projectile.Direction == Direction.UP && projectile.Position.Y > projectile.InitPosition.Y)
+                || (projectile.Direction == Direction.DOWN && projectile.Position.Y < projectile.InitPosition.Y);
+            if (result) manager.RemoveObject(projectile);
+            return result;
         }
 
         public static void UpdateVelocityBoomerang(List<IProjectile> projectilesInFlight, GameObjectManager manager)

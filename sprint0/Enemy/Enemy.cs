@@ -16,7 +16,6 @@ namespace sprint0
         public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
         public State State { get; set; }
-
         public int DrawOrder => throw new NotImplementedException();
 
         public bool Visible => throw new NotImplementedException();

@@ -410,7 +410,6 @@ namespace sprint0
                 updateable.Update(gameTime);
             }
 
-
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
         }

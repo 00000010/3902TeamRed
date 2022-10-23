@@ -47,21 +47,25 @@ namespace sprint0
                     arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
                     Sprite = SpriteFactory.Instance.ZeldaArrowLeft(arrowThrowPosition);
                     velocity.X -= 5;
+                    InitPosition = arrowThrowPosition;
                     break;
                 case Direction.RIGHT:
                     arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
                     Sprite = SpriteFactory.Instance.ZeldaArrowRight(arrowThrowPosition);
                     velocity.X += 5;
+                    InitPosition = new Vector2(850,-100);
                     break;
                 case Direction.UP:
                     arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
                     Sprite = SpriteFactory.Instance.ZeldaArrowUp(arrowThrowPosition);
                     velocity.Y -= 5;
+                    InitPosition = arrowThrowPosition;
                     break;
                 case Direction.DOWN:
                     arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
                     Sprite = SpriteFactory.Instance.ZeldaArrowDown(arrowThrowPosition);
                     velocity.Y += 5;
+                    InitPosition = arrowThrowPosition;
                     break;
                 default:
                     break;
@@ -99,6 +103,7 @@ namespace sprint0
             }
 
             Velocity = velocity;
+            InitPosition = position;
         }
     }
 
@@ -130,6 +135,7 @@ namespace sprint0
             }
 
             Velocity = velocity;
+            InitPosition = position;
         }
     }
 }
