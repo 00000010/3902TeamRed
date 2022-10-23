@@ -20,6 +20,16 @@ namespace sprint0
         {
             return new ZeldaArrow(position, direction);
         }
+
+        public Projectile ZeldaBoomerang(Vector2 position, Direction direction)
+        {
+            return new ZeldaBoom(position, direction);
+        }
+
+        public Projectile ZeldaRock(Vector2 position, Direction direction)
+        {
+            return new ZeldaRock(position, direction);
+        }
     }
 
     internal class ZeldaArrow : Projectile
@@ -51,6 +61,68 @@ namespace sprint0
                 case Direction.DOWN:
                     arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
                     Sprite = SpriteFactory.Instance.ZeldaArrowDown(arrowThrowPosition);
+                    velocity.Y += 5;
+                    break;
+                default:
+                    break;
+            }
+
+            Velocity = velocity;
+        }
+    }
+
+    internal class ZeldaBoom : Projectile
+    {
+        public ZeldaBoom(Vector2 position, Direction direction)
+        {
+            Vector2 velocity = Vector2.Zero;
+            Sprite = SpriteFactory.Instance.ZeldaBoomerang(position);
+
+            // TODO: data-drive
+            // TODO: magic numbers
+            switch (direction)
+            {
+                case Direction.LEFT:
+                    velocity.X -= 5;
+                    break;
+                case Direction.RIGHT:
+                    velocity.X += 5;
+                    break;
+                case Direction.UP:
+                    velocity.Y -= 5;
+                    break;
+                case Direction.DOWN:
+                    velocity.Y += 5;
+                    break;
+                default:
+                    break;
+            }
+
+            Velocity = velocity;
+        }
+    }
+
+    internal class ZeldaRock : Projectile
+    {
+        public ZeldaRock(Vector2 position, Direction direction)
+        {
+            Vector2 velocity = Vector2.Zero;
+            Sprite = SpriteFactory.Instance.ZeldaRock(position);
+
+            // TODO: data-drive
+            // TODO: magic numbers
+            switch (direction)
+            {
+                case Direction.LEFT:         
+                    velocity.X -= 5;
+                    break;
+                case Direction.RIGHT:
+                    velocity.X += 5;
+                    break;
+                case Direction.UP:
+                    velocity.Y -= 5;
+                    break;
+                case Direction.DOWN:
                     velocity.Y += 5;
                     break;
                 default:

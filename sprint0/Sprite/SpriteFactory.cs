@@ -19,7 +19,7 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
-        private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
+        private Texture2D linkSpritesheet, enemiesSpritesheet;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D waterBlock;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
@@ -401,6 +401,11 @@ namespace sprint0
         public Sprite ZeldaLetter(Vector2 position)
         {
             return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position);
+        }
+
+        public Sprite ZeldaRock(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
         }
 
         public Sprite Stalfos(Vector2 position)

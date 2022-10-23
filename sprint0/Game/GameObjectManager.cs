@@ -19,6 +19,7 @@ namespace sprint0
         public List<IItem> items = new List<IItem>();
         public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
         public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
+        public HashSet<string> setOfEnemyShooters = new HashSet<string>();
 
         public List<object> objectsToAdd = new List<object>();
         public List<object> objectsToRemove = new List<object>();
@@ -30,6 +31,7 @@ namespace sprint0
         {
             this.game = game;
             PopulateCollisionResolutionDic();
+            PopulateEnemyShooters();
         }
 
         private void PopulateCollisionResolutionDic()
@@ -52,15 +54,11 @@ namespace sprint0
                 Type.GetType("sprint0.ProjectileBlockCollisionCommand"));
         }
 
-        /*
-         * Need to use this method for projectiles
-         */
-        //public void addProjectile(IProjectile projectile, string direction, string shooter)
-        //{
-        //    projectilesInFlight.Add(projectile);
-        //    initDirectionOfFire.Add(projectile, direction);
-        //    shooterOfProjectile.Add(projectile, shooter);
-        //}
+        private void PopulateEnemyShooters()
+        {
+            setOfEnemyShooters.Add("Goriya");
+            setOfEnemyShooters.Add("Octorok");
+        }
 
         public void addProjectile(IProjectile projectile)
         {
@@ -405,17 +403,14 @@ namespace sprint0
             objectsToAdd.Clear();
 
             Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+            Enemy.UpdateEnemyProjectiles(game, enemies);
 
             foreach (IUpdateable updateable in updateables)
             {
                 updateable.Update(gameTime);
             }
 
-            objectsToAdd.Clear();
 
-            /*
-             * UpdateProjectileMotion(gameTime);
-             */
             //Handling all different types of collision
             CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
         }

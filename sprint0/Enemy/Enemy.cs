@@ -63,29 +63,27 @@ namespace sprint0
             }
         }
 
-        //protected void UpdateProjectile()
-        //{
-        //    if (SourceRectangle == EnemyRectangle.Goriya)
-        //    {
-        //        UpdateEnemyProjectile("boomerang");
-        //    }
-        //    else if (SourceRectangle == EnemyRectangle.Octorok)
-        //    {
-        //        UpdateEnemyProjectile("rock");
-        //    }
-        //}
+        public static void UpdateEnemyProjectiles(Game1 game, List<IEnemy> enemies)
+        {
+            for (int i = 0; i < enemies.Count && EnemyCanShoot(enemies[i], game.manager.setOfEnemyShooters); i++)
+            {
+                Random randomGen = new Random();
+                int shouldShoot = randomGen.Next(0, 150);
+                if (shouldShoot == 0)
+                {
+                    Type typeOfEnemy = enemies[i].GetType();
+                    string enemyTypeName = typeOfEnemy.Name;
+                    ICommand command = new EnemyProjectileCommand(game, enemies[i], enemyTypeName);
+                    command.Execute();
+                }
+            }
+        }
 
-        //protected void UpdateEnemyProjectile(String projectile)
-        //{
-        //    //Randomizing when to shoot projectile
-        //    Random randomGen = new Random();
-        //    int shouldShoot = randomGen.Next(0, 50);
-        //    if (shouldShoot == 0)
-        //    {
-        //        ShootProjectileCommand command = new ShootProjectileCommand(projectile);
-        //        command.Execute();
-        //        projectileInMotion = true;
-        //    }
-        //}
+        private static Boolean EnemyCanShoot(IEnemy enemy, HashSet<string> setOfEnemyShooters)
+        {
+            Type typeOfEnemy = enemy.GetType();
+            string enemyTypeName = typeOfEnemy.Name;
+            return setOfEnemyShooters.Contains(enemyTypeName);
+        }
     }
 }

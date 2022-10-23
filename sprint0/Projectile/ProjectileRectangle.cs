@@ -19,7 +19,7 @@ namespace sprint0
         
         //Rock
         public static Rectangle[] Rock = { 
-            new Rectangle(68, 13, 7, 10)
+            new Rectangle(91, 303, 10, 10)
         };
     }
 }

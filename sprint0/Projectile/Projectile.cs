@@ -45,19 +45,56 @@ namespace sprint0
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
                 //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
-                //ProjectileBackToShooter(projectilesInFlight[i])
-                if (ProjectileOutOfBounds(projectilesInFlight[i], manager)) i--;
+                if (ProjectileOutOfBounds(projectilesInFlight[i], manager) || ProjectileBackToShooter(projectilesInFlight[i])) i--;
             }
+            UpdateVelocityBoomerang(projectilesInFlight, manager);
         }
 
         private static bool ProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
         {
+            Type typeOfProj = projectile.GetType();
+            string projTypeName = typeOfProj.Name;
             if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
             {
                 manager.removeProjectile(projectile);
                 return true;
             }
             return false;
+        }
+
+        private static bool ProjectileBackToShooter(IProjectile projectile)
+        {
+            return false;
+        }
+
+        public static void UpdateVelocityBoomerang(List<IProjectile> projectilesInFlight, GameObjectManager manager)
+        {
+            for (int i = 0; i < projectilesInFlight.Count; i++)
+            {
+                Type typeOfProj = projectilesInFlight[i].GetType();
+                string projTypeName = typeOfProj.Name;
+                if (projTypeName.Equals("ZeldaBoom")) ChangeBoomerangVelocity(projectilesInFlight[i]);
+            }
+        }
+
+        public static void ChangeBoomerangVelocity(IProjectile projectile)
+        {
+            if (projectile.Direction == Direction.LEFT)
+            {
+                projectile.Velocity = new Vector2(projectile.Velocity.X + (float)0.2, projectile.Velocity.Y);
+            }
+            else if (projectile.Direction == Direction.RIGHT)
+            {
+                projectile.Velocity = new Vector2(projectile.Velocity.X - (float)0.2, projectile.Velocity.Y);
+            }
+            else if (projectile.Direction == Direction.DOWN)
+            {
+                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y + (float)0.2);
+            }
+            else
+            {
+                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y - (float)0.2);
+            }
         }
     }
 }
