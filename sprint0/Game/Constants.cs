@@ -41,6 +41,8 @@ namespace sprint0
         public const int STARTING_LINK_POSITION_Y = 0;
 
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
+
+        public const string LEVEL_FILE_PREFIX = "Level";
     }
 }
 

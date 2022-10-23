@@ -9,23 +9,22 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+//using System.Reflection.Emit;
 
 namespace sprint0
 {
     public class LevelLoader
     {
-        public Game1 game;
-        public GameObjectManager gameObjectManager;
-        public int pixelLength = 16;
+        private Game1 game;
+        private GameObjectManager gameObjectManager;
 
-        public ItemObject background;
-
+        private int pixelLength = 16;
         private int levelNum = 0;
 
-        //List of all Objects made using factory
-        public List<Object> allItems = new List<Object>();
-        //List of XML things (Not real objects)
-        public List<ItemObject> allItemObjects = new List<ItemObject>();
+        // List of all Objects made using factory.
+        private static List<Object> allItems = new List<Object>();
+        // List of XML things (Not real objects).
+        private static List<ItemObject> allItemObjects = new List<ItemObject>();
 
         public LevelLoader(Game1 game)
         {
@@ -34,45 +33,49 @@ namespace sprint0
             levelNum = game.level;
         }
 
-        /*
-         * Loads the next room level as dictated by the level reported by Game.
-         * 
-         * If on the last level, this method goes to the first level.
-         */
+        /// <summary>
+        /// Load the next room as dictated by the level number. Uses circular
+        /// loading so if on the last room, go to the first room.
+        /// </summary>
         public void LoadNextLevel()
         {
+            // Unload previous level's objects.
             UnloadLevel();
+
+            // Get the next level number.
             if (levelNum >= Constants.NUM_OF_LEVELS)
             {
                 levelNum = 0;
             }
             levelNum++;
 
-            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string sFile;
-            string levelName = "Level" + levelNum.ToString();
-
+            // Get the filepath of the room's XML file.
+            string levelName = Constants.LEVEL_FILE_PREFIX + levelNum.ToString();
+            string sFile = GetLevelFile(levelName);
             Console.WriteLine("Loading " + levelName);
 
-            //Gets file location based on operating system
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{levelName}.xml");
-            }
-            else
-            {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{levelName}.xml");
-            }
+            // Load the room from an XML document format.
             string sFilePath = Path.GetFullPath(sFile);
             XDocument level = XDocument.Load(sFilePath);
-            //Whole XML element
-            XElement tree = level.Root;
-            //Inside the asset element
-            XElement asset = tree.Element("Asset");
 
-            IEnumerable<XElement> items = asset.Elements("Item");
+            string namespaceString = GetThisNamespace();
 
-            foreach (XElement item in items)
+            // Get all items from the XML.
+            IEnumerable<XElement> items = GetItemsFromDocument(level);
+
+            // Add all items to the GameObjectManager.
+            AddObjects(items, namespaceString);
+
+            Console.WriteLine(this.ToString());
+        }
+
+        /// <summary>
+        /// Add objects to the game object manager.
+        /// </summary>
+        /// <param name="objects"></param>
+        private void AddObjects(IEnumerable<XElement> objects, string namespaceString)
+        {
+            foreach (XElement item in objects)
             {
                 ItemObject itemObj = new ItemObject();
                 IEnumerable<XElement> attributes = item.Elements();
@@ -83,7 +86,7 @@ namespace sprint0
                 int orgX = itemObj.PosX;
                 int orgY = itemObj.PosY;
 
-                //Double for creates the dimensions possible.
+                // Double for creates the dimensions possible.
                 for (int i = 0; i < itemObj.NumY; i++)
                 {
                     for (int j = 0; j < itemObj.NumX; j++)
@@ -92,30 +95,14 @@ namespace sprint0
                         Vector2 position = new Vector2(itemObj.PosX, itemObj.PosY);
                         object[] parameterArray = new object[] { position };
 
-                        Object thing = new object();
-                        Object classThing = new object();
-                        MethodInfo method;
+                        Object thing = GetObjectFromItemObject(itemObj, namespaceString, parameterArray);
 
-                        /*
-                         * Takes in the item type, finds the correct
-                         * constuctor method, than invokes it. That means the objectName
-                         * must match the correct method in the factories
-                         */
-                        string factoryString = GetThisNamespace() + "." + itemObj.ObjectType + "Factory"; // get type name
-                        Type type = Type.GetType(factoryString); // get type from name
-                        classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
-                        method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
-                        thing = method.Invoke(classThing, parameterArray); // call method and get its object
-                        Console.WriteLine("thing: " + thing);
                         if (itemObj.ObjectType == "Player")
                         {
                             gameObjectManager.AddPlayer(thing);
-                        } else 
+                        }
+                        else
                         {
-                            if (itemObj.ObjectType == "Sprite")
-                            {
-                                
-                            }
                             gameObjectManager.AddObject(thing);
                         }
                         allItems.Add(thing);
@@ -125,18 +112,81 @@ namespace sprint0
                     itemObj.PosY = itemObj.PosY + pixelLength;
                 }
             }
-            Console.WriteLine(this.ToString());
         }
 
         /// <summary>
-        /// Resets level number to previous.
+        /// Get the elements labeled "Item" from the provided document.
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns>An enumerable of all items from the document.</returns>
+        private IEnumerable<XElement> GetItemsFromDocument(XDocument document)
+        {
+            // Whole XML element.
+            XElement root = document.Root;
+            // Inside the asset element.
+            XElement asset = root.Element("Asset");
+
+            return asset.Elements("Item");
+        }
+
+        /// <summary>
+        /// Returns an object instance invoked using the itemObj's type and name.
+        /// </summary>
+        /// <param name="itemObj"></param>
+        /// <returns>An instance of the object.</returns>
+        private object GetObjectFromItemObject(ItemObject itemObj, string namespaceString, object[] paramArray) // TODO: namespaceString should not need to be passed in here
+        {
+            Object thing = new object();
+            Object classThing = new object();
+            MethodInfo method;
+
+            // Takes in the item type, finds the correct constuctor method then
+            // invokes it. That means the objectName must match the correct
+            // method in the factories.
+            string factoryString = namespaceString + "." + itemObj.ObjectType + "Factory"; // get type name
+            Type type = Type.GetType(factoryString); // get type from name
+            classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
+            method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
+            thing = method.Invoke(classThing, paramArray); // call method and get its object
+
+            return thing;
+        }
+
+        /// <summary>
+        /// Get the file path of the XML level file based on the level name.
+        /// </summary>
+        /// <param name="levelName"></param>
+        /// <returns>The file path.</returns>
+        private string GetLevelFile(string levelName)
+        {
+            string file = "";
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Get the filepath string based on the OS. Windows is the odd one
+            // out here.
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                file = System.IO.Path.Combine(currentDirectory, @$"..\..\..\Levels\{levelName}.xml");
+            }
+            else
+            {
+                file = System.IO.Path.Combine(currentDirectory, @$"../../../Levels/{levelName}.xml");
+            }
+            return file;
+        }
+
+        /// <summary>
+        /// Resets level number to the previous'.
         /// </summary>
         public void ResetLevelNum()
         {
             levelNum--;
         }
 
-        //Prints the contents of the level
+        /// <summary>
+        /// Gets the formatted string of all items currently in the level. 
+        /// </summary>
+        /// <returns>The formatted item list.</returns>
         public override string ToString()
         {
             string fullString = "All Items\n";
@@ -147,7 +197,9 @@ namespace sprint0
             return fullString;
         }
 
-        //Unloads all objects from a level
+        /// <summary>
+        /// Unload all objects in the current level.
+        /// </summary>
         public void UnloadLevel()
         {
             foreach (object item in allItems)
@@ -157,6 +209,10 @@ namespace sprint0
             allItemObjects.Clear();
         }
 
+        /// <summary>
+        /// Gets the current namespace of the solution.
+        /// </summary>
+        /// <returns>The namespace.</returns>
         private string GetThisNamespace()
         {
             return GetType().Namespace;
