@@ -57,5 +57,27 @@ namespace sprint0
             //this.RegisterCommand(new MouseCommand(MouseButton.Left, q3), new LinkRunningRightCommand(game));
             //this.RegisterCommand(new MouseCommand(MouseButton.Left, q4), new LinkRunningRightCommand(game));
         }
+        public void LoadLevelCreatorCommands(Game1 game, LevelLoader loader)
+        {
+            int blockLength = 16;
+            int gridLength = 16;
+            int gridHeight = 11;
+            int totalGridSquares = gridLength * gridHeight;
+            Rectangle gridArea = new Rectangle(272, 224, blockLength * gridLength, blockLength * gridHeight);
+            Rectangle[] gridSquares = new Rectangle[totalGridSquares];
+
+            for (int i = 0; i < gridHeight; i++)
+            {
+                for (int j = 0; j < gridLength; j++)
+                {
+                    Rectangle newRec = new Rectangle(272 + blockLength * j, 224 + blockLength * i, blockLength, blockLength);
+                    Console.WriteLine(newRec.ToString());
+                    this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new PlaceBlockCommand(game, new Vector2(newRec.X, newRec.Y), loader));
+                }
+            }
+            Rectangle saveRec = new Rectangle(200, 200, 16, 16);
+            this.RegisterCommand(new MouseCommand(MouseButton.Left, saveRec), new SaveLevelCommand(game, loader));
+        }
+
     }
 }

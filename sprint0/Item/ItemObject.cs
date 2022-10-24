@@ -57,6 +57,16 @@ namespace sprint0
                     $"NumY: {this.NumY}\n");
         }
 
+        public XElement toXmlElement()
+        {
+            return new XElement("Item",
+                       new XElement("ObjectType", this.ObjectType),
+                       new XElement("ObjectName", this.ObjectName),
+                       new XElement("Location", this.Location),
+                       new XElement("Dimension", this.Dimension)
+                );
+        }
+
     }
 }
 

@@ -22,11 +22,13 @@ namespace sprint0
 
         public GameObjectManager manager;
         public LevelLoader loader;
+        public LevelCreator creator;
 
         public int level = 0;
 
         SpriteFont font;
         KeyboardController keyboard;
+        MouseController mouse;
 
         public Game1()
         {
@@ -52,11 +54,17 @@ namespace sprint0
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
 
+         
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
             loader = new LevelLoader(this);
             loader.LoadNextLevel();
             Console.WriteLine(loader.ToString());
+
+            mouse = new MouseController(resolution);
+            mouse.LoadMouseCommands(this);
+
+            creator = new LevelCreator(this, mouse);
         }
 
         protected override void Update(GameTime gameTime)

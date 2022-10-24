@@ -200,6 +200,18 @@
 /processorParam:TextureFormat=Color
 /build:goriyaspritesheet.png
 
+#begin GridSquare.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GridSquare.png
+
 #begin Link.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -223,6 +235,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:OctorokSpritesheet.png
+
+#begin SaveIcon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SaveIcon.png
 
 #begin WaterBlock.png
 /importer:TextureImporter
