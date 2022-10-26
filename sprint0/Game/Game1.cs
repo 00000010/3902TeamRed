@@ -64,7 +64,7 @@ namespace sprint0
             mouse = new MouseController(resolution);
             mouse.LoadMouseCommands(this);
 
-            creator = new LevelCreator(this, mouse);
+            //creator = new LevelCreator(this);
         }
 
         protected override void Update(GameTime gameTime)

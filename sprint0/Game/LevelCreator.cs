@@ -11,7 +11,7 @@ namespace sprint0
         MouseController mouse;
         public List<XElement> XmlObjs = new List<XElement>();
 
-        public LevelCreator(Game1 game, MouseController mouse)
+        public LevelCreator(Game1 game)
         {
             this.loader = game.loader;
             this.mouse = mouse;
