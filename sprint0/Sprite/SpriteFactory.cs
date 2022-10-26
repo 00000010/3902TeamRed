@@ -18,7 +18,7 @@ namespace sprint0
     /// </summary>
     public class SpriteFactory
     {
-        private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
+        private Texture2D dungeonSheet, dungeonWallNorth, dungeonWallSouth, dungeonWallEast, dungeonWallWest, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
         private Texture2D linkSpritesheet, enemiesSpritesheet, projectileSpritesheet, boomerangSpritesheet, octorokSpritesheet;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D waterBlock;
@@ -43,6 +43,10 @@ namespace sprint0
             this.spriteBatch = spriteBatch;
 
             dungeonSheet = content.Load<Texture2D>("DungeonBackground");
+            dungeonWallNorth = content.Load<Texture2D>("DungeonNorthWall");
+            dungeonWallSouth = content.Load<Texture2D>("DungeonSouthWall");
+            dungeonWallEast = content.Load<Texture2D>("DungeonEastWall");
+            dungeonWallWest = content.Load<Texture2D>("DungeonWestWall");
             dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
             dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
             dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
@@ -94,6 +98,30 @@ namespace sprint0
         public Sprite Dungeon(Vector2 position)
         {
             return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position);
+        }
+
+        public Sprite DungeonNorthWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallNorth.Width, dungeonWallNorth.Height) };
+            return new Sprite(dungeonWallNorth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonSouthWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallSouth.Width, dungeonWallSouth.Height) };
+            return new Sprite(dungeonWallSouth, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonEastWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallEast.Width, dungeonWallEast.Height) };
+            return new Sprite(dungeonWallEast, rectangles, spriteBatch, position);
+        }
+
+        public Sprite DungeonWestWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallWest.Width, dungeonWallWest.Height) };
+            return new Sprite(dungeonWallWest, rectangles, spriteBatch, position);
         }
 
         /*

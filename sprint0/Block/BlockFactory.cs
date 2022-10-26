@@ -40,6 +40,26 @@ namespace sprint0
         {
             return new DungeonBlock(position);
         }
+
+        public Block DungeonNorthWall(Vector2 position)
+        {
+            return new DungeonNorthWall(position);
+        }
+
+        public Block DungeonSouthWall(Vector2 position)
+        {
+            return new DungeonSouthWall(position);
+        }
+
+        public Block DungeonEastWall(Vector2 position)
+        {
+            return new DungeonEastWall(position);
+        }
+
+        public Block DungeonWestWall(Vector2 position)
+        {
+            return new DungeonWestWall(position);
+        }
     }
 
     internal class ZeldaGreenBlock : Block
@@ -71,6 +91,38 @@ namespace sprint0
         public DungeonBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.DungeonBlock(position);
+        }
+    }
+
+    internal class DungeonNorthWall : Block
+    {
+        public DungeonNorthWall(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonNorthWall(position);
+        }
+    }
+
+    internal class DungeonSouthWall : Block
+    {
+        public DungeonSouthWall(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonSouthWall(position);
+        }
+    }
+
+    internal class DungeonEastWall : Block
+    {
+        public DungeonEastWall(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonEastWall(position);
+        }
+    }
+
+    internal class DungeonWestWall : Block
+    {
+        public DungeonWestWall(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonWestWall(position);
         }
     }
 }
