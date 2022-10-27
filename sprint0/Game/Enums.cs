@@ -8,6 +8,7 @@ namespace sprint0
 {
     public enum State { STANDING, RUNNING, ATTACKING, THROWING }
     public enum Direction { LEFT, RIGHT, UP, DOWN }
+    public enum GameState { GAME, INVENTORY }
     internal class Enums
     {
         private Enums() { }
