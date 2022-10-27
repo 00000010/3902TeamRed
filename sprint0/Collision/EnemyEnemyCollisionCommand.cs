@@ -30,7 +30,6 @@ namespace sprint0
                 if (Enemy1.Velocity.Y > 0 || Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 OR enemy2 moving towards enemy1
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
             if (intersectionLoc.Contains("bottom"))
@@ -38,7 +37,6 @@ namespace sprint0
                 if (Enemy1.Velocity.Y < 0 || Enemy2.Velocity.Y > 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
             if (intersectionLoc.Contains("left"))
@@ -46,7 +44,6 @@ namespace sprint0
                 if (Enemy1.Velocity.X > 0 || Enemy2.Velocity.X < 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
             if (intersectionLoc.Contains("right"))
@@ -54,7 +51,6 @@ namespace sprint0
                 if (Enemy1.Velocity.X < 0 || Enemy2.Velocity.X > 0)
                 {
                     Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
-                    Enemy2.Velocity = -Enemy2.Velocity;  //enemy2 changes direction
                 }
             }
         }

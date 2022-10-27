@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class Player : IPlayer, IObject
+    internal class Player : IPlayer, IObject, IShooter
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
@@ -15,6 +15,8 @@ namespace sprint0
         public Direction Direction { get; set; }
         public State State { get; set; }
         public bool TakingDamage { get; set; }
+        public string TypeOfObject { get; set; }
+        public bool ShotBoomerang { get; set; }
         public GameTime LastDamaged { get; set; }
 
         public bool Enabled => throw new NotImplementedException();
@@ -32,7 +34,7 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
         
-        public Player() { }
+        public Player() {}
         public virtual void Draw(GameTime gameTime)
         {
             Sprite.Draw(gameTime);

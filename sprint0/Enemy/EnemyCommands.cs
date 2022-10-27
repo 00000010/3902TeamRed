@@ -28,13 +28,17 @@ namespace sprint0
             IProjectile projectile = null;
             if (name.Equals("Goriya"))
             {
+                //We have enemies knowing when they shoot boomerangs. Have to develop a way for projectiles
+                //to notify enemies when boomerang is removed
                 projectile = ProjectileFactory.Instance.ZeldaBoomerang(enemy.Position, enemy.Direction);
+                enemy.ShotBoomerang = true;
             }
             else if (name.Equals("Octorok"))
             {
                 projectile = ProjectileFactory.Instance.ZeldaRock(enemy.Position, enemy.Direction);
             }
             manager.AddObject(projectile);
+            manager.shooterOfProjectile.Add(projectile, (IShooter) enemy);
         }
     }
 }

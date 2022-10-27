@@ -15,7 +15,7 @@ namespace sprint0
     internal static class CollisionDetection
     {
         public static void HandleAllCollidables(IPlayer player, List<IProjectile> projectiles, List<IEnemy> enemies,
-            List<IBlock> blocks, List<IItem> items, Dictionary<IProjectile, string> shooterOfProjectile, GameObjectManager manager)
+            List<IBlock> blocks, List<IItem> items, Dictionary<IProjectile, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             IObject objectPlayer = (IObject)player;
 
@@ -27,10 +27,10 @@ namespace sprint0
             foreach (IBlock x in blocks) objectBlocks.Add((IObject)x);
             List<IObject> objectItems = new List<IObject>();
             foreach (IItem x in items) objectItems.Add((IObject)x);
-            Dictionary<IObject, string> shooterOfProjectileObjects = new Dictionary<IObject, string>();
-            foreach (KeyValuePair<IProjectile, string> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
+            Dictionary<IObject, IShooter> shooterOfProjectileObjects = new Dictionary<IObject, IShooter>();
+            foreach (KeyValuePair<IProjectile, IShooter> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
-            //HandlePlayerAgainstProjectiles(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
+            HandlePlayerAgainstProjectiles(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
             //HandlePlayerAgainstWalls(objectPlayer, objectBackground, manager);
             HandlePlayerAgainstEnemies(objectPlayer, objectEnemies, manager);
             HandlePlayerAgainstBlocks(objectPlayer, objectBlocks, manager);
@@ -72,7 +72,7 @@ namespace sprint0
         }
 
         private static void HandlePlayerAgainstProjectiles(IObject player, List<IObject> projectiles,
-            Dictionary<IObject, string> shooterOfProjectile, GameObjectManager manager)
+            Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             int offset = 12;
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
@@ -81,7 +81,7 @@ namespace sprint0
             for (int i = 0; i < projectiles.Count; i++)
             {
                 IObject currProjectile = projectiles.ElementAt(i);
-                if (shooterOfProjectile.GetValueOrDefault(currProjectile) == "player") continue;
+                if (shooterOfProjectile.GetValueOrDefault(currProjectile).TypeOfObject == "Player") continue;
                 Rectangle projectileRect = new Rectangle((int)currProjectile.Position.X,
                 (int)projectiles.ElementAt(i).Position.Y, currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Width,
                 projectiles.ElementAt(i).Sprite.SourceRectangle[currProjectile.Sprite.Frame].Height);
@@ -154,7 +154,7 @@ namespace sprint0
         }
 
         private static void HandleEnemiesAgainstProjectiles(List<IObject> enemies, List<IObject> projectiles,
-            Dictionary<IObject, string> shooterOfProjectile, GameObjectManager manager)
+            Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             for (int i = 0; i < enemies.Count; i++)
             {
@@ -165,7 +165,7 @@ namespace sprint0
                 for (int j = 0; j < projectiles.Count; j++)
                 {
                     IObject currProjectile = projectiles.ElementAt(j);
-                    //if (shooterOfProjectile.GetValueOrDefault(currProjectile) != "player") continue;
+                    if (shooterOfProjectile.GetValueOrDefault(currProjectile).TypeOfObject == "Enemy") continue;
                     Rectangle projectileRect = new Rectangle((int)currProjectile.Position.X,
                     (int)currProjectile.Position.Y, currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Width,
                     currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Height);

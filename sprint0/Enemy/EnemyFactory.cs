@@ -118,6 +118,7 @@ namespace sprint0
             Velocity = new Vector2(-1, 0);
             Direction = Direction.LEFT;
             State = State.RUNNING;
+            TypeOfObject = "Enemy";
         }
     }
 
@@ -128,6 +129,7 @@ namespace sprint0
             Sprite = SpriteFactory.Instance.Octorok(position);
             Direction = Direction.DOWN;
             Velocity = Vector2.Zero;
+            TypeOfObject = "Enemy";
         }
     }
 

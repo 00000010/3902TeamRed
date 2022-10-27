@@ -17,7 +17,7 @@ namespace sprint0
         public List<IEnemy> enemies = new List<IEnemy>();
         public List<IBlock> blocks = new List<IBlock>();
         public List<IItem> items = new List<IItem>();
-        public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
+        public Dictionary<IProjectile, IShooter> shooterOfProjectile = new Dictionary<IProjectile, IShooter>();
         public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
         public HashSet<string> setOfEnemyShooters = new HashSet<string>();
 
@@ -421,39 +421,6 @@ namespace sprint0
                 drawable.Draw(gameTime);
             }
         }
-
-        //private bool ProjectileBackToShooter(ISprite projectile)
-        //{
-        //    //Ensures that nothing happens if shooter is player
-        //    if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
-        //    {
-        //        return HandleShootingProjectile(projectile, game.player);
-        //    }
-        //    return HandleShootingProjectile(projectile, game.currEnemy);
-        //}
-
-        //private bool HandleShootingProjectile(ISprite projectile, ISprite sprite)
-        //{
-        //    if (projectile is Projectile)
-        //    {
-        //        Projectile copyProj = (Projectile)projectile;
-        //        if (copyProj.SourceRectangle != ProjectileRectangle.Boomerang) return false;
-        //    }
-        //    string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
-        //    if (initDirection.Equals("right"))
-        //    {
-        //        return projectile.Position.X < sprite.Position.X;
-        //    }
-        //    else if (initDirection.Equals("left"))
-        //    {
-        //        return projectile.Position.X > sprite.Position.X;
-        //    }
-        //    else if (initDirection.Equals("up"))
-        //    {
-        //        return projectile.Position.Y > sprite.Position.Y;
-        //    }
-        //    return projectile.Position.Y < sprite.Position.Y;
-        //}
     }
 }
 

@@ -69,8 +69,15 @@ namespace sprint0
                 || (projectile.Direction == Direction.RIGHT && projectile.Position.X < projectile.InitPosition.X)
                 || (projectile.Direction == Direction.UP && projectile.Position.Y > projectile.InitPosition.Y)
                 || (projectile.Direction == Direction.DOWN && projectile.Position.Y < projectile.InitPosition.Y);
-            if (result) manager.RemoveObject(projectile);
-            return result;
+            if (result)
+            {
+                manager.RemoveObject(projectile);
+                //Use reflection to get type of projectile and notify shooter to update if projectile is boomerang
+                Type typeOfProj = projectile.GetType();
+                string projTypeName = typeOfProj.Name;
+                if (projTypeName.Equals("ZeldaBoom")) manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false;
+            }
+                return result;
         }
 
         public static void UpdateVelocityBoomerang(List<IProjectile> projectilesInFlight, GameObjectManager manager)

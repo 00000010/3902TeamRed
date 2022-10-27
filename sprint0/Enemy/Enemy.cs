@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Enemy : IEnemy, IObject
+    public class Enemy : IEnemy, IObject, IShooter
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
         public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
         public Direction Direction { get; set; }
+        public bool ShotBoomerang { get; set; }
         public State State { get; set; }
+        public string TypeOfObject { get; set; }
         public int DrawOrder => throw new NotImplementedException();
 
         public bool Visible => throw new NotImplementedException();
@@ -38,6 +40,7 @@ namespace sprint0
 
         public virtual void Update(GameTime gameTime)
         {
+            if (ShotBoomerang) return;
             Sprite.Update(gameTime);
             UpdateEnemyVelocity(gameTime);
         }
@@ -67,7 +70,7 @@ namespace sprint0
             for (int i = 0; i < enemies.Count && EnemyCanShoot(enemies[i], game.manager.setOfEnemyShooters); i++)
             {
                 Random randomGen = new Random();
-                int shouldShoot = randomGen.Next(0, 150);
+                int shouldShoot = randomGen.Next(0, 500);
                 if (shouldShoot == 0)
                 {
                     Type typeOfEnemy = enemies[i].GetType();

@@ -193,6 +193,7 @@ namespace sprint0
             Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
             player.State = State.THROWING;
             manager.AddObject(arrow);
+            manager.shooterOfProjectile.Add(arrow, (IShooter) player);
             manager.UpdatePlayerSprite();
         }
     }
