@@ -14,7 +14,7 @@ namespace sprint0
     {
         public Song themeSound;
         public SoundEffect zeldaSword, zeldaArrowBoomerang;
-        public SoundEffect zeldaEnemyHit, zeldaLinkHurt;
+        public SoundEffect zeldaEnemyHit, zeldaEnemyDie, zeldaLinkHurt, zeldaLinkDie;
 
         private static SoundFactory instance = new SoundFactory();
         public static SoundFactory Instance
@@ -34,6 +34,8 @@ namespace sprint0
             zeldaArrowBoomerang = content.Load<SoundEffect>("Zelda_arrow_boomerang");
             zeldaEnemyHit = content.Load<SoundEffect>("Zelda_enemy_hit");
             zeldaLinkHurt = content.Load<SoundEffect>("Zelda_link_hurt");
+            zeldaLinkDie = content.Load<SoundEffect>("Zelda_link_die");
+            zeldaEnemyDie = content.Load<SoundEffect>("Zelda_enemy_die");
         }
     }
 }

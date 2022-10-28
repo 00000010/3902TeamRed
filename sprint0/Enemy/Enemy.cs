@@ -18,6 +18,7 @@ namespace sprint0
         public bool ShotBoomerang { get; set; }
         public State State { get; set; }
         public string TypeOfObject { get; set; }
+        public int Health { get; set; }
         public int DrawOrder => throw new NotImplementedException();
 
         public bool Visible => throw new NotImplementedException();

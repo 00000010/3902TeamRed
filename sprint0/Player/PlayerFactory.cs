@@ -38,6 +38,7 @@ namespace sprint0
             State = State.STANDING;
             TakingDamage = false;
             TypeOfObject = "Player";
+            Health = 100;
         }
     }
 }

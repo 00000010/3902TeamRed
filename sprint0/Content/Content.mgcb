@@ -242,11 +242,23 @@
 /processorParam:Quality=Best
 /build:Zelda_arrow_boomerang.wav
 
+#begin Zelda_enemy_die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_enemy_die.wav
+
 #begin Zelda_enemy_hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Zelda_enemy_hit.wav
+
+#begin Zelda_link_die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_link_die.wav
 
 #begin Zelda_link_hurt.wav
 /importer:WavImporter

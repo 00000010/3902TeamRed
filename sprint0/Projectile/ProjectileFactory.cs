@@ -38,7 +38,6 @@ namespace sprint0
         {
             Vector2 velocity = Vector2.Zero;
             Vector2 arrowThrowPosition = Vector2.Zero;
-
             // TODO: data-drive
             // TODO: magic numbers
             switch (direction)
@@ -72,6 +71,7 @@ namespace sprint0
             }
 
             Velocity = velocity;
+            CollideDamage = 5;
         }
     }
 
@@ -104,6 +104,7 @@ namespace sprint0
 
             Velocity = velocity;
             InitPosition = position;
+            CollideDamage = 5;
         }
     }
 
@@ -136,6 +137,7 @@ namespace sprint0
 
             Velocity = velocity;
             InitPosition = position;
+            CollideDamage = 5;
         }
     }
 }

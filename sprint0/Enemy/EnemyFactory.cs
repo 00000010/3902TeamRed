@@ -26,6 +26,7 @@ namespace sprint0
         {
             Enemy enemy = new Stalfos(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -33,6 +34,7 @@ namespace sprint0
         {
             Enemy enemy = new Keese(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -40,6 +42,7 @@ namespace sprint0
         {
             Enemy enemy = new Gel(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -47,6 +50,7 @@ namespace sprint0
         {
             Enemy enemy = new Goriya(position);
             enemy.CollideDamage = 0;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -54,6 +58,7 @@ namespace sprint0
         {
             Enemy enemy = new Octorok(position);
             enemy.CollideDamage = 3;
+            enemy.Health = 20;
             return enemy;
         }
 

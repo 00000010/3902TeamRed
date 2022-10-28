@@ -9,14 +9,14 @@ namespace sprint0
 {
     internal class PlayerProjectileCollisionCommand : ICommand
     {
-        IObject player;
-        IObject projectile;
+        IPlayer player;
+        IProjectile projectile;
         string intersectionLoc;
         GameObjectManager manager;
         public PlayerProjectileCollisionCommand(IObject player, IObject projectile, string intersectionLoc, GameObjectManager manager)
         {
-            this.player = player;
-            this.projectile = projectile;
+            this.player = (IPlayer)player;
+            this.projectile = (IProjectile)projectile;
             this.intersectionLoc = intersectionLoc;
             this.manager = manager;
         }
@@ -24,11 +24,16 @@ namespace sprint0
         public void Execute()
         {
             //link takes damage
-            manager.objectsToRemove.Add(projectile);
-            if (Projectile.IsBoomerang((IProjectile)projectile))
+            manager.objectsToRemove.Add((IObject)projectile);
+            if (Projectile.IsBoomerang(projectile))
             {
-                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
             }
+
+            player.TakingDamage = true;
+            player.Damaged = projectile.CollideDamage;
+            manager.UpdatePlayerSprite();
+
             SoundFactory.Instance.zeldaLinkHurt.Play();
         }
     }

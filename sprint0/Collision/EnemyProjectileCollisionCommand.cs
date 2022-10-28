@@ -9,14 +9,14 @@ namespace sprint0
 {
     internal class EnemyProjectileCollisionCommand : ICommand
     {
-        IObject enemy;
-        IObject projectile;
+        IEnemy enemy;
+        IProjectile projectile;
         string intersectionLoc;
         GameObjectManager manager;
         public EnemyProjectileCollisionCommand(IObject enemy, IObject projectile, string intersectionLoc, GameObjectManager manager)
         {
-            this.enemy = enemy;
-            this.projectile = projectile;
+            this.enemy = (IEnemy)enemy;
+            this.projectile = (IProjectile)projectile;
             this.intersectionLoc = intersectionLoc;
             this.manager = manager;
         }
@@ -24,12 +24,24 @@ namespace sprint0
         public void Execute()
         {
             //enemy needs to take damage, and die after a few projectile hits
-            manager.objectsToRemove.Add(projectile);
-            if (Projectile.IsBoomerang((IProjectile)projectile))
+            manager.objectsToRemove.Add((IObject)projectile);
+            if (Projectile.IsBoomerang(projectile))
             {
-                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
             }
-            SoundFactory.Instance.zeldaEnemyHit.Play();
+
+            //WANT TO MODIFY THIS SO THAT ENEMY UPDATES SPRITE AS WELL
+            //enemy.TakingDamage = true;
+            enemy.Health -= projectile.CollideDamage;
+            if (enemy.Health <= 0)
+            {
+                manager.objectsToRemove.Add((IObject)enemy);
+                SoundFactory.Instance.zeldaEnemyDie.Play();
+            }
+            else
+            {
+                SoundFactory.Instance.zeldaEnemyHit.Play();
+            } 
         }
     }
 }

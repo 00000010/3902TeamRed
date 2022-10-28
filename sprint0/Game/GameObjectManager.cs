@@ -200,9 +200,13 @@ namespace sprint0
                     default:
                         break;
                 }
-            }
-            else
-            {
+                player.Health -= player.Damaged;
+                if (player.Health <= 0)
+                {
+                    RemovePlayer(player);
+                    SoundFactory.Instance.zeldaLinkDie.Play();
+                }
+            } else {
                 switch (player.State)
                 {
                     case State.RUNNING:
@@ -296,6 +300,10 @@ namespace sprint0
         {
             objectsToAdd.Add(obj);
         }
+        public void RemoveObject(object obj)
+        {
+            objectsToRemove.Add(obj);
+        }
 
         public void AddPlayer(object player)
         {
@@ -303,9 +311,10 @@ namespace sprint0
             AddObject(player);
         }
 
-        public void RemoveObject(object obj)
+        public void RemovePlayer(object player)
         {
-            objectsToRemove.Add(obj);
+            this.player = (IPlayer)player;
+            RemoveObject(player);
         }
 
         public void Update(GameTime gameTime)
