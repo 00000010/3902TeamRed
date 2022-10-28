@@ -25,6 +25,11 @@ namespace sprint0
         {
             //enemy needs to take damage, and die after a few projectile hits
             manager.objectsToRemove.Add(projectile);
+            if (Projectile.IsBoomerang((IProjectile)projectile))
+            {
+                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+            }
+            SoundFactory.Instance.zeldaEnemyHit.Play();
         }
     }
 }

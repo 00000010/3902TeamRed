@@ -25,7 +25,11 @@ namespace sprint0
         {
             //link takes damage
             manager.objectsToRemove.Add(projectile);
-            //projectile removed when hits enemy (cant implement yet because enemy waits for boomerang even though it is removed)
+            if (Projectile.IsBoomerang((IProjectile)projectile))
+            {
+                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+            }
+            SoundFactory.Instance.zeldaLinkHurt.Play();
         }
     }
 }

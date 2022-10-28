@@ -24,7 +24,10 @@ namespace sprint0
         public void Execute()
         {
             manager.objectsToRemove.Add(projectile);
-            //boomerang enemy breaks since they wait for the boomerang even though it is removed.
+            if (Projectile.IsBoomerang((IProjectile)projectile))
+            {
+                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+            }
         }
     }
 }

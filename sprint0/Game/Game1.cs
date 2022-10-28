@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,6 +46,12 @@ namespace sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
+            SoundFactory.Instance.LoadSounds(Content);
+
+            //Play theme song in background
+            MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = (float)0.1;
 
             manager = new GameObjectManager(this);
             manager.AddObject(block); // CollisionDevBranch

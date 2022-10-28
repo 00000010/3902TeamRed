@@ -236,6 +236,24 @@
 /processorParam:TextureFormat=Color
 /build:WaterBlock.png
 
+#begin Zelda_arrow_boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_arrow_boomerang.wav
+
+#begin Zelda_enemy_hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_enemy_hit.wav
+
+#begin Zelda_link_hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_link_hurt.wav
+
 #begin Zelda_sprite.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -247,6 +265,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Zelda_sprite.png
+
+#begin Zelda_sword.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_sword.wav
+
+#begin Zelda_theme_sound.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Zelda_theme_sound.mp3
 
 #begin ZeldaAltpBlock.png
 /importer:TextureImporter

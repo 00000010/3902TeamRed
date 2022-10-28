@@ -64,6 +64,7 @@ namespace sprint0
                 managedPlayer.TakingDamage = true;
                 managedPlayer.Damaged = enemy.CollideDamage;
                 manager.UpdatePlayerSprite();
+                SoundFactory.Instance.zeldaLinkHurt.Play();
             }
         }
     }
