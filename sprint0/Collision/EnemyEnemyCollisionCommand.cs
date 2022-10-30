@@ -29,28 +29,28 @@ namespace sprint0
             {
                 if (Enemy1.Velocity.Y > 0 || Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 OR enemy2 moving towards enemy1
                 {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
+                    Enemy1.Position -= new Vector2(0, 1);
                 }
             }
             if (intersectionLoc.Contains("bottom"))
             {
                 if (Enemy1.Velocity.Y < 0 || Enemy2.Velocity.Y > 0)
                 {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
+                    Enemy1.Position += new Vector2(0, 1);
                 }
             }
             if (intersectionLoc.Contains("left"))
             {
                 if (Enemy1.Velocity.X > 0 || Enemy2.Velocity.X < 0)
                 {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
+                    Enemy1.Position -= new Vector2(1, 0);
                 }
             }
             if (intersectionLoc.Contains("right"))
             {
                 if (Enemy1.Velocity.X < 0 || Enemy2.Velocity.X > 0)
                 {
-                    Enemy1.Velocity = -Enemy1.Velocity;  //enemy1 changes direction
+                    Enemy1.Position -= new Vector2(-1, 0);
                 }
             }
         }
