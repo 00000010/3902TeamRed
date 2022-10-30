@@ -29,6 +29,8 @@ namespace sprint0
         SpriteFont font;
         KeyboardController keyboard;
 
+        public bool Paused { get; set; } 
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -64,10 +66,21 @@ namespace sprint0
             loader = new LevelLoader(this);
             loader.LoadNextLevel();
             Console.WriteLine(loader.ToString());
+
+            Paused = false;
         }
 
         protected override void Update(GameTime gameTime)
         {
+            if (Paused)
+            {
+                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+                if (pressedKeys.Contains(Keys.U))
+                {
+                    Paused = false;
+                }
+                return;
+            }
             keyboard.Update(gameTime);
             manager.Update(gameTime);
 

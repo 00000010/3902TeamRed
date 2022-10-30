@@ -314,7 +314,10 @@ namespace sprint0
         public void RemovePlayer(object player)
         {
             this.player = (IPlayer)player;
-            RemoveObject(player);
+            drawables.Remove((IDrawable)player);
+            updateables.Remove((IUpdateable)player);
+            //Stop gameplay
+            game.Paused = true;
         }
 
         public void Update(GameTime gameTime)
