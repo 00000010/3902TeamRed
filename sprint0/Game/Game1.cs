@@ -26,10 +26,11 @@ namespace sprint0
 
         public int level = 0;
 
-        SpriteFont font;
+        public SpriteFont font;
         KeyboardController keyboard;
 
-        public bool Paused { get; set; } 
+        public bool Paused { get; set; }
+        public bool GameOver { get; set; }
 
         public Game1()
         {
@@ -68,10 +69,22 @@ namespace sprint0
             Console.WriteLine(loader.ToString());
 
             Paused = false;
+            GameOver = false;
+
+            font = Content.Load<SpriteFont>("Zelda_font");
         }
 
         protected override void Update(GameTime gameTime)
         {
+            if (GameOver)
+            {
+                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+                if (pressedKeys.Contains(Keys.R))
+                {
+                    Initialize();
+                }
+                return;
+            }
             if (Paused)
             {
                 Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
@@ -93,6 +106,13 @@ namespace sprint0
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             manager.Draw(gameTime);
+            if (GameOver)
+            {
+                _spriteBatch.DrawString(font, "Game Over", new Vector2(270, 220), Color.White);
+            } else if (Paused)
+            {
+                _spriteBatch.DrawString(font, "Paused", new Vector2(330, 220), Color.White);
+            } 
             _spriteBatch.End();
 
             base.Draw(gameTime);

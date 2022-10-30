@@ -317,7 +317,7 @@ namespace sprint0
             drawables.Remove((IDrawable)player);
             updateables.Remove((IUpdateable)player);
             //Stop gameplay
-            game.Paused = true;
+            game.GameOver = true;
         }
 
         public void Update(GameTime gameTime)
