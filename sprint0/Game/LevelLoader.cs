@@ -112,10 +112,6 @@ namespace sprint0
                             gameObjectManager.AddPlayer(thing);
                         } else 
                         {
-                            if (itemObj.ObjectType == "Sprite")
-                            {
-                                
-                            }
                             gameObjectManager.AddObject(thing);
                         }
                         allItems.Add(thing);

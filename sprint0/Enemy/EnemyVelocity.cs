@@ -12,18 +12,19 @@ namespace sprint0
     {
         private static float elapsedTime = 0;
         private static Random randomGen = new Random();
-        public static void UpdateVelocity(GameTime gameTime, Rectangle[] sourceRectangle, ref Vector2 Velocity, ref Sprite testSprite)
+        public static void UpdateVelocity(GameTime gameTime, Rectangle[] sourceRectangle, ref Vector2 Velocity, ref Sprite testSprite,
+                                            float elapsedTime)
         {
             //Grouping enemies based on movement
             if (sourceRectangle == EnemyRectangle.Gel || sourceRectangle == EnemyRectangle.Stalfos || 
                 sourceRectangle == EnemyRectangle.GoriyaLeft || sourceRectangle == EnemyRectangle.GoriyaRight
                 || sourceRectangle == EnemyRectangle.GoriyaUp || sourceRectangle == EnemyRectangle.GoriyaDown)
             {
-                UpdateUniMovement(gameTime, ref Velocity, ref testSprite, sourceRectangle);
+                UpdateUniMovement(gameTime, ref Velocity, ref testSprite, sourceRectangle, elapsedTime);
             }
             else if (sourceRectangle == EnemyRectangle.Keese)
             {
-                UpdateKeeseMovement(gameTime, ref Velocity);
+                UpdateKeeseMovement(gameTime, ref Velocity, elapsedTime);
             }
         }
 
@@ -49,9 +50,9 @@ namespace sprint0
             testSprite.Velocity = velocity;
         }
 
-        public static void UpdateUniMovement(GameTime gameTime, ref Vector2 Velocity, ref Sprite testSprite, Rectangle[] sourceRectangle)
+        public static void UpdateUniMovement(GameTime gameTime, ref Vector2 Velocity, ref Sprite testSprite, Rectangle[] sourceRectangle,
+                                            float elapsedTime)
         {
-            elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             //Let each character stay in the same direction for 1 second
             if (elapsedTime < 1)
             {
@@ -83,9 +84,8 @@ namespace sprint0
 
             if (sourceRectangle != EnemyRectangle.Gel && sourceRectangle != EnemyRectangle.Stalfos) UpdateGoriyaFrame(Velocity, ref testSprite);
         }
-        public static void UpdateKeeseMovement(GameTime gameTime, ref Vector2 Velocity)
-        {
-            elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        public static void UpdateKeeseMovement(GameTime gameTime, ref Vector2 Velocity, float elapsedTime)
+        { 
             //Let each character stay in the same direction for 1 seconds
             if (elapsedTime < 1)
             {
