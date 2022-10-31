@@ -43,6 +43,28 @@ namespace sprint0
         protected override void Initialize()
         {
             base.Initialize();
+
+            manager = new GameObjectManager(this);
+            manager.AddObject(block); 
+
+            keyboard = new KeyboardController();
+            keyboard.LoadDefaultKeys(this);
+
+            //Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+
+            //Create level loader
+            loader = new LevelLoader(this);
+            loader.LoadNextLevel();
+            Console.WriteLine(loader.ToString());
+
+            //Initialize the game so that it isn't paused and isn't over
+            Paused = false;
+            GameOver = false;
+
+            //Play theme song in background
+            MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = (float)0.1;
         }
 
         protected override void LoadContent()
@@ -52,26 +74,6 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
             SoundFactory.Instance.LoadSounds(Content);
 
-            //Play theme song in background
-            MediaPlayer.Play(SoundFactory.Instance.themeSound);
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = (float)0.1;
-
-            manager = new GameObjectManager(this);
-            manager.AddObject(block); // CollisionDevBranch
-
-            keyboard = new KeyboardController();
-            keyboard.LoadDefaultKeys(this);
-
-            Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
-
-            loader = new LevelLoader(this);
-            loader.LoadNextLevel();
-            Console.WriteLine(loader.ToString());
-
-            Paused = false;
-            GameOver = false;
-
             mainFont = Content.Load<SpriteFont>("Zelda_font");
             smallerFont = Content.Load<SpriteFont>("Zelda_font_smaller");
         }
@@ -80,22 +82,12 @@ namespace sprint0
         {
             if (GameOver)
             {
-                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-                //Restart
-                if (pressedKeys.Contains(Keys.R))
-                {
-                    Initialize();
-                }
+                HandleGameOver();
                 return;
             }
             if (Paused)
             {
-                //Resume
-                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-                if (pressedKeys.Contains(Keys.U))
-                {
-                    Paused = false;
-                }
+                HandleGamePaused();
                 return;
             }
             keyboard.Update(gameTime);
@@ -122,6 +114,26 @@ namespace sprint0
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void HandleGameOver()
+        {
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            //Restart
+            if (pressedKeys.Contains(Keys.R))
+            {
+                Initialize();
+            }
+        }
+
+        private void HandleGamePaused()
+        {
+            //Resume
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            if (pressedKeys.Contains(Keys.U))
+            {
+                Paused = false;
+            }
         }
     }
 }

@@ -63,7 +63,7 @@ namespace sprint0
             {
                 managedPlayer.TakingDamage = true;
                 managedPlayer.Damaged = enemy.CollideDamage;
-                manager.UpdatePlayerSprite();
+                player.UpdatePlayerSprite(manager);
                 SoundFactory.Instance.zeldaLinkHurt.Play();
             }
         }

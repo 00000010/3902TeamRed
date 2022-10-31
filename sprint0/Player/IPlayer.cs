@@ -20,5 +20,6 @@ namespace sprint0
         public string TypeOfObject { get; set; }
         public bool ShotBoomerang { get; set; }
         public int Health { get; set; }
+        public void UpdatePlayerSprite(GameObjectManager manager);
     }
 }

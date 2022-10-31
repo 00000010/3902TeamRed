@@ -47,7 +47,7 @@ namespace sprint0
             Debug.WriteLine(manager.player.Velocity);
             manager.player.Velocity = oldVelocity + newVelocity;
             Debug.WriteLine(manager.player.Velocity);
-            manager.UpdatePlayerSprite();
+            manager.player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -92,7 +92,7 @@ namespace sprint0
             player.Velocity = oldVelocity + newVelocity;
 
             manager.UpdatePlayerState();
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -109,6 +109,7 @@ namespace sprint0
             this.game = game;
             this.direction = direction;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -129,7 +130,7 @@ namespace sprint0
             }
             manager.player.Velocity = newVelocity;
             manager.UpdatePlayerState();
-            manager.UpdatePlayerSprite();
+            manager.player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -144,6 +145,7 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -151,7 +153,7 @@ namespace sprint0
             player = manager.player;
             player.State = State.ATTACKING;
             player.Velocity = Vector2.Zero; // TODO: comment this line out to make Link attack and kind of keep running; causes weird bug where Link can somehow disappear...; need to decide whether to fix this or call it a feature
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
             SoundFactory.Instance.zeldaSword.Play();
         }
     }
@@ -186,6 +188,7 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -195,7 +198,7 @@ namespace sprint0
             player.State = State.THROWING;
             manager.AddObject(arrow);
             manager.shooterOfProjectile.Add(arrow, (IShooter) player);
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
             SoundFactory.Instance.zeldaArrowBoomerang.Play();
         }
     }

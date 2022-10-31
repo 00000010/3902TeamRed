@@ -32,7 +32,7 @@ namespace sprint0
 
             player.TakingDamage = true;
             player.Damaged = projectile.CollideDamage;
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
 
             SoundFactory.Instance.zeldaLinkHurt.Play();
         }
