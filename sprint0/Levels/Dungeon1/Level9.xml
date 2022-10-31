@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <XnaContent>
+    <Pointers>
+        <WestRoom>Room10</WestRoom>
+        <EastRoom>Room8</EastRoom>
+        <SouthRoom>Room6</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room9</Name>
+    </Meta>
     <Asset>
         <Item>
             <ObjectType>Sprite</ObjectType>
@@ -13,8 +21,18 @@
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonAbyss</ObjectName>
-            <Location>304 256</Location>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>284 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>384 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>384 304</Location>
         </Item>
         <Item>
             <ObjectType>Player</ObjectType>
