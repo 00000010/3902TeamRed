@@ -254,6 +254,13 @@
 /processorParam:Quality=Best
 /build:Zelda_enemy_hit.wav
 
+#begin Zelda_font_smaller.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Zelda_font_smaller.spritefont
+
 #begin Zelda_font.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

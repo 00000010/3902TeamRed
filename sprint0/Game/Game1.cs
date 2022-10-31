@@ -26,7 +26,8 @@ namespace sprint0
 
         public int level = 0;
 
-        public SpriteFont font;
+        public SpriteFont mainFont;
+        public SpriteFont smallerFont;
         KeyboardController keyboard;
 
         public bool Paused { get; set; }
@@ -71,7 +72,8 @@ namespace sprint0
             Paused = false;
             GameOver = false;
 
-            font = Content.Load<SpriteFont>("Zelda_font");
+            mainFont = Content.Load<SpriteFont>("Zelda_font");
+            smallerFont = Content.Load<SpriteFont>("Zelda_font_smaller");
         }
 
         protected override void Update(GameTime gameTime)
@@ -79,6 +81,7 @@ namespace sprint0
             if (GameOver)
             {
                 Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+                //Restart
                 if (pressedKeys.Contains(Keys.R))
                 {
                     Initialize();
@@ -87,6 +90,7 @@ namespace sprint0
             }
             if (Paused)
             {
+                //Resume
                 Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
                 if (pressedKeys.Contains(Keys.U))
                 {
@@ -108,10 +112,12 @@ namespace sprint0
             manager.Draw(gameTime);
             if (GameOver)
             {
-                _spriteBatch.DrawString(font, "Game Over", new Vector2(270, 220), Color.White);
+                _spriteBatch.DrawString(mainFont, "Game Over", new Vector2(270, 220), Color.White);
+                _spriteBatch.DrawString(smallerFont, "Press R to Restart", new Vector2(270, 270), Color.White);
             } else if (Paused)
             {
-                _spriteBatch.DrawString(font, "Paused", new Vector2(330, 220), Color.White);
+                _spriteBatch.DrawString(mainFont, "Paused", new Vector2(330, 220), Color.White);
+                _spriteBatch.DrawString(smallerFont, "Press U to Resume", new Vector2(280, 270), Color.White);
             } 
             _spriteBatch.End();
 
