@@ -15,7 +15,7 @@ namespace sprint0
     internal static class CollisionDetection
     {
         public static void HandleAllCollidables(IPlayer player, List<IProjectile> projectiles, List<IEnemy> enemies,
-            List<IBlock> blocks, List<IItem> items, Dictionary<IProjectile, string> shooterOfProjectile, GameObjectManager manager)
+            List<IBlock> blocks, List<IDoor> doors, List<IItem> items, Dictionary<IProjectile, string> shooterOfProjectile, GameObjectManager manager)
         {
             IObject objectPlayer = (IObject)player;
 
@@ -25,12 +25,16 @@ namespace sprint0
             foreach (IProjectile x in projectiles) objectProjectiles.Add((IObject)x);
             List<IObject> objectBlocks = new List<IObject>();
             foreach (IBlock x in blocks) objectBlocks.Add((IObject)x);
+            List<IObject> objectDoors = new List<IObject>();
+            foreach (IDoor x in doors) objectDoors.Add((IObject)x);
             List<IObject> objectItems = new List<IObject>();
             foreach (IItem x in items) objectItems.Add((IObject)x);
             Dictionary<IObject, string> shooterOfProjectileObjects = new Dictionary<IObject, string>();
             foreach (KeyValuePair<IProjectile, string> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
+            // TODO: priority depends on the order of these methods (i.e., door must be before wall in order to register collision with door; fix
             HandlePlayerAgainstEnemies(objectPlayer, objectEnemies, manager);
+            HandlePlayerAgainstDoors(objectPlayer, objectDoors, manager);
             HandlePlayerAgainstBlocks(objectPlayer, objectBlocks, manager);
             HandlePlayerAgainstItems(objectPlayer, objectItems, manager);
             HandleEnemiesAgainstProjectiles(objectEnemies, objectProjectiles, shooterOfProjectileObjects, manager);
@@ -99,6 +103,27 @@ namespace sprint0
                 {
                     String intersectionLoc = GetIntersectionLocation(playerRect, intersect);
                     CollisionResolution.CallCorrespondingCommand(player, currBlock, manager, intersectionLoc);
+                }
+            }
+        }
+
+        private static void HandlePlayerAgainstDoors(IObject player, List<IObject> doors, GameObjectManager manager)
+        {
+            int offset = 12;
+            Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
+                (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
+                player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
+            for (int i = 0; i < doors.Count; i++)
+            {
+                IObject currDoor = doors.ElementAt(i);
+                Rectangle blockRect = new Rectangle((int)currDoor.Position.X,
+                (int)currDoor.Position.Y, currDoor.Sprite.SourceRectangle[currDoor.Sprite.Frame].Width,
+                currDoor.Sprite.SourceRectangle[currDoor.Sprite.Frame].Height);
+                Rectangle intersect = Rectangle.Intersect(playerRect, blockRect);
+                if (!intersect.IsEmpty)
+                {
+                    String intersectionLoc = GetIntersectionLocation(playerRect, intersect);
+                    CollisionResolution.CallCorrespondingCommand(player, currDoor, manager, intersectionLoc);
                 }
             }
         }

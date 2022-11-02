@@ -16,6 +16,7 @@ namespace sprint0
         public List<IProjectile> projectilesInFlight = new List<IProjectile>();
         public List<IEnemy> enemies = new List<IEnemy>();
         public List<IBlock> blocks = new List<IBlock>();
+        public List<IDoor> doors = new List<IDoor>();
         public List<IItem> items = new List<IItem>();
         public Dictionary<IProjectile, string> shooterOfProjectile = new Dictionary<IProjectile, string>();
         public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
@@ -36,6 +37,8 @@ namespace sprint0
         {
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Block"),
                 Type.GetType("sprint0.PlayerBlockCollisionCommand"));
+            collisionResolutionDic.Add(new Tuple<string, string>("Player", "Door"),
+                Type.GetType("sprint0.PlayerDoorCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Projectile"),
                 Type.GetType("sprint0.PlayerProjectileCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Item"),
@@ -62,6 +65,7 @@ namespace sprint0
         //    shooterOfProjectile.Add(projectile, shooter);
         //}
 
+        // TODO: refactor so it's addThing(object o) and uses reflection to add to the correct list
         public void addProjectile(IProjectile projectile)
         {
             projectilesInFlight.Add(projectile);
@@ -90,6 +94,16 @@ namespace sprint0
         public void removeBlock(IBlock block)
         {
             blocks.Remove(block);
+        }
+
+        public void addDoor(IDoor door)
+        {
+            doors.Add(door);
+        }
+
+        public void removeDoor(IDoor door)
+        {
+            doors.Remove(door);
         }
 
         public void addItem(IItem item)
@@ -400,6 +414,11 @@ namespace sprint0
                 {
                     addEnemy((IEnemy)obj);
                 }
+
+                if (obj is IDoor)
+                {
+                    addDoor((IDoor)obj);
+                }
             }
 
             objectsToAdd.Clear();
@@ -417,7 +436,7 @@ namespace sprint0
              * UpdateProjectileMotion(gameTime);
              */
             //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
         }
 
         public void Draw(GameTime gameTime)

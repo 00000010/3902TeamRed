@@ -26,6 +26,7 @@ namespace sprint0
             {
                 if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
+                    // command to go the up door
                     player.Position -= new Vector2(0, 2);
                 }
             }
@@ -33,6 +34,7 @@ namespace sprint0
             {
                 if (player.Velocity.Y < 0)
                 {
+                    // command to go to bottom door
                     player.Position += new Vector2(0, 2);
                 }
             }
@@ -40,6 +42,7 @@ namespace sprint0
             {
                 if (player.Velocity.X < 0)
                 {
+                    //etc.
                     player.Position += new Vector2(2, 0);
                 }
             }
@@ -47,6 +50,7 @@ namespace sprint0
             {
                 if (player.Velocity.X > 0)
                 {
+                    //etc.
                     player.Position -= new Vector2(2, 0);
                 }
             }

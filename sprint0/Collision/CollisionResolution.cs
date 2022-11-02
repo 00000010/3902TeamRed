@@ -18,6 +18,7 @@ namespace sprint0
             Dictionary<Tuple<string, string>, Type> dic = manager.collisionResolutionDic;
             Type type = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()),
                                                 TypeToString(sprite2.GetType())));
+            Console.WriteLine("type: " + type.ToString());
             ConstructorInfo ctor = type.GetConstructor(new[] { typeof(IObject), typeof(IObject), typeof(string), typeof(GameObjectManager) });
             ICommand command;
             if (ctor != null)
