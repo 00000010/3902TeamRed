@@ -12,6 +12,7 @@ namespace sprint0
         public List<ItemObject> roomItemObjects;
 
         public string name { get; set; }
+
         public string WestRoom { get; set; }
         public string NorthRoom { get; set; }
         public string EastRoom { get; set; }

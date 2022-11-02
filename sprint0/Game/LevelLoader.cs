@@ -154,6 +154,7 @@ namespace sprint0
         }
 
         //Points the rooms to each other so rooms know whats adjecent
+        //Todo - Make this not a double for loop
         public void pointPointers()
         {
             foreach (Room roomX in allRooms)
