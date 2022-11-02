@@ -30,218 +30,57 @@ namespace sprint0
             Dictionary<IObject, IShooter> shooterOfProjectileObjects = new Dictionary<IObject, IShooter>();
             foreach (KeyValuePair<IProjectile, IShooter> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
-            HandlePlayerAgainstProjectiles(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
-            //HandlePlayerAgainstWalls(objectPlayer, objectBackground, manager);
-            HandlePlayerAgainstEnemies(objectPlayer, objectEnemies, manager);
-            HandlePlayerAgainstBlocks(objectPlayer, objectBlocks, manager);
-            HandlePlayerAgainstItems(objectPlayer, objectItems, manager);
-            HandleEnemiesAgainstProjectiles(objectEnemies, objectProjectiles, shooterOfProjectileObjects, manager);
-            HandleEnemiesAgainstEnemies(objectEnemies, manager);
-            HandleEnemiesAgainstBlocks(objectEnemies, objectBlocks, manager);
-            HandleProjectilesAgainstBlocks(objectProjectiles, objectBlocks, manager);
+            HandlePlayerCollisions(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
+            HandlePlayerCollisions(objectPlayer, objectEnemies, shooterOfProjectileObjects, manager);
+            HandlePlayerCollisions(objectPlayer, objectItems, shooterOfProjectileObjects, manager);
+            HandlePlayerCollisions(objectPlayer, objectBlocks, shooterOfProjectileObjects, manager);
+            HandleGeneralCollisions(objectEnemies, objectProjectiles, shooterOfProjectileObjects, manager);
+            HandleGeneralCollisions(objectEnemies, objectEnemies, shooterOfProjectileObjects, manager);
+            HandleGeneralCollisions(objectEnemies, objectBlocks, shooterOfProjectileObjects, manager);
+            HandleGeneralCollisions(objectProjectiles, objectBlocks, shooterOfProjectileObjects, manager);
         }
 
-        private static void HandlePlayerAgainstWalls(IObject player, IObject background, GameObjectManager manager)
-        {
-            //int offset = 12;
-            //Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-            //    (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
-            //    player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
-            //Rectangle[] wallRects = GetWallRects(background);
-            //foreach (Rectangle wall in wallRects)
-            //{
-            //    Rectangle intersect = Rectangle.Intersect(playerRect, wall);
-            //    if (!intersect.IsEmpty)
-            //    {
-            //        CollisionResolution.CallCorrespondingCommand(player, wall, manager, "");
-            //    }
-            //}
-        }
-
-        private static Rectangle[] GetWallRects(IObject background)
-        {
-            // TODO: code smell; lots of dots
-            // TODO: magic numbers
-            Rectangle[] wallRects = {
-                new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
-                new Rectangle((int)background.Position.X, (int)background.Position.Y + background.Sprite.SourceRectangle[0].Height - (18/99), background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
-                new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Height, background.Sprite.SourceRectangle[0].Width * (18/99)),
-                new Rectangle((int)background.Position.X + background.Sprite.SourceRectangle[0].Width * (81/99), (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width * (18/99), background.Sprite.SourceRectangle[0].Height)
-                };
-            return wallRects;
-        }
-
-        private static void HandlePlayerAgainstProjectiles(IObject player, List<IObject> projectiles,
+        private static void HandlePlayerCollisions(IObject player, List<IObject> otherObjects,
             Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             int offset = 12;
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
                 (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
                 player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
-            for (int i = 0; i < projectiles.Count; i++)
-            {
-                IObject currProjectile = projectiles.ElementAt(i);
-                if (shooterOfProjectile.GetValueOrDefault(currProjectile).TypeOfObject == "Player") continue;
-                Rectangle projectileRect = new Rectangle((int)currProjectile.Position.X,
-                (int)projectiles.ElementAt(i).Position.Y, currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Width,
-                projectiles.ElementAt(i).Sprite.SourceRectangle[currProjectile.Sprite.Frame].Height);
-                Rectangle intersect = Rectangle.Intersect(playerRect, projectileRect);
-                if (!intersect.IsEmpty)
-                {
-                    CollisionResolution.CallCorrespondingCommand(player, currProjectile, manager, "");
-                }
-            }
+            HandleInnerLoop(player, playerRect, otherObjects, shooterOfProjectile, manager, "Player");
         }
 
-        private static void HandlePlayerAgainstEnemies(IObject player, List<IObject> enemies, GameObjectManager manager)
-        {
-            int offset = 12;
-            Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                IObject currEnemy = enemies.ElementAt(i);
-                Rectangle enemyRect = new Rectangle((int)currEnemy.Position.X,
-                (int)currEnemy.Position.Y, currEnemy.Sprite.SourceRectangle[currEnemy.Sprite.Frame].Width,
-                currEnemy.Sprite.SourceRectangle[currEnemy.Sprite.Frame].Height);
-                Rectangle intersect = Rectangle.Intersect(playerRect, enemyRect);
-                if (!intersect.IsEmpty)
-                {
-                    String intersectionLoc = GetIntersectionLocation(playerRect, intersect);
-                    CollisionResolution.CallCorrespondingCommand(player, currEnemy, manager, intersectionLoc);
-                }
-            }
-        }
-
-        private static void HandlePlayerAgainstBlocks(IObject player, List<IObject> blocks, GameObjectManager manager)
-        {
-            int offset = 12;
-            Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y+offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset*2),
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height-(offset*2));
-            for (int i = 0; i < blocks.Count; i++)
-            {
-                IObject currBlock = blocks.ElementAt(i);
-                Rectangle blockRect = new Rectangle((int)currBlock.Position.X,
-                (int)currBlock.Position.Y, currBlock.Sprite.SourceRectangle[currBlock.Sprite.Frame].Width,
-                currBlock.Sprite.SourceRectangle[currBlock.Sprite.Frame].Height);
-                Rectangle intersect = Rectangle.Intersect(playerRect, blockRect);
-                if (!intersect.IsEmpty)
-                {
-                    String intersectionLoc = GetIntersectionLocation(playerRect, intersect);
-                    CollisionResolution.CallCorrespondingCommand(player, currBlock, manager, intersectionLoc);
-                }
-            }
-        }
-
-        private static void HandlePlayerAgainstItems(IObject player, List<IObject> items, GameObjectManager manager)
-        {
-            int offset = 12;
-            Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
-            for (int i = 0; i < items.Count; i++)
-            {
-                IObject currItem = items.ElementAt(i);
-                Rectangle itemRect = new Rectangle((int)currItem.Position.X, (int)currItem.Position.Y, 12, 12);
-                Rectangle intersect = Rectangle.Intersect(playerRect, itemRect);
-                if (!intersect.IsEmpty)
-                {
-                    CollisionResolution.CallCorrespondingCommand(player, currItem, manager, "");
-                }
-            }
-        }
-
-        private static void HandleEnemiesAgainstProjectiles(List<IObject> enemies, List<IObject> projectiles,
+        private static void HandleGeneralCollisions(List<IObject> objects1, List<IObject> objects2,
             Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < objects1.Count; i++)
             {
-                IObject currEnemy = enemies.ElementAt(i);
-                Rectangle enemyRect = new Rectangle((int)currEnemy.Position.X,
-                    (int)currEnemy.Position.Y, currEnemy.Sprite.SourceRectangle[currEnemy.Sprite.Frame].Width,
-                    currEnemy.Sprite.SourceRectangle[currEnemy.Sprite.Frame].Height);
-                for (int j = 0; j < projectiles.Count; j++)
-                {
-                    IObject currProjectile = projectiles.ElementAt(j);
-                    if (shooterOfProjectile.GetValueOrDefault(currProjectile).TypeOfObject == "Enemy") continue;
-                    Rectangle projectileRect = new Rectangle((int)currProjectile.Position.X,
-                    (int)currProjectile.Position.Y, currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Width,
-                    currProjectile.Sprite.SourceRectangle[currProjectile.Sprite.Frame].Height);
-                    Rectangle intersect = Rectangle.Intersect(enemyRect, projectileRect);
-                    if (!intersect.IsEmpty)
-                    {
-                        CollisionResolution.CallCorrespondingCommand(currEnemy, currProjectile, manager, "");
-                    }
-                }
+                IObject object1 = objects1.ElementAt(i);
+                Rectangle object1Rect = new Rectangle((int)object1.Position.X,
+                    (int)object1.Position.Y, object1.Sprite.SourceRectangle[object1.Sprite.Frame].Width,
+                    object1.Sprite.SourceRectangle[object1.Sprite.Frame].Height);
+                HandleInnerLoop(object1, object1Rect, objects2, shooterOfProjectile, manager, "Enemy");
             }
         }
 
-        private static void HandleEnemiesAgainstEnemies(List<IObject> enemies, GameObjectManager manager)
+        public static void HandleInnerLoop(IObject object1, Rectangle object1Rect, List<IObject> otherObjects,
+            Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager, string expectedShooter)
         {
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < otherObjects.Count; i++)
             {
-                Rectangle enemyRect1 = new Rectangle((int)enemies.ElementAt(i).Position.X,
-                    (int)enemies.ElementAt(i).Position.Y, enemies.ElementAt(i).Sprite.SourceRectangle[enemies.ElementAt(i).Sprite.Frame].Width,
-                    enemies.ElementAt(i).Sprite.SourceRectangle[enemies.ElementAt(i).Sprite.Frame].Height);
-                for (int j = i + 1; j < enemies.Count; j++)
+                IObject currObject = otherObjects.ElementAt(i);
+                if ((currObject is Projectile) && shooterOfProjectile.GetValueOrDefault(currObject).TypeOfObject == expectedShooter) continue;
+                Rectangle objectRect = new Rectangle((int)currObject.Position.X,
+                (int)otherObjects.ElementAt(i).Position.Y, currObject.Sprite.SourceRectangle[currObject.Sprite.Frame].Width,
+                otherObjects.ElementAt(i).Sprite.SourceRectangle[currObject.Sprite.Frame].Height);
+                Rectangle intersect = Rectangle.Intersect(object1Rect, objectRect);
+                if (!intersect.IsEmpty)
                 {
-                    Rectangle enemyRect2 = new Rectangle((int)enemies.ElementAt(j).Position.X,
-                    (int)enemies.ElementAt(j).Position.Y, enemies.ElementAt(j).Sprite.SourceRectangle[enemies.ElementAt(j).Sprite.Frame].Width,
-                    enemies.ElementAt(j).Sprite.SourceRectangle[enemies.ElementAt(j).Sprite.Frame].Height);
-                    Rectangle intersect = Rectangle.Intersect(enemyRect1, enemyRect2);
-                    if (!intersect.IsEmpty)
-                    {
-                        String intersectionLoc = GetIntersectionLocation(enemyRect1, intersect);
-                        CollisionResolution.CallCorrespondingCommand(enemies.ElementAt(i), enemies.ElementAt(j), manager, intersectionLoc);
-                    }
+                    string intersectionLoc = GetIntersectionLocation(object1Rect, intersect);
+                    CollisionResolution.CallCorrespondingCommand(object1, currObject, manager, intersectionLoc);
                 }
             }
-        }
-
-        private static void HandleEnemiesAgainstBlocks(List<IObject> enemies, List<IObject> blocks, GameObjectManager manager)
-        {
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                Rectangle enemyRect = new Rectangle((int)enemies.ElementAt(i).Position.X,
-                    (int)enemies.ElementAt(i).Position.Y, enemies.ElementAt(i).Sprite.SourceRectangle[enemies.ElementAt(i).Sprite.Frame].Width,
-                    enemies.ElementAt(i).Sprite.SourceRectangle[enemies.ElementAt(i).Sprite.Frame].Height);
-                for (int j = 0; j < blocks.Count; j++)
-                {
-                    Rectangle blockRect = new Rectangle((int)blocks.ElementAt(j).Position.X,
-                    (int)blocks.ElementAt(j).Position.Y, blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Width,
-                    blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Height);
-                    Rectangle intersect = Rectangle.Intersect(blockRect, enemyRect);
-                    if (!intersect.IsEmpty)
-                    {
-                        String intersectionLoc = GetIntersectionLocation(enemyRect, intersect);
-                        CollisionResolution.CallCorrespondingCommand(enemies.ElementAt(i), blocks.ElementAt(j), manager, intersectionLoc);
-                    }
-                }
-            }
-        }
-
-        private static void HandleProjectilesAgainstBlocks(List<IObject> projectiles, List<IObject> blocks, GameObjectManager manager)
-        {
-            for (int i = 0; i < projectiles.Count; i++)
-            {
-                Rectangle projectileRect = new Rectangle((int)projectiles.ElementAt(i).Position.X,
-                    (int)projectiles.ElementAt(i).Position.Y, projectiles.ElementAt(i).Sprite.SourceRectangle[projectiles.ElementAt(i).Sprite.Frame].Width,
-                    projectiles.ElementAt(i).Sprite.SourceRectangle[projectiles.ElementAt(i).Sprite.Frame].Height);
-                for (int j = 0; j < blocks.Count; j++)
-                {
-                    Rectangle blockRect = new Rectangle((int)blocks.ElementAt(j).Position.X,
-                    (int)blocks.ElementAt(j).Position.Y, blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Width,
-                    blocks.ElementAt(j).Sprite.SourceRectangle[blocks.ElementAt(j).Sprite.Frame].Height);
-                    Rectangle intersect = Rectangle.Intersect(blockRect, projectileRect);
-                    if (!intersect.IsEmpty)
-                    {
-                        CollisionResolution.CallCorrespondingCommand(projectiles.ElementAt(i), blocks.ElementAt(j), manager, "");
-                    }
-                }
-            }
-        }
+        } 
 
         private static string GetIntersectionLocation(Rectangle Moving, Rectangle intersect)
         {
@@ -273,5 +112,35 @@ namespace sprint0
 
             return collisionDirections;
         }
+
+        //private static void HandlePlayerAgainstWalls(IObject player, IObject background, GameObjectManager manager)
+        //{
+            //int offset = 12;
+            //Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
+            //    (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
+            //    player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
+            //Rectangle[] wallRects = GetWallRects(background);
+            //foreach (Rectangle wall in wallRects)
+            //{
+            //    Rectangle intersect = Rectangle.Intersect(playerRect, wall);
+            //    if (!intersect.IsEmpty)
+            //    {
+            //        CollisionResolution.CallCorrespondingCommand(player, wall, manager, "");
+            //    }
+            //}
+        //}
+
+        //private static Rectangle[] GetWallRects(IObject background)
+        //{
+        //    // TODO: code smell; lots of dots
+        //    // TODO: magic numbers
+        //    Rectangle[] wallRects = {
+        //        new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
+        //        new Rectangle((int)background.Position.X, (int)background.Position.Y + background.Sprite.SourceRectangle[0].Height - (18/99), background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
+        //        new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Height, background.Sprite.SourceRectangle[0].Width * (18/99)),
+        //        new Rectangle((int)background.Position.X + background.Sprite.SourceRectangle[0].Width * (81/99), (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width * (18/99), background.Sprite.SourceRectangle[0].Height)
+        //        };
+        //    return wallRects;
+        //}
     }
 }
