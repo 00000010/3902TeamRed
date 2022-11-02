@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <WestRoom>Room11</WestRoom>
+        <NorthRoom>Room13</NorthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room12</Name>
+    </Meta>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>384 236</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>284 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>320 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>352 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>384 272</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>432 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>464 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>320 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>352 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>384 304</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>464 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>432 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>320 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>352 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>384 336</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>464 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>432 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+

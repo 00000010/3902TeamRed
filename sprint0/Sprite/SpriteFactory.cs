@@ -408,6 +408,15 @@ namespace sprint0
             return new Sprite(enemiesSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
         }
 
+        public Sprite ZeldaFire(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Fire, spriteBatch, position);
+        }
+
+
+        /*
+         * Enemies
+         */
         public Sprite Stalfos(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position);

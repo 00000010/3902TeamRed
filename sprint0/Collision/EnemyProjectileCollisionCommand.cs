@@ -25,7 +25,7 @@ namespace sprint0
         {
             //enemy needs to take damage, and die after a few projectile hits
             manager.objectsToRemove.Add((IObject)projectile);
-            if (Projectile.IsBoomerang(projectile))
+            if (Projectile.IsDesiredProjectile(projectile, "ZeldaBoom"))
             {
                 manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
             }

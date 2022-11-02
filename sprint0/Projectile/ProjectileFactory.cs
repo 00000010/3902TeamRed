@@ -21,14 +21,19 @@ namespace sprint0
             return new ZeldaArrow(position, direction);
         }
 
-        public Projectile ZeldaBoomerang(Vector2 position, Direction direction)
+        public Projectile ZeldaBoomerang(Vector2 position, Direction direction, string shooter = "")
         {
-            return new ZeldaBoom(position, direction);
+            return new ZeldaBoom(position, direction, shooter);
         }
 
         public Projectile ZeldaRock(Vector2 position, Direction direction)
         {
             return new ZeldaRock(position, direction);
+        }
+
+        public Projectile ZeldaFire(Vector2 position, Direction direction)
+        {
+            return new ZeldaFire(position, direction);
         }
     }
 
@@ -71,31 +76,100 @@ namespace sprint0
             }
 
             Velocity = velocity;
+            CollideDamage = 3;
+        }
+    }
+
+    internal class ZeldaFire : Projectile
+    {
+        public ZeldaFire(Vector2 position, Direction direction)
+        {
+            Vector2 velocity = Vector2.Zero;
+            Vector2 arrowThrowPosition = Vector2.Zero;
+            // TODO: data-drive
+            // TODO: magic numbers
+            switch (direction)
+            {
+                case Direction.LEFT:
+                    arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    velocity.X -= 5;
+                    break;
+                case Direction.RIGHT:
+                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    velocity.X += 5;
+                    break;
+                case Direction.UP:
+                    arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    velocity.Y -= 5;
+                    break;
+                case Direction.DOWN:
+                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    velocity.Y += 5;
+                    break;
+                default:
+                    break;
+            }
+            InitPosition = arrowThrowPosition;
+            Velocity = velocity;
             CollideDamage = 5;
         }
     }
 
     internal class ZeldaBoom : Projectile
     {
-        public ZeldaBoom(Vector2 position, Direction direction)
+        public ZeldaBoom(Vector2 position, Direction direction, string shooter)
         {
             Vector2 velocity = Vector2.Zero;
             Sprite = SpriteFactory.Instance.ZeldaBoomerang(position);
+            Vector2 arrowThrowPosition = position;
+            InitPosition = position;
 
             // TODO: data-drive
             // TODO: magic numbers
             switch (direction)
             {
                 case Direction.LEFT:
+                    if (shooter.Equals("player"))
+                    {
+                        arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
+                        InitPosition = arrowThrowPosition;
+                        Direction = Direction.LEFT;
+                    }
                     velocity.X -= 5;
                     break;
                 case Direction.RIGHT:
+                    if (shooter.Equals("player"))
+                    {
+                        arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
+                        InitPosition = arrowThrowPosition;
+                        Direction = Direction.RIGHT;
+                    }
                     velocity.X += 5;
                     break;
                 case Direction.UP:
+                    if (shooter.Equals("player"))
+                    {
+                        arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
+                        InitPosition = arrowThrowPosition;
+                        Direction = Direction.UP;
+                    }
                     velocity.Y -= 5;
                     break;
                 case Direction.DOWN:
+                    if (shooter.Equals("player"))
+                    {
+                        arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
+                        InitPosition = arrowThrowPosition;
+                        Direction = Direction.DOWN;
+                    }
                     velocity.Y += 5;
                     break;
                 default:
@@ -103,7 +177,6 @@ namespace sprint0
             }
 
             Velocity = velocity;
-            InitPosition = position;
             CollideDamage = 5;
         }
     }

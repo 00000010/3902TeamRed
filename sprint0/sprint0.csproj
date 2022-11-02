@@ -41,7 +41,6 @@
     <Folder Include="Sprite\" />
     <Folder Include="Projectile\" />
     <Folder Include="Block\" />
-    <Folder Include="ScreenDisplay\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
     <Folder Include="MovementDirection\" />

@@ -25,7 +25,7 @@ namespace sprint0
         {
             //link takes damage
             manager.objectsToRemove.Add((IObject)projectile);
-            if (Projectile.IsBoomerang(projectile))
+            if (Projectile.IsDesiredProjectile(projectile, "ZeldaBoom"))
             {
                 manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
             }

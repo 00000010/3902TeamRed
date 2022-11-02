@@ -10,6 +10,7 @@ namespace sprint0
     {
         private Game1 game;
         public IPlayer player;
+        public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();

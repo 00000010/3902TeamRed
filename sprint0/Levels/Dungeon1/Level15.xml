@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <NorthRoom>Room16</NorthRoom>
+        <SouthRoom>Room8</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room15</Name>
+    </Meta>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>384 236</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>384 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>304 256</Location>
+            <Dimension>5 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>304 272</Location>
+            <Dimension>1 2</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>416 256</Location>
+            <Dimension>5 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>304 320</Location>
+            <Dimension>1 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>368 272</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>336 288</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>320 352</Location>
+            <Dimension>4 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>384 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>448 272</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>400 288</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>416 304</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>480 272</Location>
+            <Dimension>1 2</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>432 352</Location>
+            <Dimension>4 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>480 320</Location>
+            <Dimension>1 2</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>400 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>432 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>464 272</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+

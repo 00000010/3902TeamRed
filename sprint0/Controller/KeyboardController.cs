@@ -88,7 +88,7 @@ namespace sprint0
             this.RegisterCommandUnpress(Keys.Right, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
             /* L and Z keys for Link attacking */
-            this.RegisterCommand(Keys.L, new PlayerArrowCommand(game));
+            this.RegisterCommand(Keys.L, new PlayerProjCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* Reload the current level */
@@ -100,12 +100,13 @@ namespace sprint0
             /*Pause and Resume*/
             this.RegisterCommand(Keys.P, new PauseCommand(game));
 
-            this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
-            //this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
-            this.RegisterCommand(Keys.I, new NextItemCommand(game));
+            //To be able to switch between link projectiles
+            this.RegisterCommand(Keys.K, new NextProjectileCommand(game));
+            this.RegisterCommand(Keys.J, new PrevProjectileCommand(game));
+            //this.RegisterCommand(Keys.I, new NextItemCommand(game));
             //this.RegisterCommand(Keys.U, new PrevItemCommand(game));
-            this.RegisterCommand(Keys.T, new NextBlockCommand(game));
-            this.RegisterCommand(Keys.Y, new PrevBlockCommand(game));
+            //this.RegisterCommand(Keys.T, new NextBlockCommand(game));
+            //this.RegisterCommand(Keys.Y, new PrevBlockCommand(game));
 
             this.RegisterCommand(Keys.H, new LoadLevelCommand(game));
         }

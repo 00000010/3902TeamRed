@@ -178,13 +178,13 @@ namespace sprint0
     //    }
     //}
 
-    internal class PlayerArrowCommand : ICommand
+    internal class PlayerProjCommand : ICommand
     {
         private Game1 game;
         private IPlayer player;
         private GameObjectManager manager;
 
-        public PlayerArrowCommand(Game1 game)
+        public PlayerProjCommand(Game1 game)
         {
             this.game = game;
             manager = game.manager;
@@ -194,12 +194,31 @@ namespace sprint0
         public void Execute()
         {
             player = manager.player;
-            Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
+            Projectile proj = ReturnProj();
             player.State = State.THROWING;
-            manager.AddObject(arrow);
-            manager.shooterOfProjectile.Add(arrow, (IShooter) player);
+            manager.AddObject(proj);
+            manager.shooterOfProjectile.Add(proj, (IShooter) player);
             player.UpdatePlayerSprite(manager);
             SoundFactory.Instance.zeldaArrowBoomerang.Play();
+        }
+
+        private Projectile ReturnProj()
+        {
+            //Want to data-drive this
+            Projectile result;
+            if (manager.LinkProjectile == TypeOfProj.ARROW)
+            {
+                result = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
+            }
+            else if (manager.LinkProjectile == TypeOfProj.BOOMERANG)
+            {
+                result = ProjectileFactory.Instance.ZeldaBoomerang(player.Position, player.Direction, "player");
+            } 
+            else
+            {
+                result = ProjectileFactory.Instance.ZeldaFire(player.Position, player.Direction);
+            }
+            return result;
         }
     }
 }

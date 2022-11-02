@@ -24,7 +24,7 @@ namespace sprint0
         public void Execute()
         {
             manager.objectsToRemove.Add(projectile);
-            if (Projectile.IsBoomerang((IProjectile)projectile))
+            if (Projectile.IsDesiredProjectile((IProjectile)projectile, "ZeldaBoom"))
             {
                 manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
             }

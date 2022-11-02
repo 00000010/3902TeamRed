@@ -34,7 +34,7 @@ namespace sprint0
         {
             Enemy enemy = new Keese(position);
             enemy.CollideDamage = 2;
-            enemy.Health = 20;
+            enemy.Health = 5;
             return enemy;
         }
 
@@ -42,7 +42,7 @@ namespace sprint0
         {
             Enemy enemy = new Gel(position);
             enemy.CollideDamage = 2;
-            enemy.Health = 20;
+            enemy.Health = 5;
             return enemy;
         }
 
