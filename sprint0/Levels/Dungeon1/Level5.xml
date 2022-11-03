@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <XnaContent>
+    <Pointers>
+        <WestRoom>Room6</WestRoom>
+        <NorthRoom>Room8</NorthRoom>
+        <EastRoom>Room7</EastRoom>
+        <SouthRoom>Room4</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room5</Name>
+    </Meta>
     <Asset>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
             <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonDoorNorth</ObjectName>
-            <Location>384 236</Location>
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
@@ -23,38 +27,33 @@
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonBadDoorSouth</ObjectName>
+            <ObjectName>DungeonDoorSouth</ObjectName>
             <Location>384 368</Location>
         </Item>
         <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 272</Location>
-            <Dimension>2 1</Dimension>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorNorth</ObjectName>
+            <Location>384 236</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 272</Location>
-            <Dimension>2 1</Dimension>
+            <Location>336 288</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>384 304</Location>
-            <Dimension>2 1</Dimension>
+            <Location>448 288</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 336</Location>
-            <Dimension>2 1</Dimension>
+            <Location>336 320</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 336</Location>
-            <Dimension>2 1</Dimension>
+            <Location>448 320</Location>
         </Item>
         <Item>
             <ObjectType>Player</ObjectType>
@@ -63,28 +62,28 @@
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
-            <ObjectName>Gel</ObjectName>
+            <ObjectName>Stalfos</ObjectName>
             <Location>352 256</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
-            <ObjectName>Gel</ObjectName>
+            <ObjectName>Stalfos</ObjectName>
             <Location>368 288</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
-            <ObjectName>Gel</ObjectName>
+            <ObjectName>Stalfos</ObjectName>
             <Location>352 320</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
-            <ObjectName>Gel</ObjectName>
-            <Location>432 256</Location>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>416 288</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
-            <ObjectName>Gel</ObjectName>
-            <Location>416 288</Location>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>400 304</Location>
         </Item>
     </Asset>
 </XnaContent>

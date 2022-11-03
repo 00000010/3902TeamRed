@@ -23,8 +23,6 @@ namespace sprint0
         public GameObjectManager manager;
         public LevelLoader loader;
 
-        public int level = 0;
-
         SpriteFont font;
         KeyboardController keyboard;
 
@@ -55,8 +53,7 @@ namespace sprint0
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
             loader = new LevelLoader(this);
-            loader.LoadNextLevel();
-            Console.WriteLine(loader.ToString());
+            loader.LoadLevel("Dungeon1");
         }
 
         protected override void Update(GameTime gameTime)

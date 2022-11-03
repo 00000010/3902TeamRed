@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <XnaContent>
+    <Pointers>
+        <NorthRoom>Room16</NorthRoom>
+        <SouthRoom>Room8</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room15</Name>
+    </Meta>
     <Asset>
         <Item>
             <ObjectType>Sprite</ObjectType>

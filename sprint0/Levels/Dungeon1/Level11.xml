@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <XnaContent>
+    <Pointers>
+        <WestRoom>Room8</WestRoom>
+        <EastRoom>Room12</EastRoom>
+        <SouthRoom>Room7</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room11</Name>
+    </Meta>
     <Asset>
         <Item>
             <ObjectType>Sprite</ObjectType>
@@ -8,63 +16,58 @@
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>496 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonDoorWest</ObjectName>
             <Location>284 296</Location>
         </Item>
         <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 272</Location>
-            <Dimension>10 1</Dimension>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorSouth</ObjectName>
+            <Location>384 368</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 288</Location>
-            <Dimension>1 4</Dimension>
+            <Location>336 288</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 288</Location>
-            <Dimension>1 4</Dimension>
+            <Location>448 288</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 336</Location>
-            <Dimension>3 1</Dimension>
+            <Location>336 320</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>416 336</Location>
-            <Dimension>3 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>368 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>352 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>416 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>432 304</Location>
+            <Location>448 320</Location>
         </Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>352 352</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Goriya</ObjectName>
+            <Location>480 304</Location>
         </Item>
     </Asset>
 </XnaContent>
