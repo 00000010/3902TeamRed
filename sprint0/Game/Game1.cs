@@ -54,8 +54,7 @@ namespace sprint0
 
             //Create level loader
             loader = new LevelLoader(this);
-            loader.LoadNextLevel();
-            Console.WriteLine(loader.ToString());
+            loader.LoadLevel("Dungeon1");
 
             //Initialize the game so that it isn't paused and isn't over
             Paused = false;

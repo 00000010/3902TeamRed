@@ -20,7 +20,7 @@ namespace sprint0
         public void Execute()
         {
             loader = game.loader;
-            loader.LoadNextLevel();
+            loader.LoadLevel("Dungeon1"); //Change string, this is testing
         }
     }
 
@@ -37,9 +37,8 @@ namespace sprint0
         public void Execute()
         {
             loader = game.loader;
-            loader.UnloadLevel();
-            loader.ResetLevelNum();
-            loader.LoadNextLevel();
+            loader.UnloadRoom();
+            loader.LoadLevel("Dungeon1"); //Change string, This is testing
         }
     }
 }

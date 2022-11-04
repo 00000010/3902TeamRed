@@ -20,137 +20,218 @@ namespace sprint0
 
         public ItemObject background;
 
-        private int levelNum = 0;
 
-        //List of all Objects made using factory
-        public List<Object> allItems = new List<Object>();
-        //List of XML things (Not real objects)
-        public List<ItemObject> allItemObjects = new List<ItemObject>();
+        public List<Room> allRooms = new List<Room>();
+        public Room currentRoom { get; set; }
 
         public LevelLoader(Game1 game)
         {
             this.game = game;
             this.gameObjectManager = game.manager;
-            levelNum = game.level;
         }
 
-        /*
-         * Loads the next room level as dictated by the level reported by Game.
-         * 
-         * If on the last level, this method goes to the first level.
-         */
-        public void LoadNextLevel()
+        public string[] getFilePaths(string levelName)
         {
-            UnloadLevel();
-            if (levelNum >= Constants.NUM_OF_LEVELS)
-            {
-                levelNum = 0;
-            }
-            levelNum++;
 
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
-            string levelName = "Level" + levelNum.ToString();
 
             Console.WriteLine("Loading " + levelName);
 
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{levelName}");
             }
             else
             {
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{levelName}.xml");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{levelName}");
             }
             string sFilePath = Path.GetFullPath(sFile);
-            XDocument level = XDocument.Load(sFilePath);
-            //Whole XML element
-            XElement tree = level.Root;
-            //Inside the asset element
-            XElement asset = tree.Element("Asset");
+            string[] files = Directory.GetFiles(sFilePath);
 
-            IEnumerable<XElement> items = asset.Elements("Item");
+            return files;
+        }
 
-            foreach (XElement item in items)
+        /*
+         * Loads in all the room files from a folder and creates a list of 
+         * all the rooms the exist and how they relate to each other
+         * 
+         */
+        public void LoadLevel(string levelName)
+        {
+            string[] files = getFilePaths(levelName);
+
+
+            foreach (string filePath in files)
             {
-                ItemObject itemObj = new ItemObject();
-                IEnumerable<XElement> attributes = item.Elements();
-                itemObj.parseData(attributes);
+                Room room = new Room();
+                allRooms.Add(room);
 
-                allItemObjects.Add(itemObj);
+                XDocument level = XDocument.Load(filePath);
+                //Whole XML element
+                XElement tree = level.Root;
 
-                int orgX = itemObj.PosX;
-                int orgY = itemObj.PosY;
+                XElement meta = tree.Element("Meta");
+                XElement roomName = meta.Element("Name");
+                room.name = roomName.Value;
+                XElement pointers = tree.Element("Pointers");
+                IEnumerable<XElement> elms = pointers.Elements();
+                room.ParsePointers(elms);
+                //Inside the asset element
+                XElement asset = tree.Element("Asset");
 
-                //Double for creates the dimensions possible.
-                for (int i = 0; i < itemObj.NumY; i++)
+
+                IEnumerable<XElement> items = asset.Elements("Item");
+
+                foreach (XElement item in items)
                 {
-                    for (int j = 0; j < itemObj.NumX; j++)
+                    ItemObject itemObj = new ItemObject();
+                    IEnumerable<XElement> attributes = item.Elements();
+                    itemObj.parseData(attributes);
+
+                    room.Add(itemObj);
+
+                    int orgX = itemObj.PosX;
+                    int orgY = itemObj.PosY;
+
+                    //Double for creates the dimensions possible.
+                    for (int i = 0; i < itemObj.NumY; i++)
                     {
-                        //Creates vector for the final position
-                        Vector2 position = new Vector2(itemObj.PosX, itemObj.PosY);
-                        object[] parameterArray = new object[] { position };
-
-                        Object thing = new object();
-                        Object classThing = new object();
-                        MethodInfo method;
-
-                        /*
-                         * Takes in the item type, finds the correct
-                         * constuctor method, than invokes it. That means the objectName
-                         * must match the correct method in the factories
-                         */
-                        string factoryString = GetThisNamespace() + "." + itemObj.ObjectType + "Factory"; // get type name
-                        Type type = Type.GetType(factoryString); // get type from name
-                        classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
-                        method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
-                        thing = method.Invoke(classThing, parameterArray); // call method and get its object
-                        Console.WriteLine("thing: " + thing);
-                        if (itemObj.ObjectType == "Player")
+                        for (int j = 0; j < itemObj.NumX; j++)
                         {
-                            gameObjectManager.AddPlayer(thing);
-                        } else 
-                        {
-                            gameObjectManager.AddObject(thing);
+                            //Creates vector for the final position
+                            Vector2 position = new Vector2(itemObj.PosX, itemObj.PosY);
+                            object[] parameterArray = new object[] { position };
+
+                            Object thing = new object();
+                            Object classThing = new object();
+                            MethodInfo method;
+
+                            /*
+                             * Takes in the item type, finds the correct
+                             * constuctor method, than invokes it. That means the objectName
+                             * must match the correct method in the factories
+                             */
+                            string factoryString = GetThisNamespace() + "." + itemObj.ObjectType + "Factory"; // get type name
+                            Type type = Type.GetType(factoryString); // get type from name
+                            classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
+                            method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
+                            thing = method.Invoke(classThing, parameterArray); // call method and get its object
+                            if (itemObj.ObjectType == "Player")
+                            {
+                                room.AddPlayer(thing);
+                            }
+                            else
+                            {
+                                if (itemObj.ObjectType == "Sprite")
+                                {
+
+                                }
+                                room.Add(thing);
+                            }
+                            room.Add(thing);
+                            itemObj.PosX = itemObj.PosX + pixelLength;
                         }
-                        allItems.Add(thing);
-                        itemObj.PosX = itemObj.PosX + pixelLength;
+                        itemObj.PosX = orgX;
+                        itemObj.PosY = itemObj.PosY + pixelLength;
                     }
-                    itemObj.PosX = orgX;
-                    itemObj.PosY = itemObj.PosY + pixelLength;
                 }
             }
+
+            //Gets starting room
+            foreach (Room room in allRooms)
+            {
+                if (room.name == "Room1")
+                {
+                    currentRoom = room;
+                }
+            }
+
+            pointPointers();
+            LoadRoom();
             Console.WriteLine(this.ToString());
         }
 
-        /// <summary>
-        /// Resets level number to previous.
-        /// </summary>
-        public void ResetLevelNum()
+        //Points the rooms to each other so rooms know whats adjecent
+        //Todo - Make this not a double for loop
+        public void pointPointers()
         {
-            levelNum--;
+            foreach (Room roomX in allRooms)
+            {
+                foreach (Room roomY in allRooms)
+                {
+                    if (roomX.WestRoom == (roomY.name))
+                    {
+                        roomX.westRoomPtr = roomY;
+                    }
+
+                    else if (roomX.NorthRoom == (roomY.name))
+                    {
+                        roomX.northRoomPtr = roomY;
+                    }
+
+                    else if (roomX.EastRoom == (roomY.name))
+                    {
+                        roomX.eastRoomPtr = roomY;
+                    }
+
+                    else if (roomX.SouthRoom == (roomY.name))
+                    {
+                        roomX.southRoomPtr = roomY;
+                    }
+                }
+            }
+        }
+
+        //Changes rooms from the currrent to the specified
+        public void ChangeRooms(Room room)
+        {
+            if (room != null)
+            {
+                UnloadRoom();
+                currentRoom = room;
+                LoadRoom();
+            }
+            Console.WriteLine(this.ToString());
         }
 
         //Prints the contents of the level
         public override string ToString()
         {
             string fullString = "All Items\n";
-            foreach (ItemObject item in allItemObjects)
+            foreach (ItemObject item in currentRoom.roomItemObjects)
             {
                 fullString += "\n" + item.ToString();
             }
+            fullString += $"\n{currentRoom.ToString()}\n";
             return fullString;
         }
 
-        //Unloads all objects from a level
-        public void UnloadLevel()
+        //Unloads the current room
+        public void UnloadRoom()
         {
-            foreach (object item in allItems)
+            foreach (object item in currentRoom.roomObjects)
             {
                 gameObjectManager.RemoveObject(item);
             }
-            allItemObjects.Clear();
+            foreach (object player in currentRoom.roomPlayers)
+            {
+                gameObjectManager.RemoveObject(player);
+            }
+        }
+
+        //Loads the current room 
+        public void LoadRoom()
+        {
+            foreach (object obj in currentRoom.roomObjects)
+            {
+                gameObjectManager.AddObject(obj);
+            }
+            foreach (object player in currentRoom.roomPlayers)
+            {
+                gameObjectManager.AddPlayer(player);
+            }
         }
 
         private string GetThisNamespace()
@@ -159,4 +240,3 @@ namespace sprint0
         }
     }
 }
-
