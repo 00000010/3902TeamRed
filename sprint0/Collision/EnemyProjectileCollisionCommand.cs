@@ -35,7 +35,8 @@ namespace sprint0
             enemy.Health -= projectile.CollideDamage;
             if (enemy.Health <= 0)
             {
-                manager.objectsToRemove.Add((IObject)enemy);
+                manager.RemoveObject((IObject)enemy);
+                manager.RemoveFromRoom(enemy);
                 SoundFactory.Instance.zeldaEnemyDie.Play();
             }
             else

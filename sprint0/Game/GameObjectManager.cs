@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace sprint0
 {
@@ -121,6 +122,19 @@ namespace sprint0
         public void RemoveObject(object obj)
         {
             objectsToRemove.Add(obj);
+        }
+
+        public void RemoveFromRoom(object obj)
+        {
+            game.loader.RemoveFromCurrRoom(obj);
+            //Sometimes drop hearts after killing enemies
+            Random randomGen = new Random();
+            int shouldDrop = randomGen.Next(0, 20);
+            if (shouldDrop == 0 && obj is Enemy)
+            {
+                IEnemy enemy = (Enemy)obj;
+                AddObject(ItemFactory.Instance.ZeldaHeart(enemy.Position));
+            }
         }
 
         public void AddPlayer(object player)

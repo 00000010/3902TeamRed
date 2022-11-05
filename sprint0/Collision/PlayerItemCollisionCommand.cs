@@ -23,7 +23,7 @@ namespace sprint0
 
         public void Execute()
         {
-            //link will have all items to start with, they wont pick up any items yet
+            manager.RemoveObject(item);
         }
     }
 }

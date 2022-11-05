@@ -234,6 +234,17 @@ namespace sprint0
             }
         }
 
+        public void RemoveFromCurrRoom(object obj)
+        {
+            currentRoom.RemoveObject(obj);
+            //Drop a key in Room3 once all enemies are dead
+            if (currentRoom.name.Equals("Room3") && currentRoom.roomEnemies.Count == 0)
+            {
+                IEnemy enemy = (Enemy)obj;
+                gameObjectManager.AddObject(ItemFactory.Instance.ZeldaKey(enemy.Position));
+            }
+        }
+
         private string GetThisNamespace()
         {
             return GetType().Namespace;

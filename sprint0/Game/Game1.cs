@@ -38,6 +38,7 @@ namespace sprint0
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            this.TargetElapsedTime = TimeSpan.FromSeconds(0.02);
         }
 
         protected override void Initialize()
