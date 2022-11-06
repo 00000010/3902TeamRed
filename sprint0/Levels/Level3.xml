@@ -17,12 +17,18 @@
             <Location>336 288</Location>
             <Dimension>2 3</Dimension>
         </Item>
-        <Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>400 288</Location>
+			<Dimension>2 3</Dimension>
+		</Item>
+        <!--<Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>432 288</Location>
             <Dimension>2 3</Dimension>
-        </Item>
+        </Item>-->
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>

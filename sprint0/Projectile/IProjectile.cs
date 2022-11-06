@@ -15,6 +15,5 @@ namespace sprint0
         public Direction Direction { get; set; }
         public Vector2 InitPosition { get; set; }
         public int CollideDamage { get; set; }
-        public int NumProjAvailable { get; set; }
     }
 }

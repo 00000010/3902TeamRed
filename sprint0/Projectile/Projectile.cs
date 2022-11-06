@@ -17,7 +17,6 @@ namespace sprint0
         public Direction Direction { get; set; }
         public Vector2 InitPosition { get; set; }
         public int CollideDamage { get; set; }
-        public int NumProjAvailable { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -67,7 +66,7 @@ namespace sprint0
         //Make enemy own projectiles that it shoots
         private static void HandleProjectileBackToShooter(IProjectile projectile, GameObjectManager manager)
         {
-            if (!IsDesiredProjectile(projectile, "ZeldaBoom")) return;
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom")) return;
             bool result = (projectile.Direction == Direction.LEFT && projectile.Position.X > projectile.InitPosition.X)
                 || (projectile.Direction == Direction.RIGHT && projectile.Position.X < projectile.InitPosition.X)
                 || (projectile.Direction == Direction.UP && projectile.Position.Y > projectile.InitPosition.Y)
@@ -79,19 +78,11 @@ namespace sprint0
             }
         }
 
-        public static bool IsDesiredProjectile(IProjectile projectile, string expectedName)
-        {
-            //Use reflection to get type of projectile and notify shooter to update if projectile is boomerang
-            Type typeOfProj = projectile.GetType();
-            string projTypeName = typeOfProj.Name;
-            return projTypeName.Equals(expectedName);
-        }
-
         public static void UpdateVelocityBoomerang(List<IProjectile> projectilesInFlight, GameObjectManager manager)
         {
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                if (IsDesiredProjectile(projectilesInFlight[i], "ZeldaBoom")) ChangeBoomerangVelocity(projectilesInFlight[i]);
+                if (GameObjectManager.IsDesiredObject((IObject)projectilesInFlight[i], "ZeldaBoom")) ChangeBoomerangVelocity(projectilesInFlight[i]);
             }
         }
 
@@ -99,7 +90,7 @@ namespace sprint0
         {
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                if (IsDesiredProjectile(projectilesInFlight[i], "ZeldaFire")) RemoveFireballIfNeeded(projectilesInFlight[i], manager);
+                if (GameObjectManager.IsDesiredObject((IObject)projectilesInFlight[i], "ZeldaFire")) RemoveFireballIfNeeded(projectilesInFlight[i], manager);
             }
         }
 

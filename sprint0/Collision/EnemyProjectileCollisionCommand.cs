@@ -23,7 +23,7 @@ namespace sprint0
 
         public void Execute()
         {
-            if (!Projectile.IsDesiredProjectile(projectile, "ZeldaBoom"))
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom"))
             {
                 manager.RemoveObject((IObject)projectile);
             }

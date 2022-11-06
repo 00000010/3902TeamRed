@@ -206,6 +206,14 @@ namespace sprint0
             return type.BaseType.Name;
         }
 
+        public static bool IsDesiredObject(IObject desiredObj, string expectedName)
+        {
+            //Use reflection to get type of projectile and notify shooter to update if projectile is boomerang
+            Type typeOfProj = desiredObj.GetType();
+            string projTypeName = typeOfProj.Name;
+            return projTypeName.Equals(expectedName);
+        }
+
         private void RemoveAllObjects()
         {
             foreach (object obj in objectsToRemove)
