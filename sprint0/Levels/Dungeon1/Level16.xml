@@ -8,63 +8,63 @@
         <Name>Room16</Name>
     </Meta>
     <Asset>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonDoorSouth</ObjectName>
-            <Location>384 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonDoorWest</ObjectName>
-            <Location>284 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>320 272</Location>
-            <Dimension>1 5</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>336 272</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>336 336</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>464 272</Location>
-            <Dimension>1 5</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>432 272</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>432 336</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>WaterBlock</ObjectName>
-            <Location>352 304</Location>
-            <Dimension>6 1</Dimension>
-        </Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorSouth</ObjectName>
+			<Location>375 400</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>244 215</Location>
+			<Dimension>3 1</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>244 247</Location>
+			<Dimension>1 3</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>244 343</Location>
+			<Dimension>3 1</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>308 279</Location>
+			<Dimension>6 1</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>468 215</Location>
+			<Dimension>3 1</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>532 247</Location>
+			<Dimension>1 3</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>WaterBlock</ObjectName>
+			<Location>468 343</Location>
+			<Dimension>3 1</Dimension>
+		</Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>

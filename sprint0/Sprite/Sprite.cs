@@ -16,6 +16,7 @@ namespace sprint0
 
         public Texture2D Texture { get; set; }
         public Rectangle[] SourceRectangle { get; set; }
+        public Rectangle DestinationRectangle { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
@@ -56,6 +57,15 @@ namespace sprint0
             Velocity = Vector2.Zero;
             SpriteBatch = spriteBatch;
             Frame = 0;
+            UpdateDestinationRectangle();
+        }
+
+        private void UpdateDestinationRectangle()
+        {
+            int height = SourceRectangle[Frame].Height;
+            int width = SourceRectangle[Frame].Width;
+
+            DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width * Constants.SCALING_FACTOR, height * Constants.SCALING_FACTOR);
         }
 
         public virtual void Update(GameTime gameTime)
@@ -63,16 +73,12 @@ namespace sprint0
             UpdateVelocity(gameTime);
             UpdatePosition();
             UpdateFrame(gameTime);
+            UpdateDestinationRectangle();
         }
 
         public virtual void Draw(GameTime gameTime)
         {
-            int height = SourceRectangle[Frame].Height;
-            int width = SourceRectangle[Frame].Width;
-
-            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
-
-            SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
+            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle[Frame], Color.White);
         }
 
         public virtual void UpdateVelocity(GameTime gameTime)

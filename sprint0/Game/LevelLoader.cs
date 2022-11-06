@@ -16,7 +16,7 @@ namespace sprint0
     {
         public Game1 game;
         public GameObjectManager gameObjectManager;
-        public int pixelLength = 16;
+        public int pixelLength = 32;
 
         public ItemObject background;
 

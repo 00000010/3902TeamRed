@@ -242,6 +242,12 @@
 /processorParam:Quality=Best
 /build:Zelda_arrow_boomerang.wav
 
+#begin Zelda_boom_obtained.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_boom_obtained.wav
+
 #begin Zelda_enemy_die.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -267,6 +273,12 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Zelda_font.spritefont
+
+#begin Zelda_item_obtained.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_item_obtained.wav
 
 #begin Zelda_link_die.wav
 /importer:WavImporter

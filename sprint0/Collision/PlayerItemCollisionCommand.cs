@@ -25,6 +25,14 @@ namespace sprint0
         public void Execute()
         {
             manager.RemoveObject(item);
+            if (GameObjectManager.IsDesiredObject(item, "ZeldaBoomerang"))
+            {
+                SoundFactory.Instance.zeldaBoomObtained.Play();
+            }
+            else
+            {
+                SoundFactory.Instance.zeldaItemObtained.Play();
+            }
         }
     }
 }

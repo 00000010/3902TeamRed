@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Net;
+using System.Runtime.InteropServices;
 
 namespace sprint0
 {
@@ -229,6 +229,13 @@ namespace sprint0
                 }
             }
             Velocity = velocity;
+        }
+        public void UpdatePlayerState()
+        {
+            if (Velocity == Vector2.Zero)
+            {
+                State = State.STANDING;
+            }
         }
     }
 }

@@ -21,5 +21,6 @@ namespace sprint0
         public bool ShotBoomerang { get; set; }
         public int Health { get; set; }
         public void UpdatePlayerSprite(GameObjectManager manager);
+        public void UpdatePlayerState();
     }
 }

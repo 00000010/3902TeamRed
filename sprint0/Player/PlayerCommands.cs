@@ -91,7 +91,7 @@ namespace sprint0
             Vector2 oldVelocity = player.Velocity;
             player.Velocity = oldVelocity + newVelocity;
 
-            manager.UpdatePlayerState();
+            player.UpdatePlayerState();
             player.UpdatePlayerSprite(manager);
         }
     }
@@ -129,7 +129,7 @@ namespace sprint0
                     break;
             }
             manager.player.Velocity = newVelocity;
-            manager.UpdatePlayerState();
+            manager.player.UpdatePlayerState();
             manager.player.UpdatePlayerSprite(manager);
         }
     }

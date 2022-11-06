@@ -103,14 +103,6 @@ namespace sprint0
             items.Remove(item);
         }
 
-        public void UpdatePlayerState()
-        {
-            if (player.Velocity == Vector2.Zero)
-            {
-                player.State = State.STANDING;
-            }
-        }
-
         /**
          * Add the object to the manager.
          * An object is not playable.
@@ -145,7 +137,6 @@ namespace sprint0
 
         public void RemovePlayer()
         {
-            //this.player = (IPlayer)player;
             drawables.Remove(player);
             updateables.Remove(player);
             //Stop gameplay

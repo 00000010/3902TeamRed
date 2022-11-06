@@ -43,10 +43,10 @@ namespace sprint0
         private static void HandlePlayerCollisions(IObject player, List<IObject> otherObjects,
             Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
-            int offset = 12;
+            int offset = 24;
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
-                player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
+                (int)player.Position.Y + offset, player.Sprite.DestinationRectangle.Width - (offset * 2),
+                player.Sprite.DestinationRectangle.Height - (offset * 2));
             HandleInnerLoop(player, playerRect, otherObjects, shooterOfProjectile, manager, "Player");
         }
 
@@ -57,8 +57,8 @@ namespace sprint0
             {
                 IObject object1 = objects1.ElementAt(i);
                 Rectangle object1Rect = new Rectangle((int)object1.Position.X,
-                    (int)object1.Position.Y, object1.Sprite.SourceRectangle[object1.Sprite.Frame].Width,
-                    object1.Sprite.SourceRectangle[object1.Sprite.Frame].Height);
+                    (int)object1.Position.Y, object1.Sprite.DestinationRectangle.Width,
+                    object1.Sprite.DestinationRectangle.Height);
                 HandleInnerLoop(object1, object1Rect, objects2, shooterOfProjectile, manager, "Enemy");
             }
         }
@@ -71,8 +71,8 @@ namespace sprint0
                 IObject currObject = otherObjects.ElementAt(i);
                 if ((currObject is Projectile) && shooterOfProjectile.GetValueOrDefault(currObject).TypeOfObject == expectedShooter) continue;
                 Rectangle objectRect = new Rectangle((int)currObject.Position.X,
-                (int)otherObjects.ElementAt(i).Position.Y, currObject.Sprite.SourceRectangle[currObject.Sprite.Frame].Width,
-                otherObjects.ElementAt(i).Sprite.SourceRectangle[currObject.Sprite.Frame].Height);
+                (int)otherObjects.ElementAt(i).Position.Y, currObject.Sprite.DestinationRectangle.Width,
+                otherObjects.ElementAt(i).Sprite.DestinationRectangle.Height);
                 Rectangle intersect = Rectangle.Intersect(object1Rect, objectRect);
                 if (!intersect.IsEmpty)
                 {

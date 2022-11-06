@@ -253,3 +253,5 @@ C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zeld
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_enemy_die.xnb
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_font.xnb
 C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_font_smaller.xnb
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_item_obtained.xnb
+C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_boom_obtained.xnb
