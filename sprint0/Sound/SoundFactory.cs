@@ -12,7 +12,7 @@ namespace sprint0
 {
     internal class SoundFactory
     {
-        public Song themeSound;
+        public Song themeSound, zeldaVictory;
         public SoundEffect zeldaSword, zeldaArrowBoomerang;
         public SoundEffect zeldaEnemyHit, zeldaEnemyDie, zeldaLinkHurt, zeldaLinkDie;
         public SoundEffect zeldaItemObtained, zeldaBoomObtained;
@@ -39,6 +39,7 @@ namespace sprint0
             zeldaEnemyDie = content.Load<SoundEffect>("Zelda_enemy_die");
             zeldaItemObtained = content.Load<SoundEffect>("Zelda_item_obtained");
             zeldaBoomObtained = content.Load<SoundEffect>("Zelda_boom_obtained");
+            zeldaVictory = content.Load<Song>("Zelda_victory");
         }
     }
 }

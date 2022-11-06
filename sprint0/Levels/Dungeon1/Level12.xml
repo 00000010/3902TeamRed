@@ -31,59 +31,80 @@
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>342 217</Location>
+			<Location>311 217</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>437 217</Location>
+			<Location>375 217</Location>
+			<Dimension>2 1</Dimension>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>532 217</Location>
+			<Location>471 217</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>247 280</Location>
+			<Location>535 217</Location>
+		</Item>
+
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>247 281</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>342 280</Location>
+			<Location>311 281</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>437 280</Location>
+			<Location>375 281</Location>
+			<Dimension>2 1</Dimension>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>532 280</Location>
+			<Location>471 281</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>247 343</Location>
+			<Location>535 281</Location>
+		</Item>
+
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>247 345</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>342 343</Location>
+			<Location>311 345</Location>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>437 343</Location>
+			<Location>375 345</Location>
+			<Dimension>2 1</Dimension>
 		</Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>532 343</Location>
+			<Location>471 345</Location>
 		</Item>
-        <Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>535 345</Location>
+		</Item>
+
+		<Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>

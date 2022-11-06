@@ -22,7 +22,7 @@ namespace sprint0
         private Texture2D linkSpritesheet, enemiesSpritesheet;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D waterBlock;
-        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter;
+        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
 
         private SpriteBatch spriteBatch;
 
@@ -79,6 +79,7 @@ namespace sprint0
             HeartContainer = content.Load<Texture2D>("ZeldaSpriteHeartContainer");
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
+            Triforce = content.Load<Texture2D>("ZeldaSpriteTriforce");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
         }
@@ -401,6 +402,11 @@ namespace sprint0
         public Sprite ZeldaLetter(Vector2 position)
         {
             return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position);
+        }
+
+        public Sprite ZeldaTriforce(Vector2 position)
+        {
+            return new Sprite(Triforce, ItemRectangle.Triforce, spriteBatch, position);
         }
 
         public Sprite ZeldaRock(Vector2 position)

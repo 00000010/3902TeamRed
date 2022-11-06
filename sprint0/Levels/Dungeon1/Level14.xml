@@ -20,54 +20,59 @@
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 272</Location>
+            <Location>244 217</Location>
             <Dimension>10 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 288</Location>
+            <Location>244 249</Location>
             <Dimension>1 4</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 288</Location>
+            <Location>532 249</Location>
             <Dimension>1 4</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 336</Location>
+            <Location>276 345</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>416 336</Location>
+            <Location>436 345</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>368 288</Location>
+            <Location>308 281</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>352 304</Location>
+            <Location>340 249</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>416 288</Location>
+            <Location>436 249</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>432 304</Location>
+            <Location>468 281</Location>
         </Item>
-        <Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaTriforce</ObjectName>
+			<Location>404 281</Location>
+		</Item>
+		<Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>

@@ -26,37 +26,37 @@
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>416 256</Location>
+            <Location>436 185</Location>
             <Dimension>5 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 272</Location>
+            <Location>500 217</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 288</Location>
+            <Location>532 249</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 320</Location>
+            <Location>532 313</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 336</Location>
+            <Location>500 345</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>416 352</Location>
+            <Location>436 377</Location>
             <Dimension>5 1</Dimension>
         </Item>
         <Item>

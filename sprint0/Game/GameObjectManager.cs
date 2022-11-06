@@ -280,6 +280,11 @@ namespace sprint0
 
             objectsToAdd.Clear();
         }
+
+        public void SetVictory()
+        {
+            game.Victory = true;
+        }
     }
 }
 

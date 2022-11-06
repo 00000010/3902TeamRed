@@ -316,6 +316,12 @@
 /processorParam:Quality=Best
 /build:Zelda_theme_sound.mp3
 
+#begin Zelda_victory.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Zelda_victory.mp3
+
 #begin ZeldaAltpBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -28,6 +30,12 @@ namespace sprint0
             if (GameObjectManager.IsDesiredObject(item, "ZeldaBoomerang"))
             {
                 SoundFactory.Instance.zeldaBoomObtained.Play();
+            }
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaTriforce"))
+            {
+                MediaPlayer.Play(SoundFactory.Instance.zeldaVictory);
+                manager.RemoveObject(item);
+                manager.SetVictory();
             }
             else
             {

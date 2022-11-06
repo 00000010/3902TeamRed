@@ -33,6 +33,8 @@ namespace sprint0
         public bool Paused { get; set; }
         public bool GameOver { get; set; }
 
+        public bool Victory { get; set; }
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -60,6 +62,7 @@ namespace sprint0
             //Initialize the game so that it isn't paused and isn't over
             Paused = false;
             GameOver = false;
+            Victory = false;
 
             //Play theme song in background
             MediaPlayer.Play(SoundFactory.Instance.themeSound);
@@ -85,14 +88,19 @@ namespace sprint0
                 HandleGameOver();
                 return;
             }
-            if (Paused)
+            else if (Paused)
             {
                 HandleGamePaused();
                 return;
             }
+            else if (Victory)
+            {
+                HandleGameVictory();
+                return;
+            }
+
             keyboard.Update(gameTime);
             manager.Update(gameTime);
-
             base.Update(gameTime);
         }
 
@@ -106,11 +114,17 @@ namespace sprint0
             {
                 _spriteBatch.DrawString(mainFont, "Game Over", new Vector2(270, 220), Color.White);
                 _spriteBatch.DrawString(smallerFont, "Press R to Restart", new Vector2(270, 270), Color.White);
-            } else if (Paused)
+            } 
+            else if (Paused)
             {
                 _spriteBatch.DrawString(mainFont, "Paused", new Vector2(330, 220), Color.White);
                 _spriteBatch.DrawString(smallerFont, "Press U to Resume", new Vector2(280, 270), Color.White);
             } 
+            else if (Victory)
+            {
+                _spriteBatch.DrawString(mainFont, "Victory!", new Vector2(330, 220), Color.White);
+                _spriteBatch.DrawString(smallerFont, "Press R to Restart", new Vector2(280, 270), Color.White);
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);
@@ -133,6 +147,16 @@ namespace sprint0
             if (pressedKeys.Contains(Keys.U))
             {
                 Paused = false;
+            }
+        }
+
+        private void HandleGameVictory()
+        {
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            //Restart
+            if (pressedKeys.Contains(Keys.R))
+            {
+                Initialize();
             }
         }
     }

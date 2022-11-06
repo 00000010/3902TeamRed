@@ -82,6 +82,19 @@ namespace sprint0
         {
             return new ZeldaLetter(position);
         }
+
+        public Item ZeldaTriforce(Vector2 position)
+        {
+            return new ZeldaTriforce(position);
+        }
+    }
+
+    internal class ZeldaTriforce : Item
+    {
+        public ZeldaTriforce(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaTriforce(position);
+        }
     }
 
     internal class ZeldaBlueCandle : Item
