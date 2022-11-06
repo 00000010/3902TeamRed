@@ -27,28 +27,28 @@
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonBadDoorSouth</ObjectName>
-            <Location>384 368</Location>
+            <Location>375 400</Location>
         </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 320</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 320</Location>
-        </Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>275 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>500 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>275 315</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>500 315</Location>
+		</Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>

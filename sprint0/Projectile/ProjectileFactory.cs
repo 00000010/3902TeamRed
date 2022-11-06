@@ -140,7 +140,7 @@ namespace sprint0
                         InitPosition = arrowThrowPosition;
                         Direction = Direction.LEFT;
                     }
-                    velocity.X -= 5;
+                    velocity.X -= 7;
                     break;
                 case Direction.RIGHT:
                     if (shooter.Equals("player"))
@@ -150,7 +150,7 @@ namespace sprint0
                         InitPosition = arrowThrowPosition;
                         Direction = Direction.RIGHT;
                     }
-                    velocity.X += 5;
+                    velocity.X += 7;
                     break;
                 case Direction.UP:
                     if (shooter.Equals("player"))
@@ -160,7 +160,7 @@ namespace sprint0
                         InitPosition = arrowThrowPosition;
                         Direction = Direction.UP;
                     }
-                    velocity.Y -= 5;
+                    velocity.Y -= 7;
                     break;
                 case Direction.DOWN:
                     if (shooter.Equals("player"))
@@ -170,7 +170,7 @@ namespace sprint0
                         InitPosition = arrowThrowPosition;
                         Direction = Direction.DOWN;
                     }
-                    velocity.Y += 5;
+                    velocity.Y += 7;
                     break;
                 default:
                     break;
