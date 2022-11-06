@@ -241,7 +241,7 @@ namespace sprint0
             if (currentRoom.name.Equals("Room3") && currentRoom.roomEnemies.Count == 0)
             {
                 IEnemy enemy = (Enemy)obj;
-                gameObjectManager.AddObject(ItemFactory.Instance.ZeldaKey(enemy.Position));
+                gameObjectManager.AddObject(ItemFactory.Instance.ZeldaBoomerang(enemy.Position));
             }
         }
 

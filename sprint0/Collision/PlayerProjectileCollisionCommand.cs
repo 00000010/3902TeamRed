@@ -23,11 +23,10 @@ namespace sprint0
 
         public void Execute()
         {
-            //link takes damage
-            manager.objectsToRemove.Add((IObject)projectile);
-            if (Projectile.IsDesiredProjectile(projectile, "ZeldaBoom"))
+            if (!Projectile.IsDesiredProjectile(projectile, "ZeldaBoom"))
             {
-                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
+                //link takes damage
+                manager.RemoveObject((IObject)projectile);
             }
 
             player.TakingDamage = true;
