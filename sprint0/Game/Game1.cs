@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Game;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,15 +11,10 @@ using System.Windows.Input;
 
 namespace sprint0
 {
-    public class Game1 : Game
+    public class Game1 : Microsoft.Xna.Framework.Game
     {
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
-        
-        //public IPlayer player;
-        public IBlock block;
-        public IItem item;
-        public IEnemy enemy;
 
         public GameObjectManager manager;
         public LevelLoader loader;
@@ -47,7 +43,6 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             manager = new GameObjectManager(this);
-            manager.AddObject(block); // CollisionDevBranch
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
@@ -71,7 +66,7 @@ namespace sprint0
         {
             GraphicsDevice.Clear(Color.Black);
 
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp, sortMode: SpriteSortMode.FrontToBack);
             manager.Draw(gameTime);
             _spriteBatch.End();
 

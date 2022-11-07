@@ -1,245 +1,172 @@
-<<<<<<< HEAD
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBackground.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Font.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/LinkRevised.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/smb_luigi_sheet.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/zeldaspritesheet.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Arial.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonAbyss.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBadDoorNorth.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBadDoorSouth.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBlock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorEast.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorNorth.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorSouth.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonDoorWest.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster1.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster1Faded.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster2.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonMonster2Faded.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonSand.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonStairs.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/goriyaspritesheet.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/link.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/OctorokSpritesheet.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/WaterBlock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaAltpBlock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaLaBlock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaLadxBlock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSprite2ndPotion.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSprite5Rupies.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteArrow.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBlueCandle.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBlueRing.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBomb.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBookOfMagic.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBoomerang.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBow.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteClock.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteCompass.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteFairy.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteFood.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteHeart.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteHeartContainer.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteKey.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteLetter.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteLifePotion.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalBoomerang.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalKey.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalRod.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalShield.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMap.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpritePowerBracelet.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRaft.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRecorder.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRedCandle.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRedRing.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRupy.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteSilverArrow.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteStepladder.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteSword.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteTriforce.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteWhiteSword.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Zelda_sprite.xnb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.deps.json
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.runtimeconfig.json
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.pdb
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
-/Users/chicken/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.AssemblyReference.cache
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.GeneratedMSBuildEditorConfig.editorconfig
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfoInputs.cache
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfo.cs
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CoreCompileInputs.cache
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CopyComplete
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.dll
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/refint/sprint0.dll
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
-/Users/chicken/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
-=======
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Arial.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Font.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/goriyaspritesheet.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/link.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/LinkRevised.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/OctorokSpritesheet.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/smb_luigi_sheet.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaAltpBlock.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaLaBlock.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaLadxBlock.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSprite2ndPotion.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSprite5Rupies.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteArrow.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBlueCandle.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBlueRing.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBomb.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBookOfMagic.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBoomerang.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteBow.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteClock.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteCompass.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteFairy.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteFood.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteHeart.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteHeartContainer.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteKey.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteLetter.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteLifePotion.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalBoomerang.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalKey.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalRod.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMagicalShield.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteMap.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpritePowerBracelet.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRaft.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRecorder.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRedCandle.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRedRing.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteRupy.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/zeldaspritesheet.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteSilverArrow.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteStepladder.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteSword.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteTriforce.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/ZeldaSpriteWhiteSword.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/Zelda_sprite.xnb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.deps.json
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.runtimeconfig.json
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/sprint0.pdb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.AssemblyReference.cache
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.GeneratedMSBuildEditorConfig.editorconfig
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfoInputs.cache
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.AssemblyInfo.cs
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CoreCompileInputs.cache
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.csproj.CopyComplete
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/refint/sprint0.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.pdb
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/sprint0.genruntimeconfig.cache
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/obj/Debug/net6.0/ref/sprint0.dll
-/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/bin/Debug/net6.0/Content/DungeonBackground.xnb
->>>>>>> dev
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonAbyss.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Arial.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBackground.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorNorth.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorSouth.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBlock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorEast.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorNorth.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorSouth.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorWest.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1Faded.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2Faded.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonSand.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonStairs.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\goriyaspritesheet.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\link.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\OctorokSpritesheet.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\WaterBlock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaAltpBlock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLaBlock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLadxBlock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite2ndPotion.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite5Rupies.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteArrow.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueCandle.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueRing.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBomb.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBookOfMagic.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBoomerang.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBow.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteClock.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteCompass.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFairy.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFood.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeart.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeartContainer.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteKey.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLetter.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLifePotion.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalBoomerang.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalKey.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalRod.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalShield.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMap.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpritePowerBracelet.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRaft.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRecorder.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedCandle.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedRing.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRupy.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSilverArrow.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteStepladder.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSword.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteTriforce.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteWhiteSword.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_sprite.xnb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.exe
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.deps.json
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.runtimeconfig.json
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.pdb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\MonoGame.Framework.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.AssemblyReference.cache
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfoInputs.cache
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfo.cs
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CoreCompileInputs.cache
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CopyComplete
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\refint\sprint0.dll
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.pdb
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.genruntimeconfig.cache
-C:\Users\Abdelrahman\Documents\3902TeamRed\sprint0\obj\Debug\net6.0\ref\sprint0.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Arial.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonAbyss.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBackground.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorNorth.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorSouth.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBlock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorEast.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorNorth.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorSouth.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorWest.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1Faded.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2Faded.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonSand.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonStairs.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\goriyaspritesheet.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\link.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\OctorokSpritesheet.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\WaterBlock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaAltpBlock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLaBlock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLadxBlock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite2ndPotion.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite5Rupies.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteArrow.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueCandle.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueRing.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBomb.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBookOfMagic.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBoomerang.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBow.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteClock.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteCompass.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFairy.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFood.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeart.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeartContainer.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteKey.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLetter.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLifePotion.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalBoomerang.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalKey.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalRod.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalShield.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMap.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpritePowerBracelet.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRaft.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRecorder.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedCandle.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedRing.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRupy.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSilverArrow.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteStepladder.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSword.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteTriforce.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteWhiteSword.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_sprite.xnb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.exe
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.deps.json
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.runtimeconfig.json
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.pdb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\MonoGame.Framework.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.AssemblyReference.cache
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfoInputs.cache
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfo.cs
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CoreCompileInputs.cache
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CopyComplete
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\refint\sprint0.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.pdb
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.genruntimeconfig.cache
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\obj\Debug\net6.0\ref\sprint0.dll
+C:\Users\adamp\source\repos\3902TeamRed\sprint0\bin\Debug\net6.0\Content\PixelEmulator.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.AssemblyReference.cache
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfoInputs.cache
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.AssemblyInfo.cs
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CoreCompileInputs.cache
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\refint\sprint0.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.pdb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonAbyss.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Font.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\LinkRevised.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\smb_luigi_sheet.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\zeldaspritesheet.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Arial.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBackground.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorNorth.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBadDoorSouth.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonBlock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorEast.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorNorth.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorSouth.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonDoorWest.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster1Faded.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonMonster2Faded.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonSand.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\DungeonStairs.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\goriyaspritesheet.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\link.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\OctorokSpritesheet.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\PixelEmulator.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\WaterBlock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaAltpBlock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLaBlock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaLadxBlock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite2ndPotion.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSprite5Rupies.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteArrow.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueCandle.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBlueRing.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBomb.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBookOfMagic.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBoomerang.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteBow.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteClock.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteCompass.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFairy.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteFood.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeart.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteHeartContainer.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteKey.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLetter.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteLifePotion.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalBoomerang.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalKey.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalRod.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMagicalShield.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteMap.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpritePowerBracelet.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRaft.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRecorder.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedCandle.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRedRing.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteRupy.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSilverArrow.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteStepladder.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteSword.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteTriforce.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\ZeldaSpriteWhiteSword.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\Content\Zelda_sprite.xnb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.exe
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.deps.json
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.runtimeconfig.json
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\sprint0.pdb
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\MonoGame.Framework.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.csproj.CopyComplete
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\sprint0.genruntimeconfig.cache
+C:\Users\adamp\OneDrive - The Ohio State University\OSU\AU22\CSE 3902\3902TeamRed\sprint0\obj\Debug\net6.0\ref\sprint0.dll

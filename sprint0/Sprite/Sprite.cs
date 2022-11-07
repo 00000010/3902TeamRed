@@ -21,6 +21,7 @@ namespace sprint0
         public Vector2 Velocity { get; set; }
 
         public Direction Direction { get; set; }
+        public float LayerDepth { get; set; }
         public int NumUpdates { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
@@ -48,7 +49,7 @@ namespace sprint0
         /// from the spritesheet</param>
         /// <param name="spriteBatch"></param>
         /// <param name="position">where to put the sprite</param>
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, float layerDepth)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
@@ -56,6 +57,7 @@ namespace sprint0
             Velocity = Vector2.Zero;
             SpriteBatch = spriteBatch;
             Frame = 0;
+            LayerDepth = layerDepth;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -72,9 +74,8 @@ namespace sprint0
 
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
 
-            SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White);
+            SpriteBatch.Draw(Texture, destinationRectangle, SourceRectangle[Frame], Color.White, rotation: 0, origin: Vector2.Zero, effects: SpriteEffects.None, LayerDepth);
         }
-
         public virtual void UpdateVelocity(GameTime gameTime)
         {
             // no-op

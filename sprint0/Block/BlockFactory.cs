@@ -47,6 +47,7 @@ namespace sprint0
         public ZeldaGreenBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaGreen(position);
+            Sprite.LayerDepth = Constants.BLOCK_LAYER_DEPTH;
         }
     }
 
@@ -55,6 +56,7 @@ namespace sprint0
         public ZeldaBlackBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaBlack(position);
+            Sprite.LayerDepth = Constants.BLOCK_LAYER_DEPTH;
         }
     }
 
@@ -63,6 +65,7 @@ namespace sprint0
         public ZeldaPurpleBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaPurple(position);
+            Sprite.LayerDepth = Constants.BLOCK_LAYER_DEPTH;
         }
     }
 
@@ -71,6 +74,7 @@ namespace sprint0
         public DungeonBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.DungeonBlock(position);
+            Sprite.LayerDepth = Constants.BLOCK_LAYER_DEPTH;
         }
     }
 }

@@ -17,5 +17,6 @@ namespace sprint0
         public bool TakingDamage { get; set; }
         public GameTime LastDamaged { get; set; }
         public int Damaged { get; set; }
+        public int Health { get; set; }
     }
 }

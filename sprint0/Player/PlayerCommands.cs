@@ -195,4 +195,24 @@ namespace sprint0
             manager.UpdatePlayerSprite();
         }
     }
+
+    internal class PlayerDamageCommand : ICommand
+    {
+        private Game1 game;
+        private IPlayer player;
+        private GameObjectManager manager;
+
+        public PlayerDamageCommand(Game1 game)
+        {
+            this.game = game;
+            manager = game.manager;
+        }
+
+        public void Execute()
+        {
+            Debug.WriteLine(manager.player.Health);
+            manager.player.Health--;
+            Debug.WriteLine(manager.player.Health);
+        }         
+    }
 }

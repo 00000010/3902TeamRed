@@ -224,6 +224,13 @@
 /processorParam:TextureFormat=Color
 /build:OctorokSpritesheet.png
 
+#begin PixelEmulator.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:PixelEmulator.spritefont
+
 #begin WaterBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor

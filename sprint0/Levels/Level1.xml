@@ -108,11 +108,11 @@
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>464 336</Location>
         </Item>
-        <Item>
+        <!--<Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
-        </Item>
+        </Item>-->
     </Asset>
 </XnaContent>
 

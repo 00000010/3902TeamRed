@@ -15,8 +15,6 @@ namespace sprint0
         public int DrawOrder => throw new NotImplementedException();
         public bool Visible => throw new NotImplementedException();
 
-        public Block() { }
-
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 

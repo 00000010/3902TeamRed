@@ -58,6 +58,7 @@ namespace sprint0
             }
 
             Velocity = velocity;
+            Sprite.LayerDepth = Constants.PROJECTILE_LAYER_DEPTH;
         }
     }
 }

@@ -37,6 +37,8 @@ namespace sprint0
             Direction = Direction.UP;
             State = State.STANDING;
             TakingDamage = false;
+            Health = 3;
+            Sprite.LayerDepth = Constants.PLAYER_LAYER_DEPTH;
         }
     }
 }

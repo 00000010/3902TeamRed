@@ -29,7 +29,10 @@ namespace sprint0
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
-        public Projectile() { }
+        public Projectile()
+        {
+            Sprite.LayerDepth = Constants.PROJECTILE_LAYER_DEPTH;
+        }
         public virtual void Draw(GameTime gameTime)
         {
             Sprite.Draw(gameTime);
@@ -46,15 +49,15 @@ namespace sprint0
             {
                 //Issue is in ProjectileBackToShooter because it assumes shooter is enemy
                 //ProjectileBackToShooter(projectilesInFlight[i])
-                if (ProjectileOutOfBounds(projectilesInFlight[i], manager)) i--;
+                //if (ProjectileOutOfBounds(projectilesInFlight[i], manager)) i--;
             }
         }
 
-        private static bool ProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
+        public bool ProjectileOutOfBounds()
         {
-            if (projectile.Position.X > 800 || projectile.Position.X < 0 || projectile.Position.Y > 480 || projectile.Position.Y < 0)
+            if (Position.X > 800 || Position.X < 0 || Position.Y > 480 || Position.Y < 0)
             {
-                manager.removeProjectile(projectile);
+                //manager.removeProjectile(projectile);
                 return true;
             }
             return false;

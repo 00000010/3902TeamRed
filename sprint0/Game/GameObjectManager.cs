@@ -3,12 +3,16 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
+using sprint0.Game;
+
 namespace sprint0
 {
     public class GameObjectManager
     {
         private Game1 game;
         public IPlayer player;
+
+        public HeadsUpDisplay hud;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -29,6 +33,10 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            player = PlayerFactory.Instance.Link(new Vector2(380, 348));
+            AddPlayer(player);
+            hud = new HeadsUpDisplay(this);
+            AddObject(hud);
             PopulateCollisionResolutionDic();
         }
 
@@ -50,56 +58,6 @@ namespace sprint0
                 Type.GetType("sprint0.EnemyBlockCollisionCommand"));
             collisionResolutionDic.Add(new Tuple<string, string>("Projectile", "Block"),
                 Type.GetType("sprint0.ProjectileBlockCollisionCommand"));
-        }
-
-        /*
-         * Need to use this method for projectiles
-         */
-        //public void addProjectile(IProjectile projectile, string direction, string shooter)
-        //{
-        //    projectilesInFlight.Add(projectile);
-        //    initDirectionOfFire.Add(projectile, direction);
-        //    shooterOfProjectile.Add(projectile, shooter);
-        //}
-
-        public void addProjectile(IProjectile projectile)
-        {
-            projectilesInFlight.Add(projectile);
-        }
-
-        public void removeProjectile(IProjectile projectile)
-        {
-            projectilesInFlight.Remove(projectile);
-        }
-
-        public void addEnemy(IEnemy enemy)
-        {
-            enemies.Add(enemy);
-        }
-
-        public void removeEnemy(IEnemy enemy)
-        {
-            enemies.Remove(enemy);
-        }
-
-        public void addBlock(IBlock block)
-        {
-            blocks.Add(block);
-        }
-
-        public void removeBlock(IBlock block)
-        {
-            blocks.Remove(block);
-        }
-
-        public void addItem(IItem item)
-        {
-            items.Add(item);
-        }
-
-        public void removeItem(IItem item)
-        {
-            items.Remove(item);
         }
 
         public void UpdatePlayerState()
@@ -348,22 +306,22 @@ namespace sprint0
 
                 if (obj is IProjectile)
                 {
-                    removeProjectile((IProjectile)obj);
+                    projectilesInFlight.Remove((IProjectile)obj);
                 }
 
                 if (obj is IEnemy)
                 {
-                    removeEnemy((IEnemy)obj);
+                    enemies.Remove((IEnemy) obj);
                 }
 
                 if (obj is IItem)
                 {
-                    removeItem((IItem)obj);
+                    items.Remove((IItem) obj);
                 }
 
                 if (obj is IBlock)
                 {
-                    removeBlock((IBlock)obj);
+                    blocks.Remove((IBlock)obj);
                 }
             }
 
@@ -383,28 +341,36 @@ namespace sprint0
 
                 if (obj is IProjectile)
                 {
-                    addProjectile((IProjectile)obj);
+                    projectilesInFlight.Add((IProjectile)obj);
                 }
 
                 if (obj is IBlock)
                 {
-                    addBlock((IBlock)obj);
+                    blocks.Add((IBlock)obj);
                 }
 
                 if (obj is IItem)
                 {
-                    addItem((IItem)obj);
+                    items.Add((IItem)obj);
                 }
 
                 if (obj is IEnemy)
                 {
-                    addEnemy((IEnemy)obj);
+                    enemies.Add((IEnemy)obj);
                 }
             }
 
             objectsToAdd.Clear();
 
-            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+            //Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+
+            foreach (Projectile projectile in projectilesInFlight)
+            {
+                if (projectile.ProjectileOutOfBounds())
+                {
+                    RemoveObject(projectile);
+                }
+            }
 
             foreach (IUpdateable updateable in updateables)
             {
@@ -427,39 +393,6 @@ namespace sprint0
                 drawable.Draw(gameTime);
             }
         }
-
-        //private bool ProjectileBackToShooter(ISprite projectile)
-        //{
-        //    //Ensures that nothing happens if shooter is player
-        //    if (shooterOfProjectile.GetValueOrDefault(projectile).Equals("player"))
-        //    {
-        //        return HandleShootingProjectile(projectile, game.player);
-        //    }
-        //    return HandleShootingProjectile(projectile, game.currEnemy);
-        //}
-
-        //private bool HandleShootingProjectile(ISprite projectile, ISprite sprite)
-        //{
-        //    if (projectile is Projectile)
-        //    {
-        //        Projectile copyProj = (Projectile)projectile;
-        //        if (copyProj.SourceRectangle != ProjectileRectangle.Boomerang) return false;
-        //    }
-        //    string initDirection = initDirectionOfFire.GetValueOrDefault(projectile);
-        //    if (initDirection.Equals("right"))
-        //    {
-        //        return projectile.Position.X < sprite.Position.X;
-        //    }
-        //    else if (initDirection.Equals("left"))
-        //    {
-        //        return projectile.Position.X > sprite.Position.X;
-        //    }
-        //    else if (initDirection.Equals("up"))
-        //    {
-        //        return projectile.Position.Y > sprite.Position.Y;
-        //    }
-        //    return projectile.Position.Y < sprite.Position.Y;
-        //}
     }
 }
 

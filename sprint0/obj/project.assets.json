@@ -102,24 +102,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Abdelrahman\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\adamp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\adamp\\OneDrive - The Ohio State University\\OSU\\AU22\\CSE 3902\\3902TeamRed\\sprint0\\sprint0.csproj",
       "projectName": "sprint0",
-      "projectPath": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\sprint0.csproj",
-      "packagesPath": "C:\\Users\\Abdelrahman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdelrahman\\Documents\\3902TeamRed\\sprint0\\obj\\",
+      "projectPath": "C:\\Users\\adamp\\OneDrive - The Ohio State University\\OSU\\AU22\\CSE 3902\\3902TeamRed\\sprint0\\sprint0.csproj",
+      "packagesPath": "C:\\Users\\adamp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\adamp\\OneDrive - The Ohio State University\\OSU\\AU22\\CSE 3902\\3902TeamRed\\sprint0\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Abdelrahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\adamp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -127,7 +122,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -171,7 +165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

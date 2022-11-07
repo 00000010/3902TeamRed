@@ -11,11 +11,11 @@
             <ObjectName>DungeonDoorEast</ObjectName>
             <Location>496 296</Location>
         </Item>
-        <Item>
+        <!--<Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
-        </Item>
+        </Item>-->
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>

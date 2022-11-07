@@ -109,7 +109,7 @@ namespace sprint0
                         Console.WriteLine("thing: " + thing);
                         if (itemObj.ObjectType == "Player")
                         {
-                            gameObjectManager.AddPlayer(thing);
+                            //gameObjectManager.AddPlayer(thing);
                         } else 
                         {
                             if (itemObj.ObjectType == "Sprite")
@@ -152,7 +152,10 @@ namespace sprint0
         {
             foreach (object item in allItems)
             {
-                gameObjectManager.RemoveObject(item);
+                if (item is not IPlayer)
+                {
+                    gameObjectManager.RemoveObject(item);
+                }
             }
             allItemObjects.Clear();
         }

@@ -16,12 +16,13 @@ namespace sprint0
         public State State { get; set; }
         public bool TakingDamage { get; set; }
         public GameTime LastDamaged { get; set; }
+        public int Health { get; set; }
 
         public bool Enabled => throw new NotImplementedException();
 
         public int UpdateOrder => throw new NotImplementedException();
 
-        public int DrawOrder => throw new NotImplementedException();
+        public int DrawOrder { get; set; }
 
         public bool Visible => throw new NotImplementedException();
 
@@ -32,7 +33,6 @@ namespace sprint0
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
         
-        public Player() { }
         public virtual void Draw(GameTime gameTime)
         {
             Sprite.Draw(gameTime);
