@@ -39,7 +39,9 @@ namespace sprint0
             else
             {
                 SoundFactory.Instance.zeldaEnemyHit.Play();
-            } 
+            }
+
+            //manager.AddObject(SpriteFactory.Instance.ZeldaProjectileEffect(enemy.Position));
         }
     }
 }

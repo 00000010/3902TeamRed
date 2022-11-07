@@ -40,6 +40,9 @@ namespace sprint0
 
         public static Rectangle[] Letter = { new Rectangle(0, 0, 8, 16) };
 
-        public static Rectangle[] Triforce = { new Rectangle(0, 0, 8, 16) };
+        public static Rectangle[] Triforce = { 
+            new Rectangle(333, 289, 10, 10),
+            new Rectangle(363, 289, 10, 10)
+        };
     }
 }

@@ -20,8 +20,8 @@ namespace sprint0
     {
         private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
         private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon, OldMan;
-        private Texture2D GreenBlock, BlackBlock, PurpleBlock;
-        private Texture2D waterBlock;
+        private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
+        private Texture2D ProjectileEffect;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
 
         private SpriteBatch spriteBatch;
@@ -80,7 +80,8 @@ namespace sprint0
             HeartContainer = content.Load<Texture2D>("ZeldaSpriteHeartContainer");
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
-            Triforce = content.Load<Texture2D>("ZeldaSpriteTriforce");
+            Triforce = content.Load<Texture2D>("zeldaspritesheet");
+            ProjectileEffect = content.Load<Texture2D>("zeldaspritesheet"); ;
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
             OldMan = content.Load<Texture2D>("Zelda_old_man");
@@ -530,6 +531,11 @@ namespace sprint0
         public Sprite ZeldaArrowRight(Vector2 position)
         {
             return new Sprite(Arrow, ItemRectangle.BowArrowRight, spriteBatch, position);
+        }
+
+        public Sprite ZeldaProjectileEffect(Vector2 position)
+        {
+            return new Sprite(ProjectileEffect, SpriteRectangle.ProjectileEffect, spriteBatch, position);
         }
     }
 }

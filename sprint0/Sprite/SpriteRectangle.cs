@@ -274,5 +274,11 @@ namespace sprint0
         {
             new Rectangle(120, 80, 40, 40)
         };
+
+        public static Rectangle[] ProjectileEffect =
+        {
+            new Rectangle(149, 238, 20, 20),
+            new Rectangle(178, 283, 20, 20)
+        };
     }
 }

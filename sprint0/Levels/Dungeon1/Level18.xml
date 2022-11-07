@@ -22,16 +22,16 @@
 			<ObjectName>DungeonDoorSouth</ObjectName>
 			<Location>375 400</Location>
 		</Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonDoorWest</ObjectName>
-            <Location>284 296</Location>
-        </Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonSand</ObjectName>

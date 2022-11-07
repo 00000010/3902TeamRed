@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public interface IItem : IDrawable
+    public interface IItem : IDrawable, IUpdateable
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
