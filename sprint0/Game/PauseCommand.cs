@@ -16,7 +16,7 @@ namespace sprint0
         }
         public void Execute()
         {
-            this.game.Paused = true;
+            HandleSpecialDisplays.Instance.Paused = true;
         }
     }
 }

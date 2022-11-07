@@ -22,6 +22,21 @@
             <ObjectName>DungeonAbyss</ObjectName>
             <Location>210 183</Location>
         </Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>ZeldaOldMan</ObjectName>
+			<Location>385 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>335 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>435 270</Location>
+		</Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>

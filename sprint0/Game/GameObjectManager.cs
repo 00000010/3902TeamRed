@@ -141,7 +141,7 @@ namespace sprint0
             drawables.Remove(player);
             updateables.Remove(player);
             //Stop gameplay
-            game.GameOver = true;
+            HandleSpecialDisplays.Instance.GameOver = true;
         }
 
         public void Update(GameTime gameTime)
@@ -284,7 +284,7 @@ namespace sprint0
 
         public void SetVictory()
         {
-            game.Victory = true;
+            HandleSpecialDisplays.Instance.Victory = true;
         }
     }
 }

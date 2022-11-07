@@ -19,7 +19,7 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
-        private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon;
+        private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon, OldMan;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D waterBlock;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
@@ -83,6 +83,7 @@ namespace sprint0
             Triforce = content.Load<Texture2D>("ZeldaSpriteTriforce");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
+            OldMan = content.Load<Texture2D>("Zelda_old_man");
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -433,6 +434,11 @@ namespace sprint0
         /*
          * Enemies
          */
+        public Sprite ZeldaOldMan(Vector2 position)
+        {
+            return new Sprite(OldMan, EnemyRectangle.ZeldaOldMan, spriteBatch, position);
+        }
+
         public Sprite Stalfos(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position);

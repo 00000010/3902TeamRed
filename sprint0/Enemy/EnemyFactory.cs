@@ -69,6 +69,11 @@ namespace sprint0
             enemy.Health = 100;
             return enemy;
         }
+        public Enemy ZeldaOldMan(Vector2 position)
+        {
+            Enemy enemy = new ZeldaOldMan(position);
+            return enemy;
+        }
 
         public Enemy DungeonMonster1(Vector2 position)
         {
@@ -153,6 +158,15 @@ namespace sprint0
             Sprite = SpriteFactory.Instance.ZeldaDragon(position);
             Direction = Direction.LEFT;
             Velocity = new Vector2(-1, 0);
+            TypeOfObject = "Enemy";
+        }
+    }
+
+    internal class ZeldaOldMan : Enemy
+    {
+        public ZeldaOldMan(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaOldMan(position);
             TypeOfObject = "Enemy";
         }
     }

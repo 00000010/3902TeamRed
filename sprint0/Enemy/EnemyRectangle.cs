@@ -57,6 +57,10 @@ namespace sprint0
             new Rectangle(77, 13, 23, 30)
         };
 
+        public static Rectangle[] ZeldaOldMan = {
+            new Rectangle(19, 12, 15, 15)
+        };
+
         //Spinny and shoots things
         public static Rectangle[] Octorok = {
             new Rectangle(0, 0, 20, 20),

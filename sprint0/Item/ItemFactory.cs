@@ -58,6 +58,11 @@ namespace sprint0
             return new ZeldaFairy(position);
         }
 
+        public Item ZeldaFireItem(Vector2 position)
+        {
+            return new ZeldaFireItem(position);
+        }
+
         public Item ZeldaFood(Vector2 position)
         {
             return new ZeldaFood(position);
@@ -150,6 +155,14 @@ namespace sprint0
         public ZeldaFairy(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaFairy(position);
+        }
+    }
+
+    internal class ZeldaFireItem : Item
+    {
+        public ZeldaFireItem(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaFire(position);
         }
     }
 

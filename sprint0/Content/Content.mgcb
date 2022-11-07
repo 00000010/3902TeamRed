@@ -304,6 +304,18 @@
 /processorParam:Quality=Best
 /build:Zelda_link_hurt.wav
 
+#begin Zelda_old_man.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Zelda_old_man.png
+
 #begin Zelda_sprite.png
 /importer:TextureImporter
 /processor:TextureProcessor

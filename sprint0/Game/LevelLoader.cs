@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
@@ -193,7 +194,15 @@ namespace sprint0
                 currentRoom = room;
                 LoadRoom();
             }
-            Console.WriteLine(this.ToString());
+
+            if (currentRoom.name.Equals("Room10"))
+            {
+                HandleSpecialDisplays.Instance.Room10 = true;
+            }
+            else
+            {
+                HandleSpecialDisplays.Instance.Room10 = false;
+            }
         }
 
         //Prints the contents of the level
