@@ -96,6 +96,7 @@ namespace sprint0
             else if (Victory)
             {
                 HandleGameVictory();
+                manager.Update(gameTime);
                 return;
             }
 
