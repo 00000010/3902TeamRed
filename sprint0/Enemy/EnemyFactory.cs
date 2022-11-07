@@ -62,6 +62,14 @@ namespace sprint0
             return enemy;
         }
 
+        public Enemy Dragon(Vector2 position)
+        {
+            Enemy enemy = new Dragon(position);
+            enemy.CollideDamage = 5;
+            enemy.Health = 100;
+            return enemy;
+        }
+
         public Enemy DungeonMonster1(Vector2 position)
         {
             Enemy enemy = new DungeonMonster1(position);
@@ -134,6 +142,17 @@ namespace sprint0
             Sprite = SpriteFactory.Instance.Octorok(position);
             Direction = Direction.DOWN;
             Velocity = Vector2.Zero;
+            TypeOfObject = "Enemy";
+        }
+    }
+
+    internal class Dragon : Enemy
+    {
+        public Dragon(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaDragon(position);
+            Direction = Direction.LEFT;
+            Velocity = new Vector2(-1, 0);
             TypeOfObject = "Enemy";
         }
     }

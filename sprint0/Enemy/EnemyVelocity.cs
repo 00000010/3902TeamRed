@@ -10,10 +10,9 @@ namespace sprint0
 {
     internal static class EnemyVelocity
     {
-        private static float elapsedTime = 0;
         private static Random randomGen = new Random();
         public static void UpdateVelocity(GameTime gameTime, Rectangle[] sourceRectangle, ref Vector2 Velocity, ref Sprite testSprite,
-                                            float elapsedTime)
+                                            float elapsedTime, Vector2 prevVelocity)
         {
             //Grouping enemies based on movement
             if (sourceRectangle == EnemyRectangle.Gel || sourceRectangle == EnemyRectangle.Stalfos || 
@@ -25,6 +24,10 @@ namespace sprint0
             else if (sourceRectangle == EnemyRectangle.Keese)
             {
                 UpdateKeeseMovement(gameTime, ref Velocity, elapsedTime);
+            }
+            else if (sourceRectangle == EnemyRectangle.Dragon)
+            {
+                UpdateDragonMovement(gameTime, ref Velocity, prevVelocity, ref testSprite, elapsedTime);
             }
         }
 
@@ -102,6 +105,23 @@ namespace sprint0
             int randomSpeedY = randomGen.Next(-1, 2);
 
             Velocity = new Vector2(randomSpeedX, randomSpeedY);
+        }
+
+        public static void UpdateDragonMovement(GameTime gameTime, ref Vector2 Velocity, Vector2 prevVelocity, ref Sprite testSprite,
+                                            float elapsedTime)
+        {
+            //Let each character stay in the same direction for 1 second
+            if (elapsedTime < 1)
+            {
+                return;
+            }
+            else
+            {
+                //Restart counter
+                elapsedTime = 0;
+            }
+            
+            Velocity = new Vector2(-prevVelocity.X, prevVelocity.Y);
         }
     }
 }

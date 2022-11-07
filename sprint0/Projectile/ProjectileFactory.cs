@@ -35,6 +35,11 @@ namespace sprint0
         {
             return new ZeldaFire(position, direction);
         }
+
+        public Projectile ZeldaDragonProj(Vector2 position, Vector2 velocity)
+        {
+            return new ZeldaDragonProj(position, velocity);
+        }
     }
 
     internal class ZeldaArrow : Projectile
@@ -208,6 +213,17 @@ namespace sprint0
                     break;
             }
 
+            Velocity = velocity;
+            InitPosition = position;
+            CollideDamage = 5;
+        }
+    }
+
+    internal class ZeldaDragonProj : Projectile
+    {
+        public ZeldaDragonProj(Vector2 position, Vector2 velocity)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaDragonProj(position);
             Velocity = velocity;
             InitPosition = position;
             CollideDamage = 5;

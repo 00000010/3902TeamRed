@@ -248,6 +248,18 @@
 /processorParam:Quality=Best
 /build:Zelda_boom_obtained.wav
 
+#begin Zelda_bosses_test.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Zelda_bosses_test.png
+
 #begin Zelda_enemy_die.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

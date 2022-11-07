@@ -27,5 +27,13 @@ namespace sprint0
             new Rectangle(300, 1, 15, 15),
             new Rectangle(300, 32, 15, 15)
         };
+
+        //Boss projectile
+        public static Rectangle[] DragonProjectile = {
+            new Rectangle(101, 14, 8, 10),
+            new Rectangle(110, 14, 8, 10),
+            new Rectangle(119, 14, 8, 10),
+            new Rectangle(128, 14, 8, 10),
+        };
     }
 }

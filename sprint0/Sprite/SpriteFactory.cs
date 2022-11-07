@@ -19,7 +19,7 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
-        private Texture2D linkSpritesheet, enemiesSpritesheet;
+        private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock;
         private Texture2D waterBlock;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
@@ -61,6 +61,7 @@ namespace sprint0
             waterBlock = content.Load<Texture2D>("WaterBlock");
 
             linkSpritesheet = content.Load<Texture2D>("Link");
+            Dragon = content.Load<Texture2D>("Zelda_bosses_test");
 
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
             BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
@@ -326,6 +327,11 @@ namespace sprint0
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingRight, spriteBatch, position);
         }
 
+        public Sprite ZeldaDragon(Vector2 position)
+        {
+            return new Sprite(Dragon, EnemyRectangle.Dragon, spriteBatch, position);
+        }
+
         public Sprite ZeldaGreen(Vector2 position)
         {
             return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position);
@@ -419,6 +425,10 @@ namespace sprint0
             return new Sprite(enemiesSpritesheet, ProjectileRectangle.Fire, spriteBatch, position);
         }
 
+        public Sprite ZeldaDragonProj(Vector2 position)
+        {
+            return new Sprite(Dragon, ProjectileRectangle.DragonProjectile, spriteBatch, position);
+        }
 
         /*
          * Enemies

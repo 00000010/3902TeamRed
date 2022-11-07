@@ -59,6 +59,11 @@
             <Location>436 377</Location>
             <Dimension>5 1</Dimension>
         </Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Dragon</ObjectName>
+			<Location>436 270</Location>
+		</Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>

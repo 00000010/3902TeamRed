@@ -61,6 +61,7 @@ namespace sprint0
         {
             setOfEnemyShooters.Add("Goriya");
             setOfEnemyShooters.Add("Octorok");
+            setOfEnemyShooters.Add("Dragon");
         }
 
         public void addProjectile(IProjectile projectile)
