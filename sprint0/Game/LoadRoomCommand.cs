@@ -43,7 +43,5 @@ namespace sprint0
             }
             return nextRoom;
         }
-
     }
 }
-

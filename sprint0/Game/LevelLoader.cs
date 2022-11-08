@@ -32,7 +32,6 @@ namespace sprint0
 
         public string[] getFilePaths(string levelName)
         {
-
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
 
@@ -61,7 +60,6 @@ namespace sprint0
         public void LoadLevel(string levelName)
         {
             string[] files = getFilePaths(levelName);
-
 
             foreach (string filePath in files)
             {
@@ -117,18 +115,6 @@ namespace sprint0
                             classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
                             method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                             thing = method.Invoke(classThing, parameterArray); // call method and get its object
-                            if (itemObj.ObjectType == "Player")
-                            {
-                                room.AddPlayer(thing);
-                            }
-                            else
-                            {
-                                if (itemObj.ObjectType == "Sprite")
-                                {
-
-                                }
-                                room.Add(thing);
-                            }
                             room.Add(thing);
                             itemObj.PosX = itemObj.PosX + pixelLength;
                         }
@@ -146,10 +132,10 @@ namespace sprint0
                     currentRoom = room;
                 }
             }
-
             pointPointers();
             LoadRoom();
-            Console.WriteLine(this.ToString());
+            gameObjectManager.AddPlayer(game.player);
+            //Console.WriteLine(this.ToString());
         }
 
         //Points the rooms to each other so rooms know whats adjecent
@@ -192,7 +178,7 @@ namespace sprint0
                 currentRoom = room;
                 LoadRoom();
             }
-            Console.WriteLine(this.ToString());
+            //Console.WriteLine(this.ToString());
         }
 
         //Prints the contents of the level
@@ -226,10 +212,6 @@ namespace sprint0
             foreach (object obj in currentRoom.roomObjects)
             {
                 gameObjectManager.AddObject(obj);
-            }
-            foreach (object player in currentRoom.roomPlayers)
-            {
-                gameObjectManager.AddPlayer(player);
             }
         }
 

@@ -15,7 +15,7 @@ namespace sprint0
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
         
-        //public IPlayer player;
+        public IPlayer player;
         public IBlock block;
         public IItem item;
         public IEnemy enemy;
@@ -52,6 +52,7 @@ namespace sprint0
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
+            player = PlayerFactory.Instance.Link(new Vector2(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y));
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
         }
@@ -68,7 +69,7 @@ namespace sprint0
         {
             GraphicsDevice.Clear(Color.Black);
 
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Begin(SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
             manager.Draw(gameTime);
             _spriteBatch.End();
 

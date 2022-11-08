@@ -30,32 +30,35 @@ namespace sprint0
 
             managedPlayer = manager.player;
 
-            if (intersectionLoc.Contains("top"))
+            if (player.Velocity != Vector2.Zero)
             {
-                if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
+                if (intersectionLoc.Contains("up"))
                 {
-                    player.Position -= new Vector2(0, 5);
+                    if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
+                    {
+                        player.Position -= new Vector2(0, 5);
+                    }
                 }
-            }
-            if (intersectionLoc.Contains("bottom"))
-            {
-                if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
+                if (intersectionLoc.Contains("down"))
                 {
-                    player.Position += new Vector2(0, 5);
+                    if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
+                    {
+                        player.Position += new Vector2(0, 5);
+                    }
                 }
-            }
-            if (intersectionLoc.Contains("left"))
-            {
-                if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
+                if (intersectionLoc.Contains("left"))
                 {
-                    player.Position -= new Vector2(5, 0);
+                    if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
+                    {
+                        player.Position -= new Vector2(5, 0);
+                    }
                 }
-            }
-            if (intersectionLoc.Contains("right"))
-            {
-                if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
+                if (intersectionLoc.Contains("right"))
                 {
-                    player.Position += new Vector2(5, 0);
+                    if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
+                    {
+                        player.Position += new Vector2(5, 0);
+                    }
                 }
             }
 

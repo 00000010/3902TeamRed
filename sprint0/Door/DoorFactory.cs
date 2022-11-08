@@ -41,7 +41,15 @@ namespace sprint0
             return new DungeonDoorWest(position);
         }
 
-        // TODO: add "bad" doors
+        public Door DungeonBadDoorNorth(Vector2 position)
+        {
+            return new DungeonBadDoorNorth(position);
+        }
+
+        public Door DungeonBadDoorSouth(Vector2 position)
+        {
+            return new DungeonBadDoorSouth(position);
+        }
     }
 
     internal class DungeonDoorNorth : Door
@@ -73,6 +81,22 @@ namespace sprint0
         public DungeonDoorWest(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.DungeonDoorWest(position);
+        }
+    }
+
+    internal class DungeonBadDoorNorth : Door
+    {
+        public DungeonBadDoorNorth(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonBadDoorNorth(position);
+        }
+    }
+
+    internal class DungeonBadDoorSouth : Door
+    {
+        public DungeonBadDoorSouth(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonBadDoorSouth(position);
         }
     }
 }

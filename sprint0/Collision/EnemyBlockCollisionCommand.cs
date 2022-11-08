@@ -24,14 +24,14 @@ namespace sprint0
         public void Execute()
         {
             Enemy enemy = (Enemy)this.enemy;
-            if (intersectionLoc.Contains("top"))
+            if (intersectionLoc.Contains("up"))
             {
                 if (enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
                     enemy.Position -= new Vector2(0, 10);
                 }
             }
-            if (intersectionLoc.Contains("bottom"))
+            if (intersectionLoc.Contains("down"))
             {
                 if (enemy.Velocity.Y < 0)
                 {

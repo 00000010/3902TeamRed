@@ -23,7 +23,6 @@ namespace sprint0
         public Room eastRoomPtr { get; set; }
         public Room southRoomPtr { get; set; }
 
-
         public Room()
         {
             roomObjects = new List<object>();

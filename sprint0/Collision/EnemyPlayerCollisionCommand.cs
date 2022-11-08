@@ -7,47 +7,49 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace sprint0
 {
-    internal class PlayerBlockCollisionCommand : ICommand
+    internal class EnemyPlayerCollisionCommand : ICommand
     {
+        IObject enemy;
         IObject player;
-        IObject block;
         string intersectionLoc;
-        public PlayerBlockCollisionCommand(IObject player, IObject block, string intersectionLoc, GameObjectManager manager)
+        GameObjectManager manager;
+        public EnemyPlayerCollisionCommand(IObject player, IObject enemy, string intersectionLoc, GameObjectManager manager)
         {
+            this.enemy = enemy;
             this.player = player;
-            this.block = block;
             this.intersectionLoc = intersectionLoc;
+            this.manager = manager;
         }
 
         public void Execute()
         {
-            Player player = (Player)this.player;
+            Enemy enemy = (Enemy)this.enemy;
             if (intersectionLoc.Contains("up"))
             {
-                if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
+                if (enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
-                    player.Position -= new Vector2(0, 2);
+                    enemy.Position -= new Vector2(0, 10);
                 }
             }
             if (intersectionLoc.Contains("down"))
             {
-                if (player.Velocity.Y < 0)
+                if (enemy.Velocity.Y < 0)
                 {
-                    player.Position += new Vector2(0, 2);
+                    enemy.Position += new Vector2(0, 10);
                 }
             }
             if (intersectionLoc.Contains("left"))
             {
-                if (player.Velocity.X > 0)
+                if (enemy.Velocity.X < 0)
                 {
-                    player.Position -= new Vector2(2, 0);
+                    enemy.Position -= new Vector2(10, 0);
                 }
             }
             if (intersectionLoc.Contains("right"))
             {
-                if (player.Velocity.X < 0)
+                if (enemy.Velocity.X > 0)
                 {
-                    player.Position += new Vector2(2, 0);
+                    enemy.Position += new Vector2(10, 0);
                 }
             }
         }
