@@ -37,19 +37,26 @@ namespace sprint0
 
         public const int HORIZONTAL_SPACE_BETWEEN_STATES = LINK_WIDTH * NUM_OF_DIRECTIONS;
 
-        public const int STARTING_LINK_POSITION_X = 380;
-        public const int STARTING_LINK_POSITION_Y = 340;
+        public const int FROM_DOWN_LINK_POSITION_X = 380;
+        public const int FROM_DOWN_LINK_POSITION_Y = 340;
+        public const int FROM_UP_LINK_POSITION_X = 380;
+        public const int FROM_UP_LINK_POSITION_Y = 246;
+        public const int FROM_LEFT_LINK_POSITION_X = 295;
+        public const int FROM_LEFT_LINK_POSITION_Y = 292;
+        public const int FROM_RIGHT_LINK_POSITION_X = 465;
+        public const int FROM_RIGHT_LINK_POSITION_Y = 292;
 
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 
         public const string LEVEL_FILE_PREFIX = "Level";
 
         public const float BACKGROUND_LAYER_DEPTH = 0.0f;
-        public const float BLOCK_LAYER_DEPTH = 0.1f;
-        public const float DOOR_LAYER_DEPTH = 0.2f;
-        public const float ITEM_LAYER_DEPTH = 0.3f;
-        public const float PROJECTILE_LAYER_DEPTH = 0.4f;
-        public const float ENEMY_LAYER_DEPTH = 0.5f;
+        public const float BACKGROUND_BLOCK_LAYER_DEPTH = 0.1f;
+        public const float BLOCK_LAYER_DEPTH = 0.2f;
+        public const float DOOR_LAYER_DEPTH = 0.3f;
+        public const float ITEM_LAYER_DEPTH = 0.4f;
+        public const float PROJECTILE_LAYER_DEPTH = 0.5f;
+        public const float ENEMY_LAYER_DEPTH = 0.6f;
         public const float PLAYER_LAYER_DEPTH = 1.0f;
     }
 }

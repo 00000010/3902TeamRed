@@ -172,7 +172,7 @@ namespace sprint0
         public Sprite DungeonSand(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonSand.Width, dungeonSand.Height) };
-            return new Sprite(dungeonSand, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            return new Sprite(dungeonSand, rectangles, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonAbyss(Vector2 position)

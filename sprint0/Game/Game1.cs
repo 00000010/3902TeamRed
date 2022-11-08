@@ -52,7 +52,7 @@ namespace sprint0
 
             Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
-            player = PlayerFactory.Instance.Link(new Vector2(Constants.STARTING_LINK_POSITION_X, Constants.STARTING_LINK_POSITION_Y));
+            player = PlayerFactory.Instance.Link(new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y));
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
         }
