@@ -280,5 +280,64 @@ namespace sprint0
             new Rectangle(149, 238, 20, 20),
             new Rectangle(178, 283, 20, 20)
         };
+
+
+        /*
+         * HUD
+         */
+        public static Rectangle[] ZeldaCurrProjectile =
+        {
+            new Rectangle(16, 34, 100, 65)
+        };
+
+        public static Rectangle[] ZeldaAvailProjectiles =
+        {
+            new Rectangle(123, 53, 100, 45)
+        };
+
+        public static Rectangle[] ZeldaMapAndCompassHUD =
+        {
+            new Rectangle(280, 116, 60, 60)
+        };
+
+        public static Rectangle[] ZeldaMapHUD =
+        {
+            new Rectangle(354, 113, 130, 83)
+        };
+
+        public static Rectangle[] ZeldaOrangeBlockHUD =
+        {
+            new Rectangle(355, 117, 30, 70)
+        };
+
+        public static Rectangle[] ZeldaInventoryHUD =
+        {
+            new Rectangle(343, 25, 150, 40)
+        };
+
+        public static Rectangle[] ZeldaLevelHUD =
+        {
+            new Rectangle(585, 1, 45, 7)
+        };
+
+        public static Rectangle[] ZeldaNumOneHUD =
+        {
+            new Rectangle(537, 117, 8, 7)
+        };
+
+        public static Rectangle[] ZeldaDoubleBlueHUD =
+        {
+            new Rectangle(681, 108, 7, 7)
+        };
+
+        public static Rectangle[] ZeldaBlueMapHUD =
+        {
+            new Rectangle(112, 167, 60, 35)
+        };
+
+        public static Rectangle[] ZeldaOrangeMapHUD =
+        {
+            new Rectangle(0, 0, 80, 70)
+        };
     }
 }

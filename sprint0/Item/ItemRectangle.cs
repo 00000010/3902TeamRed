@@ -38,6 +38,8 @@ namespace sprint0
         //used for both normal and magical keys
         public static Rectangle[] Key = { new Rectangle(0, 0, 8, 16) };
 
+        public static Rectangle[] Sword = { new Rectangle(555, 137, 8, 15) };
+
         public static Rectangle[] Letter = { new Rectangle(0, 0, 8, 16) };
 
         public static Rectangle[] Triforce = { 
