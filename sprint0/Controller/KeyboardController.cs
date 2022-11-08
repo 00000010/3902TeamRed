@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace sprint0
 {
-    internal class KeyboardController : IController
+    public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
         private Dictionary<Keys, ICommand> controllerMappingsUnpress;
