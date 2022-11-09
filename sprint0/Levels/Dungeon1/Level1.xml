@@ -106,7 +106,7 @@
             <Location>380 348</Location>
         </Item>
 
-		<Item>
+		<!--<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>ZeldaBoomerang</ObjectName>
 			<Location>405 90</Location>
@@ -135,7 +135,7 @@
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>ZeldaInventoryHUD</ObjectName>
 			<Location>400 20</Location>
-		</Item>
+		</Item>-->
     </Asset>
 </XnaContent>
 

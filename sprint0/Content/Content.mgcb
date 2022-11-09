@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:../../../../Downloads/Zelda_HUD.png;Zelda_HUD.png
 
+#begin ../../../../Downloads/Zelda_map.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../Downloads/Zelda_map.png;Zelda_map.png
+
 #begin ../../../../Downloads/Zelda_orange_map.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -327,18 +339,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Zelda_link_hurt.wav
-
-#begin Zelda_map.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Zelda_map.png
 
 #begin Zelda_old_man.png
 /importer:TextureImporter

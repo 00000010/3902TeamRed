@@ -17,7 +17,7 @@ namespace sprint0
         public SpriteBatch _spriteBatch;
         
         //public IPlayer player;
-        public IBlock block;
+        //public IBlock block;
         public IItem item;
         public IEnemy enemy;
 
@@ -40,7 +40,7 @@ namespace sprint0
             base.Initialize();
 
             manager = new GameObjectManager(this);
-            manager.AddObject(block); 
+            //manager.AddObject(block); 
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
