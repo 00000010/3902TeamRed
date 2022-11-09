@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <WestRoom>Room6</WestRoom>
+        <NorthRoom>Room8</NorthRoom>
+        <EastRoom>Room7</EastRoom>
+        <SouthRoom>Room4</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room5</Name>
+    </Meta>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonNorthWall</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonSouthWall</ObjectName>
+            <Location>272 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonEastWall</ObjectName>
+            <Location>496 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonWestWall</ObjectName>
+            <Location>272 224</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>496 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>284 296</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>384 368</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonBadDoorNorth</ObjectName>
+            <Location>384 236</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>336 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>448 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>336 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>448 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>368 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>416 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>400 304</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+
