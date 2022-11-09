@@ -56,6 +56,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
 
+#begin DungeonAbyss.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:DungeonAbyss.png
+
 #begin DungeonBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -224,6 +236,25 @@
 /processorParam:TextureFormat=Color
 /build:DungeonStairs.png
 
+#begin EmptyHeart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:EmptyHeart.png
+
+#begin galleryFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:galleryFont.spritefont
+
 #begin goriyaspritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -235,6 +266,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:goriyaspritesheet.png
+
+#begin HalfHeart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:HalfHeart.png
+
+#begin Heart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Heart.png
 
 #begin Link.png
 /importer:TextureImporter
@@ -259,6 +314,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:OctorokSpritesheet.png
+
+#begin tophud.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tophud.png
 
 #begin WaterBlock.png
 /importer:TextureImporter
@@ -765,6 +832,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteRupy.gif
+
+#begin zeldaspritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:zeldaspritesheet.png
 
 #begin ZeldaSpriteSilverArrow.png
 /importer:TextureImporter

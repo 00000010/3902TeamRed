@@ -64,6 +64,7 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
             SoundFactory.Instance.LoadSounds(Content);
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
+            TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
         }
 
         protected override void Update(GameTime gameTime)

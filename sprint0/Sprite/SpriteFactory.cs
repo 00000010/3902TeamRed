@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using static sprint0.InventoryFactory;
 using static sprint0.SpriteRectangle;
 
 namespace sprint0
@@ -23,6 +24,7 @@ namespace sprint0
         private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
         private Texture2D ProjectileEffect;
+        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
 
         private SpriteBatch spriteBatch;
@@ -89,6 +91,12 @@ namespace sprint0
             HUD = content.Load<Texture2D>("Zelda_HUD");
             ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
             ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
+
+            TopHud = content.Load<Texture2D>("tophud");
+            Fullheart = content.Load<Texture2D>("Heart");
+            Halfheart = content.Load<Texture2D>("HalfHeart");
+            Emptyheart = content.Load<Texture2D>("EmptyHeart");
+
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -597,6 +605,27 @@ namespace sprint0
         public Sprite ZeldaOrangeMapHUD(Vector2 position)
         {
             return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position);
+        }
+
+        /* inventory */
+        public Sprite TopHUD(Vector2 position)
+        {
+            return new Sprite(TopHud, InventoryRectangle.TopHUD, spriteBatch, position);
+        }
+        public Sprite FullHeart(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Fullheart.Width, Fullheart.Height) };
+            return new Sprite(Fullheart, rectangles, spriteBatch, position);
+        }
+        public Sprite HalfHeart(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Halfheart.Width, Halfheart.Height) };
+            return new Sprite(Halfheart, rectangles, spriteBatch, position);
+        }
+        public Sprite EmptyHeart(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Emptyheart.Width, Emptyheart.Height) };
+            return new Sprite(Emptyheart, rectangles, spriteBatch, position);
         }
     }
 }

@@ -12,6 +12,8 @@ namespace sprint0
         private Game1 game;
         public IPlayer player;
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
+        public int numBoomerangs = 0;
+        public Inventory inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -33,8 +35,10 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
+            AddHud();
         }
 
         private void PopulateCollisionResolutionDic()
@@ -285,6 +289,37 @@ namespace sprint0
         public void SetVictory()
         {
             HandleSpecialDisplays.Instance.Victory = true;
+        }
+
+        private void AddHud()
+        {
+            drawables.Add(inventory);
+            updateables.Add(inventory);
+        }
+
+        public void UpdateHealth(int CurrentHealth)  //only used for damaging link
+        {
+            int MissingHealth = 100 - CurrentHealth;    //might need to change 100 to maximum health of link rather than tie it to 100
+
+            int i = inventory.HalfHearts - 1;
+            while (MissingHealth >= 0)
+            {
+                MissingHealth -= 10;
+                if (MissingHealth >= 0)
+                {
+                    Vector2 position = inventory.HealthSprite[i / 2].Position;
+                    if (i % 2 != 0) //we remove half heart 
+                    {
+                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.HalfHeart(position);
+                    }
+                    else //we remove full heart
+                    {
+                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.EmptyHeart(position);
+                    }
+                }
+                i--;
+            }
+
         }
     }
 }
