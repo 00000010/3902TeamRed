@@ -200,6 +200,32 @@
 /processorParam:TextureFormat=Color
 /build:DungeonStairs.png
 
+#begin EmptyHeart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:EmptyHeart.png
+
+#begin File.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:File.spritefont
+
+#begin galleryFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:galleryFont.spritefont
+
 #begin goriyaspritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -211,6 +237,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:goriyaspritesheet.png
+
+#begin HalfHeart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:HalfHeart.png
+
+#begin Heart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Heart.png
+
+#begin Inventory.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Inventory.png
 
 #begin Link.png
 /importer:TextureImporter
@@ -236,6 +298,30 @@
 /processorParam:TextureFormat=Color
 /build:OctorokSpritesheet.png
 
+#begin smb_luigi_sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:smb_luigi_sheet.png
+
+#begin tophud.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tophud.png
+
 #begin WaterBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -248,6 +334,43 @@
 /processorParam:TextureFormat=Color
 /build:WaterBlock.png
 
+#begin Zelda_arrow_boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_arrow_boomerang.wav
+
+#begin Zelda_enemy_die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_enemy_die.wav
+
+#begin Zelda_enemy_hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_enemy_hit.wav
+
+#begin Zelda_font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Zelda_font.spritefont
+
+#begin Zelda_link_die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_link_die.wav
+
+#begin Zelda_link_hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_link_hurt.wav
+
 #begin Zelda_sprite.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -259,6 +382,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Zelda_sprite.png
+
+#begin Zelda_sword.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Zelda_sword.wav
+
+#begin Zelda_theme_sound.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Zelda_theme_sound.mp3
 
 #begin ZeldaAltpBlock.png
 /importer:TextureImporter
@@ -643,6 +778,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteRupy.gif
+
+#begin zeldaspritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:zeldaspritesheet.png
 
 #begin ZeldaSpriteSilverArrow.png
 /importer:TextureImporter
