@@ -319,7 +319,12 @@ namespace sprint0
                 }
                 i--;
             }
-
+            while (i >= 0)
+            {
+                Vector2 position = inventory.HealthSprite[i / 2].Position;
+                inventory.HealthSprite[i / 2] = SpriteFactory.Instance.FullHeart(position);
+                i--;
+            }
         }
     }
 }
