@@ -1,0 +1,35 @@
+Readability code review:
+Person reviewing: Hamdan Almehairbi
+Date: 9/30/2022
+Sprint: 2
+CS file being reviewed: NextEnemyCommand
+Number of minutes: 20
+Reviewing a cs file created by Abdel Rahman.
+Comments on code readability:
+There is a reasonable amount of coupling here, but once you read it you can understand whats going on.
+This is a class created solely for the reason of displaying the enemies that were created. It would be
+a lot better to put all those functionalities in one bundle with lower coupling such as a simple command
+like game.currEnemy = game.nextEnemy and that would be all you need to do, and that would assign
+a rectangle, refresh the enemy's frame to 0. We might need to take a closer look at this class moving
+forward and see possible improvements.
+
+Maintainability: 
+It is short and simple, so it is maintainable, just needs some slight tweaks and it would be great for
+use moving forward.
+
+CS files being reviewed: Enemy, EnemyFactory, EnemyFrame, EnemyVelocity, EnemyRectangle
+CS files created by Abdel Rahman.
+Number of minutes: 40
+Comments on code readability:
+EnemyFactory is great, I don't see that being changed any time soon. The problem is with the way
+the physics is dealt, Enemy should inherit a physics class or implement a physics interface (decision 
+will be made later). It seems as though Enemy only inherits Sprite. EnemyVelocity contains the
+movement of every single enemy which works, but I am unsure as to how well that would do proceeding
+forward. EnemyRectangle contains a list of rectangles containing each frame of each enemy. This is good,
+you need to store the data of the sizes somewhere, so this does fine. EnemyFrame just makes sure that
+we are changing the enemies frame properly, but the function UpdateGoriyaFrame is slightly hard to read.
+Overall, these functions are dependent on one another, makes me wonder if it is the best path we can take
+or if we can possibly make everything more concise.
+Maintainability: 
+I believe that it would be tricky to maintain moving forward, some code refactoring might be done in
+the later sprints.
