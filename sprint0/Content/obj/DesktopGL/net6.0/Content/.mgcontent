@@ -4,7 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/../../../../Downloads/Zelda_HUD.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Arial.spritefont</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonAbyss.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBackground.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBadDoorNorth.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBadDoorSouth.png</File>
@@ -19,11 +21,28 @@
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonMonster2Faded.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonSand.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonStairs.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/EmptyHeart.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/galleryFont.spritefont</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/goriyaspritesheet.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/HalfHeart.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Heart.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Link.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/OctorokSpritesheet.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/tophud.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/WaterBlock.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_arrow_boomerang.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_boom_obtained.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_bosses_test.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_enemy_die.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_enemy_hit.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_item_obtained.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_link_die.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_link_hurt.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_old_man.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_sprite.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_sword.wav</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_theme_sound.mp3</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_victory.mp3</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaAltpBlock.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaLaBlock.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaLadxBlock.png</File>
@@ -56,6 +75,7 @@
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteRedCandle.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteRedRing.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteRupy.gif</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/zeldaspritesheet.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteSilverArrow.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteStepladder.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteSword.png</File>
@@ -63,6 +83,26 @@
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteWhiteSword.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>Zelda_HUD.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
