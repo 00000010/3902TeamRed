@@ -40,8 +40,6 @@ namespace sprint0
             {
                 SoundFactory.Instance.zeldaEnemyHit.Play();
             }
-
-            //manager.AddObject(SpriteFactory.Instance.ZeldaProjectileEffect(enemy.Position));
         }
     }
 }

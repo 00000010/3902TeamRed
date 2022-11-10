@@ -12,7 +12,6 @@ namespace sprint0
         private Game1 game;
         public IPlayer player;
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
-        public int numBoomerangs = 0;
         public Inventory inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
@@ -131,6 +130,12 @@ namespace sprint0
             {
                 IEnemy enemy = (Enemy)obj;
                 AddObject(ItemFactory.Instance.ZeldaHeart(enemy.Position));
+            }
+            //Sometimes drop coins
+            if (shouldDrop == 1 && obj is Enemy)
+            {
+                IEnemy enemy = (Enemy)obj;
+                AddObject(ItemFactory.Instance.ZeldaRupy(enemy.Position));
             }
         }
 
@@ -295,36 +300,6 @@ namespace sprint0
         {
             drawables.Add(inventory);
             updateables.Add(inventory);
-        }
-
-        public void UpdateHealth(int CurrentHealth)  //only used for damaging link
-        {
-            int MissingHealth = 100 - CurrentHealth;    //might need to change 100 to maximum health of link rather than tie it to 100
-
-            int i = inventory.HalfHearts - 1;
-            while (MissingHealth >= 0)
-            {
-                MissingHealth -= 10;
-                if (MissingHealth >= 0)
-                {
-                    Vector2 position = inventory.HealthSprite[i / 2].Position;
-                    if (i % 2 != 0) //we remove half heart 
-                    {
-                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.HalfHeart(position);
-                    }
-                    else //we remove full heart
-                    {
-                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.EmptyHeart(position);
-                    }
-                }
-                i--;
-            }
-            while (i >= 0)
-            {
-                Vector2 position = inventory.HealthSprite[i / 2].Position;
-                inventory.HealthSprite[i / 2] = SpriteFactory.Instance.FullHeart(position);
-                i--;
-            }
         }
     }
 }

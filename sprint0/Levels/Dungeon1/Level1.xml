@@ -105,37 +105,6 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
-
-		<!--<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaBoomerang</ObjectName>
-			<Location>405 90</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaLevelHUD</ObjectName>
-			<Location>120 20</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaNumOneHUD</ObjectName>
-			<Location>210 20</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaBlueMapHUD</ObjectName>
-			<Location>170 40</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaSword</ObjectName>
-			<Location>535 40</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>ZeldaInventoryHUD</ObjectName>
-			<Location>400 20</Location>
-		</Item>-->
     </Asset>
 </XnaContent>
 

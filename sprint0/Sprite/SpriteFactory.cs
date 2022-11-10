@@ -25,7 +25,7 @@ namespace sprint0
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
         private Texture2D ProjectileEffect;
         private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
-        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Triforce;
+        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
 
         private SpriteBatch spriteBatch;
 
@@ -91,12 +91,11 @@ namespace sprint0
             HUD = content.Load<Texture2D>("Zelda_HUD");
             ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
             ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
-
+            Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
             TopHud = content.Load<Texture2D>("tophud");
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
-
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -580,6 +579,11 @@ namespace sprint0
         public Sprite ZeldaOrangeBlockHUD(Vector2 position)
         {
             return new Sprite(HUD, SpriteRectangle.ZeldaOrangeBlockHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaRupy(Vector2 position)
+        {
+            return new Sprite(Rupy, ItemRectangle.ZeldaRupy, spriteBatch, position);
         }
 
         public Sprite ZeldaInventoryHUD(Vector2 position)

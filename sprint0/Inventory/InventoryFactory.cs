@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,8 +19,7 @@ namespace sprint0
 
         public Inventory TopHUD(Game1 game)
         {
-            Inventory inventory = new TopHud(game);
-            return inventory;
+            return new TopHud(game);
         }
         internal class TopHud : Inventory
         {
@@ -27,20 +27,17 @@ namespace sprint0
             {
                 this.game = game;
 
-                int offsetX = 100;
-                int offsetY = 150;
-
                 /* the top hud without the numbers*/
-                Sprite = SpriteFactory.Instance.TopHUD(new Vector2(250 - offsetX, 160 - offsetY));
+                Sprite = SpriteFactory.Instance.TopHUD(new Vector2(150, 10));
                 Velocity = Vector2.Zero;
 
                 /* Sword will always be available so it is drawn in the hud selecteditem will be null*/
-                Sword = SpriteFactory.Instance.ZeldaSword(new Vector2(403 - offsetX, 184 - offsetY));
+                Sword = SpriteFactory.Instance.ZeldaSword(new Vector2(455, 55));
 
                 /*array of sprites of hearts to be drawn side to side it can either be a full heart, a half heart, or an empty heart*/
-                Sprite[] AllHearts = { SpriteFactory.Instance.FullHeart(new Vector2(425- offsetX, 189 - offsetY)), SpriteFactory.Instance.FullHeart(new Vector2(433 - offsetX, 189- offsetY)),
-                        SpriteFactory.Instance.FullHeart(new Vector2(441 - offsetX, 189 - offsetY)),SpriteFactory.Instance.FullHeart(new Vector2(449 - offsetX, 189 - offsetY)),
-                            SpriteFactory.Instance.FullHeart(new Vector2(457- offsetX, 189 - offsetY))};
+                Sprite[] AllHearts = { SpriteFactory.Instance.FullHeart(new Vector2(520, 65)), SpriteFactory.Instance.FullHeart(new Vector2(535, 65)),
+                        SpriteFactory.Instance.FullHeart(new Vector2(550, 65)),SpriteFactory.Instance.FullHeart(new Vector2(565, 65)),
+                            SpriteFactory.Instance.FullHeart(new Vector2(580, 65))};
                 HealthSprite = AllHearts;
 
 
@@ -52,15 +49,9 @@ namespace sprint0
                 Keys = 0;
                 Boomerangs = 0;
 
-                /*text sprite for coin, key, bomb at different positions*/
-                CoinTextSprite = TextSpriteFactory.Instance.ItemText(new Vector2(350 - offsetX, 173 - offsetY));
-                KeyTextSprite = TextSpriteFactory.Instance.ItemText(new Vector2(350 - offsetX, 189 - offsetY));
-                BoomerangTextSprite = TextSpriteFactory.Instance.ItemText(new Vector2(350 - offsetX, 201 - offsetY));
-
-                /*text will be the int value for coin, key, bomb*/
-                CoinTextSprite.Text = Coins.ToString();
-                KeyTextSprite.Text = Keys.ToString();
-                BoomerangTextSprite.Text = Boomerangs.ToString();
+                ZeldaNumOne = SpriteFactory.Instance.ZeldaNumOneHUD(new Vector2(160, 25));
+                ZeldaBlueMap = SpriteFactory.Instance.ZeldaBlueMapHUD(new Vector2(90, 40));
+                ZeldaLevelWord = SpriteFactory.Instance.ZeldaLevelHUD(new Vector2(70, 25));
             }
         }
     }

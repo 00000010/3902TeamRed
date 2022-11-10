@@ -18,7 +18,7 @@ namespace sprint0
         public void Execute()
         {
             int nextProj = (int)game.manager.LinkProjectile + 1;
-            if (nextProj == 1 && game.manager.numBoomerangs == 0)
+            if (nextProj == 1 && game.manager.inventory.Boomerangs == 0)
             {
                 nextProj++;
             }

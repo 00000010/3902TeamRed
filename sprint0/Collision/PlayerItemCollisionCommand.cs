@@ -29,7 +29,7 @@ namespace sprint0
             manager.RemoveObject(item);
             if (GameObjectManager.IsDesiredObject(item, "ZeldaBoomerang"))
             {
-                manager.numBoomerangs++;
+                manager.inventory.Boomerangs++;
                 SoundFactory.Instance.zeldaBoomObtained.Play();
             }
             else if (GameObjectManager.IsDesiredObject(item, "ZeldaTriforce"))
@@ -43,7 +43,12 @@ namespace sprint0
                 //heart
                 manager.player.Health += 10;
                 if (manager.player.Health > 100) manager.player.Health = 100;
-                manager.UpdateHealth(manager.player.Health);
+                manager.inventory.UpdateHealth(manager.player.Health);
+                SoundFactory.Instance.zeldaItemObtained.Play();
+            }
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaRupy"))
+            {
+                manager.inventory.Coins++;
                 SoundFactory.Instance.zeldaItemObtained.Play();
             }
         }
