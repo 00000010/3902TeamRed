@@ -9,67 +9,6 @@
         <Name>Room11</Name>
     </Meta>
     <Asset>
-<<<<<<< HEAD
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorWest</ObjectName>
-            <Location>284 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonBadDoorSouth</ObjectName>
-            <Location>384 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 288</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 320</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 320</Location>
-=======
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>Dungeon</ObjectName>
@@ -114,7 +53,6 @@
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
->>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>

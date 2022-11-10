@@ -12,105 +12,16 @@
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
-<<<<<<< HEAD
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorNorth</ObjectName>
-            <Location>384 236</Location>
-=======
             <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonDoorNorth</ObjectName>
             <Location>375 140</Location>
->>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonDoorSouth</ObjectName>
-<<<<<<< HEAD
-            <Location>384 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorWest</ObjectName>
-            <Location>284 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonSand</ObjectName>
-            <Location>352 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonSand</ObjectName>
-            <Location>352 352</Location>
-            <Dimension>6 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonSand</ObjectName>
-            <Location>384 320</Location>
-            <Dimension>2 2</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonSand</ObjectName>
-            <Location>432 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1</ObjectName>
-            <Location>320 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1</ObjectName>
-            <Location>368 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1</ObjectName>
-            <Location>320 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1</ObjectName>
-            <Location>368 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster1</ObjectName>
-            <Location>368 336</Location>
-=======
             <Location>375 400</Location>
         </Item>
         <Item>
@@ -133,52 +44,20 @@
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>247 217</Location>
->>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
-<<<<<<< HEAD
-            <Location>320 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2</ObjectName>
-            <Location>416 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2</ObjectName>
-            <Location>464 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2</ObjectName>
-            <Location>416 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>DungeonMonster2</ObjectName>
-            <Location>464 304</Location>
-=======
             <Location>342 217</Location>
->>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
-<<<<<<< HEAD
-            <Location>416 336</Location>
-=======
             <Location>437 217</Location>
->>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
-<<<<<<< HEAD
-            <Location>464 336</Location>
-=======
             <Location>532 217</Location>
         </Item>
 		<Item>
@@ -225,7 +104,6 @@
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
->>>>>>> AbdBranch
         </Item>
     </Asset>
 </XnaContent>

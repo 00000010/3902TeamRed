@@ -104,11 +104,11 @@ namespace sprint0
             {
                 if (Moving.Top == intersect.Top)
                 {
-                    collisionDirections += "bottom";
+                    collisionDirections += "down";
                 }
                 else
                 {
-                    collisionDirections += "top";
+                    collisionDirections += "up";
                 }
             }
 

@@ -9,7 +9,7 @@ namespace sprint0
 {
     public class GameObjectManager
     {
-        private Game1 game;
+        public Game1 game;
         public IPlayer player;
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
         public Inventory inventory;
@@ -44,23 +44,23 @@ namespace sprint0
         private void PopulateCollisionResolutionDic()
         {
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Block"),
-                Type.GetType("sprint0.PlayerBlockCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.PlayerBlockCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Door"),
-                Type.GetType("sprint0.PlayerDoorCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.PlayerDoorCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Projectile"),
-                Type.GetType("sprint0.PlayerProjectileCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.PlayerProjectileCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Item"),
-                Type.GetType("sprint0.PlayerItemCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.PlayerItemCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Enemy"),
-                Type.GetType("sprint0.PlayerEnemyCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.PlayerEnemyCollisionCommand"), Type.GetType("sprint0.EnemyPlayerCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Enemy"),
-                Type.GetType("sprint0.EnemyEnemyCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.EnemyEnemyCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Projectile"),
-                Type.GetType("sprint0.EnemyProjectileCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.EnemyProjectileCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Enemy", "Block"),
-                Type.GetType("sprint0.EnemyBlockCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.EnemyBlockCollisionCommand") });
             collisionResolutionDic.Add(new Tuple<string, string>("Projectile", "Block"),
-                Type.GetType("sprint0.ProjectileBlockCollisionCommand"));
+                new Type[] { Type.GetType("sprint0.ProjectileBlockCollisionCommand") });
         }
 
         private void PopulateEnemyShooters()
@@ -180,7 +180,6 @@ namespace sprint0
                 }
                 attackingRotation++;
             }
-
             if (player.TakingDamage)
             {
                 if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
@@ -261,6 +260,11 @@ namespace sprint0
                 if (obj is IBlock)
                 {
                     removeBlock((IBlock)obj);
+                }
+
+                if (obj is IDoor)
+                {
+                    removeDoor((IDoor)obj);
                 }
             }
 

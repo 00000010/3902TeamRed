@@ -8,47 +8,6 @@
         <Name>Room13</Name>
     </Meta>
     <Asset>
-<<<<<<< HEAD
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorSouth</ObjectName>
-            <Location>384 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>416 256</Location>
-=======
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>Dungeon</ObjectName>
@@ -68,57 +27,35 @@
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>436 185</Location>
->>>>>>> AbdBranch
             <Dimension>5 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-<<<<<<< HEAD
-            <Location>448 272</Location>
-=======
             <Location>500 217</Location>
->>>>>>> AbdBranch
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-<<<<<<< HEAD
-            <Location>464 288</Location>
-=======
             <Location>532 249</Location>
->>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-<<<<<<< HEAD
-            <Location>464 320</Location>
-=======
             <Location>532 313</Location>
->>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-<<<<<<< HEAD
-            <Location>448 336</Location>
-=======
             <Location>500 345</Location>
->>>>>>> AbdBranch
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-<<<<<<< HEAD
-            <Location>416 352</Location>
-            <Dimension>5 1</Dimension>
-        </Item>
-=======
             <Location>436 377</Location>
             <Dimension>5 1</Dimension>
         </Item>
@@ -132,7 +69,6 @@
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
         </Item>
->>>>>>> AbdBranch
     </Asset>
 </XnaContent>
 

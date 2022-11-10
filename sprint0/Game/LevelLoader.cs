@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
@@ -33,7 +32,6 @@ namespace sprint0
 
         public string[] getFilePaths(string levelName)
         {
-
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
 
@@ -63,7 +61,6 @@ namespace sprint0
         {
             string[] files = getFilePaths(levelName);
 
-
             foreach (string filePath in files)
             {
                 Room room = new Room();
@@ -81,7 +78,6 @@ namespace sprint0
                 room.ParsePointers(elms);
                 //Inside the asset element
                 XElement asset = tree.Element("Asset");
-
 
                 IEnumerable<XElement> items = asset.Elements("Item");
 

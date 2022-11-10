@@ -9,11 +9,19 @@ namespace sprint0
 {
     internal class PlayerDoorCollisionCommand : ICommand
     {
+        Game1 game;
+        LevelLoader loader;
+        KeyboardController keyboard;
+        private Room nextRoom;
         IObject player;
         IObject block;
         string intersectionLoc;
+        ICommand command;
+        Direction d;
+
         public PlayerDoorCollisionCommand(IObject player, IObject block, string intersectionLoc, GameObjectManager manager)
         {
+            this.game = manager.game;
             this.player = player;
             this.block = block;
             this.intersectionLoc = intersectionLoc;
@@ -21,39 +29,30 @@ namespace sprint0
 
         public void Execute()
         {
+            Console.WriteLine("Player collided with door");
             Player player = (Player)this.player;
-            if (intersectionLoc == "top")
+            this.loader = this.game.loader;
+
+            //KeyboardController.DisableKeyboard();
+            bool success = Enum.TryParse(intersectionLoc.ToUpper(), out Direction d);
+            // TODO: data drive
+            switch (d)
             {
-                if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
-                {
-                    // command to go the up door
-                    player.Position -= new Vector2(0, 2);
-                }
+                case Direction.RIGHT:
+                    nextRoom = loader.currentRoom.westRoomPtr;
+                    break;
+                case Direction.DOWN:
+                    nextRoom = loader.currentRoom.northRoomPtr;
+                    break;
+                case Direction.LEFT:
+                    nextRoom = loader.currentRoom.eastRoomPtr;
+                    break;
+                case Direction.UP:
+                    nextRoom = loader.currentRoom.southRoomPtr;
+                    break;
             }
-            else if (intersectionLoc == "bottom")
-            {
-                if (player.Velocity.Y < 0)
-                {
-                    // command to go to bottom door
-                    player.Position += new Vector2(0, 2);
-                }
-            }
-            else if (intersectionLoc == "left")
-            {
-                if (player.Velocity.X < 0)
-                {
-                    //etc.
-                    player.Position += new Vector2(2, 0);
-                }
-            }
-            else //right
-            {
-                if (player.Velocity.X > 0)
-                {
-                    //etc.
-                    player.Position -= new Vector2(2, 0);
-                }
-            }
+            game.loader.ChangeRooms(nextRoom);
+            //KeyboardController.EnableKeyboard();
         }
     }
 }

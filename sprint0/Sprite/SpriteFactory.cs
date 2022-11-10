@@ -108,76 +108,99 @@ namespace sprint0
          */
         public Sprite Dungeon(Vector2 position)
         {
-            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position);
+            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
+        public Sprite DungeonNorthWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallNorth.Width, dungeonWallNorth.Height) };
+            return new Sprite(dungeonWallNorth, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite DungeonSouthWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallSouth.Width, dungeonWallSouth.Height) };
+            return new Sprite(dungeonWallSouth, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite DungeonEastWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallEast.Width, dungeonWallEast.Height) };
+            return new Sprite(dungeonWallEast, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite DungeonWestWall(Vector2 position)
+        {
+            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallWest.Width, dungeonWallWest.Height) };
+            return new Sprite(dungeonWallWest, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
         /*
          * Background blocks
          */
         public Sprite DungeonBlock(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBlock.Width, dungeonBlock.Height) };
-            return new Sprite(dungeonBlock, rectangles, spriteBatch, position);
+            return new Sprite(dungeonBlock, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonDoorNorth(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorNorth.Width, dungeonDoorNorth.Height) };
-            return new Sprite(dungeonDoorNorth, rectangles, spriteBatch, position);
+            return new Sprite(dungeonDoorNorth, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonDoorSouth(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorSouth.Width, dungeonDoorSouth.Height) };
-            return new Sprite(dungeonDoorSouth, rectangles, spriteBatch, position);
+            return new Sprite(dungeonDoorSouth, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonDoorEast(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorEast.Width, dungeonDoorEast.Height) };
-            return new Sprite(dungeonDoorEast, rectangles, spriteBatch, position);
+            return new Sprite(dungeonDoorEast, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonDoorWest(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonDoorWest.Width, dungeonDoorWest.Height) };
-            return new Sprite(dungeonDoorWest, rectangles, spriteBatch, position);
+            return new Sprite(dungeonDoorWest, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonBadDoorNorth(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBadDoorNorth.Width, dungeonBadDoorNorth.Height) };
-            return new Sprite(dungeonBadDoorNorth, rectangles, spriteBatch, position);
+            return new Sprite(dungeonBadDoorNorth, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonBadDoorSouth(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonBadDoorSouth.Width, dungeonBadDoorSouth.Height) };
-            return new Sprite(dungeonBadDoorSouth, rectangles, spriteBatch, position);
+            return new Sprite(dungeonBadDoorSouth, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite DungeonSand(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonSand.Width, dungeonSand.Height) };
-            return new Sprite(dungeonSand, rectangles, spriteBatch, position);
+            return new Sprite(dungeonSand, rectangles, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonAbyss(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonAbyss.Width, dungeonAbyss.Height) };
-            return new Sprite(dungeonAbyss, rectangles, spriteBatch, position);
+            return new Sprite(dungeonAbyss, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite DungeonStairs(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonStairs.Width, dungeonStairs.Height) };
-            return new Sprite(dungeonStairs, rectangles, spriteBatch, position);
+            return new Sprite(dungeonStairs, rectangles, spriteBatch, position, Constants.DOOR_LAYER_DEPTH);
         }
 
         public Sprite WaterBlock(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, waterBlock.Width, waterBlock.Height) };
-            return new Sprite(waterBlock, rectangles, spriteBatch, position);
+            return new Sprite(waterBlock, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         /*
@@ -185,21 +208,21 @@ namespace sprint0
          */
         public Sprite LinkRunningRight(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningRight, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningRight, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkRunningLeft(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningLeft, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningLeft, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
         public Sprite LinkRunningUp(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningUp, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningUp, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkRunningDown(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningDown, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningDown, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -207,22 +230,22 @@ namespace sprint0
          */
         public Sprite LinkStandingRight(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRight, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRight, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingLeft(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingLeft, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingLeft, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingUp(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingUp, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingUp, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingDown(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDown, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDown, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -230,21 +253,21 @@ namespace sprint0
          */
         public Sprite LinkRunningRightDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningRightDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningRightDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkRunningLeftDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningLeftDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningLeftDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
         public Sprite LinkRunningUpDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningUpDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningUpDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkRunningDownDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningDownDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkRunningDownDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -252,22 +275,22 @@ namespace sprint0
          */
         public Sprite LinkStandingRightDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRightDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingRightDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingLeftDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingLeftDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingLeftDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingUpDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingUpDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingUpDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkStandingDownDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDownDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkStandingDownDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -275,22 +298,22 @@ namespace sprint0
          */
         public Sprite LinkAttackingRightDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRightDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRightDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingLeftDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeftDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeftDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingUpDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUpDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUpDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingDownDamaged(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDownDamaged, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDownDamaged, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -298,22 +321,22 @@ namespace sprint0
          */
         public Sprite LinkAttackingRight(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRight, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingRight, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingLeft(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeft, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingLeft, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingUp(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUp, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingUp, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkAttackingDown(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDown, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkAttackingDown, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         /*
@@ -322,42 +345,37 @@ namespace sprint0
          */
         public Sprite LinkThrowingUp(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingUp, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingUp, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkThrowingDown(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingDown, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingDown, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkThrowingLeft(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingLeft, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingLeft, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite LinkThrowingRight(Vector2 position)
         {
-            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingRight, spriteBatch, position);
-        }
-
-        public Sprite ZeldaDragon(Vector2 position)
-        {
-            return new Sprite(Dragon, EnemyRectangle.Dragon, spriteBatch, position);
+            return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingRight, spriteBatch, position, Constants.PLAYER_LAYER_DEPTH);
         }
 
         public Sprite ZeldaGreen(Vector2 position)
         {
-            return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+            return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite ZeldaBlack(Vector2 position)
         {
-            return new Sprite(BlackBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+            return new Sprite(BlackBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite ZeldaPurple(Vector2 position)
         {
-            return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position);
+            return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         /*
@@ -365,161 +383,128 @@ namespace sprint0
          */
         public Sprite ZeldaBlueCandle(Vector2 position)
         {
-            return new Sprite(BlueCandle, ItemRectangle.Candle, spriteBatch, position);
-        }
-
-        public Sprite ZeldaSword(Vector2 position)
-        {
-            return new Sprite(HUD, ItemRectangle.Sword, spriteBatch, position);
+            return new Sprite(BlueCandle, ItemRectangle.Candle, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaBomb(Vector2 position)
         {
-            return new Sprite(Bomb, ItemRectangle.Bomb, spriteBatch, position);
+            return new Sprite(Bomb, ItemRectangle.Bomb, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaBoomerang(Vector2 position)
         {
-            return new Sprite(Boomerang, ItemRectangle.Boomerang, spriteBatch, position);
+            return new Sprite(Boomerang, ItemRectangle.Boomerang, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaBow(Vector2 position)
         {
-            return new Sprite(Bow, ItemRectangle.BowArrowUp, spriteBatch, position); // TODO: BowArrow to BowArrowUp?
+            return new Sprite(Bow, ItemRectangle.BowArrowUp, spriteBatch, position, Constants.ITEM_LAYER_DEPTH); // TODO: BowArrow to BowArrowUp?
         }
 
         public Sprite ZeldaClock(Vector2 position)
         {
-            return new Sprite(Clock, ItemRectangle.Clock, spriteBatch, position);
+            return new Sprite(Clock, ItemRectangle.Clock, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaCompass(Vector2 position)
         {
-            return new Sprite(Compass, ItemRectangle.Compass, spriteBatch, position);
+            return new Sprite(Compass, ItemRectangle.Compass, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaFairy(Vector2 position)
         {
-            return new Sprite(Fairy, ItemRectangle.Fairy, spriteBatch, position);
+            return new Sprite(Fairy, ItemRectangle.Fairy, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaFood(Vector2 position)
         {
-            return new Sprite(Food, ItemRectangle.Food, spriteBatch, position);
+            return new Sprite(Food, ItemRectangle.Food, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaHeart(Vector2 position)
         {
-            return new Sprite(Heart, ItemRectangle.Heart, spriteBatch, position);
+            return new Sprite(Heart, ItemRectangle.Heart, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaHeartContainer(Vector2 position)
         {
-            return new Sprite(HeartContainer, ItemRectangle.HeartContainer, spriteBatch, position);
+            return new Sprite(HeartContainer, ItemRectangle.HeartContainer, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaKey(Vector2 position)
         {
-            return new Sprite(Key, ItemRectangle.Key, spriteBatch, position);
+            return new Sprite(Key, ItemRectangle.Key, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaLetter(Vector2 position)
         {
-            return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position);
-        }
-
-        public Sprite ZeldaTriforce(Vector2 position)
-        {
-            return new Sprite(Triforce, ItemRectangle.Triforce, spriteBatch, position);
-        }
-
-        public Sprite ZeldaRock(Vector2 position)
-        {
-            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
-        }
-
-        public Sprite ZeldaFire(Vector2 position)
-        {
-            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Fire, spriteBatch, position);
-        }
-
-        public Sprite ZeldaDragonProj(Vector2 position)
-        {
-            return new Sprite(Dragon, ProjectileRectangle.DragonProjectile, spriteBatch, position);
-        }
-
-        /*
-         * Enemies
-         */
-        public Sprite ZeldaOldMan(Vector2 position)
-        {
-            return new Sprite(OldMan, EnemyRectangle.ZeldaOldMan, spriteBatch, position);
+            return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite Stalfos(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position);
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite Keese(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position);
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.Keese, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite GoriyaLeft(Vector2 position)
         {
-            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaLeft, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
             result.Direction = Direction.LEFT;
             return result;
         }
 
         public Sprite GoriyaRight(Vector2 position)
         {
-            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaRight, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaRight, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
             result.Direction = Direction.RIGHT;
             return result;
         }
 
         public Sprite GoriyaUp(Vector2 position)
         {
-            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaUp, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaUp, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
             result.Direction = Direction.UP;
             return result;
         }
 
         public Sprite GoriyaDown(Vector2 position)
         {
-            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaDown, spriteBatch, position);
+            Sprite result = new Sprite(enemiesSpritesheet, EnemyRectangle.GoriyaDown, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
             result.Direction = Direction.DOWN;
             return result;
         }
 
         public Sprite Gel(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position);
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.Gel, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite Octorok(Vector2 position)
         {
-            return new Sprite(enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position);
+            return new Sprite(enemiesSpritesheet, EnemyRectangle.Octorok, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster1(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
-            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position);
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
-            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position);
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster1Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
-            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position);
+            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2Faded(Vector2 position)

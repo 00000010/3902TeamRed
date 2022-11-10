@@ -8,120 +8,6 @@
         <Name>Room12</Name>
     </Meta>
     <Asset>
-<<<<<<< HEAD
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorNorth</ObjectName>
-            <Location>384 236</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorWest</ObjectName>
-            <Location>284 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>352 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>384 272</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>432 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 272</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>352 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>384 304</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>432 304</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>320 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>352 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>384 336</Location>
-            <Dimension>2 1</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>464 336</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>432 336</Location>
-=======
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>Dungeon</ObjectName>
@@ -222,7 +108,6 @@
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
->>>>>>> AbdBranch
         </Item>
     </Asset>
 </XnaContent>

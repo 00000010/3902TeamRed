@@ -7,42 +7,6 @@
         <Name>Room10</Name>
     </Meta>
     <Asset>
-<<<<<<< HEAD
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
-        </Item>
-        <Item>
-            <ObjectType>Door</ObjectType>
-            <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
-        </Item>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>DungeonAbyss</ObjectName>
-            <Location>304 256</Location>
-=======
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>Dungeon</ObjectName>
@@ -77,7 +41,6 @@
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
             <Location>380 348</Location>
->>>>>>> AbdBranch
         </Item>
     </Asset>
 </XnaContent>

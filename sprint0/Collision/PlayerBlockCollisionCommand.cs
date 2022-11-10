@@ -22,14 +22,14 @@ namespace sprint0
         public void Execute()
         {
             Player player = (Player)this.player;
-            if (intersectionLoc.Contains("top"))
+            if (intersectionLoc.Contains("up"))
             {
                 if (player.Velocity.Y > 0)  // if the velocity is directed towards the block
                 {
-                    player.Position -= new Vector2(0,2);
+                    player.Position -= new Vector2(0, 2);
                 }
             }
-            if (intersectionLoc.Contains("bottom"))
+            if (intersectionLoc.Contains("down"))
             {
                 if (player.Velocity.Y < 0)
                 {

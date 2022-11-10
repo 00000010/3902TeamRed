@@ -25,14 +25,14 @@ namespace sprint0
         {
             Enemy Enemy1 = (Enemy)enemy1;
             Enemy Enemy2 = (Enemy)enemy2;
-            if (intersectionLoc.Contains("top"))
+            if (intersectionLoc.Contains("up"))
             {
                 if (Enemy1.Velocity.Y > 0 || Enemy2.Velocity.Y < 0)  // if the enemy1 is directed towards enemy2 OR enemy2 moving towards enemy1
                 {
                     Enemy1.Position -= new Vector2(0, 1);
                 }
             }
-            if (intersectionLoc.Contains("bottom"))
+            if (intersectionLoc.Contains("down"))
             {
                 if (Enemy1.Velocity.Y < 0 || Enemy2.Velocity.Y > 0)
                 {
