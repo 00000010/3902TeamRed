@@ -42,7 +42,9 @@ namespace sprint0
 
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 
-        public const string LEVEL_FILE_PREFIX = "Level";
+        public const int NUM_AVAILABLE_PROJECTILES = 3;
+
+        public const int SCALING_FACTOR = 2;
     }
 }
 

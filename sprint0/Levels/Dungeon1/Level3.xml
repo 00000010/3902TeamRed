@@ -7,6 +7,7 @@
         <Name>Room3</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -41,15 +42,43 @@
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>336 288</Location>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>275 250</Location>
+>>>>>>> AbdBranch
             <Dimension>2 3</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>432 288</Location>
             <Dimension>2 3</Dimension>
         </Item>
         <Item>
+=======
+            <Location>468 250</Location>
+            <Dimension>2 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+>>>>>>> AbdBranch
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
             <Location>352 256</Location>

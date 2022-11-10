@@ -10,6 +10,7 @@
         <Name>Room5</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -54,26 +55,73 @@
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonBadDoorNorth</ObjectName>
             <Location>384 236</Location>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorSouth</ObjectName>
+			<Location>375 400</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorNorth</ObjectName>
+            <Location>375 140</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>336 288</Location>
+=======
+            <Location>275 250</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>448 288</Location>
+=======
+            <Location>500 250</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>336 320</Location>
+=======
+            <Location>275 315</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>448 320</Location>
+=======
+            <Location>500 315</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>

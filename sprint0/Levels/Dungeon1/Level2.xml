@@ -7,6 +7,7 @@
         <Name>Room2</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -36,6 +37,22 @@
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorEast</ObjectName>
             <Location>496 296</Location>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>

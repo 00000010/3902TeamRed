@@ -37,6 +37,8 @@ namespace sprint0
             Direction = Direction.UP;
             State = State.STANDING;
             TakingDamage = false;
+            TypeOfObject = "Player";
+            Health = 100;
         }
     }
 }

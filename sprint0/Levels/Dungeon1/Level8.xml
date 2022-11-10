@@ -10,6 +10,7 @@
         <Name>Room8</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -54,38 +55,92 @@
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonBadDoorSouth</ObjectName>
             <Location>384 368</Location>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorNorth</ObjectName>
+			<Location>375 140</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonBadDoorSouth</ObjectName>
+            <Location>375 400</Location>
+>>>>>>> AbdBranch
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>320 272</Location>
+=======
+            <Location>246 218</Location>
+>>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>448 272</Location>
+=======
+            <Location>501 218</Location>
+>>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>384 304</Location>
+=======
+            <Location>373 282</Location>
+>>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>320 336</Location>
+=======
+            <Location>246 346</Location>
+>>>>>>> AbdBranch
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
+<<<<<<< HEAD
             <Location>448 336</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
+=======
+            <Location>501 346</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+>>>>>>> AbdBranch
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
             <Location>352 256</Location>

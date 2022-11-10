@@ -7,6 +7,7 @@
         <Name>Room18</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -52,6 +53,33 @@
             <ObjectName>DungeonDoorWest</ObjectName>
             <Location>284 296</Location>
         </Item>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorNorth</ObjectName>
+			<Location>375 140</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorSouth</ObjectName>
+			<Location>375 400</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+>>>>>>> AbdBranch
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonSand</ObjectName>
@@ -68,12 +96,25 @@
             <Location>368 256</Location>
         </Item>
         <Item>
+<<<<<<< HEAD
             <ObjectType>Door</ObjectType>
+=======
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+>>>>>>> AbdBranch
             <ObjectName>DungeonBadDoorSouth</ObjectName>
             <Location>320 368</Location>
         </Item>
         <Item>
+<<<<<<< HEAD
             <ObjectType>Door</ObjectType>
+=======
+            <ObjectType>Sprite</ObjectType>
+>>>>>>> AbdBranch
             <ObjectName>DungeonBadDoorNorth</ObjectName>
             <Location>320 236</Location>
         </Item>
@@ -208,5 +249,13 @@
             <ObjectName>ZeldaArrowUp</ObjectName>
             <Location>372 288</Location>
         </Item>
+<<<<<<< HEAD
+=======
+        <!--<Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonAbyss</ObjectName>
+            <Location>384 288</Location>
+        </Item>-->
+>>>>>>> AbdBranch
     </Asset>
 </XnaContent>

@@ -7,6 +7,7 @@
         <Name>Room10</Name>
     </Meta>
     <Asset>
+<<<<<<< HEAD
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
@@ -41,6 +42,42 @@
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonAbyss</ObjectName>
             <Location>304 256</Location>
+=======
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonAbyss</ObjectName>
+            <Location>210 183</Location>
+        </Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>ZeldaOldMan</ObjectName>
+			<Location>385 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>335 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>435 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+>>>>>>> AbdBranch
         </Item>
     </Asset>
 </XnaContent>

@@ -16,9 +16,8 @@ namespace sprint0
             string intersectionLoc)
         {
             Dictionary<Tuple<string, string>, Type> dic = manager.collisionResolutionDic;
-            Type type = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()),
-                                                TypeToString(sprite2.GetType())));
-            Console.WriteLine("type: " + type.ToString());
+            Type type = dic.GetValueOrDefault(new Tuple<string, string>(GameObjectManager.TypeToString(sprite1.GetType()),
+                                                GameObjectManager.TypeToString(sprite2.GetType())));
             ConstructorInfo ctor = type.GetConstructor(new[] { typeof(IObject), typeof(IObject), typeof(string), typeof(GameObjectManager) });
             ICommand command;
             if (ctor != null)
@@ -27,11 +26,6 @@ namespace sprint0
                 command = (ICommand)ctor.Invoke(collidingObjects);
                 command.Execute();
             }
-        }
-
-        private static string TypeToString(Type type)
-        {
-            return type.BaseType.Name;
         }
     }
 }

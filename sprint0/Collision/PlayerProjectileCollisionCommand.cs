@@ -9,23 +9,31 @@ namespace sprint0
 {
     internal class PlayerProjectileCollisionCommand : ICommand
     {
-        IObject player;
-        IObject projectile;
+        IPlayer player;
+        IProjectile projectile;
         string intersectionLoc;
         GameObjectManager manager;
         public PlayerProjectileCollisionCommand(IObject player, IObject projectile, string intersectionLoc, GameObjectManager manager)
         {
-            this.player = player;
-            this.projectile = projectile;
+            this.player = (IPlayer)player;
+            this.projectile = (IProjectile)projectile;
             this.intersectionLoc = intersectionLoc;
             this.manager = manager;
         }
 
         public void Execute()
         {
-            //link takes damage
-            manager.objectsToRemove.Add(projectile);
-            //projectile removed when hits enemy (cant implement yet because enemy waits for boomerang even though it is removed)
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom"))
+            {
+                //link takes damage
+                manager.RemoveObject((IObject)projectile);
+            }
+
+            player.TakingDamage = true;
+            player.Damaged = projectile.CollideDamage;
+            player.UpdatePlayerSprite(manager);
+
+            SoundFactory.Instance.zeldaLinkHurt.Play();
         }
     }
 }

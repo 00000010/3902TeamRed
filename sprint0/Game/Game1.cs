@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -15,9 +15,9 @@ namespace sprint0
     {
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
-
-        public IPlayer player;
-        public IBlock block;
+        
+        //public IPlayer player;
+        //public IBlock block;
         public IItem item;
         public IEnemy enemy;
 
@@ -64,6 +64,7 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
             SoundFactory.Instance.LoadSounds(Content);
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
+            TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
         }
 
         protected override void Update(GameTime gameTime)
@@ -92,4 +93,5 @@ namespace sprint0
             Initialize();
         }
     }
+>>>>>>> AbdBranch
 }

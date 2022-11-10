@@ -47,7 +47,7 @@ namespace sprint0
             Debug.WriteLine(manager.player.Velocity);
             manager.player.Velocity = oldVelocity + newVelocity;
             Debug.WriteLine(manager.player.Velocity);
-            manager.UpdatePlayerSprite();
+            manager.player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -90,8 +90,8 @@ namespace sprint0
             Vector2 oldVelocity = manager.player.Velocity;
             manager.player.Velocity = oldVelocity + newVelocity;
 
-            manager.UpdatePlayerState();
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerState();
+            player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -108,6 +108,7 @@ namespace sprint0
             this.game = game;
             this.direction = direction;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -127,8 +128,8 @@ namespace sprint0
                     break;
             }
             manager.player.Velocity = newVelocity;
-            manager.UpdatePlayerState();
-            manager.UpdatePlayerSprite();
+            manager.player.UpdatePlayerState();
+            manager.player.UpdatePlayerSprite(manager);
         }
     }
 
@@ -143,6 +144,7 @@ namespace sprint0
         {
             this.game = game;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
@@ -150,49 +152,52 @@ namespace sprint0
             player = manager.player;
             player.State = State.ATTACKING;
             player.Velocity = Vector2.Zero; // TODO: comment this line out to make Link attack and kind of keep running; causes weird bug where Link can somehow disappear...; need to decide whether to fix this or call it a feature
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
+            SoundFactory.Instance.zeldaSword.Play();
         }
     }
 
-    //internal class PlayerDamageCommand : ICommand
-    //{
-    //    private Game1 game;
-    //    private IPlayer player;
-    //    private GameObjectManager manager;
-
-    //    public PlayerDamageCommand(Game1 game)
-    //    {
-    //        this.game = game;
-    //        manager = game.manager;
-    //    }
-
-    //    public void Execute()
-    //    {
-    //        player = manager.player; // player must be set here; if set in constructor, player is null since it has not been added to the manager yet
-    //        player.TakingDamage = !player.TakingDamage;
-    //        manager.UpdatePlayerSprite();
-    //    }
-    //}
-
-    internal class PlayerArrowCommand : ICommand
+    internal class PlayerProjCommand : ICommand
     {
         private Game1 game;
         private IPlayer player;
         private GameObjectManager manager;
 
-        public PlayerArrowCommand(Game1 game)
+        public PlayerProjCommand(Game1 game)
         {
             this.game = game;
             manager = game.manager;
+            player = manager.player;
         }
 
         public void Execute()
         {
             player = manager.player;
-            Projectile arrow = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
+            Projectile proj = ReturnProj();
             player.State = State.THROWING;
-            manager.AddObject(arrow);
-            manager.UpdatePlayerSprite();
+            manager.AddObject(proj);
+            manager.shooterOfProjectile.Add(proj, (IShooter) player);
+            player.UpdatePlayerSprite(manager);
+            SoundFactory.Instance.zeldaArrowBoomerang.Play();
+        }
+
+        private Projectile ReturnProj()
+        {
+            //Want to data-drive this
+            Projectile result;
+            if (manager.LinkProjectile == TypeOfProj.ARROW)
+            {
+                result = ProjectileFactory.Instance.ZeldaArrow(player.Position, player.Direction);
+            }
+            else if (manager.LinkProjectile == TypeOfProj.BOOMERANG)
+            {
+                result = ProjectileFactory.Instance.ZeldaBoomerang(player.Position, player.Direction, "player");
+            } 
+            else
+            {
+                result = ProjectileFactory.Instance.ZeldaFire(player.Position, player.Direction);
+            }
+            return result;
         }
     }
 }

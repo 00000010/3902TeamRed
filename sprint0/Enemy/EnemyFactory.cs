@@ -26,6 +26,7 @@ namespace sprint0
         {
             Enemy enemy = new Stalfos(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -33,6 +34,7 @@ namespace sprint0
         {
             Enemy enemy = new Keese(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 5;
             return enemy;
         }
 
@@ -40,6 +42,7 @@ namespace sprint0
         {
             Enemy enemy = new Gel(position);
             enemy.CollideDamage = 2;
+            enemy.Health = 5;
             return enemy;
         }
 
@@ -47,6 +50,7 @@ namespace sprint0
         {
             Enemy enemy = new Goriya(position);
             enemy.CollideDamage = 0;
+            enemy.Health = 20;
             return enemy;
         }
 
@@ -54,6 +58,20 @@ namespace sprint0
         {
             Enemy enemy = new Octorok(position);
             enemy.CollideDamage = 3;
+            enemy.Health = 20;
+            return enemy;
+        }
+
+        public Enemy Dragon(Vector2 position)
+        {
+            Enemy enemy = new Dragon(position);
+            enemy.CollideDamage = 5;
+            enemy.Health = 100;
+            return enemy;
+        }
+        public Enemy ZeldaOldMan(Vector2 position)
+        {
+            Enemy enemy = new ZeldaOldMan(position);
             return enemy;
         }
 
@@ -118,6 +136,7 @@ namespace sprint0
             Velocity = new Vector2(-1, 0);
             Direction = Direction.LEFT;
             State = State.RUNNING;
+            TypeOfObject = "Enemy";
         }
     }
 
@@ -128,6 +147,27 @@ namespace sprint0
             Sprite = SpriteFactory.Instance.Octorok(position);
             Direction = Direction.DOWN;
             Velocity = Vector2.Zero;
+            TypeOfObject = "Enemy";
+        }
+    }
+
+    internal class Dragon : Enemy
+    {
+        public Dragon(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaDragon(position);
+            Direction = Direction.LEFT;
+            Velocity = new Vector2(-1, 0);
+            TypeOfObject = "Enemy";
+        }
+    }
+
+    internal class ZeldaOldMan : Enemy
+    {
+        public ZeldaOldMan(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaOldMan(position);
+            TypeOfObject = "Enemy";
         }
     }
 

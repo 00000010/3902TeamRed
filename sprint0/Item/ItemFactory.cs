@@ -58,6 +58,11 @@ namespace sprint0
             return new ZeldaFairy(position);
         }
 
+        public Item ZeldaFireItem(Vector2 position)
+        {
+            return new ZeldaFireItem(position);
+        }
+
         public Item ZeldaFood(Vector2 position)
         {
             return new ZeldaFood(position);
@@ -81,6 +86,24 @@ namespace sprint0
         public Item ZeldaLetter(Vector2 position)
         {
             return new ZeldaLetter(position);
+        }
+
+        public Item ZeldaRupy(Vector2 position)
+        {
+            return new ZeldaRupy(position);
+        }
+
+        public Item ZeldaTriforce(Vector2 position)
+        {
+            return new ZeldaTriforce(position);
+        }
+    }
+
+    internal class ZeldaTriforce : Item
+    {
+        public ZeldaTriforce(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaTriforce(position);
         }
     }
 
@@ -140,6 +163,14 @@ namespace sprint0
         }
     }
 
+    internal class ZeldaFireItem : Item
+    {
+        public ZeldaFireItem(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaFire(position);
+        }
+    }
+
     internal class ZeldaFood : Item
     {
         public ZeldaFood(Vector2 position)
@@ -177,6 +208,14 @@ namespace sprint0
         public ZeldaLetter(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaLetter(position);
+        }
+    }
+
+    internal class ZeldaRupy : Item
+    {
+        public ZeldaRupy(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaRupy(position);
         }
     }
 }
