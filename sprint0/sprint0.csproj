@@ -52,4 +52,3 @@
     <Exec Command="dotnet tool restore" />
   </Target>
 </Project>
->>>>>>> AbdBranch
