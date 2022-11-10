@@ -1,0 +1,19 @@
+Sprint 4:
+Readability code review:
+Author: Abd Elrahman Ibrahim
+Date: 11/10/2022
+Sprint: 4
+CS file being reviewed: Inventory.cs
+Author of file: Hamdan Almehairbi
+Number of minutes: 10
+Comments on code readability:
+The code is mostly readable and the variable names that are chosen effectively indicate what the variable stands for. That being said, there are parts of the code that seem fairly complex and which could become a lot more readable if some of the details are abstracted away into functions. For example, the UpdateHealth method seems complex and can be broken down into seperate functions to make it more readable and easier to understand.
+Code quality code review:
+Author: Abd Elrahman Ibrahim
+Date: 11/10/2022
+Sprint: 4
+CS file being reviewed: InventoryFactory.cs
+Author of file: Hamdan Almehairbi
+Comments on code maintainability: 
+The code is maintanable and has low coupling. The code is also effectively commented so that it can be easily adjusted later on. The code does seem to use a lot of literals, however, which can affect code maintanability in the future. A potential solution could be to add the literals in the constants class and use them from there instead.
+Hypothetical change: An additional change could be to have the map in the inventory effectively update according to the location of the player instead of having it be static.
