@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/Content/ZeldaSpriteLetter.png</SourceFile>
-  <SourceTime>2022-10-21T22:57:33.8107575-04:00</SourceTime>
-  <DestFile>/Users/owenhennessey/Projects/3902TeamRed/Sprint3/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/ZeldaSpriteLetter.xnb</DestFile>
-  <DestTime>2022-11-09T13:08:30.9631115-05:00</DestTime>
+  <SourceFile>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteLetter.png</SourceFile>
+  <SourceTime>2022-11-09T14:23:42.4849836-05:00</SourceTime>
+  <DestFile>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/ZeldaSpriteLetter.xnb</DestFile>
+  <DestTime>2022-11-09T14:37:03.6813773-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

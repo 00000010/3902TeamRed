@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,30 +15,46 @@ namespace sprint0
     {
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
-        
-        //public IPlayer player;
+
+        public IPlayer player;
         public IBlock block;
         public IItem item;
         public IEnemy enemy;
 
         public GameObjectManager manager;
         public LevelLoader loader;
+        KeyboardController keyboard;
 
         public int level = 0;
-
-        SpriteFont font;
-        KeyboardController keyboard;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            this.TargetElapsedTime = TimeSpan.FromSeconds(0.02);
         }
 
         protected override void Initialize()
         {
             base.Initialize();
+
+            manager = new GameObjectManager(this);
+            //manager.AddObject(block); 
+
+            keyboard = new KeyboardController();
+            keyboard.LoadDefaultKeys(this);
+
+            //Create level loader
+            loader = new LevelLoader(this);
+            loader.LoadLevel("Dungeon1");
+
+            HandleSpecialDisplays.Instance.Initialize(this);
+
+            //Play theme song in background
+            MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = (float)0.1;
         }
 
         protected override void LoadContent()
@@ -45,25 +62,16 @@ namespace sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
-
-            manager = new GameObjectManager(this);
-            manager.AddObject(block); // CollisionDevBranch
-
-            keyboard = new KeyboardController();
-            keyboard.LoadDefaultKeys(this);
-
-            Vector2 resolution = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
-
-            loader = new LevelLoader(this);
-            loader.LoadNextLevel();
-            Console.WriteLine(loader.ToString());
+            SoundFactory.Instance.LoadSounds(Content);
+            HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
         }
 
         protected override void Update(GameTime gameTime)
         {
+            if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
+
             keyboard.Update(gameTime);
             manager.Update(gameTime);
-
             base.Update(gameTime);
         }
 
@@ -73,9 +81,15 @@ namespace sprint0
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             manager.Draw(gameTime);
+            HandleSpecialDisplays.Instance.HandleSpecialDrawings();
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void RestartGame()
+        {
+            Initialize();
         }
     }
 }
