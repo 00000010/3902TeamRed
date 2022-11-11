@@ -23,25 +23,23 @@ namespace sprint0
 
         public void Execute()
         {
-            //enemy needs to take damage, and die after a few projectile hits
-            manager.objectsToRemove.Add((IObject)projectile);
-            if (Projectile.IsBoomerang(projectile))
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom"))
             {
-                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
+                manager.RemoveObject((IObject)projectile);
             }
 
             //WANT TO MODIFY THIS SO THAT ENEMY UPDATES SPRITE AS WELL
-            //enemy.TakingDamage = true;
             enemy.Health -= projectile.CollideDamage;
             if (enemy.Health <= 0)
             {
-                manager.objectsToRemove.Add((IObject)enemy);
+                manager.RemoveObject((IObject)enemy);
+                manager.RemoveFromRoom(enemy);
                 SoundFactory.Instance.zeldaEnemyDie.Play();
             }
             else
             {
                 SoundFactory.Instance.zeldaEnemyHit.Play();
-            } 
+            }
         }
     }
 }

@@ -23,16 +23,15 @@ namespace sprint0
 
         public void Execute()
         {
-            //link takes damage
-            manager.objectsToRemove.Add((IObject)projectile);
-            if (Projectile.IsBoomerang(projectile))
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom"))
             {
-                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false; ;
+                //link takes damage
+                manager.RemoveObject((IObject)projectile);
             }
 
             player.TakingDamage = true;
             player.Damaged = projectile.CollideDamage;
-            manager.UpdatePlayerSprite();
+            player.UpdatePlayerSprite(manager);
 
             SoundFactory.Instance.zeldaLinkHurt.Play();
         }

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <EastRoom>Room1</EastRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room2</Name>
+    </Meta>
+    <Asset>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorEast</ObjectName>
+			<Location>600 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>320 272</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>304 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Keese</ObjectName>
+            <Location>320 336</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+

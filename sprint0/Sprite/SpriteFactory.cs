@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using static sprint0.InventoryFactory;
 using static sprint0.SpriteRectangle;
 
 namespace sprint0
@@ -19,13 +20,12 @@ namespace sprint0
     public class SpriteFactory
     {
         private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
-        private Texture2D linkSpritesheet, enemiesSpritesheet;
-        private Texture2D GreenBlock, BlackBlock, PurpleBlock;
-        private Texture2D waterBlock;
-        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, LifePotion,
-            MagicalBoomerang, MagicalKey, MagicalRod, MagicalShield, Map, PowerBracelet, Raft, Recorder, RedCandle, RedRing, Rupy, SilverArrow, Stepladder,
-            Sword, Triforce, WhiteSword;
-        private Texture2D TopHud, InventoryHud,Fullheart, Halfheart, Emptyheart;
+        private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon, OldMan;
+        private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
+        private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
+        private Texture2D ProjectileEffect;
+        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
+        private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
 
         private SpriteBatch spriteBatch;
 
@@ -64,6 +64,7 @@ namespace sprint0
             waterBlock = content.Load<Texture2D>("WaterBlock");
 
             linkSpritesheet = content.Load<Texture2D>("Link");
+            Dragon = content.Load<Texture2D>("Zelda_bosses_test");
 
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
             BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
@@ -82,32 +83,19 @@ namespace sprint0
             HeartContainer = content.Load<Texture2D>("ZeldaSpriteHeartContainer");
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
-            LifePotion = content.Load<Texture2D>("ZeldaSpriteLifePotion");
-            MagicalBoomerang = content.Load<Texture2D>("ZeldaSpriteMagicalBoomerang");
-            MagicalKey = content.Load<Texture2D>("ZeldaSpriteMagicalKey");
-            MagicalRod = content.Load<Texture2D>("ZeldaSpriteMagicalRod");
-            MagicalShield = content.Load<Texture2D>("ZeldaSpriteMagicalShield");
-            Map = content.Load<Texture2D>("ZeldaSpriteMap");
-            PowerBracelet = content.Load<Texture2D>("ZeldaSpritePowerBracelet");
-            Raft = content.Load<Texture2D>("ZeldaSpriteRaft");
-            Recorder = content.Load<Texture2D>("ZeldaSpriteRecorder");
-            RedCandle = content.Load<Texture2D>("ZeldaSpriteRedCandle");
-            RedRing = content.Load<Texture2D>("ZeldaSpriteRedRing");
-            Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
-            SilverArrow = content.Load<Texture2D>("ZeldaSpriteSilverArrow");
-            Stepladder = content.Load<Texture2D>("ZeldaSpriteStepladder");
-            Sword = content.Load<Texture2D>("ZeldaSpriteSword");
-            Triforce = content.Load<Texture2D>("ZeldaSpriteTriforce");
-            WhiteSword = content.Load<Texture2D>("ZeldaSpriteWhiteSword");
+            Triforce = content.Load<Texture2D>("zeldaspritesheet");
+            ProjectileEffect = content.Load<Texture2D>("zeldaspritesheet");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
-
+            OldMan = content.Load<Texture2D>("Zelda_old_man");
+            HUD = content.Load<Texture2D>("Zelda_HUD");
+            ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
+            ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
+            Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
             TopHud = content.Load<Texture2D>("tophud");
-            InventoryHud = content.Load<Texture2D>("Inventory");
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
-
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -352,6 +340,11 @@ namespace sprint0
             return new Sprite(linkSpritesheet, SpriteRectangle.LinkThrowingRight, spriteBatch, position);
         }
 
+        public Sprite ZeldaDragon(Vector2 position)
+        {
+            return new Sprite(Dragon, EnemyRectangle.Dragon, spriteBatch, position);
+        }
+
         public Sprite ZeldaGreen(Vector2 position)
         {
             return new Sprite(GreenBlock, BlockRectangle.NormalBlock, spriteBatch, position);
@@ -373,6 +366,11 @@ namespace sprint0
         public Sprite ZeldaBlueCandle(Vector2 position)
         {
             return new Sprite(BlueCandle, ItemRectangle.Candle, spriteBatch, position);
+        }
+
+        public Sprite ZeldaSword(Vector2 position)
+        {
+            return new Sprite(HUD, ItemRectangle.Sword, spriteBatch, position);
         }
 
         public Sprite ZeldaBomb(Vector2 position)
@@ -429,78 +427,33 @@ namespace sprint0
         {
             return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position);
         }
-        public Sprite ZeldaLifePotion(Vector2 position)
-        {
-            return new Sprite(LifePotion, ItemRectangle.LifePotion, spriteBatch, position);
-        }
-        public Sprite ZeldaMagicalBoomerang(Vector2 position)
-        {
-            return new Sprite(Boomerang, ItemRectangle.Boomerang, spriteBatch, position);
-        }
-        public Sprite ZeldaMagicalKey(Vector2 position)
-        {
-            return new Sprite(MagicalKey, ItemRectangle.Key, spriteBatch, position);
-        }
-        public Sprite ZeldaMagicalRod(Vector2 position)
-        {
-            return new Sprite(MagicalRod, ItemRectangle.MagicalRod, spriteBatch, position);
-        }
-        public Sprite ZeldaMagicalShield(Vector2 position)
-        {
-            return new Sprite(MagicalShield, ItemRectangle.MagicalShield, spriteBatch, position);
-        }
-        public Sprite ZeldaMap(Vector2 position)
-        {
-            return new Sprite(Map, ItemRectangle.Map, spriteBatch, position);
-        }
-        public Sprite ZeldaPowerBracelet(Vector2 position)
-        {
-            return new Sprite(PowerBracelet, ItemRectangle.PowerBracelet, spriteBatch, position);
-        }
-        public Sprite ZeldaRaft(Vector2 position)
-        {
-            return new Sprite(Raft, ItemRectangle.Raft, spriteBatch, position);
-        }
-        public Sprite ZeldaRecorder(Vector2 position)
-        {
-            return new Sprite(Recorder, ItemRectangle.Recorder, spriteBatch, position);
-        }
-        public Sprite ZeldaRedCandle(Vector2 position)
-        {
-            return new Sprite(RedCandle, ItemRectangle.Candle, spriteBatch, position);
-        }
-        public Sprite ZeldaRedRing(Vector2 position)
-        {
-            return new Sprite(RedRing, ItemRectangle.Ring, spriteBatch, position);
-        }
-        public Sprite ZeldaRupy(Vector2 position)
-        {
-            return new Sprite(Rupy, ItemRectangle.Rupy, spriteBatch, position);
-        }
-        public Sprite ZeldaSilverArrow(Vector2 position)
-        {
-            return new Sprite(SilverArrow, ItemRectangle.BowArrowUp, spriteBatch, position);
-        }
-        public Sprite ZeldaStepladder(Vector2 position)
-        {
-            return new Sprite(Stepladder, ItemRectangle.Stepladder, spriteBatch, position);
-        }
-        public Sprite ZeldaSword(Vector2 position)
-        {
-            return new Sprite(Sword, ItemRectangle.Sword, spriteBatch, position);
-        }
+
         public Sprite ZeldaTriforce(Vector2 position)
         {
             return new Sprite(Triforce, ItemRectangle.Triforce, spriteBatch, position);
-        }
-        public Sprite ZeldaWhiteSword(Vector2 position)
-        {
-            return new Sprite(WhiteSword, ItemRectangle.Sword, spriteBatch, position);
         }
 
         public Sprite ZeldaRock(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, ProjectileRectangle.Rock, spriteBatch, position);
+        }
+
+        public Sprite ZeldaFire(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Fire, spriteBatch, position);
+        }
+
+        public Sprite ZeldaDragonProj(Vector2 position)
+        {
+            return new Sprite(Dragon, ProjectileRectangle.DragonProjectile, spriteBatch, position);
+        }
+
+        /*
+         * Enemies
+         */
+        public Sprite ZeldaOldMan(Vector2 position)
+        {
+            return new Sprite(OldMan, EnemyRectangle.ZeldaOldMan, spriteBatch, position);
         }
 
         public Sprite Stalfos(Vector2 position)
@@ -595,15 +548,73 @@ namespace sprint0
         {
             return new Sprite(Arrow, ItemRectangle.BowArrowRight, spriteBatch, position);
         }
+
+        public Sprite ZeldaProjectileEffect(Vector2 position)
+        {
+            return new Sprite(ProjectileEffect, SpriteRectangle.ProjectileEffect, spriteBatch, position);
+        }
+
+        /*
+         * HUD
+         */
+        public Sprite ZeldaCurrProjectile(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaCurrProjectile, spriteBatch, position);
+        }
+
+        public Sprite ZeldaAvailableProjectiles(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaAvailProjectiles, spriteBatch, position);
+        }
+        public Sprite ZeldaMapAndCompassHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaMapAndCompassHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaMapHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaMapHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaOrangeBlockHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaOrangeBlockHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaRupy(Vector2 position)
+        {
+            return new Sprite(Rupy, ItemRectangle.ZeldaRupy, spriteBatch, position);
+        }
+
+        public Sprite ZeldaInventoryHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaInventoryHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaLevelHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaLevelHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaNumOneHUD(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaNumOneHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaBlueMapHUD(Vector2 position)
+        {
+            return new Sprite(ZeldaBlueMap, SpriteRectangle.ZeldaBlueMapHUD, spriteBatch, position);
+        }
+
+        public Sprite ZeldaOrangeMapHUD(Vector2 position)
+        {
+            return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position);
+        }
+
         /* inventory */
         public Sprite TopHUD(Vector2 position)
         {
             return new Sprite(TopHud, InventoryRectangle.TopHUD, spriteBatch, position);
-        }
-        public Sprite InventoryHUD(Vector2 position)
-        {
-            Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, InventoryHud.Width, InventoryHud.Height) };
-            return new Sprite(InventoryHud, rectangles, spriteBatch, position);
         }
         public Sprite FullHeart(Vector2 position)
         {
@@ -620,6 +631,5 @@ namespace sprint0
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Emptyheart.Width, Emptyheart.Height) };
             return new Sprite(Emptyheart, rectangles, spriteBatch, position);
         }
-        
     }
 }

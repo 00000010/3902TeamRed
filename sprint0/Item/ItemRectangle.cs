@@ -38,33 +38,15 @@ namespace sprint0
         //used for both normal and magical keys
         public static Rectangle[] Key = { new Rectangle(0, 0, 8, 16) };
 
+        public static Rectangle[] Sword = { new Rectangle(555, 137, 8, 15) };
+
         public static Rectangle[] Letter = { new Rectangle(0, 0, 8, 16) };
 
-        public static Rectangle[] LifePotion = { new Rectangle(0, 0, 0, 0) };
+        public static Rectangle[] ZeldaRupy = { new Rectangle(0, 1, 9, 12) };
 
-        public static Rectangle[] MagicalRod = { new Rectangle(0, 0, 4, 16) };
-
-        public static Rectangle[] MagicalShield = { new Rectangle(0, 0, 8, 12) };
-
-        public static Rectangle[] Map = { new Rectangle(0, 0, 8, 16) };
-
-        public static Rectangle[] PowerBracelet = { new Rectangle(0, 0, 8, 14) };
-
-        public static Rectangle[] Raft = { new Rectangle(0, 0, 14, 16) };
-
-        public static Rectangle[] Recorder = { new Rectangle(0, 0, 3, 16) };
-
-        //used for red and blue rings
-        public static Rectangle[] Ring = { new Rectangle(0, 0, 7, 9) };
-
-        //used for both Rupy and 5Rupy
-        public static Rectangle[] Rupy = { new Rectangle(0, 0, 8, 16) };
-
-        public static Rectangle[] Stepladder = { new Rectangle(0, 0, 16, 16) };
-
-        //normal and white sword
-        public static Rectangle[] Sword = { new Rectangle(0, 0, 7, 16) };
-
-        public static Rectangle[] Triforce = { new Rectangle(0, 0, 10, 10) };
+        public static Rectangle[] Triforce = { 
+            new Rectangle(333, 289, 10, 10),
+            new Rectangle(363, 289, 10, 10)
+        };
     }
 }

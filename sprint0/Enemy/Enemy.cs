@@ -56,7 +56,7 @@ namespace sprint0
             Vector2 currVelocity = new Vector2(-100);
             Sprite testSprite = SpriteFactory.Instance.ZeldaArrowUp(Position); // TODO: changed from BowArrow to BowArrowUp; don't think this makes a difference
             elapsedTime += (float)gametime.ElapsedGameTime.TotalSeconds;
-            EnemyVelocity.UpdateVelocity(gametime, Sprite.SourceRectangle, ref currVelocity, ref testSprite, elapsedTime);
+            EnemyVelocity.UpdateVelocity(gametime, Sprite.SourceRectangle, ref currVelocity, ref testSprite, elapsedTime, Velocity);
 
             if (currVelocity.X != -100)
             {

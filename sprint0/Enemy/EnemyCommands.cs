@@ -37,6 +37,16 @@ namespace sprint0
             {
                 projectile = ProjectileFactory.Instance.ZeldaRock(enemy.Position, enemy.Direction);
             }
+            else if (name.Equals("Dragon"))
+            {
+                projectile = ProjectileFactory.Instance.ZeldaDragonProj(enemy.Position, new Vector2(-5, 0));
+                IProjectile projectile2 = ProjectileFactory.Instance.ZeldaDragonProj(enemy.Position, new Vector2(-5, -3));
+                IProjectile projectile3 = ProjectileFactory.Instance.ZeldaDragonProj(enemy.Position, new Vector2(-5, 3));
+                manager.AddObject(projectile2);
+                manager.shooterOfProjectile.Add(projectile2, (IShooter)enemy);
+                manager.AddObject(projectile3);
+                manager.shooterOfProjectile.Add(projectile3, (IShooter)enemy);
+            }
             manager.AddObject(projectile);
             manager.shooterOfProjectile.Add(projectile, (IShooter) enemy);
         }

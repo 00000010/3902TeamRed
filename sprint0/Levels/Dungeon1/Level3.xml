@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <WestRoom>Room1</WestRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room3</Name>
+    </Meta>
+    <Asset>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>DungeonDoorWest</ObjectName>
+			<Location>165 270</Location>
+		</Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>275 250</Location>
+            <Dimension>2 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>468 250</Location>
+            <Dimension>2 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>380 348</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 256</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>400 288</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>352 352</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>480 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>464 336</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+

@@ -34,28 +34,28 @@ namespace sprint0
             {
                 if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
                 {
-                    player.Position -= new Vector2(0, 5);
+                    player.Position -= new Vector2(0, 2);
                 }
             }
             if (intersectionLoc.Contains("bottom"))
             {
                 if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
                 {
-                    player.Position += new Vector2(0, 5);
+                    player.Position += new Vector2(0, 2);
                 }
             }
             if (intersectionLoc.Contains("left"))
             {
                 if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
                 {
-                    player.Position -= new Vector2(5, 0);
+                    player.Position -= new Vector2(2, 0);
                 }
             }
             if (intersectionLoc.Contains("right"))
             {
                 if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
                 {
-                    player.Position += new Vector2(5, 0);
+                    player.Position += new Vector2(2, 0);
                 }
             }
 
@@ -63,12 +63,10 @@ namespace sprint0
             {
                 managedPlayer.TakingDamage = true;
                 managedPlayer.Damaged = enemy.CollideDamage;
-                manager.UpdatePlayerSprite();
+                player.UpdatePlayerSprite(manager);
+
+                manager.inventory.UpdateHearts(managedPlayer.Health);
                 SoundFactory.Instance.zeldaLinkHurt.Play();
-
-
-                /*UPDATE HEART DISPLAY*/
-                manager.UpdateHealth(managedPlayer.Health);
             }
         }
     }

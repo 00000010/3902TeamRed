@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -12,6 +15,7 @@ namespace sprint0
         IObject player;
         IObject item;
         string intersectionLoc;
+        IPlayer managedPlayer;
         GameObjectManager manager;
         public PlayerItemCollisionCommand(IObject player, IObject item, string intersectionLoc, GameObjectManager manager)
         {
@@ -23,27 +27,33 @@ namespace sprint0
 
         public void Execute()
         {
-            //link will have all items to start with, they wont pick up any items yet
-            Type ItemType = item.GetType();
-            string ItemName = ItemType.Name;
-            if (ItemName == "ZeldaRupy")
-            {
-                manager.inventory.Coins++;
-                manager.inventory.CoinTextSprite.Text = manager.inventory.Coins.ToString();
-            }
-            else if (ItemName == "ZeldaKey")
-            {
-                manager.inventory.Keys++;
-                manager.inventory.KeyTextSprite.Text = manager.inventory.Keys.ToString();
-            }
-            else if (ItemName == "ZeldaBoomerang")
+            manager.RemoveObject(item);
+            if (GameObjectManager.IsDesiredObject(item, "ZeldaBoomerang"))
             {
                 manager.inventory.Boomerangs++;
-                manager.inventory.BoomerangTextSprite.Text = manager.inventory.Boomerangs.ToString();
+                SoundFactory.Instance.zeldaBoomObtained.Play();
             }
-            else if (ItemName == "ZeldaBow")
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaTriforce"))
             {
-                
+                MediaPlayer.Play(SoundFactory.Instance.zeldaVictory);
+                manager.RemoveObject(item);
+                manager.SetVictory();
+            }
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaHeart"))
+            {
+                //heart
+                managedPlayer = manager.player;
+                managedPlayer.TakingDamage = false;
+                managedPlayer.Health += 100;
+                if (managedPlayer.Health > 100) managedPlayer.Health = 100;
+                manager.inventory.FillHearts();
+                manager.inventory.UpdateHearts(managedPlayer.Health);
+                SoundFactory.Instance.zeldaItemObtained.Play();
+            }
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaRupy"))
+            {
+                manager.inventory.Coins++;
+                SoundFactory.Instance.zeldaItemObtained.Play();
             }
         }
     }

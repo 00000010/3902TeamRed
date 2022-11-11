@@ -50,6 +50,7 @@ namespace sprint0
                 HandleProjectileBackToShooter(projectilesInFlight[i], manager);
             }
             UpdateVelocityBoomerang(projectilesInFlight, manager);
+            UpdateDistanceFireballs(projectilesInFlight, manager);
         }
 
         private static bool HandleProjectileOutOfBounds(IProjectile projectile, GameObjectManager manager)
@@ -62,10 +63,10 @@ namespace sprint0
             return false;
         }
 
-
         //Make enemy own projectiles that it shoots
-        private static bool HandleProjectileBackToShooter(IProjectile projectile, GameObjectManager manager)
+        private static void HandleProjectileBackToShooter(IProjectile projectile, GameObjectManager manager)
         {
+            if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom")) return;
             bool result = (projectile.Direction == Direction.LEFT && projectile.Position.X > projectile.InitPosition.X)
                 || (projectile.Direction == Direction.RIGHT && projectile.Position.X < projectile.InitPosition.X)
                 || (projectile.Direction == Direction.UP && projectile.Position.Y > projectile.InitPosition.Y)
@@ -73,24 +74,23 @@ namespace sprint0
             if (result)
             {
                 manager.RemoveObject(projectile);
-                if (IsBoomerang(projectile)) manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false;
+                manager.shooterOfProjectile.GetValueOrDefault(projectile).ShotBoomerang = false;
             }
-                return result;
-        }
-
-        public static bool IsBoomerang(IProjectile projectile)
-        {
-            //Use reflection to get type of projectile and notify shooter to update if projectile is boomerang
-            Type typeOfProj = projectile.GetType();
-            string projTypeName = typeOfProj.Name;
-            return projTypeName.Equals("ZeldaBoom");
         }
 
         public static void UpdateVelocityBoomerang(List<IProjectile> projectilesInFlight, GameObjectManager manager)
         {
             for (int i = 0; i < projectilesInFlight.Count; i++)
             {
-                if (IsBoomerang(projectilesInFlight[i])) ChangeBoomerangVelocity(projectilesInFlight[i]);
+                if (GameObjectManager.IsDesiredObject((IObject)projectilesInFlight[i], "ZeldaBoom")) ChangeBoomerangVelocity(projectilesInFlight[i]);
+            }
+        }
+
+        public static void UpdateDistanceFireballs(List<IProjectile> projectilesInFlight, GameObjectManager manager)
+        {
+            for (int i = 0; i < projectilesInFlight.Count; i++)
+            {
+                if (GameObjectManager.IsDesiredObject((IObject)projectilesInFlight[i], "ZeldaFire")) RemoveFireballIfNeeded(projectilesInFlight[i], manager);
             }
         }
 
@@ -106,12 +106,19 @@ namespace sprint0
             }
             else if (projectile.Direction == Direction.DOWN)
             {
-                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y + (float)0.2);
+                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y - (float)0.2);
             }
             else
             {
-                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y - (float)0.2);
+                projectile.Velocity = new Vector2(projectile.Velocity.X, projectile.Velocity.Y + (float)0.2);
             }
+        }
+
+        public static void RemoveFireballIfNeeded(IProjectile projectile, GameObjectManager manager)
+        {
+            float distance = Math.Abs(projectile.Position.X - projectile.InitPosition.X) +
+                Math.Abs(projectile.Position.Y - projectile.InitPosition.Y);
+            if (distance > 100) manager.RemoveObject(projectile);
         }
     }
 }

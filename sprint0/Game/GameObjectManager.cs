@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace sprint0
 {
@@ -10,7 +11,8 @@ namespace sprint0
     {
         private Game1 game;
         public IPlayer player;
-        public Inventory inventory = InventoryFactory.Instance.TopHUD();
+        public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
+        public Inventory inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -32,36 +34,12 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
             AddHud();
         }
-
-        public void UpdateHealth(int CurrentHealth)  //only used for damaging link
-        {
-            int MissingHealth = 100 - CurrentHealth;    //might need to change 100 to maximum health of link rather than tie it to 100
-
-            int i = inventory.HalfHearts-1;
-            while (MissingHealth >= 0)
-            {
-                MissingHealth -= 10;
-                if (MissingHealth >= 0)
-                {
-                    Vector2 position = inventory.HealthSprite[i / 2].Position;
-                    if (i%2!=0) //we remove half heart 
-                    {
-                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.HalfHeart(position);
-                    }
-                    else //we remove full heart
-                    {
-                        inventory.HealthSprite[i / 2] = SpriteFactory.Instance.EmptyHeart(position);
-                    }
-                }
-                i--;
-            }
-            
-        }
-
+        
         private void PopulateCollisionResolutionDic()
         {
             collisionResolutionDic.Add(new Tuple<string, string>("Player", "Block"),
@@ -86,12 +64,9 @@ namespace sprint0
         {
             setOfEnemyShooters.Add("Goriya");
             setOfEnemyShooters.Add("Octorok");
+            setOfEnemyShooters.Add("Dragon");
         }
-        private void AddHud()
-        {
-            drawables.Add(inventory);
-            updateables.Add(inventory);
-        }
+
         public void addProjectile(IProjectile projectile)
         {
             projectilesInFlight.Add(projectile);
@@ -132,197 +107,6 @@ namespace sprint0
             items.Remove(item);
         }
 
-        public void UpdatePlayerState()
-        {
-            if (player.Velocity == Vector2.Zero)
-            {
-                player.State = State.STANDING;
-            }
-        }
-
-        public void UpdatePlayerSprite()
-        {
-            Vector2 velocity = player.Velocity;
-            if (velocity.X == 0)
-            {
-                if (velocity.Y < 0)
-                {
-                    player.Direction = Direction.UP;
-                }
-                else if (velocity.Y > 0)
-                {
-                    player.Direction = Direction.DOWN;
-                }
-            }
-
-            if (velocity.Y == 0)
-            {
-                if (velocity.X < 0)
-                {
-                    player.Direction = Direction.LEFT;
-                }
-                else if (velocity.X > 0)
-                {
-                    player.Direction = Direction.RIGHT;
-                }
-            }
-
-            if (player.TakingDamage)
-            {
-                switch (player.State)
-                {
-                    case State.RUNNING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningUpDamaged(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningDownDamaged(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningLeftDamaged(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningRightDamaged(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case State.STANDING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingUpDamaged(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingDownDamaged(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingLeftDamaged(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingRightDamaged(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case State.ATTACKING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingUpDamaged(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingDownDamaged(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingLeftDamaged(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingRightDamaged(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                player.Health -= player.Damaged;
-                if (player.Health <= 0)
-                {
-                    RemovePlayer(player);
-                    SoundFactory.Instance.zeldaLinkDie.Play();
-                }
-            } else {
-                switch (player.State)
-                {
-                    case State.RUNNING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningUp(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningDown(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningLeft(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkRunningRight(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case State.STANDING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingUp(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingDown(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingLeft(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkStandingRight(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case State.ATTACKING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingUp(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingDown(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingLeft(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkAttackingRight(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case State.THROWING:
-                        switch (player.Direction)
-                        {
-                            case Direction.UP:
-                                player.Sprite = SpriteFactory.Instance.LinkThrowingUp(player.Position);
-                                break;
-                            case Direction.DOWN:
-                                player.Sprite = SpriteFactory.Instance.LinkThrowingDown(player.Position);
-                                break;
-                            case Direction.LEFT:
-                                player.Sprite = SpriteFactory.Instance.LinkThrowingLeft(player.Position);
-                                break;
-                            case Direction.RIGHT:
-                                player.Sprite = SpriteFactory.Instance.LinkThrowingRight(player.Position);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-            player.Velocity = velocity;
-        }
-
         /**
          * Add the object to the manager.
          * An object is not playable.
@@ -336,19 +120,37 @@ namespace sprint0
             objectsToRemove.Add(obj);
         }
 
+        public void RemoveFromRoom(object obj)
+        {
+            game.loader.RemoveFromCurrRoom(obj);
+            //Sometimes drop hearts after killing enemies
+            Random randomGen = new Random();
+            int shouldDrop = randomGen.Next(0, 20);
+            if (shouldDrop == 0 && obj is Enemy)
+            {
+                IEnemy enemy = (Enemy)obj;
+                AddObject(ItemFactory.Instance.ZeldaHeart(enemy.Position));
+            }
+            //Sometimes drop coins
+            if (shouldDrop == 1 && obj is Enemy)
+            {
+                IEnemy enemy = (Enemy)obj;
+                AddObject(ItemFactory.Instance.ZeldaRupy(enemy.Position));
+            }
+        }
+
         public void AddPlayer(object player)
         {
             this.player = (IPlayer)player;
             AddObject(player);
         }
 
-        public void RemovePlayer(object player)
+        public void RemovePlayer()
         {
-            this.player = (IPlayer)player;
-            drawables.Remove((IDrawable)player);
-            updateables.Remove((IUpdateable)player);
+            drawables.Remove(player);
+            updateables.Remove(player);
             //Stop gameplay
-            game.GameOver = true;
+            HandleSpecialDisplays.Instance.GameOver = true;
         }
 
         public void Update(GameTime gameTime)
@@ -359,7 +161,7 @@ namespace sprint0
                 if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
                 {
                     player.State = State.STANDING;
-                    UpdatePlayerSprite();
+                    player.UpdatePlayerSprite(this);
                     attackingRotation = 0;
                 }
                 attackingRotation++;
@@ -370,12 +172,51 @@ namespace sprint0
                 if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
                 {
                     player.TakingDamage = !player.TakingDamage;
-                    UpdatePlayerSprite();
+                    player.UpdatePlayerSprite(this);
                     damageRotation = 0;
                 }
                 damageRotation++;
             }
 
+            //Removes all objects in objectsToRemove and adds all objects in objectsToAdd
+            RemoveAllObjects();
+            AddAllObjects();
+
+            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+            Enemy.UpdateEnemyProjectiles(game, enemies);
+
+            foreach (IUpdateable updateable in updateables)
+            {
+                updateable.Update(gameTime);
+            }
+
+            //Handling all different types of collision
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
+        }
+
+        public void Draw(GameTime gameTime)
+        {
+            foreach (IDrawable drawable in drawables)
+            {
+                drawable.Draw(gameTime);
+            }
+        }
+
+        public static string TypeToString(Type type)
+        {
+            return type.BaseType.Name;
+        }
+
+        public static bool IsDesiredObject(IObject desiredObj, string expectedName)
+        {
+            //Use reflection to get type of projectile and notify shooter to update if projectile is boomerang
+            Type typeOfProj = desiredObj.GetType();
+            string projTypeName = typeOfProj.Name;
+            return projTypeName.Equals(expectedName);
+        }
+
+        private void RemoveAllObjects()
+        {
             foreach (object obj in objectsToRemove)
             {
                 if (obj is IDrawable)
@@ -410,7 +251,10 @@ namespace sprint0
             }
 
             objectsToRemove.Clear();
+        }
 
+        public void AddAllObjects()
+        {
             foreach (object obj in objectsToAdd)
             {
                 if (obj is IDrawable)
@@ -445,25 +289,17 @@ namespace sprint0
             }
 
             objectsToAdd.Clear();
-
-            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
-            Enemy.UpdateEnemyProjectiles(game, enemies);
-
-            foreach (IUpdateable updateable in updateables)
-            {
-                updateable.Update(gameTime);
-            }
-            
-            //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
         }
 
-        public void Draw(GameTime gameTime)
+        public void SetVictory()
         {
-            foreach (IDrawable drawable in drawables)
-            {
-                drawable.Draw(gameTime);
-            }
+            HandleSpecialDisplays.Instance.Victory = true;
+        }
+
+        private void AddHud()
+        {
+            drawables.Add(inventory);
+            updateables.Add(inventory);
         }
     }
 }

@@ -13,6 +13,6 @@ namespace sprint0
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
         public Vector2 Velocity { get; set; }
-        
+
     }
 }

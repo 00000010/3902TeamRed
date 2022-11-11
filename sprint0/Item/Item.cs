@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Item : IItem, IObject
+     public class Item : IItem, IObject
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
