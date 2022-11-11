@@ -29,6 +29,7 @@ namespace sprint0
         {
             this.game = game;
             this.gameObjectManager = game.manager;
+            currentRoom = new Room();
         }
 
         public string[] getFilePaths(string levelName)
@@ -60,6 +61,9 @@ namespace sprint0
          */
         public void LoadLevel(string levelName)
         {
+            // Unload anything that may be previously loaded.
+            UnloadRoom();
+
             string[] files = getFilePaths(levelName);
 
             foreach (string filePath in files)
@@ -209,11 +213,6 @@ namespace sprint0
             foreach (object item in currentRoom.roomObjects)
             {
                 gameObjectManager.RemoveObject(item);
-            }
-            // TODO: testing commenting out
-            foreach (object player in currentRoom.roomPlayers)
-            {
-                gameObjectManager.RemoveObject(player);
             }
         }
 
