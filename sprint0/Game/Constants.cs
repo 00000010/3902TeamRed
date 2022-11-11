@@ -54,10 +54,11 @@ namespace sprint0
         public const float BACKGROUND_BLOCK_LAYER_DEPTH = 0.1f;
         public const float BLOCK_LAYER_DEPTH = 0.2f;
         public const float DOOR_LAYER_DEPTH = 0.3f;
-        public const float ITEM_LAYER_DEPTH = 0.7f;
-        public const float PROJECTILE_LAYER_DEPTH = 0.8f;
-        public const float ENEMY_LAYER_DEPTH = 0.9f;
-        public const float PLAYER_LAYER_DEPTH = 1.0f;
+        public const float ITEM_LAYER_DEPTH = 0.6f;
+        public const float PROJECTILE_LAYER_DEPTH = 0.7f;
+        public const float ENEMY_LAYER_DEPTH = 0.8f;
+        public const float PLAYER_LAYER_DEPTH = 0.9f;
+        public const float TEXT_LAYER_DEPTH = 1.0f;
 
         public const int NUM_AVAILABLE_PROJECTILES = 3;
 
