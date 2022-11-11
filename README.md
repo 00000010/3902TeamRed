@@ -17,7 +17,7 @@ Adam Perhala (perhala.3) <br/>
 ## About The Project
 
 The Legend of Zelda done our way.  Current iteration is complete with full implementation of entire first dungeon, <br/>
-collision detection and handling, inclusion of all in game items and enemies, and a level loader for handling switching rooms <br/>
+collision detection and handling, inclusion of all in game items and enemies, a level loader for handling switching rooms, and a Heads Up Display <br/>
 
 
 
@@ -102,12 +102,8 @@ collision detection and handling, inclusion of all in game items and enemies, an
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Projectile/ProjectileRectangle.cs" target="_blank">ProjectileRectangle.cs</a> - Holds Projectile image rectangle data
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay" target="_blank">ScreenDisplay</a> - Key mappings for the display of all necessary objects
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/NextBlockCommand.cs" target="_blank">NextBlockCommand.cs</a> - Display next Block to screen
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/NextEnemyCommand.cs" target="_blank">NextEnemyCommand.cs</a> - Display next Enemy to screen
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/NextItemCommand.cs" target="_blank">NextItemCommand.cs</a> - Display next Item to screen
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/PrevBlockCommand.cs" target="_blank">PrevBlockCommand.cs</a> - Display previous Block to screen
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/PrevEnemyCommand.cs" target="_blank">PrevEnemyCommand.cs</a> - Display previous Enemy to screen
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/PrevItemCommand.cs" target="_blank">PrevItemCommand.cs</a> - Display previous Item to screen
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/NextProjectileCommand.cs" target="_blank">NextProjectileCommand.cs</a> - Display next Projectile to screen
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/ScreenDisplay/NextProjectileCommand.cs" target="_blank">PrevProjectileCommand.cs</a> - Display previous Projectile to screen
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Sprite" target="_blank">Sprite</a> - Image display for all Players/Items/Blocks/Enemies/Text
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Sprite/ISprite.cs" target="_blank">ISprite.cs</a> - Sprite Interface
@@ -123,23 +119,18 @@ Move up:    'W' or ⬆ <br/>
 Move left:  'A' or ⬅ <br/>
 Move down:  'S' or ⬇ <br/>
 Move right: 'D' or ⮕ <br/>
-Attack:     'N' or 'Z' <br/>
+Attack:     'N'<br/>
 
-Damage Link: 'E' <br/>
-
-Shoot Projectile: 'L' <br/>
 Quit Game: 'Q' <br/>
+Pause Game: 'P' <br/>
+Restart Game (only after victory): 'R' <br/>
 
-Previous Block: 'T' <br/>
-Next Block: 'Y' <br/>
+Shoot Projectile: 'B' <br/>
+Previous Projectile: 'J' <br/>
+Next Projectile: 'K' <br/>
 
-Previous Item: 'U' <br/>
-Next Item: 'I' <br/>
-
-Previous Enemy: 'O' <br/>
-Next Enemy: 'P' <br/>
-
-Load a new room: 'H' <br/>
+Display Inventory: 'Y' <br/>
+Remove Inventory: 'T' <br/>
 
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
 ## Non-Required Tools and Processes
@@ -154,26 +145,16 @@ for the Legend of Zelda.  He has been working on the client and one server to al
 a loosely working implementation going.
 
 ## Backlog
-We did a lot of refactoring this sprint, and in the process, enemies lost their functionality to shoot projectiles. <br/>
-We’ll have them shooting projectiles again next sprint. We’ll also add the ability to differentiate between Link <br/>
-projectiles and enemy projectiles. </br>
-Implement functionality to move between rooms through doors. <br/>
-At the moment, Link’s collision with items is detected and the PlayerProjectileCommand which is a collision resolution <br/>
-command is called as a result. <br/>
-We still need to implement functionality to allow for Link to pick up items.<br/>
+The backlog mainly contains minor improvements that can be made to improve the code quality. There are not any main features in the game that were missing before that are still missing.
 *Please see the Trello list "Backlog" for a full detail of all items here, as well as complete descriptions.*
-
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
-Collisions occur but Link violently shakes while he's colliding<br/>
 Link does not move in completely expected ways when multiple movement keys are pressed (WASD)<br/>
 *Please see the Trello list "Buglog" for a full detail of all items here, as well as complete descriptions.*
 
-## Sprint 3 Reflection
-The team managed its task by assigning the majority of the team to level loading, and two people to collision handling and collision resolution. The team was aware that there were code smells causing technical debt from the previous sprints; to resolve this the code was completely refactored.  This change did make the level loading process much easier and reduced technical debt. A few things broke during this change that were fixed, and what we could not fix was put in the backlog. The change was constructive and made the code more readable. In terms of planning for the next sprints, we could have team meetings more often to discuss possible changes/bug fixes.<br/><br/>
+## Sprint 4 Reflection
+The team managed its tasks by having members pick up tasks as needed to ensure that we can complete as many tasks as possible. We were successfully able to complete almost all the required features for Sprint 4, including the Heads Up Display, Inventory, State transitions, and Sound. We were also able to effectively fix all of the features from prior sprints.<br/><br/>
 
-With respect to general administration, while we continued to have trouble determining who did what work, towards the end of this sprint we discovered it may actually be easier to compile a list (that anyone could contribute to) of all things that needed complete, with full descriptions so anyone could claim that item to complete. This free-for-all approach works well assuming descriptions are complete. Unfortunately, this approach was not official and was only finalized in Trello towards the end. In other words, while we did not have a list per se, we did discuss during meetings what needed complete and added it to our own to-do lists. Regardless, this approach could be very helpful for next sprint. <br/><br/>
-
-Integration between Discord (our primary communication) and Trello will also speed up this process, although this was implemented rather late in this sprint. Before next sprint, this integration needs to be refined since currently we get notifications for unnecessary Trello changes, such as labeling, rule creation, renaming cards, etc. We should only have notifications for card creation and card movement.
+Integration between Discord (our primary communication) and Trello helped with the free-for-all approach that we adopted by ensuring that everyone was up to date on what changes have been implemented. This integration still needs to be refined since currently we get notifications for unnecessary Trello changes, such as labeling, rule creation, renaming cards, etc. We should only have notifications for card creation and card movement.
 
