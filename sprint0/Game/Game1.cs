@@ -24,7 +24,7 @@ namespace sprint0
         public LevelLoader loader;
 
         SpriteFont font;
-        public KeyboardController keyboard;
+        KeyboardController keyboard;
 
         public Game1()
         {

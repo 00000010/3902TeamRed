@@ -63,7 +63,7 @@ namespace sprint0
 
 	public Block WaterBlock(Vector2 position)
 	{
-	    return new WaterBlock(position)
+            return new WaterBlock(position);
 	}
     }
 

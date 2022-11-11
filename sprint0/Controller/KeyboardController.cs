@@ -102,8 +102,9 @@ namespace sprint0
 
             this.RegisterCommand(Keys.Y, new DisplayInventoryCommand(game, "Display"));
             this.RegisterCommand(Keys.T, new DisplayInventoryCommand(game, "Remove"));
-        
-	public void EnableKeyboard()
+        }
+
+	    public void EnableKeyboard()
         {
             this.enabled = true;
         }

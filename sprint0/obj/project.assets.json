@@ -102,19 +102,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/william/.nuget/packages/": {}
+    "/Users/owenhennessey/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/william/Desktop/3902v4/3902TeamRed/sprint0/sprint0.csproj",
+      "projectUniqueName": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/sprint0.csproj",
       "projectName": "sprint0",
-      "projectPath": "/Users/william/Desktop/3902v4/3902TeamRed/sprint0/sprint0.csproj",
-      "packagesPath": "/Users/william/.nuget/packages/",
-      "outputPath": "/Users/william/Desktop/3902v4/3902TeamRed/sprint0/obj/",
+      "projectPath": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/sprint0.csproj",
+      "packagesPath": "/Users/owenhennessey/.nuget/packages/",
+      "outputPath": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/william/.nuget/NuGet/NuGet.Config"
+        "/Users/owenhennessey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -163,7 +163,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
