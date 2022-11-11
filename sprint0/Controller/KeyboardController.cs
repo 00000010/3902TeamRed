@@ -82,16 +82,6 @@ namespace sprint0
             this.RegisterCommandUnpress(Keys.S, new PlayerStopRunningCommand(game, Direction.DOWN));
             this.RegisterCommandUnpress(Keys.D, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
-            //this.RegisterCommand(Keys.Up, new PlayerRunningCommand(game, Direction.UP));
-            //this.RegisterCommand(Keys.Left, new PlayerRunningCommand(game, Direction.LEFT));
-            //this.RegisterCommand(Keys.Down, new PlayerRunningCommand(game, Direction.DOWN));
-            //this.RegisterCommand(Keys.Right, new PlayerRunningCommand(game, Direction.RIGHT));
-
-            //this.RegisterCommandUnpress(Keys.Up, new PlayerStopRunningCommand(game, Direction.UP));
-            //this.RegisterCommandUnpress(Keys.Left, new PlayerStopRunningCommand(game, Direction.LEFT));
-            //this.RegisterCommandUnpress(Keys.Down, new PlayerStopRunningCommand(game, Direction.DOWN));
-            //this.RegisterCommandUnpress(Keys.Right, new PlayerStopRunningCommand(game, Direction.RIGHT));
-
             //Loads in the changes room commands for manually controlling rooms
             this.RegisterCommand(Keys.Left, new LoadRoomCommand(game, Direction.LEFT));
             this.RegisterCommand(Keys.Up, new LoadRoomCommand(game, Direction.UP));
@@ -103,7 +93,7 @@ namespace sprint0
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* Reload the current level */
-            //this.RegisterCommand(Keys.R, new ReloadLevelCommand(game));
+            this.RegisterCommand(Keys.R, new ReloadLevelCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));

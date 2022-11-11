@@ -24,6 +24,7 @@ namespace sprint0
         public GameObjectManager manager;
         public LevelLoader loader;
         KeyboardController keyboard;
+        ICamera camera;
 
         public int level = 0;
 
@@ -40,7 +41,7 @@ namespace sprint0
             base.Initialize();
 
             manager = new GameObjectManager(this);
-            //manager.AddObject(block); 
+            //manager.AddObject(block);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
@@ -48,6 +49,9 @@ namespace sprint0
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
+
+            //camera = new Camera(new GameCamera());
+            //manager.AddObject(camera);
 
             HandleSpecialDisplays.Instance.Initialize(this);
 
@@ -64,6 +68,7 @@ namespace sprint0
             SpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
             SoundFactory.Instance.LoadSounds(Content);
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
+            TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
             player = PlayerFactory.Instance.Link(new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y));
         }

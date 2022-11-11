@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -50,6 +50,7 @@ namespace sprint0
         /// from the spritesheet</param>
         /// <param name="spriteBatch"></param>
         /// <param name="position">where to put the sprite</param>
+        /// <param name="layerDepth">float between 0 and 1, with a higher number indicating drawn later</param>
         public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, float layerDepth)
         {
             Texture = texture;
@@ -97,22 +98,23 @@ namespace sprint0
             if (SourceRectangle == ItemRectangle.BowArrowUp || SourceRectangle == ItemRectangle.BowArrowDown || SourceRectangle == ItemRectangle.BowArrowLeft || SourceRectangle == ItemRectangle.BowArrowRight) return;
 
             // wrap around screen
-            if (Position.X > 800)
-            {
-                Position = new Vector2(0, Position.Y);
-            }
-            else if (Position.X < 0)
-            {
-                Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
-            }
-            else if (Position.Y > 480)
-            {
-                Position = new Vector2(Position.X, 0);
-            } 
-            else if (Position.Y < 0)
-            {
-                Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
-            }
+            // TODO: probably remove as this is from sprint2
+            //if (Position.X > 800)
+            //{
+            //    Position = new Vector2(0, Position.Y);
+            //}
+            //else if (Position.X < 0)
+            //{
+            //    Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
+            //}
+            //else if (Position.Y > 480)
+            //{
+            //    Position = new Vector2(Position.X, 0);
+            //} 
+            //else if (Position.Y < 0)
+            //{
+            //    Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
+            //}
         }
 
         public virtual void UpdateFrame(GameTime gameTime)

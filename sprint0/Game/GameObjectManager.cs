@@ -12,6 +12,7 @@ namespace sprint0
         public Game1 game;
         public IPlayer player;
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
+        public Inventory inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -35,8 +36,10 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
+            AddHud();
         }
 
         private void PopulateCollisionResolutionDic()
@@ -142,6 +145,12 @@ namespace sprint0
             {
                 IEnemy enemy = (Enemy)obj;
                 AddObject(ItemFactory.Instance.ZeldaHeart(enemy.Position));
+            }
+            //Sometimes drop coins
+            if (shouldDrop == 1 && obj is Enemy)
+            {
+                IEnemy enemy = (Enemy)obj;
+                AddObject(ItemFactory.Instance.ZeldaRupy(enemy.Position));
             }
         }
 
@@ -312,6 +321,12 @@ namespace sprint0
         public void SetVictory()
         {
             HandleSpecialDisplays.Instance.Victory = true;
+        }
+
+        private void AddHud()
+        {
+            drawables.Add(inventory);
+            updateables.Add(inventory);
         }
     }
 }

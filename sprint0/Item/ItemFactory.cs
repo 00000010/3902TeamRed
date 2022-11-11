@@ -88,6 +88,11 @@ namespace sprint0
             return new ZeldaLetter(position);
         }
 
+        public Item ZeldaRupy(Vector2 position)
+        {
+            return new ZeldaRupy(position);
+        }
+
         public Item ZeldaTriforce(Vector2 position)
         {
             return new ZeldaTriforce(position);
@@ -203,6 +208,14 @@ namespace sprint0
         public ZeldaLetter(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.ZeldaLetter(position);
+        }
+    }
+
+    internal class ZeldaRupy : Item
+    {
+        public ZeldaRupy(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaRupy(position);
         }
     }
 }

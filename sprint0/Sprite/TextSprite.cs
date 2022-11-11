@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    internal class TextSprite : ISprite
+    public class TextSprite : ISprite
     {
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }

@@ -42,6 +42,8 @@ namespace sprint0
 
         public static Rectangle[] Letter = { new Rectangle(0, 0, 8, 16) };
 
+        public static Rectangle[] ZeldaRupy = { new Rectangle(0, 1, 9, 12) };
+
         public static Rectangle[] Triforce = { 
             new Rectangle(333, 289, 10, 10),
             new Rectangle(363, 289, 10, 10)
