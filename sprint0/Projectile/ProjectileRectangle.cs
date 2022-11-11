@@ -19,7 +19,21 @@ namespace sprint0
         
         //Rock
         public static Rectangle[] Rock = { 
-            new Rectangle(68, 13, 7, 10)
+            new Rectangle(91, 303, 10, 10)
+        };
+
+        //Fire
+        public static Rectangle[] Fire = {
+            new Rectangle(300, 1, 15, 15),
+            new Rectangle(300, 32, 15, 15)
+        };
+
+        //Boss projectile
+        public static Rectangle[] DragonProjectile = {
+            new Rectangle(101, 14, 8, 10),
+            new Rectangle(110, 14, 8, 10),
+            new Rectangle(119, 14, 8, 10),
+            new Rectangle(128, 14, 8, 10),
         };
     }
 }

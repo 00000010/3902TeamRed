@@ -23,8 +23,14 @@ namespace sprint0
 
         public void Execute()
         {
+            //Don't do anything if a projectile collision happened with a waterblock
+            if (GameObjectManager.IsDesiredObject(block, "WaterBlock")) return;  
+            
             manager.objectsToRemove.Add(projectile);
-            //boomerang enemy breaks since they wait for the boomerang even though it is removed.
+            if (GameObjectManager.IsDesiredObject(projectile, "ZeldaBoom"))
+            {
+                manager.shooterOfProjectile.GetValueOrDefault((IProjectile)projectile).ShotBoomerang = false; ;
+            }
         }
     }
 }

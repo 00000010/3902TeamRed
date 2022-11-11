@@ -92,8 +92,14 @@ namespace sprint0
             //this.RegisterCommandUnpress(Keys.Down, new PlayerStopRunningCommand(game, Direction.DOWN));
             //this.RegisterCommandUnpress(Keys.Right, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
+            //Loads in the changes room commands for manually controlling rooms
+            this.RegisterCommand(Keys.Left, new LoadRoomCommand(game, Direction.LEFT));
+            this.RegisterCommand(Keys.Up, new LoadRoomCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.Down, new LoadRoomCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.Right, new LoadRoomCommand(game, Direction.RIGHT));
+
             /* L and Z keys for Link attacking */
-            this.RegisterCommand(Keys.L, new PlayerArrowCommand(game));
+            this.RegisterCommand(Keys.B, new PlayerProjCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
             /* Reload the current level */
@@ -102,19 +108,15 @@ namespace sprint0
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));
 
-            this.RegisterCommand(Keys.O, new PrevEnemyCommand(game));
-            this.RegisterCommand(Keys.P, new NextEnemyCommand(game));
-            //this.RegisterCommand(Keys.L, new ShootProjectileCommand(game));
-            this.RegisterCommand(Keys.I, new NextItemCommand(game));
-            this.RegisterCommand(Keys.U, new PrevItemCommand(game));
-            this.RegisterCommand(Keys.T, new NextBlockCommand(game));
-            this.RegisterCommand(Keys.Y, new PrevBlockCommand(game));
+            /*Pause and Resume*/
+            this.RegisterCommand(Keys.P, new PauseCommand(game));
 
-            //Loads in the changes room commands for manually controlling rooms
-            this.RegisterCommand(Keys.Left, new LoadRoomCommand(game, Direction.LEFT));
-            this.RegisterCommand(Keys.Up, new LoadRoomCommand(game, Direction.UP));
-            this.RegisterCommand(Keys.Down, new LoadRoomCommand(game, Direction.DOWN));
-            this.RegisterCommand(Keys.Right, new LoadRoomCommand(game, Direction.RIGHT));
+            //To be able to switch between link projectiles
+            this.RegisterCommand(Keys.K, new NextProjectileCommand(game));
+            this.RegisterCommand(Keys.J, new PrevProjectileCommand(game));
+
+            this.RegisterCommand(Keys.Y, new DisplayInventoryCommand(game, "Display"));
+            this.RegisterCommand(Keys.T, new DisplayInventoryCommand(game, "Remove"));
         }
 
         public void EnableKeyboard()

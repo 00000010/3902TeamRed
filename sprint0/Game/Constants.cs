@@ -7,6 +7,8 @@ namespace sprint0
     {
         private Constants() { }
 
+        public const int BLOCK_SIZE = 16 * SCALING_FACTOR;
+
         // Screen width and height as constants so no weird stretching
         public const int SCREEN_WIDTH = 256;
         public const int SCREEN_HEIGHT = 176;
@@ -21,10 +23,8 @@ namespace sprint0
         /// pixels of space per side to account for Link's sword. Place sprite
         /// carefully.
         /// </summary>
-        public const int LINK_WIDTH = 40;
-        public const int LINK_HEIGHT = 40;
-        public const int TRUE_LINK_WIDTH = 16;
-        public const int TRUE_LINK_HEIGHT = 16;
+        public const int LINK_WIDTH = 40 * SCALING_FACTOR;
+        public const int LINK_HEIGHT = 40 * SCALING_FACTOR;
 
         public const int NUM_OF_DIRECTIONS = 4;
         public const int NUM_OF_COLORS = 3;
@@ -37,14 +37,14 @@ namespace sprint0
 
         public const int HORIZONTAL_SPACE_BETWEEN_STATES = LINK_WIDTH * NUM_OF_DIRECTIONS;
 
-        public const int FROM_DOWN_LINK_POSITION_X = 380;
-        public const int FROM_DOWN_LINK_POSITION_Y = 340;
-        public const int FROM_UP_LINK_POSITION_X = 380;
-        public const int FROM_UP_LINK_POSITION_Y = 246;
-        public const int FROM_LEFT_LINK_POSITION_X = 295;
-        public const int FROM_LEFT_LINK_POSITION_Y = 292;
-        public const int FROM_RIGHT_LINK_POSITION_X = 465;
-        public const int FROM_RIGHT_LINK_POSITION_Y = 292;
+        public const int FROM_DOWN_LINK_POSITION_X = 366;
+        public const int FROM_DOWN_LINK_POSITION_Y = 352;
+        public const int FROM_UP_LINK_POSITION_X = 366;
+        public const int FROM_UP_LINK_POSITION_Y = 158;
+        public const int FROM_LEFT_LINK_POSITION_X = 190;
+        public const int FROM_LEFT_LINK_POSITION_Y = 256;
+        public const int FROM_RIGHT_LINK_POSITION_X = 540;
+        public const int FROM_RIGHT_LINK_POSITION_Y = 256;
 
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 
@@ -54,10 +54,14 @@ namespace sprint0
         public const float BACKGROUND_BLOCK_LAYER_DEPTH = 0.1f;
         public const float BLOCK_LAYER_DEPTH = 0.2f;
         public const float DOOR_LAYER_DEPTH = 0.3f;
-        public const float ITEM_LAYER_DEPTH = 0.4f;
-        public const float PROJECTILE_LAYER_DEPTH = 0.5f;
-        public const float ENEMY_LAYER_DEPTH = 0.6f;
+        public const float ITEM_LAYER_DEPTH = 0.7f;
+        public const float PROJECTILE_LAYER_DEPTH = 0.8f;
+        public const float ENEMY_LAYER_DEPTH = 0.9f;
         public const float PLAYER_LAYER_DEPTH = 1.0f;
+
+        public const int NUM_AVAILABLE_PROJECTILES = 3;
+
+        public const int SCALING_FACTOR = 2;
     }
 }
 

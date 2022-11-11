@@ -11,44 +11,59 @@
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
+            <Location>150 408</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
+            <Location>598 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorNorth</ObjectName>
-            <Location>384 236</Location>
+            <Location>374 144</Location>
         </Item>
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
+            <Location>598 264</Location>
         </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonBlock</ObjectName>
-            <Location>384 288</Location>
-            <Dimension>2 3</Dimension>
-        </Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>373 250</Location>
+			<Dimension>2 3</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>320 272</Location>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>304 304</Location>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>320 336</Location>
+		</Item>
     </Asset>
 </XnaContent>
 

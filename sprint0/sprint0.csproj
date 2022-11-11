@@ -39,17 +39,14 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enemy\" />
     <Folder Include="Sprite\" />
     <Folder Include="Projectile\" />
     <Folder Include="Block\" />
-    <Folder Include="ScreenDisplay\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
     <Folder Include="MovementDirection\" />
     <Folder Include="Link\" />
     <Folder Include="Controller\" />
-    <Folder Include="Game\" />
     <Folder Include="Decorators\" />
     <Folder Include="Levels\Dungeon1\" />
   </ItemGroup>

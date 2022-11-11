@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -23,7 +26,22 @@ namespace sprint0
 
         public void Execute()
         {
-            //link will have all items to start with, they wont pick up any items yet
+            Console.WriteLine("Player collided with item");
+            manager.RemoveObject(item);
+            if (GameObjectManager.IsDesiredObject(item, "ZeldaBoomerang"))
+            {
+                SoundFactory.Instance.zeldaBoomObtained.Play();
+            }
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaTriforce"))
+            {
+                MediaPlayer.Play(SoundFactory.Instance.zeldaVictory);
+                manager.RemoveObject(item);
+                manager.SetVictory();
+            }
+            else
+            {
+                SoundFactory.Instance.zeldaItemObtained.Play();
+            }
         }
     }
 }

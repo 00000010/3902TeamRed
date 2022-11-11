@@ -17,5 +17,10 @@ namespace sprint0
         public bool TakingDamage { get; set; }
         public GameTime LastDamaged { get; set; }
         public int Damaged { get; set; }
+        public string TypeOfObject { get; set; }
+        public bool ShotBoomerang { get; set; }
+        public int Health { get; set; }
+        public void UpdatePlayerSprite(GameObjectManager manager);
+        public void UpdatePlayerState();
     }
 }

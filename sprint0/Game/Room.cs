@@ -8,6 +8,7 @@ namespace sprint0
     public class Room
     {
         public List<object> roomObjects;
+        public List<object> roomEnemies;
         public List<object> roomPlayers;
         public List<ItemObject> roomItemObjects;
 
@@ -26,6 +27,7 @@ namespace sprint0
         public Room()
         {
             roomObjects = new List<object>();
+            roomEnemies = new List<object>();
             roomPlayers = new List<object>();
             roomItemObjects = new List<ItemObject>();
         }
@@ -33,6 +35,19 @@ namespace sprint0
         public void Add(object obj)
         {
             roomObjects.Add(obj);
+            if (obj is Enemy)
+            {
+                roomEnemies.Add(obj);
+            }
+        }
+
+        public void RemoveObject(object obj)
+        {
+            roomObjects.Remove(obj);
+            if (obj is Enemy)
+            {
+                roomEnemies.Remove(obj);
+            }
         }
 
         public void Add(ItemObject obj)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+//using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
@@ -16,7 +17,7 @@ namespace sprint0
     {
         public Game1 game;
         public GameObjectManager gameObjectManager;
-        public int pixelLength = 16;
+        public int pixelLength = Constants.BLOCK_SIZE;
 
         public ItemObject background;
 
@@ -115,6 +116,7 @@ namespace sprint0
                             classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
                             method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                             thing = method.Invoke(classThing, parameterArray); // call method and get its object
+
                             room.Add(thing);
                             itemObj.PosX = itemObj.PosX + pixelLength;
                         }
@@ -135,9 +137,9 @@ namespace sprint0
             pointPointers();
             LoadRoom();
             gameObjectManager.AddPlayer(game.player);
-            //Console.WriteLine(this.ToString());
         }
 
+         
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
         public void pointPointers()
@@ -178,7 +180,15 @@ namespace sprint0
                 currentRoom = room;
                 LoadRoom();
             }
-            //Console.WriteLine(this.ToString());
+
+            if (currentRoom.name.Equals("Room10"))
+            {
+                HandleSpecialDisplays.Instance.Room10 = true;
+            }
+            else
+            {
+                HandleSpecialDisplays.Instance.Room10 = false;
+            }
         }
 
         //Prints the contents of the level
@@ -200,6 +210,7 @@ namespace sprint0
             {
                 gameObjectManager.RemoveObject(item);
             }
+            // TODO: testing commenting out
             foreach (object player in currentRoom.roomPlayers)
             {
                 gameObjectManager.RemoveObject(player);
@@ -212,6 +223,17 @@ namespace sprint0
             foreach (object obj in currentRoom.roomObjects)
             {
                 gameObjectManager.AddObject(obj);
+            }
+        }
+
+        public void RemoveFromCurrRoom(object obj)
+        {
+            currentRoom.RemoveObject(obj);
+            //Drop a key in Room3 once all enemies are dead
+            if (currentRoom.name.Equals("Room3") && currentRoom.roomEnemies.Count == 0)
+            {
+                IEnemy enemy = (Enemy)obj;
+                gameObjectManager.AddObject(ItemFactory.Instance.ZeldaBoomerang(enemy.Position));
             }
         }
 

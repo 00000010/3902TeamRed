@@ -40,14 +40,14 @@ namespace sprint0
             }
             if (intersectionLoc.Contains("left"))
             {
-                if (enemy.Velocity.X < 0)
+                if (enemy.Velocity.X > 0)
                 {
                     enemy.Position -= new Vector2(10, 0);
                 }
             }
             if (intersectionLoc.Contains("right"))
             {
-                if (enemy.Velocity.X > 0)
+                if (enemy.Velocity.X < 0)
                 {
                     enemy.Position += new Vector2(10, 0);
                 }

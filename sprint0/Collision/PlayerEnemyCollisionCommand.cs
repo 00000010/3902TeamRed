@@ -25,40 +25,38 @@ namespace sprint0
 
         public void Execute()
         {
+            Console.WriteLine("Player collided with enemy");
             Player player = (Player)this.player;
             Enemy enemy = (Enemy)this.enemy;
 
             managedPlayer = manager.player;
 
-            if (player.Velocity != Vector2.Zero)
+            if (intersectionLoc.Contains("up"))
             {
-                if (intersectionLoc.Contains("up"))
+                if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
                 {
-                    if (player.Velocity.Y > 0 || enemy.Velocity.Y < 0)  // if the player is directed towards the enemy and enemy moving towards player
-                    {
-                        player.Position -= new Vector2(0, 5);
-                    }
+                    player.Position -= new Vector2(0, 2);
                 }
-                if (intersectionLoc.Contains("down"))
+            }
+            if (intersectionLoc.Contains("down"))
+            {
+                if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
                 {
-                    if (player.Velocity.Y < 0 || enemy.Velocity.Y > 0)
-                    {
-                        player.Position += new Vector2(0, 5);
-                    }
+                    player.Position += new Vector2(0, 2);
                 }
-                if (intersectionLoc.Contains("left"))
+            }
+            if (intersectionLoc.Contains("left"))
+            {
+                if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
                 {
-                    if (player.Velocity.X > 0 || enemy.Velocity.X < 0)
-                    {
-                        player.Position -= new Vector2(5, 0);
-                    }
+                    player.Position -= new Vector2(2, 0);
                 }
-                if (intersectionLoc.Contains("right"))
+            }
+            if (intersectionLoc.Contains("right"))
+            {
+                if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
                 {
-                    if (player.Velocity.X < 0 || enemy.Velocity.X > 0)
-                    {
-                        player.Position += new Vector2(5, 0);
-                    }
+                    player.Position += new Vector2(2, 0);
                 }
             }
 
@@ -66,7 +64,8 @@ namespace sprint0
             {
                 managedPlayer.TakingDamage = true;
                 managedPlayer.Damaged = enemy.CollideDamage;
-                manager.UpdatePlayerSprite();
+                player.UpdatePlayerSprite(manager);
+                SoundFactory.Instance.zeldaLinkHurt.Play();
             }
         }
     }

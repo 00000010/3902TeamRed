@@ -7,41 +7,56 @@
         <Name>Room10</Name>
     </Meta>
     <Asset>
-        <Item>
-            <ObjectType>Sprite</ObjectType>
-            <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
-        </Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>272 368</Location>
+            <Location>150 408</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonEastWall</ObjectName>
-            <Location>496 224</Location>
+            <Location>598 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonWestWall</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorEast</ObjectName>
-            <Location>496 296</Location>
+            <Location>598 264</Location>
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonAbyss</ObjectName>
-            <Location>304 256</Location>
+            <Location>210 183</Location>
         </Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>ZeldaOldMan</ObjectName>
+			<Location>385 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>335 270</Location>
+		</Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaFireItem</ObjectName>
+			<Location>435 270</Location>
+		</Item>
     </Asset>
 </XnaContent>
 
