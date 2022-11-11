@@ -38,12 +38,15 @@ namespace sprint0
                 manager.RemoveObject(item);
                 manager.SetVictory();
             }
-            else if (GameObjectManager.IsDesiredObject(item, "ZeldaSpriteHeart"))
+            else if (GameObjectManager.IsDesiredObject(item, "ZeldaHeart"))
             {
                 //heart
-                manager.player.Health += 10;
-                if (manager.player.Health > 100) manager.player.Health = 100;
-                manager.inventory.UpdateHealth(manager.player.Health);
+                IPlayer managedPlayer = manager.player;
+                managedPlayer.TakingDamage = false;
+                managedPlayer.Health += 100;
+                if (managedPlayer.Health > 100) managedPlayer.Health = 100;
+                manager.inventory.FillHearts();
+                manager.inventory.UpdateHealth(managedPlayer.Health);
                 SoundFactory.Instance.zeldaItemObtained.Play();
             }
             else if (GameObjectManager.IsDesiredObject(item, "ZeldaRupy"))

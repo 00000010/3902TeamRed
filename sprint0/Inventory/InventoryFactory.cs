@@ -31,7 +31,7 @@ namespace sprint0
                 Sprite = SpriteFactory.Instance.TopHUD(new Vector2(150, 10));
                 Velocity = Vector2.Zero;
 
-                /* Sword will always be available so it is drawn in the hud selecteditem will be null*/
+                /* Sword will always be available so it is drawn in the hud*/
                 Sword = SpriteFactory.Instance.ZeldaSword(new Vector2(455, 55));
 
                 /*array of sprites of hearts to be drawn side to side it can either be a full heart, a half heart, or an empty heart*/
