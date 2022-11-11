@@ -25,7 +25,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Player collided with enemy");
             Player player = (Player)this.player;
             Enemy enemy = (Enemy)this.enemy;
 

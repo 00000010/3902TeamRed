@@ -29,7 +29,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Player collided with door");
             Player player = (Player)this.player;
             this.loader = this.game.loader;
 

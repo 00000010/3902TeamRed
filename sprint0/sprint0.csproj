@@ -20,11 +20,9 @@
     <None Remove="ScreenDisplay\" />
     <None Remove="Item\" />
     <None Remove="Player\" />
-    <None Remove="MovementDirection\" />
     <None Remove="Link\" />
     <None Remove="Controller\" />
     <None Remove="Game\" />
-    <None Remove="Decorators\" />
     <None Remove="Levels\Dungeon1\" />
   </ItemGroup>
   <ItemGroup>
@@ -44,10 +42,8 @@
     <Folder Include="Block\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
-    <Folder Include="MovementDirection\" />
     <Folder Include="Link\" />
     <Folder Include="Controller\" />
-    <Folder Include="Decorators\" />
     <Folder Include="Levels\Dungeon1\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">

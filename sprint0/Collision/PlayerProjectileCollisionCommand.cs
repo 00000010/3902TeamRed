@@ -23,7 +23,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Player collided with projectile");
             if (!GameObjectManager.IsDesiredObject((IObject)projectile, "ZeldaBoom"))
             {
                 //link takes damage

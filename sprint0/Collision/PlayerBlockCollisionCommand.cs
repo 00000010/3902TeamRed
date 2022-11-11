@@ -21,7 +21,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Player collided with block");
             Player player = (Player)this.player;
             if (intersectionLoc.Contains("up"))
             {
