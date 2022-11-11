@@ -15,15 +15,11 @@ namespace sprint0
     {
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
-        
-        //public IPlayer player;
-        //public IBlock block;
-        public IItem item;
-        public IEnemy enemy;
 
         public GameObjectManager manager;
         public LevelLoader loader;
         KeyboardController keyboard;
+        ICamera camera;
 
         public int level = 0;
 
@@ -40,7 +36,6 @@ namespace sprint0
             base.Initialize();
 
             manager = new GameObjectManager(this);
-            //manager.AddObject(block); 
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
@@ -48,6 +43,9 @@ namespace sprint0
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
+
+            //camera = new Camera(new GameCamera());
+            //manager.AddObject(camera);
 
             HandleSpecialDisplays.Instance.Initialize(this);
 
