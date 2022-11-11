@@ -62,7 +62,7 @@ namespace sprint0
         public void LoadLevel(string levelName)
         {
             // Unload anything that may be previously loaded.
-            UnloadRoom();
+            //UnloadRoom();
 
             string[] files = getFilePaths(levelName);
 

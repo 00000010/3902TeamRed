@@ -49,7 +49,7 @@ namespace sprint0
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
-            
+
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
 

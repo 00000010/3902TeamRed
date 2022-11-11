@@ -92,9 +92,6 @@ namespace sprint0
             this.RegisterCommand(Keys.B, new PlayerProjCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
 
-            /* Reload the current level */
-            this.RegisterCommand(Keys.R, new ReloadLevelCommand(game));
-
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));
 
