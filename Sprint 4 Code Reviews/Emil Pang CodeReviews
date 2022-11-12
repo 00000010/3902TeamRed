@@ -1,0 +1,25 @@
+Readability code review:
+Author: Emil Pang
+Date: 11/12/2022
+Sprint: 4
+CS file being reviewed: HeadsUpDisplay.cs
+Author of file: Adam Perhala
+Number of minutes: 30 minutes
+Comments on code readability:
+The code added in this file was the HUD code. While is there is not really any comments, the code is self-documenting by way of the names of the variables. For instance, gemCount and keyCount are clearly the text sprites for displaying these item counts. Each item is drawn in the HUD when Draw() is called and updated in Update() like the other sprite classes we have worked on. Basic comments for why life is drawn only when not null may be helpful, but again, the simplicity of the code makes this almost unnecessary.
+Overall, function lengths are kept very short which makes them very easy to understand, since it is only drawing or updating itself. These methods also only do these actions.
+General C# standards are followed, with correct capitalization of variables, method names, and properties. Spacing is very consistent (one line between functions, one line between statement groups).
+Overall, this code is very readable.
+
+Code quality code review:
+Author: Emil Pang
+Date: 11/12/2022
+Sprint: 4
+CS file being reviewed: GameObjectManager.cs
+Author of file: Adam Perhala
+Comments on code maintainability: 
+The GameObjectManager (GOM) was used to handle HUD drawing and updating. The code is very minimal, and so is easy to maintain. Since the HUD only need to be initalized and then drawn/updated, it is similar to the KeyboardController or GOM. 
+Cohesion appears strong since there is little the HUD has to do besides keep track of the objects it's been handed.
+If we wanted to add onto the HUD, it would be relatively easy, making this code decoupled.
+
+
