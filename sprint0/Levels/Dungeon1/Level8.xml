@@ -53,36 +53,36 @@
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonBadDoorSouth</ObjectName>
-            <Location>375 400</Location>
+            <Location>375 408</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>246 218</Location>
+            <Location>246 216</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>501 218</Location>
+            <Location>502 216</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>373 282</Location>
+            <Location>374 280</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>246 346</Location>
+            <Location>246 344</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>501 346</Location>
+            <Location>502 344</Location>
             <Dimension>2 1</Dimension>
         </Item>
         <Item>

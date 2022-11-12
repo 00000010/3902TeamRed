@@ -52,7 +52,7 @@
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
-			<Location>373 282</Location>
+			<Location>374 280</Location>
 		</Item>
 		<Item>
 			<ObjectType>Enemy</ObjectType>
