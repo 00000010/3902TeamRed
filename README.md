@@ -17,7 +17,7 @@ Adam Perhala (perhala.3) <br/>
 ## About The Project
 
 The Legend of Zelda done our way.  Current iteration is complete with full implementation of entire first dungeon, <br/>
-collision detection and handling, inclusion of all in game items and enemies, a level loader for handling switching rooms, and a Heads Up Display <br/>
+collision detection and handling, inclusion of all in game items and enemies, a level loader for handling switching rooms, and a Heads Up Display. <br/>
 
 
 
@@ -44,9 +44,11 @@ collision detection and handling, inclusion of all in game items and enemies, a 
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Content" target="_blank">Content</a> - Sprites and Imagery files
 
-### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Controller" target="_blank">Controller</a> - Interface for controllers and default key mappings
+### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Controller" target="_blank">Controller</a> - Interface for controllers and default key/mouse mappings
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Controller/IController.cs" target="_blank">IController.cs</a> - Controller Interface
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Controller/KeyboardController.cs" target="_blank">KeyboardController.cs</a> - Default Keyboard settings
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Mouse/MouseCommand.cs" target="_blank">MouseCommand.cs</a> - Allows for mouse clicking
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Mouse/MouseController.cs" target="_blank">MouseController.cs</a> - Allows for Updateable and Registerable capabilites
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Enemy" target="_blank">Enemy</a> - Enemy generation/Movement/Collision/Damaging
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Enemy/Enemy.cs" target="_blank">Enemy.cs</a> - Enables Updateable and Drawable Capabilities and defines enemy properties
@@ -79,15 +81,6 @@ collision detection and handling, inclusion of all in game items and enemies, a 
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Link" target="_blank">Link</a> - Image of Link
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Link/LinkRectangle.cs" target="_blank">LinkRectangle.cs</a> - The defaults of Link's position and appearance
-
-### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Mouse" target="_blank">Mouse</a> - Mouse button mappings
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Mouse/MouseCommand.cs" target="_blank">MouseCommand.cs</a> - Allows for mouse clicking
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Mouse/MouseController.cs" target="_blank">MouseController.cs</a> - Allows for Updateable and Registerable capabilites
-
-### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection" target="_blank">MovementDirection</a> - Player movement handling
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Left.cs" target="_blank">Left.cs</a> - Code to move Left
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Right.cs" target="_blank">Right.cs</a> - Code to move Right
-* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/MovementDirection/Up.cs" target="_blank">Up.cs</a> - Code to move Up
 
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Player" target="_blank">Player</a> - Player generation/Movement/Collision/Damaging/Attacking
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Player/IPlayer.cs" target="_blank">IPlayer.cs</a> - Player Interface
@@ -145,12 +138,15 @@ for the Legend of Zelda.  He has been working on the client and one server to al
 a loosely working implementation going.
 
 ## Backlog
-The backlog mainly contains minor improvements that can be made to improve the code quality. There are not any main features in the game that were missing before that are still missing.
+The backlog mainly contains minor and major features that need to be made to improve the game or code quality. Currently these include:<br/>
+Camera transitions<br/>
 *Please see the Trello list "Backlog" for a full detail of all items here, as well as complete descriptions.*
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
 Link does not move in completely expected ways when multiple movement keys are pressed (WASD)<br/>
+Enemies are able to push Link outside of the room<br/>
+Link is able to kill the dungeon monsters and the old man<br/>
 *Please see the Trello list "Buglog" for a full detail of all items here, as well as complete descriptions.*
 
 ## Sprint 4 Reflection
