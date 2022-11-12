@@ -157,7 +157,7 @@ namespace sprint0
         {
             Sprite = SpriteFactory.Instance.ZeldaDragon(position);
             Direction = Direction.LEFT;
-            Velocity = new Vector2(-1, 0);
+            Velocity = Vector2.Zero;
             TypeOfObject = "Enemy";
         }
     }

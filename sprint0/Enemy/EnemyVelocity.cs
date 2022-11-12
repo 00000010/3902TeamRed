@@ -15,7 +15,7 @@ namespace sprint0
                                             float elapsedTime, Vector2 prevVelocity)
         {
             //Grouping enemies based on movement
-            if (sourceRectangle == EnemyRectangle.Gel || sourceRectangle == EnemyRectangle.Stalfos || 
+            if (sourceRectangle == EnemyRectangle.Gel || sourceRectangle == EnemyRectangle.Stalfos ||
                 sourceRectangle == EnemyRectangle.GoriyaLeft || sourceRectangle == EnemyRectangle.GoriyaRight
                 || sourceRectangle == EnemyRectangle.GoriyaUp || sourceRectangle == EnemyRectangle.GoriyaDown)
             {
@@ -61,11 +61,6 @@ namespace sprint0
             {
                 return;
             }
-            else
-            {
-                //Restart counter
-                elapsedTime = 0;
-            }
 
             int randomDirection = randomGen.Next(0, 2);
             int randomSpeed = randomGen.Next(-1, 2);
@@ -88,16 +83,11 @@ namespace sprint0
             if (sourceRectangle != EnemyRectangle.Gel && sourceRectangle != EnemyRectangle.Stalfos) UpdateGoriyaFrame(Velocity, ref testSprite);
         }
         public static void UpdateKeeseMovement(GameTime gameTime, ref Vector2 Velocity, float elapsedTime)
-        { 
+        {
             //Let each character stay in the same direction for 1 seconds
             if (elapsedTime < 1)
             {
                 return;
-            }
-            else
-            {
-                //Restart counter
-                elapsedTime = 0;
             }
 
             //Randomize both x and y
@@ -111,17 +101,11 @@ namespace sprint0
                                             float elapsedTime)
         {
             //Let each character stay in the same direction for 1 second
-            if (elapsedTime < 1)
-            {
-                return;
-            }
-            else
-            {
-                //Restart counter
-                elapsedTime = 0;
-            }
-            
-            Velocity = new Vector2(-prevVelocity.X, prevVelocity.Y);
+            //if (elapsedTime < 1)
+            //{
+            //    return;
+            //}
+            //Velocity = new Vector2(-prevVelocity.X, prevVelocity.Y);
         }
     }
 }
