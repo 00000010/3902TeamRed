@@ -63,7 +63,6 @@ namespace sprint0
             this.game = game;
             this.direction = direction;
             manager = game.manager;
-            player = manager.player;
         }
 
         public void Execute()
@@ -88,8 +87,8 @@ namespace sprint0
                     break;
             }
 
-            Vector2 oldVelocity = player.Velocity;
-            player.Velocity = oldVelocity + newVelocity;
+            Vector2 oldVelocity = manager.player.Velocity;
+            manager.player.Velocity = oldVelocity + newVelocity;
 
             player.UpdatePlayerState();
             player.UpdatePlayerSprite(manager);
