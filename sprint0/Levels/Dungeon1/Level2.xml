@@ -40,17 +40,17 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>320 272</Location>
+            <Location>246 216</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>304 304</Location>
+            <Location>214 280</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>320 336</Location>
+            <Location>246 344</Location>
         </Item>
     </Asset>
 </XnaContent>

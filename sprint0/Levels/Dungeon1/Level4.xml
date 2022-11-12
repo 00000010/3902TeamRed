@@ -52,17 +52,17 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
+            <Location>310 184</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
             <Location>246 216</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>352 256</Location>
-        </Item>
-        <Item>
-            <ObjectType>Enemy</ObjectType>
-            <ObjectName>Stalfos</ObjectName>
-            <Location>352 320</Location>
+            <Location>310 312</Location>
         </Item>
     </Asset>
 </XnaContent>

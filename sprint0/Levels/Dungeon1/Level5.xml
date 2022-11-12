@@ -78,27 +78,27 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>352 256</Location>
+            <Location>310 184</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>368 288</Location>
+            <Location>342 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>352 320</Location>
+            <Location>310 312</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>416 288</Location>
+            <Location>438 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>400 304</Location>
+            <Location>406 280</Location>
         </Item>
     </Asset>
 </XnaContent>

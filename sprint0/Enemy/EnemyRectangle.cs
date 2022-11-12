@@ -47,8 +47,8 @@ namespace sprint0
         };
 
         public static Rectangle[] Gel = { 
-            new Rectangle(417, 177, 20, 20),
-            new Rectangle(417, 209, 20, 20) 
+            new Rectangle(404, 184, 8, 9),
+            new Rectangle(404, 213, 8, 9) 
         };
 
         public static Rectangle[] Dragon = {

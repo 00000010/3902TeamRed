@@ -40,57 +40,57 @@
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>244 217</Location>
+            <Location>246 216</Location>
             <Dimension>10 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>244 249</Location>
+            <Location>246 248</Location>
             <Dimension>1 4</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>532 249</Location>
+            <Location>534 248</Location>
             <Dimension>1 4</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>276 345</Location>
+            <Location>278 344</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>436 345</Location>
+            <Location>438 344</Location>
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>308 281</Location>
+            <Location>342 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
-            <Location>340 249</Location>
+            <Location>310 280</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>436 249</Location>
+            <Location>438 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
-            <Location>468 281</Location>
+            <Location>470 280</Location>
         </Item>
 		<Item>
 			<ObjectType>Item</ObjectType>
 			<ObjectName>ZeldaTriforce</ObjectName>
-			<Location>404 281</Location>
+			<Location>396 294</Location>
 		</Item>
     </Asset>
 </XnaContent>

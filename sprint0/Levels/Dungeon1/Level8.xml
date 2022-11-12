@@ -88,27 +88,27 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
-            <Location>352 256</Location>
+            <Location>310 184</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
-            <Location>368 288</Location>
+            <Location>342 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
-            <Location>352 320</Location>
+            <Location>310 312</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
-            <Location>432 256</Location>
+            <Location>470 184</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Gel</ObjectName>
-            <Location>416 288</Location>
+            <Location>438 248</Location>
         </Item>
     </Asset>
 </XnaContent>

@@ -7,11 +7,6 @@
         <Name>Room10</Name>
     </Meta>
     <Asset>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>Dungeon</ObjectName>
-			<Location>150 120</Location>
-		</Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonNorthWall</ObjectName>

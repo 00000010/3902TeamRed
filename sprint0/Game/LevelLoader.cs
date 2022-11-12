@@ -182,6 +182,7 @@ namespace sprint0
             {
                 UnloadRoom();
                 currentRoom = room;
+                Console.WriteLine(currentRoom);
                 LoadRoom();
             }
 

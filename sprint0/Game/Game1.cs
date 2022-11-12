@@ -56,9 +56,10 @@ namespace sprint0
             HandleSpecialDisplays.Instance.Initialize(this);
 
             //Play theme song in background
-            MediaPlayer.Play(SoundFactory.Instance.themeSound);
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = (float)0.1;
+            // TODO: TURN BACK ON
+            //MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            //MediaPlayer.IsRepeating = true;
+            //MediaPlayer.Volume = (float)0.1;
         }
 
         protected override void LoadContent()

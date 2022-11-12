@@ -57,22 +57,17 @@
 		<Item>
 			<ObjectType>Enemy</ObjectType>
 			<ObjectName>Gel</ObjectName>
-			<Location>368 288</Location>
+			<Location>470 184</Location>
 		</Item>
 		<Item>
 			<ObjectType>Enemy</ObjectType>
 			<ObjectName>Gel</ObjectName>
-			<Location>352 320</Location>
+			<Location>438 248</Location>
 		</Item>
 		<Item>
 			<ObjectType>Enemy</ObjectType>
 			<ObjectName>Gel</ObjectName>
-			<Location>432 256</Location>
-		</Item>
-		<Item>
-			<ObjectType>Enemy</ObjectType>
-			<ObjectName>Gel</ObjectName>
-			<Location>416 288</Location>
+			<Location>406 270</Location>
 		</Item>
     </Asset>
 </XnaContent>

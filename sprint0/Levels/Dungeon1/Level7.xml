@@ -66,42 +66,42 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>464 272</Location>
+            <Location>406 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>400 288</Location>
+            <Location>406 312</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>432 288</Location>
+            <Location>470 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>400 320</Location>
+            <Location>470 312</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>432 320</Location>
+            <Location>310 376</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>480 304</Location>
+            <Location>534 216</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>464 336</Location>
+            <Location>566 270</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
-            <Location>352 352</Location>
+            <Location>534 334</Location>
         </Item>
     </Asset>
 </XnaContent>

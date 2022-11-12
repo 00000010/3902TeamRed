@@ -12,7 +12,7 @@
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>Dungeon</ObjectName>
-            <Location>272 224</Location>
+            <Location>150 120</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
@@ -47,42 +47,42 @@
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonBadDoorSouth</ObjectName>
-            <Location>384 368</Location>
+            <Location>375 408</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 288</Location>
+            <Location>278 248</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 288</Location>
+            <Location>502 312</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>336 320</Location>
+            <Location>278 312</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
-            <Location>448 320</Location>
+            <Location>502 248</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Goriya</ObjectName>
-            <Location>352 256</Location>
+            <Location>310 184</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Goriya</ObjectName>
-            <Location>352 352</Location>
+            <Location>566 280</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Goriya</ObjectName>
-            <Location>480 304</Location>
+            <Location>310 376</Location>
         </Item>
     </Asset>
 </XnaContent>

@@ -134,17 +134,17 @@
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>400 304</Location>
+            <Location>406 300</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>432 320</Location>
+            <Location>470 332</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
-            <Location>464 272</Location>
+            <Location>534 216</Location>
         </Item>
     </Asset>
 </XnaContent>
