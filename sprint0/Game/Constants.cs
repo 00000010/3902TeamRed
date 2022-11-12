@@ -9,9 +9,14 @@ namespace sprint0
 
         public const int BLOCK_SIZE = 16 * SCALING_FACTOR;
 
-        // Screen width and height as constants so no weird stretching
-        public const int SCREEN_WIDTH = 256;
-        public const int SCREEN_HEIGHT = 176;
+        // TODO: SCALING_FACTOR should affect these
+        // Position of room
+        public const int ROOM_X = 150;
+        public const int ROOM_Y = 120;
+
+        // Room (not including HUD or outside black space) width and height
+        public const int ROOM_WIDTH = 256;
+        public const int ROOM_HEIGHT = 176;
 
         /// <summary>
         /// Number of frames for the Link sprite running or attacking.

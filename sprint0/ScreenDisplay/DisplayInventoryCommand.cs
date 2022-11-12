@@ -13,11 +13,13 @@ namespace sprint0
         private Game1 game;
         private string request;
         private static Room callerRoom;
+
         public DisplayInventoryCommand(Game1 game, string request)
         {
             this.game = game;
             this.request = request;
         }
+
         public void Execute()
         {
             if (request.Equals("Display"))

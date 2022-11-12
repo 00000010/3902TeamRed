@@ -7,7 +7,7 @@ namespace sprint0
 {
     public class Room
     {
-        public List<object> roomObjects;
+        public List<object> roomObjects { get; set; }
         public List<object> roomEnemies;
         public List<object> roomPlayers;
         public List<ItemObject> roomItemObjects;
@@ -53,11 +53,6 @@ namespace sprint0
         public void Add(ItemObject obj)
         {
             roomItemObjects.Add(obj);
-        }
-
-        public void AddPlayer(object player)
-        {
-            roomPlayers.Add(player);
         }
 
         //Loads all of the text corresponding to the pointers

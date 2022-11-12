@@ -17,10 +17,11 @@ namespace sprint0
     {
         public Game1 game;
         public GameObjectManager gameObjectManager;
+        private ICamera camera;
+
         public int pixelLength = Constants.BLOCK_SIZE;
 
         public ItemObject background;
-
 
         public List<Room> allRooms = new List<Room>();
         public Room currentRoom { get; set; }
@@ -61,9 +62,6 @@ namespace sprint0
          */
         public void LoadLevel(string levelName)
         {
-            // Unload anything that may be previously loaded.
-            //UnloadRoom();
-
             string[] files = getFilePaths(levelName);
 
             foreach (string filePath in files)
@@ -182,8 +180,8 @@ namespace sprint0
             {
                 UnloadRoom();
                 currentRoom = room;
-                Console.WriteLine(currentRoom);
                 LoadRoom();
+                //camera.CurtainTransition(currentRoom.roomObjects, gameTime);
             }
 
             if (currentRoom.name.Equals("Room10"))
