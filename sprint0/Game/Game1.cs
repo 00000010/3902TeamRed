@@ -23,7 +23,7 @@ namespace sprint0
 
         public GameObjectManager manager;
         public LevelLoader loader;
-        KeyboardController keyboard;
+        public KeyboardController keyboard;
         ICamera camera;
 
         public int level = 0;
