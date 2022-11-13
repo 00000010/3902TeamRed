@@ -16,7 +16,7 @@ namespace sprint0
     {
         private Dictionary<KeyboardAction, ICommand> controllerMappings;
         private Dictionary<KeyboardAction, ICommand> controllerMappingsUnpress;
-        private List<Keys> actionsToKeys;
+        public List<Keys> actionsToKeys;
 
         private bool enabled = true; // TODO: for if keyboard will have enable/disable capability; delete if not using
 
@@ -107,8 +107,11 @@ namespace sprint0
             this.RegisterCommand(KeyboardAction.NEXTPROJECTILE, new NextProjectileCommand(game));
             this.RegisterCommand(KeyboardAction.PREVPROJECTILE, new PrevProjectileCommand(game));
 
-            this.RegisterCommand(KeyboardAction.SHOWINVENTORY, new DisplayInventoryCommand(game, "Display"));
-            this.RegisterCommand(KeyboardAction.HIDEINVENTORY, new DisplayInventoryCommand(game, "Remove"));
+            this.RegisterCommand(KeyboardAction.SHOWINVENTORY, new DisplayRoomCommand(game, "Display", "RoomInventory"));
+            this.RegisterCommand(KeyboardAction.HIDEINVENTORY, new DisplayRoomCommand(game, "Remove", "RoomInventory"));
+
+            this.RegisterCommand(KeyboardAction.SHOWCONTROLS, new DisplayRoomCommand(game, "Display", "RoomControls"));
+            this.RegisterCommand(KeyboardAction.HIDECONTROLS, new DisplayRoomCommand(game, "Remove", "RoomControls"));
 
             MapActionsToKeys();
         }
@@ -129,6 +132,8 @@ namespace sprint0
             actionsToKeys.Add(Keys.Q);
             actionsToKeys.Add(Keys.K);
             actionsToKeys.Add(Keys.J);
+            actionsToKeys.Add(Keys.X);
+            actionsToKeys.Add(Keys.Z);
         }
 
         public void EnableKeyboard()

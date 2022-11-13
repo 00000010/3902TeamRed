@@ -17,11 +17,11 @@ namespace sprint0
 
         private InventoryFactory() { }
 
-        public Inventory TopHUD(Game1 game)
+        public KeyboardMappings TopHUD(Game1 game)
         {
             return new TopHud(game);
         }
-        internal class TopHud : Inventory
+        internal class TopHud : KeyboardMappings
         {
             public TopHud(Game1 game)
             {

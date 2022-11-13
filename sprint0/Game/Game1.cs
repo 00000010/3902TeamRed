@@ -24,6 +24,7 @@ namespace sprint0
         public GameObjectManager manager;
         public LevelLoader loader;
         public KeyboardController keyboard;
+        public ControlsKeyboard controlsKeyboard;
         ICamera camera;
 
         public int level = 0;
@@ -45,6 +46,8 @@ namespace sprint0
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
+
+            controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
 
             //Create level loader
             loader = new LevelLoader(this);
@@ -78,6 +81,7 @@ namespace sprint0
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
             keyboard.Update(gameTime);
+            controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }
