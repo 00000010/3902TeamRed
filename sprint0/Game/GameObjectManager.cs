@@ -212,10 +212,7 @@ namespace sprint0
         {
             foreach (IDrawable drawable in drawables)
             {
-                //if (drawable.ToString() != "sprint0.Link")
-                //{
-                    drawable.Draw(gameTime);
-                //}
+                drawable.Draw(gameTime);
             }
         }
 

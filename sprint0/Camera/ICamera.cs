@@ -10,15 +10,11 @@ namespace sprint0
 {
     public interface ICamera : IUpdateable
     {
-        public Sprite Sprite { get; set; }
-        public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
-        public Vector2 Velocity { get { return Sprite.Velocity; } set { Sprite.Velocity = value; } }
-        //public Direction Direction { get; set; }
-        //public State State { get; set; }
-        public void CurtainTransition(List<object> roomObjects, GameTime gameTime);
-        public void PanLeftTransition(List<object> roomObjects, GameTime gameTime);
-        public void PanRightTransition(List<object> roomObjects, GameTime gameTime);
-        public void PanUpTransition(List<object> roomObjects, GameTime gameTime);
-        public void PanDownTransition(List<object> roomObjects, GameTime gameTime);
+        // TODO: make pass by reference?
+        public void CurtainTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
+        public void PanLeftTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
+        public void PanRightTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
+        public void PanUpTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
+        public void PanDownTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
     }
 }

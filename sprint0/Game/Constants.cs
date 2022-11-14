@@ -17,6 +17,8 @@ namespace sprint0
         // Room (not including HUD or outside black space) width and height
         public const int ROOM_WIDTH = 256;
         public const int ROOM_HEIGHT = 176;
+        public const int SCALED_ROOM_WIDTH = 256 * SCALING_FACTOR;
+        public const int SCALED_ROOM_HEIGHT = 176 * SCALING_FACTOR;
 
         /// <summary>
         /// Number of frames for the Link sprite running or attacking.
