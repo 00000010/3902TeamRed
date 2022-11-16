@@ -10,7 +10,7 @@ namespace sprint0
 {
     public interface ICamera : IUpdateable
     {
-        // TODO: make pass by reference?
+        // TODO: make pass room objects by reference?
         public void CurtainTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
         public void PanLeftTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);
         public void PanRightTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects, GameTime gameTime);

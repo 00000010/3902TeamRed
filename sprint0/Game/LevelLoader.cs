@@ -16,6 +16,7 @@ namespace sprint0
     public class LevelLoader
     {
         public Game1 game;
+        private GameTime gameTime;
         public GameObjectManager gameObjectManager;
         private ICamera camera;
 
@@ -33,7 +34,7 @@ namespace sprint0
             currentRoom = new Room();
         }
 
-        public string[] getFilePaths(string levelName)
+        private string[] getFilePaths(string levelName)
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
@@ -144,7 +145,7 @@ namespace sprint0
          
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
-        public void pointPointers()
+        private void pointPointers()
         {
             foreach (Room roomX in allRooms)
             {
@@ -176,12 +177,22 @@ namespace sprint0
         //Changes rooms from the currrent to the specified
         public void ChangeRooms(Room room)
         {
+            //List<Sprite> currentRoomObjectSprites = new List<Sprite>();
+            //List<Sprite> nextRoomObjectSprites = new List<Sprite>();
             if (room != null)
             {
+                //for (int i = 0; i < currentRoom.roomObjects.Count; i++)
+                //{
+                //    currentRoomObjectSprites.Add(currentRoom.roomObjects[i] as Sprite);
+                //}
+                //for (int i = 0; i < room.roomObjects.Count; i++)
+                //{
+                //    nextRoomObjectSprites.Add(currentRoom.roomObjects[i] as Sprite);
+                //}
+                //camera.CurtainTransition(currentRoomObjectSprites, nextRoomObjectSprites, gameTime);
                 UnloadRoom();
                 currentRoom = room;
                 LoadRoom();
-                //camera.CurtainTransition(currentRoom.roomObjects, gameTime);
             }
 
             if (currentRoom.name.Equals("Room10"))

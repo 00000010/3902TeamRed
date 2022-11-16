@@ -1,16 +1,15 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 
 namespace sprint0
 {
-    internal class Camera : ICamera
+    public class Camera : ICamera
     {
+        private GameTime gameTime;
+
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
@@ -20,25 +19,36 @@ namespace sprint0
 
         private List<Sprite> prevRoomObjects, nextRoomObjects;
 
+        private bool enabled = false;
+
         // The cursors that determine where the appearing/disappearing of the room is.
         private int[] cursors;
 
-        // 
         private delegate void UpdatePrevRoomFrame(ref List<Sprite> roomObjects);
         UpdatePrevRoomFrame prevHandler;
         private delegate void UpdateNextRoomFrame(ref List<Sprite> roomObjects);
         UpdateNextRoomFrame nextHandler;
-        private delegate void AdjustCursor();
+        private delegate void AdjustCursor(); // TODO: incorporating this into the above two delegates would be nice
         AdjustCursor cursorHandler;
 
-        public Camera(){}
+        public Camera() {}
 
         // maybe a stupidly made function
-        private int ConstrainWidth(int unconstrainedDimension, int dimensionAmount)
+        private int ConstrainDimension(int unconstrainedDimension, int dimensionAmount)
         {
             int x = 0;
             // TODO: test
             return ((unconstrainedDimension < 0 ? 0 : x = unconstrainedDimension) > dimensionAmount ? dimensionAmount : x);
+        }
+
+        public void Enable()
+        {
+            enabled = true;
+        }
+
+        public void Disable()
+        {
+            enabled = false;
         }
 
         // TODO: inte korrekt, fixa
@@ -82,7 +92,7 @@ namespace sprint0
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands rightward.
+        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands rightward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of the room rectangles.</param>
         private void EmptyToRightFull(ref List<Sprite> roomObjects)
@@ -90,81 +100,66 @@ namespace sprint0
             // Set width for each object which should be between [0, Rectangle.Width]
             for (int i = 0; i < roomObjects.Count; i++)
             {
-                for (int j = 0; j < roomObjects[i].SourceRectangle.Count(); j++)
-                {
-                    int width = roomObjects[i].SourceRectangle[j].Width;
-                    int x = roomObjects[i].SourceRectangle[j].X;
-                    roomObjects[i].SourceRectangle[j].Width = ConstrainWidth(cursors[0] - x, width);
-                }
+                int width = roomObjects[i].SourceRectangle[0].Width;
+                int x = roomObjects[i].SourceRectangle[0].X;
+                roomObjects[i].SourceRectangle[0].Width = ConstrainDimension(cursors[0] - x, width);
             }
         }
 
         // TODO: Below two functions do the same thing; consolidate somehow
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts rightward.
+        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts rightward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of the room rectangles.</param>
         private void FullToRightEmpty(ref List<Sprite> roomObjects)
         {
             for (int i = 0; i < roomObjects.Count; i++)
             {
-                for (int j = 0; j < roomObjects[i].SourceRectangle.Count(); j++)
-                {
-                    int width = roomObjects[i].SourceRectangle[j].Width;
-                    int x = roomObjects[i].SourceRectangle[j].X;
-                    roomObjects[i].SourceRectangle[j].Width = ConstrainWidth(width - (cursors[0] - x), width);
-                }
+                int width = roomObjects[i].SourceRectangle[0].Width;
+                int x = roomObjects[i].SourceRectangle[0].X;
+                roomObjects[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
             }
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands leftward.
+        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands leftward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of room rectangles.</param>
         private void EmptyToLeftFull(ref List<Sprite> roomObjects)
         {
             for (int i = 0; i < roomObjects.Count; i++)
             {
-                for (int j = 0; j < roomObjects[i].SourceRectangle.Count(); j++)
-                {
-                    int width = roomObjects[i].SourceRectangle[j].Width;
-                    int x = roomObjects[i].SourceRectangle[j].X;
-                    roomObjects[i].SourceRectangle[j].Width = ConstrainWidth(width - (cursors[0] - x), width);
-                }
+                int width = roomObjects[i].SourceRectangle[0].Width;
+                int x = roomObjects[i].SourceRectangle[0].X;
+                roomObjects[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
             }
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts leftward.
+        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts leftward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of room rectangles.</param>
         private void FullToLeftEmpty(ref List<Sprite> roomObjects)
         {
             for (int i = 0; i < roomObjects.Count; i++)
             {
-                for (int j = 0; j < roomObjects[i].SourceRectangle.Count(); j++)
-                {
-                    int width = roomObjects[i].SourceRectangle[j].Width;
-                    int x = roomObjects[i].SourceRectangle[j].X;
-                    roomObjects[i].SourceRectangle[j].Width = ConstrainWidth(cursors[0] - x, width);
-                }
+                int width = roomObjects[i].SourceRectangle[0].Width;
+                int x = roomObjects[i].SourceRectangle[0].X;
+                roomObjects[i].SourceRectangle[0].Width = ConstrainDimension(cursors[0] - x, width);
             }
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts upward.
+        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts upward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of room rectangles.</param>
         private void FullToUpEmpty(ref List<Sprite> roomObjects)
         {
             for (int i = 0; i < roomObjects.Count; i++)
             {
-                for (int j = 0; j < roomObjects[i].SourceRectangle.Count(); j++)
-                {
-                    int height = roomObjects[i].SourceRectangle[j].Height;
-                    int y = roomObjects[i].SourceRectangle[j].Y;
-                    roomObjects[i].SourceRectangle[j].Height = ConstrainWidth(cursors[0] - y, height);
-                }
+                int height = roomObjects[i].SourceRectangle[0].Height;
+                int y = roomObjects[i].SourceRectangle[0].Y;
+                roomObjects[i].SourceRectangle[0].Height = ConstrainDimension(cursors[0] - y, height);
             }
         }
 
@@ -200,6 +195,7 @@ namespace sprint0
             Console.WriteLine("Curtain transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            this.gameTime = gameTime;
             cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2, Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2 };
             prevHandler = FullToLeftRightEmpty;
             nextHandler = EmptyToLeftRightFull;
@@ -217,6 +213,7 @@ namespace sprint0
             Console.WriteLine("Pan left transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            this.gameTime = gameTime;
             cursors = new int[] { Constants.ROOM_X };
             prevHandler = FullToRightEmpty;
             nextHandler = EmptyToRightFull;
@@ -234,6 +231,7 @@ namespace sprint0
             Console.WriteLine("Pan right transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            this.gameTime = gameTime;
             cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH };
             prevHandler = FullToLeftEmpty;
             nextHandler = EmptyToLeftFull;
@@ -251,6 +249,7 @@ namespace sprint0
             Console.WriteLine("Pan up transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            this.gameTime = gameTime;
             cursors = new int[] { Constants.ROOM_Y };
             prevHandler = FullToDownEmpty;
             nextHandler = EmptyToDownFull;
@@ -268,6 +267,7 @@ namespace sprint0
             Console.WriteLine("Pan down transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            this.gameTime = gameTime;
             cursors = new int[] { Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT };
             prevHandler = FullToUpEmpty;
             nextHandler = EmptyToUpFull;

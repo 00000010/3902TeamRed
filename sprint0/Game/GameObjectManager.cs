@@ -11,6 +11,8 @@ namespace sprint0
     {
         public Game1 game;
         public IPlayer player;
+        Camera camera;
+
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
         public Inventory inventory;
 
@@ -36,6 +38,7 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
+            camera = game.camera;
             inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
@@ -201,6 +204,7 @@ namespace sprint0
 
             foreach (IUpdateable updateable in updateables)
             {
+                Console.WriteLine("Updating: " + updateable.ToString());
                 updateable.Update(gameTime);
             }
 
