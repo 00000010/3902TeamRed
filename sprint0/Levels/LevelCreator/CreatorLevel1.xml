@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<Pointers></Pointers>
+	<Meta>
+		<Name>LevelCreatorGrid</Name>
+	</Meta>
+	<Asset>
+		<!--<Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>272 224</Location>
+        </Item>-->
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>GridSquare</ObjectName>
+			<Location>272 224</Location>
+			<Dimension>16 11</Dimension>
+		</Item>
+
+	</Asset>
+</XnaContent>

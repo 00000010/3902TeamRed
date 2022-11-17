@@ -26,6 +26,7 @@ namespace sprint0
         private Texture2D ProjectileEffect;
         private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
+        private Texture2D GridSquareBlock, SaveIconBlock;
 
         private SpriteBatch spriteBatch;
 
@@ -73,6 +74,9 @@ namespace sprint0
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
             BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
             PurpleBlock = content.Load<Texture2D>("ZeldaLadxBlock");
+
+            GridSquareBlock = content.Load<Texture2D>("GridSquare");
+            SaveIconBlock = content.Load<Texture2D>("SaveIcon");
 
             Arrow = content.Load<Texture2D>("ZeldaSpriteArrow");
             BlueCandle = content.Load<Texture2D>("ZeldaSpriteBlueCandle");
@@ -381,6 +385,19 @@ namespace sprint0
         public Sprite ZeldaPurple(Vector2 position)
         {
             return new Sprite(PurpleBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
+
+        /*
+         * Dungeon Creator
+         */
+        public Sprite GridSquare(Vector2 position)
+        {
+            return new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite SaveIcon(Vector2 position)
+        {
+            return new Sprite(SaveIconBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         /*
