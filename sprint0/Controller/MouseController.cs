@@ -60,7 +60,7 @@ namespace sprint0
 
         public void LoadLevelCreatorCommands(Game1 game, LevelLoader loader)
         {
-            int blockLength = 16;
+            int blockLength = Constants.BLOCK_SIZE;
             int gridLength = 16;
             int gridHeight = 11;
             int totalGridSquares = gridLength * gridHeight;
@@ -71,7 +71,7 @@ namespace sprint0
             {
                 for (int j = 0; j < gridLength; j++)
                 {
-                    Rectangle newRec = new Rectangle(272 + blockLength * j, 224 + blockLength * i, blockLength, blockLength);
+                    Rectangle newRec = new Rectangle(120 + blockLength * j, 150 + blockLength * i, blockLength, blockLength);
                     Console.WriteLine(newRec.ToString());
                     this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new PlaceBlockCommand(game, new Vector2(newRec.X, newRec.Y), loader));
                 }

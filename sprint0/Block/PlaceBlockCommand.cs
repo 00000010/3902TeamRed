@@ -20,8 +20,9 @@ namespace sprint0
 
         public void Execute()
         {
+            Console.WriteLine("TEST");
             Block block = BlockFactory.Instance.ZeldaBlackBlock(location);
-            manager.AddObject(block);
+            loader.currentRoom.roomObjects.Add(block);
             //ToXML(block);
         }
 

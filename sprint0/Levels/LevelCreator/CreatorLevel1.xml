@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-	<Pointers></Pointers>
+	<Pointers>
+		
+	</Pointers>
 	<Meta>
 		<Name>LevelCreatorGrid</Name>
+		<Start>True</Start>
 	</Meta>
 	<Asset>
 		<!--<Item>
@@ -13,7 +16,7 @@
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>GridSquare</ObjectName>
-			<Location>272 224</Location>
+			<Location>150 120</Location>
 			<Dimension>16 11</Dimension>
 		</Item>
 
