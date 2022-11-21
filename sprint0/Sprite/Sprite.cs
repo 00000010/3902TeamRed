@@ -81,7 +81,7 @@ namespace sprint0
 
         public virtual void Draw(GameTime gameTime)
         {
-            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle[Frame], Color.White, rotation: 0, origin: Vector2.Zero, effects: SpriteEffects.None, LayerDepth);
+             SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle[Frame], Color.White, rotation: 0, origin: Vector2.Zero, effects: SpriteEffects.None, LayerDepth);
         }
 
         public virtual void UpdateVelocity(GameTime gameTime)

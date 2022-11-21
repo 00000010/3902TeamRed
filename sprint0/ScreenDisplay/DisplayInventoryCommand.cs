@@ -46,7 +46,7 @@ namespace sprint0
                 string nameOfRoom = game.loader.allRooms[i].name;
                 if (nameOfRoom.Equals("RoomInventory"))
                 {
-                    game.loader.ChangeRooms(game.loader.allRooms[i]);
+                    game.loader.ChangeRooms(game.loader.allRooms[i], Direction.UP);
                     break;
                 }
             }
@@ -59,7 +59,7 @@ namespace sprint0
                 return;
             }
 
-            game.loader.ChangeRooms(callerRoom);
+            game.loader.ChangeRooms(callerRoom, Direction.DOWN);
             callerRoom = null;
         }
     }

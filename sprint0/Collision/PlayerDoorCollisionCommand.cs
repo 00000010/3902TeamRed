@@ -32,8 +32,7 @@ namespace sprint0
         {
             Player player = (Player)this.player;
             this.loader = this.game.loader;
-
-            //KeyboardController.DisableKeyboard();
+            
             bool success = Enum.TryParse(intersectionLoc.ToUpper(), out Direction d);
             // TODO: data drive
             switch (d)
@@ -55,8 +54,7 @@ namespace sprint0
                     nextRoom = loader.currentRoom.southRoomPtr;
                     break;
             }
-            game.loader.ChangeRooms(nextRoom);
-            //KeyboardController.EnableKeyboard();
+            game.loader.ChangeRooms(nextRoom, d);
         }
     }
 }

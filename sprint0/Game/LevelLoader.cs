@@ -31,6 +31,7 @@ namespace sprint0
         {
             this.game = game;
             this.gameObjectManager = game.manager;
+            this.camera = game.camera;
             currentRoom = new Room();
         }
 
@@ -175,21 +176,12 @@ namespace sprint0
         }
 
         //Changes rooms from the currrent to the specified
-        public void ChangeRooms(Room room)
+        public void ChangeRooms(Room room, Direction direction)
         {
-            //List<Sprite> currentRoomObjectSprites = new List<Sprite>();
-            //List<Sprite> nextRoomObjectSprites = new List<Sprite>();
             if (room != null)
             {
-                //for (int i = 0; i < currentRoom.roomObjects.Count; i++)
-                //{
-                //    currentRoomObjectSprites.Add(currentRoom.roomObjects[i] as Sprite);
-                //}
-                //for (int i = 0; i < room.roomObjects.Count; i++)
-                //{
-                //    nextRoomObjectSprites.Add(currentRoom.roomObjects[i] as Sprite);
-                //}
-                //camera.CurtainTransition(currentRoomObjectSprites, nextRoomObjectSprites, gameTime);
+                camera.Transitioning = true;
+                game.manager.direction = direction;
                 UnloadRoom();
                 currentRoom = room;
                 LoadRoom();

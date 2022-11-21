@@ -65,6 +65,26 @@ namespace sprint0
         {
             return new WaterBlock(position);
         }
+
+        public Block DungeonMonster1(Vector2 position)
+        {
+            return new DungeonMonster1(position);
+        }
+
+        public Block DungeonMonster2(Vector2 position)
+        {
+            return new DungeonMonster2(position);
+        }
+
+        public Block DungeonMonster1Faded(Vector2 position)
+        {
+            return new DungeonMonster1Faded(position);
+        }
+
+        public Block DungeonMonster2Faded(Vector2 position)
+        {
+            return new DungeonMonster2Faded(position);
+        }
     }
 
     internal class ZeldaGreenBlock : Block
@@ -136,6 +156,38 @@ namespace sprint0
         public WaterBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.WaterBlock(position);
+        }
+    }
+
+    internal class DungeonMonster1 : Block
+    {
+        public DungeonMonster1(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster1(position);
+        }
+    }
+
+    internal class DungeonMonster2 : Block
+    {
+        public DungeonMonster2(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster2(position);
+        }
+    }
+
+    internal class DungeonMonster1Faded : Block
+    {
+        public DungeonMonster1Faded(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster1Faded(position);
+        }
+    }
+
+    internal class DungeonMonster2Faded : Block
+    {
+        public DungeonMonster2Faded(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster2Faded(position);
         }
     }
 }

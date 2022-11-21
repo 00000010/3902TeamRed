@@ -17,8 +17,6 @@ namespace sprint0
         private Dictionary<Keys, ICommand> controllerMappings;
         private Dictionary<Keys, ICommand> controllerMappingsUnpress;
 
-        private bool enabled = true; // TODO: for if keyboard will have enable/disable capability; delete if not using
-
         private Keys[] prevPressedKeys = new Keys[0];
 
         public event EventHandler<EventArgs> EnabledChanged;
@@ -46,27 +44,24 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            if (enabled)
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+
+            foreach (Keys key in prevPressedKeys)
             {
-                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-
-                foreach (Keys key in prevPressedKeys)
+                if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
                 {
-                    if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
-                    {
-                        controllerMappingsUnpress[key].Execute();
-                    }
+                    controllerMappingsUnpress[key].Execute();
                 }
-
-                foreach (Keys key in pressedKeys)
-                {
-                    if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
-                    {
-                        controllerMappings[key].Execute();
-                    }
-                }
-                this.prevPressedKeys = pressedKeys;
             }
+
+            foreach (Keys key in pressedKeys)
+            {
+                if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
+                {
+                    controllerMappings[key].Execute();
+                }
+            }
+            this.prevPressedKeys = pressedKeys;
         }
 
         public void LoadDefaultKeys(Game1 game)
@@ -104,16 +99,6 @@ namespace sprint0
 
             this.RegisterCommand(Keys.Y, new DisplayInventoryCommand(game, "Display"));
             this.RegisterCommand(Keys.T, new DisplayInventoryCommand(game, "Remove"));
-        }
-
-        public void EnableKeyboard()
-        {
-            this.enabled = true;
-        }
-
-        public void DisableKeyboard()
-        {
-            this.enabled = false;
         }
     }
 }

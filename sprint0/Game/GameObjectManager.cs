@@ -35,6 +35,9 @@ namespace sprint0
         private int attackingRotation = 0;
         private int damageRotation = 0;
 
+        public bool transitioning = false;
+        public Direction direction;
+
         public GameObjectManager(Game1 game)
         {
             this.game = game;
@@ -173,43 +176,70 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            // Ensure Link does not keep attacking, but only with each press
-            if (player.State == State.ATTACKING || player.State == State.THROWING)
+            if (camera.Transitioning)
             {
-                if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
+                if (!camera.TransitionSet)
                 {
-                    player.State = State.STANDING;
-                    player.UpdatePlayerSprite(this);
-                    attackingRotation = 0;
-                }
-                attackingRotation++;
+                    switch (direction)
+                    {
+                        case Direction.LEFT:
+                            camera.PanLeftTransition(objectsToRemove, objectsToAdd);
+                            break;
+                        case Direction.RIGHT:
+                            camera.PanRightTransition(objectsToRemove, objectsToAdd);
+                            break;
+                        case Direction.UP:
+                            camera.PanUpTransition(objectsToRemove, objectsToAdd);
+                            break;
+                        case Direction.DOWN:
+                            camera.PanDownTransition(objectsToRemove, objectsToAdd);
+                            break;
+                    }
+                    camera.TransitionSet = true;
+                    Console.WriteLine("Set transition");
+                }                
+                camera.Update(gameTime);
             }
-            if (player.TakingDamage)
+            else
             {
-                if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
+                // Ensure Link does not keep attacking, but only with each press
+                if (player.State == State.ATTACKING || player.State == State.THROWING)
                 {
-                    player.TakingDamage = !player.TakingDamage;
-                    player.UpdatePlayerSprite(this);
-                    damageRotation = 0;
+                    if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
+                    {
+                        player.State = State.STANDING;
+                        player.UpdatePlayerSprite(this);
+                        attackingRotation = 0;
+                    }
+                    attackingRotation++;
                 }
-                damageRotation++;
+                if (player.TakingDamage)
+                {
+                    if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
+                    {
+                        player.TakingDamage = !player.TakingDamage;
+                        player.UpdatePlayerSprite(this);
+                        damageRotation = 0;
+                    }
+                    damageRotation++;
+                }
+
+                //Removes all objects in objectsToRemove and adds all objects in objectsToAdd
+                RemoveAllObjects();
+                AddAllObjects();
+
+                Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+                Enemy.UpdateEnemyProjectiles(game, enemies);
+
+                foreach (IUpdateable updateable in updateables)
+                {
+                    updateable.Update(gameTime);
+                }
+
+                //Handling all different types of collision
+                CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
             }
-
-            //Removes all objects in objectsToRemove and adds all objects in objectsToAdd
-            RemoveAllObjects();
-            AddAllObjects();
-
-            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
-            Enemy.UpdateEnemyProjectiles(game, enemies);
-
-            foreach (IUpdateable updateable in updateables)
-            {
-                Console.WriteLine("Updating: " + updateable.ToString());
-                updateable.Update(gameTime);
-            }
-
-            //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
+            Console.WriteLine("transitioning: " + camera.Transitioning);
         }
 
         public void Draw(GameTime gameTime)
@@ -217,6 +247,10 @@ namespace sprint0
             foreach (IDrawable drawable in drawables)
             {
                 drawable.Draw(gameTime);
+            }
+            if (camera.Transitioning)
+            {
+                camera.Draw(gameTime);
             }
         }
 

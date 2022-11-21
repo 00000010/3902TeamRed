@@ -1,49 +1,40 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
     <Files>
-      <File FileName="sprint0/Game/Room.cs" Line="50" Column="35" IsPinned="True" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="146" Column="24" IsPinned="True" />
-      <File FileName="sprint0/Game/Game1.cs" Line="52" Column="1" IsPinned="True" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="336" Column="1" IsPinned="True" />
-      <File FileName="sprint0/Game/Program.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Game/Game1.cs" Line="52" Column="1" IsPinned="True" />
-      <File FileName="sprint0/Game/LoadLevelCommand.cs" Line="23" Column="5" />
-      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="25" Column="77" />
-      <File FileName="sprint0/Game/Room.cs" Line="50" Column="35" IsPinned="True" />
-      <File FileName="sprint0/Controller/KeyboardController.cs" Line="94" Column="43" />
-      <File FileName="sprint0/Levels/Dungeon1/Level18.xml" Line="6" Column="11" />
-      <File FileName="sprint0/Levels/Dungeon1/Level15.xml" Line="5" Column="25" />
-      <File FileName="sprint0/Levels/Dungeon1/Level10.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level17.xml" Line="5" Column="25" />
-      <File FileName="sprint0/Item/ItemObject.cs" Line="29" Column="10" />
-      <File FileName="sprint0/Levels/Dungeon1/Level2.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level3.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level4.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level5.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level6.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level7.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level8.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level9.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level11.xml" Line="9" Column="21" />
-      <File FileName="sprint0/Levels/Dungeon1/Level12.xml" Line="11" Column="15" />
-      <File FileName="sprint0/Levels/Dungeon1/Level13.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level14.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level16.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Player/PlayerCommands.cs" Line="1" Column="1" />
+      <File FileName="sprint0/Game/Game1.cs" Line="88" Column="1" />
+      <File FileName="sprint0/Camera/Camera.cs" Line="317" Column="10" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="202" Column="14" />
+      <File FileName="sprint0/Camera/ICamera.cs" Line="14" Column="48" />
+      <File FileName="sprint0/Game/LevelLoader.cs" Line="34" Column="39" />
+      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="23" Column="53" />
+      <File FileName="sprint0/Block/IBlock.cs" Line="1" Column="1" />
+      <File FileName="sprint0/Sprite/Sprite.cs" Line="84" Column="1" />
+      <File FileName="sprint0/Game/Constants.cs" Line="14" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
+              <Node name="Block" expanded="True" />
+              <Node name="Camera" expanded="True" />
+              <Node name="Collision" expanded="True">
+                <Node name="ProjectileBlockCollisionCommand.cs" selected="True" />
+              </Node>
               <Node name="Controller" expanded="True" />
+              <Node name="Enemy" expanded="True" />
               <Node name="Game" expanded="True" />
+              <Node name="Inventory" expanded="True" />
               <Node name="Item" expanded="True" />
               <Node name="Levels" expanded="True">
                 <Node name="Dungeon1" expanded="True" />
               </Node>
               <Node name="Player" expanded="True" />
+              <Node name="ScreenDisplay" expanded="True" />
+              <Node name="Sprite" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -53,8 +44,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

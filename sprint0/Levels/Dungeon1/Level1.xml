@@ -67,62 +67,62 @@
 			<Dimension>6 2</Dimension>
 		</Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>246 216</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>342 216</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>246 280</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>342 280</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>246 344</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>342 344</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>438 216</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>534 216</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>438 280</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>534 280</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>438 344</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>534 344</Location>
         </Item>

@@ -18,7 +18,7 @@ namespace sprint0
             List<IBlock> blocks, List<IDoor> doors, List<IItem> items, Dictionary<IProjectile, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             IObject objectPlayer = (IObject)player;
-
+            
             List<IObject> objectEnemies = new List<IObject>();
             foreach (IEnemy x in enemies) objectEnemies.Add((IObject)x);
             List<IObject> objectProjectiles = new List<IObject>();
