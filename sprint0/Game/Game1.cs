@@ -24,7 +24,6 @@ namespace sprint0
         public GameObjectManager manager;
         public LevelLoader loader;
         KeyboardController keyboard;
-        ICamera camera;
 
         public int level = 0;
 
@@ -45,10 +44,12 @@ namespace sprint0
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
+            //camera = new Camera();
 
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
+            
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);

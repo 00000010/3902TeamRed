@@ -65,6 +65,11 @@ namespace sprint0
         {
             return new WaterBlock(position);
         }
+
+        public Block DungeonMonster1(Vector2 position)
+        {
+            return new DungeonMonster1(position);
+        }
     }
 
     internal class ZeldaGreenBlock : Block
@@ -136,6 +141,14 @@ namespace sprint0
         public WaterBlock(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.WaterBlock(position);
+        }
+    }
+
+    internal class DungeonMonster1 : Block
+    {
+        public DungeonMonster1(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.DungeonMonster1(position);
         }
     }
 }

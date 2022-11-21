@@ -39,11 +39,11 @@
             <ObjectName>DungeonDoorNorth</ObjectName>
             <Location>374 144</Location>
         </Item>
-        <Item>
+        <!--<Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonDoorSouth</ObjectName>
             <Location>374 408</Location>
-        </Item>
+        </Item>-->
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorEast</ObjectName>

@@ -59,13 +59,13 @@ namespace sprint0
                     InitPosition = arrowThrowPosition;
                     break;
                 case Direction.RIGHT:
-                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
+                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 30);
                     Sprite = SpriteFactory.Instance.ZeldaArrowRight(arrowThrowPosition);
                     velocity.X += 5;
                     InitPosition = new Vector2(850,-100);
                     break;
                 case Direction.UP:
-                    arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
+                    arrowThrowPosition = new Vector2(position.X + 36, position.Y + 20);
                     Sprite = SpriteFactory.Instance.ZeldaArrowUp(arrowThrowPosition);
                     velocity.Y -= 5;
                     InitPosition = arrowThrowPosition;

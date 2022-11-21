@@ -75,12 +75,12 @@ namespace sprint0
             return enemy;
         }
 
-        public Enemy DungeonMonster1(Vector2 position)
-        {
-            Enemy enemy = new DungeonMonster1(position);
-            enemy.CollideDamage = 0;
-            return enemy;
-        }
+        //public Enemy DungeonMonster1(Vector2 position)
+        //{
+        //    Enemy enemy = new DungeonMonster1(position);
+        //    enemy.CollideDamage = 0;
+        //    return enemy;
+        //}
 
         public Enemy DungeonMonster2(Vector2 position)
         {
@@ -171,14 +171,14 @@ namespace sprint0
         }
     }
 
-    internal class DungeonMonster1 : Enemy
-    {
-        public DungeonMonster1(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.DungeonMonster1(position);
-            Velocity = Vector2.Zero;
-        }
-    }
+    //internal class DungeonMonster1 : Enemy
+    //{
+    //    public DungeonMonster1(Vector2 position)
+    //    {
+    //        Sprite = SpriteFactory.Instance.DungeonMonster1(position);
+    //        Velocity = Vector2.Zero;
+    //    }
+    //}
 
     internal class DungeonMonster2 : Enemy
     {
