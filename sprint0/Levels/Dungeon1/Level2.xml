@@ -12,15 +12,10 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorEast</ObjectName>
-			<Location>600 270</Location>
-		</Item>
         <Item>
-            <ObjectType>Player</ObjectType>
-            <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
@@ -36,6 +31,11 @@
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Keese</ObjectName>
             <Location>320 336</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

@@ -22,8 +22,9 @@ namespace sprint0
         public List<IBlock> blocks = new List<IBlock>();
         public List<IDoor> doors = new List<IDoor>();
         public List<IItem> items = new List<IItem>();
+
         public Dictionary<IProjectile, IShooter> shooterOfProjectile = new Dictionary<IProjectile, IShooter>();
-        public Dictionary<Tuple<string, string>, Type> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type>();
+        public Dictionary<Tuple<string, string>, Type[]> collisionResolutionDic = new Dictionary<Tuple<string, string>, Type[]>();
         public HashSet<string> setOfEnemyShooters = new HashSet<string>();
 
         public List<object> objectsToAdd = new List<object>();
@@ -204,7 +205,7 @@ namespace sprint0
             }
 
             //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, items, shooterOfProjectile, this);
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
         }
 
         public void Draw(GameTime gameTime)
@@ -326,4 +327,3 @@ namespace sprint0
         }
     }
 }
-

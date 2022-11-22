@@ -14,20 +14,20 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorEast</ObjectName>
-			<Location>600 270</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorWest</ObjectName>
-			<Location>165 270</Location>
-		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>174 264</Location>
+        </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonBadDoorSouth</ObjectName>
-            <Location>375 400</Location>
+            <Location>374 408</Location>
         </Item>
 		<Item>
 			<ObjectType>Block</ObjectType>
@@ -50,11 +50,6 @@
 			<Location>500 315</Location>
 		</Item>
         <Item>
-            <ObjectType>Player</ObjectType>
-            <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
-        </Item>
-        <Item>
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Goriya</ObjectName>
             <Location>352 256</Location>
@@ -68,6 +63,11 @@
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Goriya</ObjectName>
             <Location>480 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

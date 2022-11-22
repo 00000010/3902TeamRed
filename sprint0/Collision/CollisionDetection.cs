@@ -15,7 +15,7 @@ namespace sprint0
     internal static class CollisionDetection
     {
         public static void HandleAllCollidables(IPlayer player, List<IProjectile> projectiles, List<IEnemy> enemies,
-            List<IBlock> blocks, List<IItem> items, Dictionary<IProjectile, IShooter> shooterOfProjectile, GameObjectManager manager)
+            List<IBlock> blocks, List<IDoor> doors, List<IItem> items, Dictionary<IProjectile, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
             IObject objectPlayer = (IObject)player;
 
@@ -32,6 +32,7 @@ namespace sprint0
             Dictionary<IObject, IShooter> shooterOfProjectileObjects = new Dictionary<IObject, IShooter>();
             foreach (KeyValuePair<IProjectile, IShooter> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
+            HandlePlayerCollisions(objectPlayer, objectDoors, shooterOfProjectileObjects, manager);
             HandlePlayerCollisions(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
             HandlePlayerCollisions(objectPlayer, objectEnemies, shooterOfProjectileObjects, manager);
             HandlePlayerCollisions(objectPlayer, objectItems, shooterOfProjectileObjects, manager);
@@ -45,10 +46,10 @@ namespace sprint0
         private static void HandlePlayerCollisions(IObject player, List<IObject> otherObjects,
             Dictionary<IObject, IShooter> shooterOfProjectile, GameObjectManager manager)
         {
-            int offset = 24;
+            int offset = Constants.LINK_HEIGHT / 2 - Constants.BLOCK_SIZE / 2;
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-                (int)player.Position.Y + offset, player.Sprite.DestinationRectangle.Width - (offset * 2),
-                player.Sprite.DestinationRectangle.Height - (offset * 2));
+                (int)player.Position.Y + offset, Constants.BLOCK_SIZE,
+                Constants.BLOCK_SIZE);
             HandleInnerLoop(player, playerRect, otherObjects, shooterOfProjectile, manager, "Player");
         }
 
@@ -82,7 +83,7 @@ namespace sprint0
                     CollisionResolution.CallCorrespondingCommand(object1, currObject, manager, intersectionLoc);
                 }
             }
-        } 
+        }
 
         private static string GetIntersectionLocation(Rectangle Moving, Rectangle intersect)
         {
@@ -100,7 +101,7 @@ namespace sprint0
                 }
             }
             //Top-Bottom
-            if (intersect.Height <= intersect.Width) 
+            if (intersect.Height <= intersect.Width)
             {
                 if (Moving.Top == intersect.Top)
                 {
@@ -111,38 +112,7 @@ namespace sprint0
                     collisionDirections += "up";
                 }
             }
-
             return collisionDirections;
         }
-
-        //private static void HandlePlayerAgainstWalls(IObject player, IObject background, GameObjectManager manager)
-        //{
-            //int offset = 12;
-            //Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
-            //    (int)player.Position.Y + offset, player.Sprite.SourceRectangle[player.Sprite.Frame].Width - (offset * 2),
-            //    player.Sprite.SourceRectangle[player.Sprite.Frame].Height - (offset * 2));
-            //Rectangle[] wallRects = GetWallRects(background);
-            //foreach (Rectangle wall in wallRects)
-            //{
-            //    Rectangle intersect = Rectangle.Intersect(playerRect, wall);
-            //    if (!intersect.IsEmpty)
-            //    {
-            //        CollisionResolution.CallCorrespondingCommand(player, wall, manager, "");
-            //    }
-            //}
-        //}
-
-        //private static Rectangle[] GetWallRects(IObject background)
-        //{
-        //    // TODO: code smell; lots of dots
-        //    // TODO: magic numbers
-        //    Rectangle[] wallRects = {
-        //        new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
-        //        new Rectangle((int)background.Position.X, (int)background.Position.Y + background.Sprite.SourceRectangle[0].Height - (18/99), background.Sprite.SourceRectangle[0].Width, background.Sprite.SourceRectangle[0].Height * (18/99)),
-        //        new Rectangle((int)background.Position.X, (int)background.Position.Y, background.Sprite.SourceRectangle[0].Height, background.Sprite.SourceRectangle[0].Width * (18/99)),
-        //        new Rectangle((int)background.Position.X + background.Sprite.SourceRectangle[0].Width * (81/99), (int)background.Position.Y, background.Sprite.SourceRectangle[0].Width * (18/99), background.Sprite.SourceRectangle[0].Height)
-        //        };
-        //    return wallRects;
-        //}
     }
 }

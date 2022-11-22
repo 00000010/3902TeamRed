@@ -13,26 +13,21 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorNorth</ObjectName>
-			<Location>375 140</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorSouth</ObjectName>
-			<Location>375 400</Location>
-		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>374 144</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>374 408</Location>
+        </Item>
         <Item>
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>373 250</Location>
             <Dimension>2 3</Dimension>
-        </Item>
-        <Item>
-            <ObjectType>Player</ObjectType>
-            <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
@@ -48,6 +43,11 @@
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
             <Location>352 320</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

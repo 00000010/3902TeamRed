@@ -75,23 +75,23 @@ namespace sprint0
         {
             if (GameOver)
             {
-                instance._spriteBatch.DrawString(instance.mainFont, "Game Over", new Vector2(270, 220), Color.White);
-                instance._spriteBatch.DrawString(instance.smallerFont, "Press R to Restart", new Vector2(270, 270), Color.White);
+                instance._spriteBatch.DrawString(instance.mainFont, "Game Over", new Vector2(270, 220), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
+                instance._spriteBatch.DrawString(instance.smallerFont, "Press R to Restart", new Vector2(270, 270), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
             }
             else if (Paused)
             {
-                instance._spriteBatch.DrawString(instance.mainFont, "Paused", new Vector2(330, 220), Color.White);
-                instance._spriteBatch.DrawString(instance.smallerFont, "Press U to Resume", new Vector2(280, 270), Color.White);
+                instance._spriteBatch.DrawString(instance.mainFont, "Paused", new Vector2(330, 220), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
+                instance._spriteBatch.DrawString(instance.smallerFont, "Press U to Resume", new Vector2(280, 270), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
             }
             else if (Victory)
             {
-                instance._spriteBatch.DrawString(instance.mainFont, "Victory!", new Vector2(330, 220), Color.White);
-                instance._spriteBatch.DrawString(instance.smallerFont, "Press R to Restart", new Vector2(280, 270), Color.White);
+                instance._spriteBatch.DrawString(instance.mainFont, "Victory!", new Vector2(302, 248), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
+                instance._spriteBatch.DrawString(instance.smallerFont, "Press R to Restart", new Vector2(274, 300), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
             }
             else if (Room10)
             {
-                instance._spriteBatch.DrawString(instance.smallerFont, "EASTMOST PENINSULA", new Vector2(270, 190), Color.White);
-                instance._spriteBatch.DrawString(instance.smallerFont, "IS THE SECRET.", new Vector2(300, 220), Color.White);
+                instance._spriteBatch.DrawString(instance.smallerFont, "EASTMOST PENINSULA", new Vector2(270, 190), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
+                instance._spriteBatch.DrawString(instance.smallerFont, "IS THE SECRET.", new Vector2(300, 220), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
             }
         }
 

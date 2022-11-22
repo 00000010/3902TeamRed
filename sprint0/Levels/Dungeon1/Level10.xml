@@ -12,11 +12,11 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorEast</ObjectName>
-			<Location>600 270</Location>
-		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
+        </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonAbyss</ObjectName>
@@ -25,22 +25,22 @@
 		<Item>
 			<ObjectType>Enemy</ObjectType>
 			<ObjectName>ZeldaOldMan</ObjectName>
-			<Location>385 270</Location>
+			<Location>392 270</Location>
 		</Item>
 		<Item>
 			<ObjectType>Item</ObjectType>
 			<ObjectName>ZeldaFireItem</ObjectName>
-			<Location>335 270</Location>
+			<Location>348 270</Location>
 		</Item>
 		<Item>
 			<ObjectType>Item</ObjectType>
 			<ObjectName>ZeldaFireItem</ObjectName>
-			<Location>435 270</Location>
+			<Location>434 270</Location>
 		</Item>
         <Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

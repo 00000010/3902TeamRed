@@ -51,7 +51,7 @@ namespace sprint0
             return frameCollection;
         }
 
-        public static Rectangle[] Background = { new Rectangle(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT) };
+        public static Rectangle[] Background = { new Rectangle(0, 0, Constants.ROOM_WIDTH, Constants.ROOM_HEIGHT) };
 
         public static Rectangle[] Empty =
         {

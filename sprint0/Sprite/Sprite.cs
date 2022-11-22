@@ -20,6 +20,7 @@ namespace sprint0
         public SpriteBatch SpriteBatch { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+        public float LayerDepth { get; set; }
 
         public Direction Direction { get; set; }
         public int NumUpdates { get; set; }
@@ -49,11 +50,13 @@ namespace sprint0
         /// from the spritesheet</param>
         /// <param name="spriteBatch"></param>
         /// <param name="position">where to put the sprite</param>
-        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position)
+        /// <param name="layerDepth">float between 0 and 1, with a higher number indicating drawn later</param>
+        public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, float layerDepth)
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
             Position = position;
+            LayerDepth = layerDepth;
             Velocity = Vector2.Zero;
             SpriteBatch = spriteBatch;
             Frame = 0;
@@ -78,7 +81,7 @@ namespace sprint0
 
         public virtual void Draw(GameTime gameTime)
         {
-            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle[Frame], Color.White);
+            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle[Frame], Color.White, rotation: 0, origin: Vector2.Zero, effects: SpriteEffects.None, LayerDepth);
         }
 
         public virtual void UpdateVelocity(GameTime gameTime)
@@ -95,22 +98,23 @@ namespace sprint0
             if (SourceRectangle == ItemRectangle.BowArrowUp || SourceRectangle == ItemRectangle.BowArrowDown || SourceRectangle == ItemRectangle.BowArrowLeft || SourceRectangle == ItemRectangle.BowArrowRight) return;
 
             // wrap around screen
-            if (Position.X > 800)
-            {
-                Position = new Vector2(0, Position.Y);
-            }
-            else if (Position.X < 0)
-            {
-                Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
-            }
-            else if (Position.Y > 480)
-            {
-                Position = new Vector2(Position.X, 0);
-            } 
-            else if (Position.Y < 0)
-            {
-                Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
-            }
+            // TODO: probably remove as this is from sprint2
+            //if (Position.X > 800)
+            //{
+            //    Position = new Vector2(0, Position.Y);
+            //}
+            //else if (Position.X < 0)
+            //{
+            //    Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
+            //}
+            //else if (Position.Y > 480)
+            //{
+            //    Position = new Vector2(Position.X, 0);
+            //} 
+            //else if (Position.Y < 0)
+            //{
+            //    Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
+            //}
         }
 
         public virtual void UpdateFrame(GameTime gameTime)

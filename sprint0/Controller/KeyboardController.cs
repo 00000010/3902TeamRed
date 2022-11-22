@@ -12,10 +12,12 @@ using System.Windows.Input;
 
 namespace sprint0
 {
-    internal class KeyboardController : IController
+    public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
         private Dictionary<Keys, ICommand> controllerMappingsUnpress;
+
+        private bool enabled = true; // TODO: for if keyboard will have enable/disable capability; delete if not using
 
         private Keys[] prevPressedKeys = new Keys[0];
 
@@ -44,24 +46,27 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-
-            foreach (Keys key in prevPressedKeys)
+            if (enabled)
             {
-                if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
-                {
-                    controllerMappingsUnpress[key].Execute();
-                }
-            }
+                Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
-            foreach (Keys key in pressedKeys)
-            {
-                if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
+                foreach (Keys key in prevPressedKeys)
                 {
-                    controllerMappings[key].Execute();
+                    if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
+                    {
+                        controllerMappingsUnpress[key].Execute();
+                    }
                 }
+
+                foreach (Keys key in pressedKeys)
+                {
+                    if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
+                    {
+                        controllerMappings[key].Execute();
+                    }
+                }
+                this.prevPressedKeys = pressedKeys;
             }
-            this.prevPressedKeys = pressedKeys;
         }
 
         public void LoadDefaultKeys(Game1 game)
@@ -83,12 +88,9 @@ namespace sprint0
             this.RegisterCommand(Keys.Down, new LoadRoomCommand(game, Direction.DOWN));
             this.RegisterCommand(Keys.Right, new LoadRoomCommand(game, Direction.RIGHT));
 
-            /* B and N keys for Link attacking */
+            /* L and Z keys for Link attacking */
             this.RegisterCommand(Keys.B, new PlayerProjCommand(game));
             this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
-
-            /* Reload the current level */
-            this.RegisterCommand(Keys.R, new ReloadLevelCommand(game));
 
             /* Quit the game */
             this.RegisterCommand(Keys.Q, new ExitCommand(game));
@@ -104,7 +106,7 @@ namespace sprint0
             this.RegisterCommand(Keys.T, new DisplayInventoryCommand(game, "Remove"));
         }
 
-	    public void EnableKeyboard()
+        public void EnableKeyboard()
         {
             this.enabled = true;
         }

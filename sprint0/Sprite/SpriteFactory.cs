@@ -19,7 +19,7 @@ namespace sprint0
     /// </summary>
     public class SpriteFactory
     {
-        private Texture2D dungeonSheet, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
+        private Texture2D dungeonSheet, dungeonWallNorth, dungeonWallSouth, dungeonWallEast, dungeonWallWest, dungeonDoorNorth, dungeonDoorSouth, dungeonDoorEast, dungeonDoorWest, dungeonBadDoorNorth, dungeonBadDoorSouth, dungeonSand, dungeonMonster1, dungeonMonster2, dungeonMonster1Faded, dungeonMonster2Faded, dungeonBlock, dungeonAbyss, dungeonStairs;
         private Texture2D linkSpritesheet, enemiesSpritesheet, Dragon, OldMan;
         private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
@@ -38,27 +38,33 @@ namespace sprint0
             }
         }
 
-        private SpriteFactory() {}
+        private SpriteFactory() { }
 
         // Load the sprite sheets.
         public void LoadTextures(ContentManager content, SpriteBatch spriteBatch)
         {
             this.spriteBatch = spriteBatch;
 
+            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonSheet = content.Load<Texture2D>("DungeonBackground");
-            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
-            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
-            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
-            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
             dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
             dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
+            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
+            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
+            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
+            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
+            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
+
+            dungeonWallNorth = content.Load<Texture2D>("DungeonNorthWall");
+            dungeonWallSouth = content.Load<Texture2D>("DungeonSouthWall");
+            dungeonWallEast = content.Load<Texture2D>("DungeonEastWall");
+            dungeonWallWest = content.Load<Texture2D>("DungeonWestWall");
+
             dungeonSand = content.Load<Texture2D>("DungeonSand");
             dungeonMonster1 = content.Load<Texture2D>("DungeonMonster1");
             dungeonMonster2 = content.Load<Texture2D>("DungeonMonster2");
             dungeonMonster1Faded = content.Load<Texture2D>("DungeonMonster1Faded");
             dungeonMonster2Faded = content.Load<Texture2D>("DungeonMonster2Faded");
-            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
-            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonStairs = content.Load<Texture2D>("DungeonStairs");
 
             waterBlock = content.Load<Texture2D>("WaterBlock");
@@ -89,13 +95,15 @@ namespace sprint0
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
             OldMan = content.Load<Texture2D>("Zelda_old_man");
             HUD = content.Load<Texture2D>("Zelda_HUD");
-            ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
+            ZeldaBlueMap = content.Load<Texture2D>("Zelda_map");
             ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
             Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
             TopHud = content.Load<Texture2D>("tophud");
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
+
+            Console.WriteLine("All the way through");
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -134,6 +142,7 @@ namespace sprint0
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonWallWest.Width, dungeonWallWest.Height) };
             return new Sprite(dungeonWallWest, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
+
         /*
          * Background blocks
          */
@@ -200,7 +209,7 @@ namespace sprint0
         public Sprite WaterBlock(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, waterBlock.Width, waterBlock.Height) };
-            return new Sprite(waterBlock, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            return new Sprite(waterBlock, rectangles, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
 
         /*
@@ -386,6 +395,11 @@ namespace sprint0
             return new Sprite(BlueCandle, ItemRectangle.Candle, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
+        public Sprite ZeldaSword(Vector2 position)
+        {
+            return new Sprite(HUD, ItemRectangle.Sword, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
+        }
+
         public Sprite ZeldaBomb(Vector2 position)
         {
             return new Sprite(Bomb, ItemRectangle.Bomb, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
@@ -441,6 +455,39 @@ namespace sprint0
             return new Sprite(Letter, ItemRectangle.Letter, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
+        public Sprite ZeldaTriforce(Vector2 position)
+        {
+            return new Sprite(Triforce, ItemRectangle.Triforce, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
+        }
+
+        public Sprite ZeldaRock(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Rock, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
+        }
+
+        public Sprite ZeldaFire(Vector2 position)
+        {
+            return new Sprite(enemiesSpritesheet, ProjectileRectangle.Fire, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+        }
+
+        public Sprite ZeldaDragonProj(Vector2 position)
+        {
+            return new Sprite(Dragon, ProjectileRectangle.DragonProjectile, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
+        }
+
+        /*
+         * Enemies
+         */
+        public Sprite ZeldaOldMan(Vector2 position)
+        {
+            return new Sprite(OldMan, EnemyRectangle.ZeldaOldMan, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite ZeldaDragon(Vector2 position)
+        {
+            return new Sprite(Dragon, EnemyRectangle.Dragon, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+        }
+
         public Sprite Stalfos(Vector2 position)
         {
             return new Sprite(enemiesSpritesheet, EnemyRectangle.Stalfos, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
@@ -492,13 +539,13 @@ namespace sprint0
         public Sprite DungeonMonster1(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
-            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
-            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster1Faded(Vector2 position)
@@ -510,33 +557,33 @@ namespace sprint0
         public Sprite DungeonMonster2Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
-            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position);
+            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
         }
 
         // TODO: dictionary with key as direction for these
         public Sprite ZeldaArrowUp(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrowUp, spriteBatch, position);
+            return new Sprite(Arrow, ItemRectangle.BowArrowUp, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaArrowDown(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrowDown, spriteBatch, position);
+            return new Sprite(Arrow, ItemRectangle.BowArrowDown, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaArrowLeft(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrowLeft, spriteBatch, position);
+            return new Sprite(Arrow, ItemRectangle.BowArrowLeft, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaArrowRight(Vector2 position)
         {
-            return new Sprite(Arrow, ItemRectangle.BowArrowRight, spriteBatch, position);
+            return new Sprite(Arrow, ItemRectangle.BowArrowRight, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         public Sprite ZeldaProjectileEffect(Vector2 position)
         {
-            return new Sprite(ProjectileEffect, SpriteRectangle.ProjectileEffect, spriteBatch, position);
+            return new Sprite(ProjectileEffect, SpriteRectangle.ProjectileEffect, spriteBatch, position, Constants.PROJECTILE_LAYER_DEPTH);
         }
 
         /*
@@ -544,77 +591,77 @@ namespace sprint0
          */
         public Sprite ZeldaCurrProjectile(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaCurrProjectile, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaCurrProjectile, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaAvailableProjectiles(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaAvailProjectiles, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaAvailProjectiles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
         public Sprite ZeldaMapAndCompassHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaMapAndCompassHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaMapAndCompassHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaMapHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaMapHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaMapHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaOrangeBlockHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaOrangeBlockHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaOrangeBlockHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaRupy(Vector2 position)
         {
-            return new Sprite(Rupy, ItemRectangle.ZeldaRupy, spriteBatch, position);
+            return new Sprite(Rupy, ItemRectangle.ZeldaRupy, spriteBatch, position, Constants.ITEM_LAYER_DEPTH);
         }
 
         public Sprite ZeldaInventoryHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaInventoryHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaInventoryHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaLevelHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaLevelHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaLevelHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaNumOneHUD(Vector2 position)
         {
-            return new Sprite(HUD, SpriteRectangle.ZeldaNumOneHUD, spriteBatch, position);
+            return new Sprite(HUD, SpriteRectangle.ZeldaNumOneHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaBlueMapHUD(Vector2 position)
         {
-            return new Sprite(ZeldaBlueMap, SpriteRectangle.ZeldaBlueMapHUD, spriteBatch, position);
+            return new Sprite(ZeldaBlueMap, SpriteRectangle.ZeldaBlueMapHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         public Sprite ZeldaOrangeMapHUD(Vector2 position)
         {
-            return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position);
+            return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
         /* inventory */
         public Sprite TopHUD(Vector2 position)
         {
-            return new Sprite(TopHud, InventoryRectangle.TopHUD, spriteBatch, position);
+            return new Sprite(TopHud, InventoryRectangle.TopHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
         public Sprite FullHeart(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Fullheart.Width, Fullheart.Height) };
-            return new Sprite(Fullheart, rectangles, spriteBatch, position);
+            return new Sprite(Fullheart, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
         public Sprite HalfHeart(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Halfheart.Width, Halfheart.Height) };
-            return new Sprite(Halfheart, rectangles, spriteBatch, position);
+            return new Sprite(Halfheart, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
         public Sprite EmptyHeart(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Emptyheart.Width, Emptyheart.Height) };
-            return new Sprite(Emptyheart, rectangles, spriteBatch, position);
+            return new Sprite(Emptyheart, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
     }
 }

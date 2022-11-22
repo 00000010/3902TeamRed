@@ -38,19 +38,14 @@
             <Location>304 272</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>352 256</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>368 256</Location>
-        </Item>
-        <Item>
-            <ObjectType>Player</ObjectType>
-            <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
         </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
@@ -198,5 +193,10 @@
             <ObjectName>DungeonAbyss</ObjectName>
             <Location>384 288</Location>
         </Item>-->
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>366 352</Location>
+        </Item>
     </Asset>
 </XnaContent>

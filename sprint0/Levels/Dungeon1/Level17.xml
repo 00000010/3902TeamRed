@@ -13,11 +13,11 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorEast</ObjectName>
-			<Location>600 270</Location>
-		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
+        </Item>
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>DungeonStairs</ObjectName>
@@ -63,10 +63,10 @@
 			<ObjectName>DungeonBlock</ObjectName>
 			<Location>340 277</Location>
 		</Item>
-        <Item>
+		<Item>
             <ObjectType>Player</ObjectType>
             <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

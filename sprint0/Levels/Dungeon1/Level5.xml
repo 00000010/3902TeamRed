@@ -15,25 +15,25 @@
 			<ObjectName>Dungeon</ObjectName>
 			<Location>150 120</Location>
 		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorSouth</ObjectName>
-			<Location>375 400</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorEast</ObjectName>
-			<Location>600 270</Location>
-		</Item>
-		<Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonDoorWest</ObjectName>
-			<Location>165 270</Location>
-		</Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>374 408</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
+        </Item>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>174 264</Location>
+        </Item>
         <Item>
             <ObjectType>Sprite</ObjectType>
             <ObjectName>DungeonBadDoorNorth</ObjectName>
-            <Location>375 140</Location>
+            <Location>374 144</Location>
         </Item>
         <Item>
             <ObjectType>Block</ObjectType>
@@ -54,11 +54,6 @@
             <ObjectType>Block</ObjectType>
             <ObjectName>DungeonBlock</ObjectName>
             <Location>500 315</Location>
-        </Item>
-        <Item>
-            <ObjectType>Player</ObjectType>
-            <ObjectName>Link</ObjectName>
-            <Location>380 348</Location>
         </Item>
         <Item>
             <ObjectType>Enemy</ObjectType>
@@ -84,6 +79,11 @@
             <ObjectType>Enemy</ObjectType>
             <ObjectName>Stalfos</ObjectName>
             <Location>400 304</Location>
+        </Item>
+        <Item>
+            <ObjectType>Player</ObjectType>
+            <ObjectName>Link</ObjectName>
+            <Location>366 352</Location>
         </Item>
     </Asset>
 </XnaContent>

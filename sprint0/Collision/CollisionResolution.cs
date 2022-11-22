@@ -16,8 +16,8 @@ namespace sprint0
             string intersectionLoc)
         {
             Dictionary<Tuple<string, string>, Type[]> dic = manager.collisionResolutionDic;
-            Type[] types = dic.GetValueOrDefault(new Tuple<string, string>(TypeToString(sprite1.GetType()),
-                                                TypeToString(sprite2.GetType())));
+            Type[] types = dic.GetValueOrDefault(new Tuple<string, string>(GameObjectManager.TypeToString(sprite1.GetType()),
+                                                GameObjectManager.TypeToString(sprite2.GetType())));
             ConstructorInfo[] ctors = new ConstructorInfo[types.Count()];
             for (int i = 0; i < types.Count(); i++)
             {
