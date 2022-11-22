@@ -27,16 +27,16 @@ namespace sprint0
             {
                 return true;
             }
-            
+
             if ((Button == MouseButton.Right) &&
                 (mouseState.RightButton == ButtonState.Pressed) &&
                 (Area.Contains(new Point(mouseState.X, mouseState.Y))))
             {
                 return true;
             }
-            
+
             return false;
         }
     }
 }
-    
+

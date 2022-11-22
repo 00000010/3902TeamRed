@@ -90,35 +90,35 @@ namespace sprint0
         public ZeldaFire(Vector2 position, Direction direction)
         {
             Vector2 velocity = Vector2.Zero;
-            Vector2 arrowThrowPosition = Vector2.Zero;
+            Vector2 fireThrowPosition = Vector2.Zero;
             // TODO: data-drive
             // TODO: magic numbers
             switch (direction)
             {
                 case Direction.LEFT:
-                    arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
-                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    fireThrowPosition = new Vector2(position.X + 11, position.Y + 36);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(fireThrowPosition);
                     velocity.X -= 5;
                     break;
                 case Direction.RIGHT:
-                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
-                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    fireThrowPosition = new Vector2(position.X + 22, position.Y + 36);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(fireThrowPosition);
                     velocity.X += 5;
                     break;
                 case Direction.UP:
-                    arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
-                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    fireThrowPosition = new Vector2(position.X + 36, position.Y + 0);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(fireThrowPosition);
                     velocity.Y -= 5;
                     break;
                 case Direction.DOWN:
-                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
-                    Sprite = SpriteFactory.Instance.ZeldaFire(arrowThrowPosition);
+                    fireThrowPosition = new Vector2(position.X + 36, position.Y + 22);
+                    Sprite = SpriteFactory.Instance.ZeldaFire(fireThrowPosition);
                     velocity.Y += 5;
                     break;
                 default:
                     break;
             }
-            InitPosition = arrowThrowPosition;
+            InitPosition = fireThrowPosition;
             Velocity = velocity;
             CollideDamage = 5;
         }
@@ -130,7 +130,7 @@ namespace sprint0
         {
             Vector2 velocity = Vector2.Zero;
             Sprite = SpriteFactory.Instance.ZeldaBoomerang(position);
-            Vector2 arrowThrowPosition = position;
+            Vector2 boomThrowPosition = position;
             InitPosition = position;
 
             // TODO: data-drive
@@ -140,9 +140,9 @@ namespace sprint0
                 case Direction.LEFT:
                     if (shooter.Equals("player"))
                     {
-                        arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
-                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
-                        InitPosition = arrowThrowPosition;
+                        boomThrowPosition = new Vector2(position.X + 11, position.Y + 36);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(boomThrowPosition);
+                        InitPosition = boomThrowPosition;
                         Direction = Direction.LEFT;
                     }
                     velocity.X -= 7;
@@ -150,9 +150,9 @@ namespace sprint0
                 case Direction.RIGHT:
                     if (shooter.Equals("player"))
                     {
-                        arrowThrowPosition = new Vector2(position.X + 22, position.Y + 20);
-                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
-                        InitPosition = arrowThrowPosition;
+                        boomThrowPosition = new Vector2(position.X + 22, position.Y + 36);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(boomThrowPosition);
+                        InitPosition = boomThrowPosition;
                         Direction = Direction.RIGHT;
                     }
                     velocity.X += 7;
@@ -160,9 +160,9 @@ namespace sprint0
                 case Direction.UP:
                     if (shooter.Equals("player"))
                     {
-                        arrowThrowPosition = new Vector2(position.X + 13, position.Y + 14);
-                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
-                        InitPosition = arrowThrowPosition;
+                        boomThrowPosition = new Vector2(position.X + 36, position.Y + 0);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(boomThrowPosition);
+                        InitPosition = boomThrowPosition;
                         Direction = Direction.UP;
                     }
                     velocity.Y -= 7;
@@ -170,9 +170,9 @@ namespace sprint0
                 case Direction.DOWN:
                     if (shooter.Equals("player"))
                     {
-                        arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
-                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(arrowThrowPosition);
-                        InitPosition = arrowThrowPosition;
+                        boomThrowPosition = new Vector2(position.X + 36, position.Y + 22);
+                        Sprite = SpriteFactory.Instance.ZeldaBoomerang(boomThrowPosition);
+                        InitPosition = boomThrowPosition;
                         Direction = Direction.DOWN;
                     }
                     velocity.Y += 7;
