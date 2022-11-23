@@ -196,7 +196,6 @@ namespace sprint0
                             break;
                     }
                     camera.TransitionSet = true;
-                    Console.WriteLine("Set transition");
                 }                
                 camera.Update(gameTime);
             }
@@ -239,18 +238,19 @@ namespace sprint0
                 //Handling all different types of collision
                 CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
             }
-            Console.WriteLine("transitioning: " + camera.Transitioning);
         }
 
         public void Draw(GameTime gameTime)
         {
-            foreach (IDrawable drawable in drawables)
-            {
-                drawable.Draw(gameTime);
-            }
             if (camera.Transitioning)
             {
                 camera.Draw(gameTime);
+            } else
+            {
+                foreach (IDrawable drawable in drawables)
+                {
+                    drawable.Draw(gameTime);
+                }
             }
         }
 

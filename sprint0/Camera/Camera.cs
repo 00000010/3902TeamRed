@@ -51,9 +51,11 @@ namespace sprint0
             {
                 if (obj is Sprite)
                 {
+                    Console.WriteLine(((Sprite)obj).DestinationRectangle.ToString());
                     sprites.Add((Sprite)obj);
                 } else
                 {
+                    Console.WriteLine(((IObject)obj).Sprite.DestinationRectangle.ToString());
                     sprites.Add(((IObject)obj).Sprite);
                 }
             }
@@ -72,18 +74,16 @@ namespace sprint0
         {
             if (direction == Direction.LEFT || direction == Direction.RIGHT)
             {
-                if (cursor > Constants.SCALED_ROOM_WIDTH || cursor < 0)
+                if (cursor > Constants.SCALED_ROOM_WIDTH || cursor <= 0)
                 {
                     Transitioning = false;
-                    Console.WriteLine("Transition complete");
                 }
             }
             else
             {
-                if (cursor > Constants.SCALED_ROOM_HEIGHT || cursor < 0)
+                if (cursor > Constants.SCALED_ROOM_HEIGHT || cursor <= 0)
                 {
                     Transitioning = false;
-                    Console.WriteLine("Transition complete");
                 }
             }
         }
@@ -134,8 +134,8 @@ namespace sprint0
             // Set width for each object which should be between [0, Rectangle.Width]
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int width = roomSprites[i].SourceRectangle[0].Width;
-                int x = roomSprites[i].SourceRectangle[0].X;
+                int width = roomSprites[i].DestinationRectangle.Width;
+                int x = roomSprites[i].DestinationRectangle.X;
                 roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(cursors[0] - x, width);
             }
         }
@@ -149,10 +149,33 @@ namespace sprint0
         {
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int width = roomSprites[i].SourceRectangle[0].Width;
-                int x = roomSprites[i].SourceRectangle[0].X;
+                //if (roomSprites[i].SourceRectangle[0] == Rectangle.Empty)
+                //{
+                //    Console.WriteLine("Empty");
+                //} else
+                //{
+                //    Console.WriteLine(roomSprites[i].SourceRectangle[0].ToString());
+                //}
+                int width = roomSprites[i].DestinationRectangle.Width;
+                //if (i == 0)
+                //{
+                //    Console.WriteLine("prev original width: " + width);
+                //}
+                int x = roomSprites[i].DestinationRectangle.X;
+                //if (i == 0)
+                //{
+                //    Console.WriteLine("x: " + x);
+                //    Console.WriteLine("cursor at: " + cursors[0]);
+                //    Console.WriteLine("before constraining: " + (width - (cursors[0] - x)));
+                //}
                 roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
+                //if (i == 0)
+                //{
+                //    Console.WriteLine("after constraining: " + roomSprites[i].SourceRectangle[0].Width);
+                //}
             }
+            //Console.WriteLine("room width: " + roomSprites[0].SourceRectangle[0].Width);
+            // TODO: room is full then suddenly zero!
         }
 
         /// <summary>
@@ -163,8 +186,8 @@ namespace sprint0
         {
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int width = roomSprites[i].SourceRectangle[0].Width;
-                int x = roomSprites[i].SourceRectangle[0].X;
+                int width = roomSprites[i].DestinationRectangle.Width;
+                int x = roomSprites[i].DestinationRectangle.X;
                 roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
             }
         }
@@ -177,8 +200,8 @@ namespace sprint0
         {
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int width = roomSprites[i].SourceRectangle[0].Width;
-                int x = roomSprites[i].SourceRectangle[0].X;
+                int width = roomSprites[i].DestinationRectangle.Width;
+                int x = roomSprites[i].DestinationRectangle.X;
                 roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(cursors[0] - x, width);
             }
         }
@@ -191,8 +214,8 @@ namespace sprint0
         {
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int height = roomSprites[i].SourceRectangle[0].Height;
-                int y = roomSprites[i].SourceRectangle[0].Y;
+                int height = roomSprites[i].DestinationRectangle.Height;
+                int y = roomSprites[i].DestinationRectangle.Y;
                 roomSprites[i].SourceRectangle[0].Height = ConstrainDimension(cursors[0] - y, height);
             }
         }
