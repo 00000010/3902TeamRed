@@ -20,7 +20,6 @@
     <None Remove="ScreenDisplay\" />
     <None Remove="Item\" />
     <None Remove="Player\" />
-    <None Remove="MovementDirection\" />
     <None Remove="Link\" />
     <None Remove="Controller\" />
     <None Remove="Game\" />
@@ -41,7 +40,6 @@
     <Folder Include="Block\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
-    <Folder Include="MovementDirection\" />
     <Folder Include="Link\" />
     <Folder Include="Controller\" />
   </ItemGroup>

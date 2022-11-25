@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+
 namespace sprint0
 {
     public class LoadRoomCommand : ICommand
@@ -7,6 +9,7 @@ namespace sprint0
         private LevelLoader loader;
         private Room nextRoom;
         private Direction direction;
+
         public LoadRoomCommand(Game1 game, Direction direction)
         {
             this.game = game;

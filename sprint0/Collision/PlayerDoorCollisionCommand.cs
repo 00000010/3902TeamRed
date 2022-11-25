@@ -29,7 +29,6 @@ namespace sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Player collided with door");
             Player player = (Player)this.player;
             this.loader = this.game.loader;
 
@@ -39,15 +38,19 @@ namespace sprint0
             switch (d)
             {
                 case Direction.RIGHT:
+                    player.Position = new Vector2(Constants.FROM_RIGHT_LINK_POSITION_X, Constants.FROM_RIGHT_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.westRoomPtr;
                     break;
                 case Direction.DOWN:
+                    player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.northRoomPtr;
                     break;
                 case Direction.LEFT:
+                    player.Position = new Vector2(Constants.FROM_LEFT_LINK_POSITION_X, Constants.FROM_LEFT_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.eastRoomPtr;
                     break;
                 case Direction.UP:
+                    player.Position = new Vector2(Constants.FROM_UP_LINK_POSITION_X, Constants.FROM_UP_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.southRoomPtr;
                     break;
             }
