@@ -71,9 +71,10 @@ namespace sprint0
             {
                 for (int j = 0; j < gridLength; j++)
                 {
-                    Rectangle newRec = new Rectangle(120 + blockLength * j, 150 + blockLength * i, blockLength, blockLength);
+                    Rectangle newRec = new Rectangle(150 + blockLength * j, 120 + blockLength * i, blockLength, blockLength);
                     Console.WriteLine(newRec.ToString());
-                    this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new PlaceBlockCommand(game, new Vector2(newRec.X, newRec.Y), loader));
+                    this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new PlaceBlockCommand(game, new Vector2(newRec.X, newRec.Y)));
+                    this.RegisterCommand(new MouseCommand(MouseButton.Right, newRec), new RemoveBlockCommand(game, new Vector2(newRec.X, newRec.Y)));
                 }
             }
             Rectangle saveRec = new Rectangle(200, 200, 16, 16);

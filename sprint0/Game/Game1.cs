@@ -54,13 +54,15 @@ namespace sprint0
 
 
 
-            creator = new LevelCreator(this);
-
             //create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("LevelCreator");
 
-            Console.WriteLine("TESTING");
+            creator = new LevelCreator(this);
+            creator.loadLevelCreator();
+            //Debug.WriteLine("TESTING");
+
+            manager.addBlock(BlockFactory.Instance.ZeldaGreenBlock(new Vector2(400, 400)));
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
@@ -90,6 +92,7 @@ namespace sprint0
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
             keyboard.Update(gameTime);
+            mouse.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }

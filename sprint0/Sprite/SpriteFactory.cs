@@ -26,7 +26,7 @@ namespace sprint0
         private Texture2D ProjectileEffect;
         private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
-        private Texture2D GridSquareBlock, SaveIconBlock;
+        private Texture2D GridSquareBlock, SaveIconBlock, LevelCreatorTextBlock;
 
         private SpriteBatch spriteBatch;
 
@@ -77,6 +77,7 @@ namespace sprint0
 
             GridSquareBlock = content.Load<Texture2D>("GridSquare");
             SaveIconBlock = content.Load<Texture2D>("SaveIcon");
+            LevelCreatorTextBlock = content.Load<Texture2D>("LevelCreatorText");
 
             Arrow = content.Load<Texture2D>("ZeldaSpriteArrow");
             BlueCandle = content.Load<Texture2D>("ZeldaSpriteBlueCandle");
@@ -398,6 +399,11 @@ namespace sprint0
         public Sprite SaveIcon(Vector2 position)
         {
             return new Sprite(SaveIconBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite BlockText(Vector2 position)
+        {
+            return new Sprite(LevelCreatorTextBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
 
         /*

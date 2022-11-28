@@ -19,6 +19,11 @@
 			<Location>150 120</Location>
 			<Dimension>16 11</Dimension>
 		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>SaveIcon</ObjectName>
+			<Location>700 300</Location>
+		</Item>
 
 	</Asset>
 </XnaContent>

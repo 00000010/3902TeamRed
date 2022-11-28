@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+using System.Globalization;
+using System.Diagnostics;
 //using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
@@ -178,6 +180,12 @@ namespace sprint0
                     }
                 }
             }
+        }
+
+        public void addToRoom(IBlock sprite)
+        {
+            gameObjectManager.addBlock(sprite);
+            currentRoom.Add(sprite);
         }
 
         //Changes rooms from the currrent to the specified

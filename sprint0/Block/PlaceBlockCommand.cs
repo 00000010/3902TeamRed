@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
 namespace sprint0
@@ -7,32 +8,29 @@ namespace sprint0
     {
 
         Vector2 location;
-        GameObjectManager manager;
-        LevelLoader loader;
-        LevelCreator creator;
+        Game1 game;
 
-        public PlaceBlockCommand(Game1 game, Vector2 location, LevelLoader loader)
+        public PlaceBlockCommand(Game1 game, Vector2 location)
         {
             this.location = location;
-            this.manager = game.manager;
-            this.loader = loader;
+            this.game = game;
         }
 
         public void Execute()
         {
-            Console.WriteLine("TEST");
-            Block block = BlockFactory.Instance.ZeldaBlackBlock(location);
-            loader.currentRoom.roomObjects.Add(block);
-            //ToXML(block);
+            Room currentRoom = game.loader.currentRoom;
+            GameObjectManager manager = game.manager;
+
+            Debug.WriteLine("TEST " + location);
+            Block block = BlockFactory.Instance.ZeldaGreenBlock(location);
+            if(!currentRoom.existsInLocation(location))
+            {
+                Debug.WriteLine("PlaceBlock");
+                manager.AddObject(block);
+                currentRoom.Add(block);
+            }
+            
         }
 
-        //public void ToXML(Object block)
-        //{
-        //    ItemObject newItem = new ItemObject();
-        //    newItem.ObjectType = block.GetType;
-        //    newItem.ObjectName = "DungeonSand";
-        //    newItem.Locati
-        //    creator.XmlObjs.Add(newItem.toXmlElement());
-        //}
     }
 }

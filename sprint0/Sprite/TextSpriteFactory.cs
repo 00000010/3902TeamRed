@@ -56,5 +56,9 @@ namespace sprint0
             return new TextSprite(spriteBatch, position, ZeldaFont, "", Color.White);
         }
 
+        public TextSprite CustomText(Vector2 position, string text)
+        {
+            return new TextSprite(spriteBatch, position, ZeldaFont, text, Color.White);
+        }
     }
 }

@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace sprint0
 {
@@ -73,6 +78,80 @@ namespace sprint0
                 //Sets the data into the right variable using the tag name
                 this.GetType().GetProperty(name).SetValue(this, value);
             }
+        }
+
+        public bool existsInLocation(Vector2 location)
+        {
+            bool existsInLocation = false;
+
+            foreach (object obj in roomObjects)
+            {
+                if(obj is Block)
+                {
+                    IBlock tempBlock = (IBlock)obj;
+                    existsInLocation = tempBlock.Position.Equals(location);
+                }
+                else if(obj is Enemy)
+                {
+                    IEnemy tempEnemy = (IEnemy)obj;
+                    existsInLocation = tempEnemy.Position == location;
+                }
+                else if (obj is Door)
+                {
+                    IDoor tempDoor = (IDoor)obj;
+                    existsInLocation = tempDoor.Position == location;
+                }
+                else if (obj is Item)
+                {
+                    IItem tempItem = (IItem)obj;
+                    existsInLocation = tempItem.Position == location;
+                }
+            }
+
+            return existsInLocation;
+        }
+
+        public object getFromLocation(Vector2 location)
+        {
+            object objectWithSameLocation = null;
+
+            foreach (object obj in roomObjects)
+            {
+                if (obj is Block)
+                {
+                    IBlock tempBlock = (IBlock)obj;
+                    if(tempBlock.Position == location)
+                    {
+                        Debug.WriteLine("Same Block!");
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Enemy)
+                {
+                    IEnemy tempEnemy = (IEnemy)obj;
+                    if (tempEnemy.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Door)
+                {
+                    IDoor tempDoor = (IDoor)obj;
+                    if (tempDoor.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Item)
+                {
+                    IItem tempItem = (IItem)obj;
+                    if (tempItem.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+            }
+            return objectWithSameLocation;
         }
 
         public override string ToString()

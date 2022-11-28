@@ -48,7 +48,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            //Do Nothing
         }
     }
 }
