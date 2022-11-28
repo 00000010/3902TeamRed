@@ -63,6 +63,8 @@ namespace sprint0
         public const int NUM_AVAILABLE_PROJECTILES = 3;
 
         public const int SCALING_FACTOR = 2;
+
+        public const int BUFFER_SPACE = BLOCK_SIZE / 4;
     }
 }
 

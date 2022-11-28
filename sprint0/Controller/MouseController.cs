@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Creator;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -77,8 +78,14 @@ namespace sprint0
                     this.RegisterCommand(new MouseCommand(MouseButton.Right, newRec), new RemoveBlockCommand(game, new Vector2(newRec.X, newRec.Y)));
                 }
             }
-            Rectangle saveRec = new Rectangle(200, 200, 16, 16);
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, saveRec), new SaveLevelCommand(game, loader));
+            
+            //Creates a listener for each object in the list to change
+            foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
+            {
+                Debug.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
+                Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
+                this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new ChangeCurrentObjectCommand(game, entry.Key));
+            }
         }
     }
 }
