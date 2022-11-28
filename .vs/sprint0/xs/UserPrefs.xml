@@ -1,21 +1,16 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
     <Files>
       <File FileName="sprint0/Game/Game1.cs" Line="88" Column="1" />
-      <File FileName="sprint0/Camera/Camera.cs" Line="137" Column="101" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="246" Column="14" />
+      <File FileName="sprint0/Camera/Camera.cs" Line="64" Column="39" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="178" Column="10" />
       <File FileName="sprint0/Camera/ICamera.cs" Line="14" Column="48" />
       <File FileName="sprint0/Game/LevelLoader.cs" Line="34" Column="39" />
       <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="23" Column="53" />
       <File FileName="sprint0/Block/IBlock.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Sprite/Sprite.cs" Line="84" Column="1" />
-      <File FileName="sprint0/Game/Constants.cs" Line="26" Column="49" />
+      <File FileName="sprint0/Sprite/Sprite.cs" Line="66" Column="48" />
+      <File FileName="sprint0/Game/Constants.cs" Line="72" Column="40" />
+      <File FileName="sprint0/Levels/Dungeon1/Level1.xml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -46,4 +41,10 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

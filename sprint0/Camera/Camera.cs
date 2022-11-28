@@ -18,6 +18,8 @@ namespace sprint0
 
         private List<object> prevRoomObjects, nextRoomObjects;
         private List<Sprite> prevRoomSprites, nextRoomSprites;
+        private int[] prevCapturedDimension;
+        private int[] nextCapturedDimension;
 
         private List<IDrawable> drawables = new List<IDrawable>(); // TODO: for testing; DELETE!
 
@@ -37,11 +39,14 @@ namespace sprint0
         public bool Transitioning { get; set; }
         public bool TransitionSet { get; set; }
 
+        public int CameraSpeed { get; set; }
+
         public Direction direction = Direction.LEFT;
 
         public Camera(Game1 game)
         {
             this.game = game;
+            CameraSpeed = 1;
         }
 
         private List<Sprite> FromObjectsToSprites(List<object> objects)
@@ -51,11 +56,9 @@ namespace sprint0
             {
                 if (obj is Sprite)
                 {
-                    Console.WriteLine(((Sprite)obj).DestinationRectangle.ToString());
                     sprites.Add((Sprite)obj);
                 } else
                 {
-                    Console.WriteLine(((IObject)obj).Sprite.DestinationRectangle.ToString());
                     sprites.Add(((IObject)obj).Sprite);
                 }
             }
@@ -72,19 +75,12 @@ namespace sprint0
 
         private void CheckProgress(int cursor)
         {
-            if (direction == Direction.LEFT || direction == Direction.RIGHT)
+            // TODO: check against in y direction also
+            if (cursor > Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH || cursor < Constants.ROOM_X)
             {
-                if (cursor > Constants.SCALED_ROOM_WIDTH || cursor <= 0)
-                {
-                    Transitioning = false;
-                }
-            }
-            else
-            {
-                if (cursor > Constants.SCALED_ROOM_HEIGHT || cursor <= 0)
-                {
-                    Transitioning = false;
-                }
+                Transitioning = false;
+                prevCapturedDimension = new int[0];
+                nextCapturedDimension = new int[0];
             }
         }
 
@@ -105,6 +101,22 @@ namespace sprint0
             cursors[0]--;
             cursors[1]++;
             CheckProgress(cursors[0]);
+        }
+
+        private void SetPrevCapturedDimension(int i, int dimensionAmount)
+        {
+            if (prevCapturedDimension[i] == 0)
+            {
+                prevCapturedDimension[i] = dimensionAmount;
+            }
+        }
+
+        private void SetNextCapturedDimension(int i, int dimensionAmount)
+        {
+            if (nextCapturedDimension[i] == 0)
+            {
+                nextCapturedDimension[i] = dimensionAmount;
+            }
         }
 
         /// <summary>
@@ -131,12 +143,13 @@ namespace sprint0
         /// <param name="rects">The array of the room rectangles.</param>
         private void EmptyToRightFull(ref List<Sprite> roomSprites)
         {
-            // Set width for each object which should be between [0, Rectangle.Width]
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                int width = roomSprites[i].DestinationRectangle.Width;
-                int x = roomSprites[i].DestinationRectangle.X;
-                roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(cursors[0] - x, width);
+                SetPrevCapturedDimension(i, roomSprites[i].DestinationRectangle.Width);
+                int newWidth = ConstrainDimension(cursors[0] - roomSprites[i].DestinationRectangle.X,
+                    prevCapturedDimension[i]);
+                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
             }
         }
 
@@ -149,31 +162,41 @@ namespace sprint0
         {
             for (int i = 0; i < roomSprites.Count; i++)
             {
-                //if (roomSprites[i].SourceRectangle[0] == Rectangle.Empty)
-                //{
-                //    Console.WriteLine("Empty");
-                //} else
-                //{
-                //    Console.WriteLine(roomSprites[i].SourceRectangle[0].ToString());
-                //}
-                int width = roomSprites[i].DestinationRectangle.Width;
-                //if (i == 0)
-                //{
-                //    Console.WriteLine("prev original width: " + width);
-                //}
-                int x = roomSprites[i].DestinationRectangle.X;
-                //if (i == 0)
-                //{
-                //    Console.WriteLine("x: " + x);
-                //    Console.WriteLine("cursor at: " + cursors[0]);
-                //    Console.WriteLine("before constraining: " + (width - (cursors[0] - x)));
-                //}
-                roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
-                //if (i == 0)
-                //{
-                //    Console.WriteLine("after constraining: " + roomSprites[i].SourceRectangle[0].Width);
-                //}
+                SetNextCapturedDimension(i, roomSprites[i].DestinationRectangle.Width);
+                int newWidth = ConstrainDimension(cursors[0] - roomSprites[i].DestinationRectangle.X,
+                    nextCapturedDimension[i]);
+                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
             }
+            //for (int i = 0; i < roomSprites.Count; i++)
+            //{
+            //    int width = roomSprites[i].DestinationRectangle.Width;
+            //    //if (i == 0)
+            //    //{
+            //    //    Console.Write("prev original width: " + width + ", ");
+            //    //}
+            //    int x = (int)roomSprites[i].Position.X;
+            //    //if (i == 0)
+            //    //{
+            //    //    Console.Write("x: " + x + ", ");
+            //    //    Console.Write("cursor at: " + cursors[0] + ", ");
+            //    //    Console.Write("before constraining: " + (width - (cursors[0] - x)) + ", ");
+            //    //}
+            //    roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - Constants.ROOM_X), width);
+            //    if (i == 0)
+            //    {
+            //        //Console.WriteLine("width: " + roomSprites[i].SourceRectangle[0].Width);
+            //    }
+            //    roomSprites[i].DestinationRectangle = roomSprites[i].SourceRectangle[0];
+            //    roomSprites[i].Position = new Vector2(cursors[0], roomSprites[i].Position.Y);
+            //    if (i == 0)
+            //    {
+            //        //Console.Write("after constraining: " + roomSprites[i].SourceRectangle[0].Width + ", ");
+            //        //Console.WriteLine("position: " + roomSprites[i].Position.ToString());
+            //        //Console.Write("source: " + roomSprites[i].SourceRectangle[0].ToString());
+            //        //Console.WriteLine("destination: " + roomSprites[i].DestinationRectangle.ToString());
+            //    }
+            //}
             //Console.WriteLine("room width: " + roomSprites[0].SourceRectangle[0].Width);
             // TODO: room is full then suddenly zero!
         }
@@ -252,6 +275,8 @@ namespace sprint0
             Console.WriteLine("Curtain transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            prevCapturedDimension = new int[prevRoomObjects.Count];
+            nextCapturedDimension = new int[nextRoomObjects.Count];
             cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2, Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2 };
             //prevHandler = FullToLeftRightEmpty;
             //nextHandler = EmptyToLeftRightFull;
@@ -268,7 +293,9 @@ namespace sprint0
             Console.WriteLine("Pan left transition");
             this.prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
             this.nextRoomSprites = FromObjectsToSprites(nextRoomObjects);
-            cursors = new int[] { 0 };
+            prevCapturedDimension = new int[prevRoomObjects.Count];
+            nextCapturedDimension = new int[nextRoomObjects.Count];
+            cursors = new int[] { Constants.ROOM_X };
             prevHandler = FullToRightEmpty;
             nextHandler = EmptyToRightFull;
             cursorHandler = AdvanceCursor;
@@ -284,6 +311,8 @@ namespace sprint0
             Console.WriteLine("Pan right transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            prevCapturedDimension = new int[prevRoomObjects.Count];
+            nextCapturedDimension = new int[nextRoomObjects.Count];
             cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH };
             //prevHandler = FullToLeftEmpty;
             //nextHandler = EmptyToLeftFull;
@@ -300,6 +329,8 @@ namespace sprint0
             Console.WriteLine("Pan up transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            prevCapturedDimension = new int[prevRoomObjects.Count];
+            nextCapturedDimension = new int[nextRoomObjects.Count];
             cursors = new int[] { Constants.ROOM_Y };
             //prevHandler = FullToDownEmpty;
             //nextHandler = EmptyToDownFull;
@@ -316,6 +347,8 @@ namespace sprint0
             Console.WriteLine("Pan down transition");
             this.prevRoomObjects = prevRoomObjects;
             this.nextRoomObjects = nextRoomObjects;
+            prevCapturedDimension = new int[prevRoomObjects.Count];
+            nextCapturedDimension = new int[nextRoomObjects.Count];
             cursors = new int[] { Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT };
             //prevHandler = FullToUpEmpty;
             //nextHandler = EmptyToUpFull;
@@ -332,9 +365,12 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            prevHandler(ref prevRoomSprites);
-            nextHandler(ref nextRoomSprites);
-            cursorHandler();
+            if (gameTime.ElapsedGameTime.Milliseconds % CameraSpeed == 0)
+            {
+                prevHandler(ref prevRoomSprites);
+                nextHandler(ref nextRoomSprites);
+                cursorHandler();
+            }
         }
     }
 }
