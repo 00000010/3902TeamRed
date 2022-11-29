@@ -46,6 +46,18 @@ namespace sprint0
         public const int FROM_RIGHT_LINK_POSITION_X = 540;
         public const int FROM_RIGHT_LINK_POSITION_Y = 256;
 
+        public const int DOOR_NORTH_POSITION_X = 374;
+        public const int DOOR_NORTH_POSITION_Y = 144;
+
+        public const int DOOR_EAST_POSITION_X = 598;
+        public const int DOOR_EAST_POSITION_Y = 264;
+
+        public const int DOOR_SOUTH_POSITION_X = 374;
+        public const int DOOR_SOUTH_POSITION_Y = 408;
+
+        public const int DOOR_WEST_POSITION_X = 174;
+        public const int DOOR_WEST_POSITION_Y = 264;
+
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 
         public const string LEVEL_FILE_PREFIX = "Level";

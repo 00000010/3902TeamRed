@@ -62,8 +62,6 @@ namespace sprint0
             creator.loadLevelCreator();
             //Debug.WriteLine("TESTING");
 
-            manager.addBlock(BlockFactory.Instance.ZeldaGreenBlock(new Vector2(400, 400)));
-
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
 

@@ -393,7 +393,7 @@ namespace sprint0
          */
         public Sprite GridSquare(Vector2 position)
         {
-            return new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            return new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
 
         public Sprite SaveIcon(Vector2 position)

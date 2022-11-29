@@ -89,22 +89,34 @@ namespace sprint0
                 if(obj is Block)
                 {
                     IBlock tempBlock = (IBlock)obj;
-                    existsInLocation = tempBlock.Position.Equals(location);
+                    if(tempBlock.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
                 }
                 else if(obj is Enemy)
                 {
                     IEnemy tempEnemy = (IEnemy)obj;
-                    existsInLocation = tempEnemy.Position == location;
+                    if(tempEnemy.Position == location)
+                    {
+                        existsInLocation=true;
+                    }
                 }
                 else if (obj is Door)
                 {
                     IDoor tempDoor = (IDoor)obj;
-                    existsInLocation = tempDoor.Position == location;
+                    if(tempDoor.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
                 }
                 else if (obj is Item)
                 {
                     IItem tempItem = (IItem)obj;
-                    existsInLocation = tempItem.Position == location;
+                    if(tempItem.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
                 }
             }
 
