@@ -115,9 +115,12 @@ namespace sprint0
         /*
          * Background
          */
+        
         public Sprite Dungeon(Vector2 position)
         {
-            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            Sprite dun = new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            dun.objectKind = "Dungeon";
+            return dun;
         }
 
         public Sprite DungeonNorthWall(Vector2 position)
@@ -393,12 +396,16 @@ namespace sprint0
          */
         public Sprite GridSquare(Vector2 position)
         {
-            return new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+            Sprite grid = new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+            grid.objectKind = "GridSquare";
+            return grid;
         }
 
         public Sprite SaveIcon(Vector2 position)
         {
-            return new Sprite(SaveIconBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+            Sprite save = new Sprite(SaveIconBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+            save.objectKind = "SaveIcon";
+            return save;
         }
 
         public Sprite BlockText(Vector2 position)
