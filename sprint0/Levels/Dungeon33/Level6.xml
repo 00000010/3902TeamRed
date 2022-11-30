@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <NorthRoom>Room9</NorthRoom>
+        <EastRoom>Room5</EastRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room6</Name>
+    </Meta>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonNorthWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonSouthWall</ObjectName>
+            <Location>150 408</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonEastWall</ObjectName>
+            <Location>598 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonWestWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>374 144</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorEast</ObjectName>
+            <Location>598 264</Location>
+        </Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonBlock</ObjectName>
+			<Location>374 248</Location>
+			<Dimension>2 3</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>320 272</Location>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>304 304</Location>
+		</Item>
+		<Item>
+			<ObjectType>Enemy</ObjectType>
+			<ObjectName>Keese</ObjectName>
+			<Location>320 336</Location>
+		</Item>
+    </Asset>
+</XnaContent>
+

@@ -27,6 +27,8 @@ namespace sprint0
         private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
 
+        private Texture2D logo;
+
         private SpriteBatch spriteBatch;
 
         private static SpriteFactory instance = new SpriteFactory();
@@ -100,6 +102,8 @@ namespace sprint0
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
+
+            logo = content.Load<Texture2D>("Zelda_1_Logo_in_game");
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -658,6 +662,11 @@ namespace sprint0
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Emptyheart.Width, Emptyheart.Height) };
             return new Sprite(Emptyheart, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite Logo(Vector2 position)
+        {
+            return new Sprite(logo, SpriteRectangle.Logo, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
     }
 }

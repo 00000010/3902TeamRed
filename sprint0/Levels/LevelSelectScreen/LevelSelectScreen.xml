@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Pointers></Pointers>
+  <Meta>
+    <Name>Room1</Name>
+  </Meta>
+  <Asset>
+    <Item>
+      <ObjectType>Sprite</ObjectType>
+      <ObjectName>Logo</ObjectName>
+      <Location>144 0</Location>
+    </Item>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <WestRoom>Room13</WestRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room14</Name>
+    </Meta>
+    <Asset>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonNorthWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonSouthWall</ObjectName>
+            <Location>150 408</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonEastWall</ObjectName>
+            <Location>598 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonWestWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorWest</ObjectName>
+            <Location>174 264</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>246 216</Location>
+            <Dimension>10 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>246 248</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>534 248</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>278 344</Location>
+            <Dimension>3 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonBlock</ObjectName>
+            <Location>438 344</Location>
+            <Dimension>3 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster1Faded</ObjectName>
+            <Location>342 248</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster1Faded</ObjectName>
+            <Location>310 280</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster2Faded</ObjectName>
+            <Location>438 248</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>DungeonMonster2Faded</ObjectName>
+            <Location>470 280</Location>
+        </Item>
+		<Item>
+			<ObjectType>Item</ObjectType>
+			<ObjectName>ZeldaTriforce</ObjectName>
+			<Location>396 294</Location>
+		</Item>
+    </Asset>
+</XnaContent>
+

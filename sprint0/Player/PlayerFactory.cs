@@ -26,19 +26,33 @@ namespace sprint0
         {
             return new Link(position);
         }
+
+        public Player Pointer(Vector2 position)
+        {
+            return new Pointer(position);
+        }
     }
 
     internal class Link : Player
     {
         public Link(Vector2 position)
         {
-            Sprite = SpriteFactory.Instance.LinkStandingUp(position);
+            Sprite = SpriteFactory.Instance.LinkStandingRight(position);
             Velocity = Vector2.Zero;
-            Direction = Direction.UP;
+            Direction = Direction.RIGHT;
             State = State.STANDING;
             TakingDamage = false;
             TypeOfObject = "Player";
             Health = 100;
+        }
+    }
+
+    internal class Pointer : Player
+    {
+        public Pointer(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaArrowRight(position);
+            Velocity = Vector2.Zero;
         }
     }
 }

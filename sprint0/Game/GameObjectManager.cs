@@ -39,7 +39,7 @@ namespace sprint0
             inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
-            AddHud();
+            //AddHud();
         }
 
         private void PopulateCollisionResolutionDic()
