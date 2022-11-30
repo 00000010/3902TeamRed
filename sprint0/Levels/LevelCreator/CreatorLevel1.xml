@@ -42,7 +42,7 @@
 		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>SaveIcon</ObjectName>
-			<Location>720 400</Location>
+			<Location>700 400</Location>
 		</Item>
 
 	</Asset>

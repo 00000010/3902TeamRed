@@ -72,6 +72,8 @@ namespace sprint0
             }
 
         }
+
+        //Creates a new object from parameters
         public object createNewObj(string stringType, string objName, Vector2 position)
         {
             Object objectCreated = new object();

@@ -86,10 +86,21 @@ namespace sprint0
             //Creates a listener for each object in the list to change
             foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
             {
+
                 Debug.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
                 Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
+
+                if(entry.Key is Door)
+                {
+                    newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength * 2, blockLength * 2);
+                }
+
                 this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new ChangeCurrentObjectCommand(game, entry.Key));
             }
+
+            //Creates a listener for the save command
+            Rectangle newRectangle = new Rectangle(Constants.SAVE_ICON_X, Constants.SAVE_ICON_Y, blockLength, blockLength);
+            this.RegisterCommand(new MouseCommand(MouseButton.Left, newRectangle), new SaveLevelCommand(game));
         }
     }
 }

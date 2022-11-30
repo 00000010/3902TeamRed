@@ -60,7 +60,7 @@ namespace sprint0
 
             creator = new LevelCreator(this);
             creator.loadLevelCreator();
-            //Debug.WriteLine("TESTING");
+            Debug.WriteLine("TESTING");
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);

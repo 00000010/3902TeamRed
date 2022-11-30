@@ -15,7 +15,7 @@ namespace sprint0
         Game1 game;
         GameObjectManager manager;
 
-        int numLevels = 1;
+        public int numLevels = 1;
 
         //Dictionary of all the kind of objects that can be used to make a level with  their location
         public Dictionary<object, Vector2> itemList = new Dictionary<object, Vector2>();
@@ -41,6 +41,12 @@ namespace sprint0
             manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(50, 120), "Enemy"));
             manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(100, 120), "Item"));
             manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(700, 120), "Door"));
+
+            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 160), "North"));
+            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 210), "South"));
+            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 270), "East"));
+            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 340), "West"));
+            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 415), "Save"));
 
             //Names of the objects
             string[] blockNames = { "DungeonBlock", "WaterBlock", "ZeldaGreenBlock", "ZeldaBlackBlock", "ZeldaPurpleBlock" };
