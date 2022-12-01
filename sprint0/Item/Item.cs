@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-     public class Item : IItem, IObject
+     public class Item : IItem, IObject, ICloneable
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position { get { return Sprite.Position; } set { Sprite.Position = value; } }
@@ -38,6 +38,13 @@ namespace sprint0
         {
             Sprite.Draw(gameTime);
         }
+
+        public Item Clone()
+        {
+            return (Item)this.MemberwiseClone();
+        }
+
+        object ICloneable.Clone() { return Clone();  }
     }
 }
 

@@ -39,7 +39,6 @@
   <ItemGroup>
     <Folder Include="Sprite\" />
     <Folder Include="Projectile\" />
-    <Folder Include="Block\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
     <Folder Include="Link\" />

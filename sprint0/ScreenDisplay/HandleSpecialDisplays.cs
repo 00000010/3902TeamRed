@@ -93,6 +93,7 @@ namespace sprint0
                 instance._spriteBatch.DrawString(instance.smallerFont, "EASTMOST PENINSULA", new Vector2(270, 190), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
                 instance._spriteBatch.DrawString(instance.smallerFont, "IS THE SECRET.", new Vector2(300, 220), Color.White, rotation: 0, origin: Vector2.Zero, scale: 1, effects: SpriteEffects.None, Constants.TEXT_LAYER_DEPTH);
             }
+
         }
 
         private static void HandleGameOver()

@@ -2,43 +2,55 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Game/LevelLoader.cs">
     <Files>
-      <File FileName="sprint0/Camera/Camera.cs" Line="26" Column="1" />
-      <File FileName="sprint0/Camera/ICamera.cs" Line="19" Column="1" />
-      <File FileName="sprint0/Sprite/Sprite.cs" Line="79" Column="30" />
-      <File FileName="sprint0/Game/Room.cs" Line="41" Column="14" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="179" Column="21" />
-      <File FileName="sprint0/Game/Constants.cs" Line="14" Column="46" />
-      <File FileName="sprint0/Game/Game1.cs" Line="48" Column="1" />
-      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="6" Column="28" />
-      <File FileName="sprint0/Controller/KeyboardController.cs" Line="118" Column="46" />
-      <File FileName="sprint0/ScreenDisplay/DisplayInventoryCommand.cs" Line="47" Column="68" />
-      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="57" Column="25" />
+      <File FileName="sprint0/Game/Game1.cs" Line="51" Column="35" IsPinned="True" />
+      <File FileName="sprint0/Camera/Camera.cs" />
+      <File FileName="sprint0/Camera/ICamera.cs" />
+      <File FileName="sprint0/Sprite/Sprite.cs" Line="26" Column="44" />
+      <File FileName="sprint0/Game/Room.cs" />
+      <File FileName="sprint0/Game/LevelLoader.cs" Line="129" Column="79" />
+      <File FileName="sprint0/Game/Constants.cs" />
+      <File FileName="sprint0/Game/LoadRoomCommand.cs" />
+      <File FileName="sprint0/Controller/KeyboardController.cs" />
+      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" />
+      <File FileName="sprint0/Creator/ChangeCurrentObjectCommand.cs" />
+      <File FileName="sprint0/Creator/LevelCreator.cs" />
+      <File FileName="sprint0/Creator/PlaceBlockCommand.cs" />
+      <File FileName="sprint0/Creator/RemoveBlockCommand.cs" />
+      <File FileName="sprint0/Controller/MouseController.cs" />
+      <File FileName="sprint0/Levels/LevelCreator/CreatorLevel1.xml" />
+      <File FileName="sprint0/Creator/SaveLevelCommand.cs" />
+      <File FileName="sprint0/Levels/Dungeon1/Level10.xml" />
+      <File FileName="sprint0/Sprite/SpriteRectangle.cs" />
+      <File FileName="sprint0/Sprite/SpriteFactory.cs" Line="121" Column="31" />
+      <File FileName="sprint0/Block/BlockFactory.cs" />
+      <File FileName="sprint0/Sprite/ISprite.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
-              <Node name="Camera" expanded="True" />
-              <Node name="Collision" expanded="True" />
+              <Node name="Block" expanded="True" />
               <Node name="Controller" expanded="True" />
+              <Node name="Creator" expanded="True" />
               <Node name="Game" expanded="True" />
-              <Node name="Item" expanded="True" />
-              <Node name="ScreenDisplay" expanded="True" />
-              <Node name="Sprite" expanded="True" />
+              <Node name="Levels" expanded="True">
+                <Node name="LevelCreator" expanded="True" />
+                <Node name="TestSave" expanded="True" />
+              </Node>
+              <Node name="Sprite" expanded="True">
+                <Node name="Sprite.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
 </Properties>
