@@ -48,6 +48,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            //no-op
         }
     }
 }

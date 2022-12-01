@@ -61,7 +61,7 @@ namespace sprint0
         {
             if (GameOver)
             {
-                HandleGameOver();
+                HandleGameDone();
                 return true;
             }
             else if (Paused)
@@ -71,7 +71,7 @@ namespace sprint0
             }
             else if (Victory)
             {
-                HandleGameVictory();
+                HandleGameDone();
                 return true;
             }
             return false;
@@ -154,8 +154,9 @@ namespace sprint0
         private static void HandleGameOver()
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            Keys restartKey = instance.game.keyboard.GetKey(KeyboardAction.RESTART);
             //Restart
-            if (pressedKeys.Contains(Keys.R))
+            if (pressedKeys.Contains(restartKey))
             {
                 instance.game.RestartGame();
             }
@@ -177,19 +178,10 @@ namespace sprint0
         {
             //Resume
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-            if (pressedKeys.Contains(Keys.U))
+            Keys resumeKey = instance.game.keyboard.GetKey(KeyboardAction.RESUME);
+            if (pressedKeys.Contains(resumeKey))
             {
                 Instance.Paused = false;
-            }
-        }
-
-        private static void HandleGameVictory()
-        {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-            //Restart
-            if (pressedKeys.Contains(Keys.R))
-            {
-                instance.game.RestartGame();
             }
         }
     }

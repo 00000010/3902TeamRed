@@ -344,5 +344,10 @@ namespace sprint0
         {
             new Rectangle(0, 0, 256, 120)
         };
+
+        public static Rectangle[] ZeldaBlueBox =
+        {
+            new Rectangle(60, 53, 26, 26)
+        };
     }
 }

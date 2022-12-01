@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Inventory : IInventory, IObject
+    public class KeyboardMappings : IInventory, IObject
     {
         protected Game1 game { get; set; }
         public Sprite Sprite { get; set; } //hud
@@ -38,7 +38,7 @@ namespace sprint0
 
         public bool Visible => throw new NotImplementedException();
 
-        public Inventory() { }
+        public KeyboardMappings() { }
 
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
@@ -53,7 +53,7 @@ namespace sprint0
 
         public virtual void Draw(GameTime gameTime)
         {
-            if (game.loader.currentRoom.name.Equals("RoomInventory")) return;
+            if (game.loader.currentRoom.name.Equals("RoomInventory") || game.loader.currentRoom.name.Equals("RoomControls")) return;
             Sprite.Draw(gameTime);
             Sword.Draw(gameTime);
 

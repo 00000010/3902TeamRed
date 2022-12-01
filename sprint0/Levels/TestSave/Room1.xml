@@ -1,0 +1,93 @@
+﻿<XnaContent>
+  <Pointers>
+    <NorthRoom>Room2</NorthRoom>
+    <SouthRoom>Room5</SouthRoom>
+    <EastRoom>Room4</EastRoom>
+  </Pointers>
+  <Meta>
+    <Name>Room1</Name>
+    <Start>True</Start>
+  </Meta>
+  <Asset>
+    <Item>
+      <ObjectType>Sprite</ObjectType>
+      <ObjectName>Dungeon</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonNorthWall</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonSouthWall</ObjectName>
+      <Location>150 408</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonEastWall</ObjectName>
+      <Location>598 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonWestWall</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>342 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>342 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>342 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>374 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>406 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>406 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>406 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>374 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorNorth</ObjectName>
+      <Location>374 144</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorEast</ObjectName>
+      <Location>598 264</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorSouth</ObjectName>
+      <Location>374 408</Location>
+    </Item>
+  </Asset>
+</XnaContent>

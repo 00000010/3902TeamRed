@@ -39,12 +39,9 @@
   <ItemGroup>
     <Folder Include="Sprite\" />
     <Folder Include="Projectile\" />
-    <Folder Include="Block\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
     <Folder Include="Link\" />
-    <Folder Include="Controller\" />
-    <Folder Include="Levels\Dungeon1\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

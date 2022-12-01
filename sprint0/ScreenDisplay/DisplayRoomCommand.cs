@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class DisplayInventoryCommand : ICommand
+    public class DisplayRoomCommand : ICommand
     {
         private Game1 game;
         private string request;
+        private string roomName;
         private static Room callerRoom;
-        public DisplayInventoryCommand(Game1 game, string request)
+        public DisplayRoomCommand(Game1 game, string request, string roomName)
         {
             this.game = game;
             this.request = request;
+            this.roomName = roomName;
         }
         public void Execute()
         {
@@ -33,7 +35,7 @@ namespace sprint0
 
         private void HandleDisplay()
         {
-            if (game.loader.currentRoom.name.Equals("RoomInventory"))
+            if (game.loader.currentRoom.name.Equals(roomName))
             {
                 return;
             }
@@ -42,23 +44,35 @@ namespace sprint0
             for (int i = 0; i < game.loader.allRooms.Count; i++)
             {
                 string nameOfRoom = game.loader.allRooms[i].name;
-                if (nameOfRoom.Equals("RoomInventory"))
+                if (nameOfRoom.Equals(roomName))
                 {
                     game.loader.ChangeRooms(game.loader.allRooms[i]);
                     break;
                 }
             }
+
+            if (roomName.Equals("RoomControls"))
+            {
+                game.keyboard.DisableKeyboard();
+                game.controlsKeyboard.EnableControlsKeyboard();
+            }
         }
 
         private void HandleRemoveDisplay()
         {
-            if (!game.loader.currentRoom.name.Equals("RoomInventory"))
+            if (!game.loader.currentRoom.name.Equals(roomName))
             {
                 return;
             }
 
             game.loader.ChangeRooms(callerRoom);
             callerRoom = null;
+
+            if (roomName.Equals("RoomControls"))
+            {
+                game.keyboard.EnableKeyboard();
+                game.controlsKeyboard.DisableControlsKeyboard();
+            }
         }
     }
 }

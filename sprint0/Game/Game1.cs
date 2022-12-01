@@ -25,7 +25,12 @@ namespace sprint0
 
         public GameObjectManager manager;
         public LevelLoader loader;
+        public LevelCreator creator;
+
+        public MouseController mouse;
         public KeyboardController keyboard;
+        public ControlsKeyboard controlsKeyboard;
+
         ICamera camera;
 
         public int level = 0;
@@ -49,12 +54,17 @@ namespace sprint0
             keyboard.LoadTitleScreenKeys(this);
             //keyboard.LoadDefaultKeys(this);
 
+            controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("TitleScreen");
 
             cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
             manager.AddObject(cursor);
+
+            //creator = new LevelCreator(this);
+            //creator.loadLevelCreator();
+            //Debug.WriteLine("TESTING");
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
@@ -85,6 +95,7 @@ namespace sprint0
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
             keyboard.Update(gameTime);
+            controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }

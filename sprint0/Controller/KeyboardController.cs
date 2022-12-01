@@ -14,8 +14,9 @@ namespace sprint0
 {
     public class KeyboardController : IController
     {
-        private Dictionary<Keys, ICommand> controllerMappings;
-        private Dictionary<Keys, ICommand> controllerMappingsUnpress;
+        private Dictionary<KeyboardAction, ICommand> controllerMappings;
+        private Dictionary<KeyboardAction, ICommand> controllerMappingsUnpress;
+        public List<Keys> actionsToKeys;
 
         private bool enabled = true; // TODO: for if keyboard will have enable/disable capability; delete if not using
 
@@ -30,16 +31,17 @@ namespace sprint0
 
         public KeyboardController()
         {
-            controllerMappings = new Dictionary<Keys, ICommand>();
-            controllerMappingsUnpress = new Dictionary<Keys, ICommand>();
+            controllerMappings = new Dictionary<KeyboardAction, ICommand>();
+            controllerMappingsUnpress = new Dictionary<KeyboardAction, ICommand>();
+            actionsToKeys = new List<Keys>();
         }
 
-        public void RegisterCommand(Keys key, ICommand command)
+        public void RegisterCommand(KeyboardAction key, ICommand command)
         {
             controllerMappings.Add(key, command);
         }
 
-        public void RegisterCommandUnpress(Keys key, ICommand command)
+        public void RegisterCommandUnpress(KeyboardAction key, ICommand command)
         {
             controllerMappingsUnpress.Add(key, command);
         }
@@ -52,17 +54,19 @@ namespace sprint0
 
                 foreach (Keys key in prevPressedKeys)
                 {
-                    if (controllerMappingsUnpress.ContainsKey(key) && !pressedKeys.Contains(key))
+                    KeyboardAction action = GetAction(key);
+                    if (controllerMappingsUnpress.ContainsKey(action) && !pressedKeys.Contains(key))
                     {
-                        controllerMappingsUnpress[key].Execute();
+                        controllerMappingsUnpress[action].Execute();
                     }
                 }
 
                 foreach (Keys key in pressedKeys)
                 {
-                    if (controllerMappings.ContainsKey(key) && !prevPressedKeys.Contains(key))
+                    KeyboardAction action = GetAction(key);
+                    if (controllerMappings.ContainsKey(action) && !prevPressedKeys.Contains(key))
                     {
-                        controllerMappings[key].Execute();
+                        controllerMappings[action].Execute();
                     }
                 }
                 this.prevPressedKeys = pressedKeys;
@@ -91,50 +95,64 @@ namespace sprint0
         public void LoadDefaultKeys(Game1 game)
         {
             /* WASD and arrow keys for moving Link around */
-            this.RegisterCommand(Keys.W, new PlayerRunningCommand(game, Direction.UP));
-            this.RegisterCommand(Keys.A, new PlayerRunningCommand(game, Direction.LEFT));
-            this.RegisterCommand(Keys.S, new PlayerRunningCommand(game, Direction.DOWN));
-            this.RegisterCommand(Keys.D, new PlayerRunningCommand(game, Direction.RIGHT));
+            this.RegisterCommand(KeyboardAction.UP, new PlayerRunningCommand(game, Direction.UP));
+            this.RegisterCommand(KeyboardAction.LEFT, new PlayerRunningCommand(game, Direction.LEFT));
+            this.RegisterCommand(KeyboardAction.DOWN, new PlayerRunningCommand(game, Direction.DOWN));
+            this.RegisterCommand(KeyboardAction.RIGHT, new PlayerRunningCommand(game, Direction.RIGHT));
 
-            this.RegisterCommandUnpress(Keys.W, new PlayerStopRunningCommand(game, Direction.UP));
-            this.RegisterCommandUnpress(Keys.A, new PlayerStopRunningCommand(game, Direction.LEFT));
-            this.RegisterCommandUnpress(Keys.S, new PlayerStopRunningCommand(game, Direction.DOWN));
-            this.RegisterCommandUnpress(Keys.D, new PlayerStopRunningCommand(game, Direction.RIGHT));
+            this.RegisterCommandUnpress(KeyboardAction.UP, new PlayerStopRunningCommand(game, Direction.UP));
+            this.RegisterCommandUnpress(KeyboardAction.LEFT, new PlayerStopRunningCommand(game, Direction.LEFT));
+            this.RegisterCommandUnpress(KeyboardAction.DOWN, new PlayerStopRunningCommand(game, Direction.DOWN));
+            this.RegisterCommandUnpress(KeyboardAction.RIGHT, new PlayerStopRunningCommand(game, Direction.RIGHT));
 
             /*UNCOMMENT FOR TESTING*/
-            //this.RegisterCommand(Keys.Left, new LoadRoomCommand(game, Direction.LEFT));
-            //this.RegisterCommand(Keys.Up, new LoadRoomCommand(game, Direction.UP));
-            //this.RegisterCommand(Keys.Down, new LoadRoomCommand(game, Direction.DOWN));
-            //this.RegisterCommand(Keys.Right, new LoadRoomCommand(game, Direction.RIGHT));
-
-            this.RegisterCommand(Keys.Up, new PlayerRunningCommand(game, Direction.UP));
-            this.RegisterCommand(Keys.Left, new PlayerRunningCommand(game, Direction.LEFT));
-            this.RegisterCommand(Keys.Down, new PlayerRunningCommand(game, Direction.DOWN));
-            this.RegisterCommand(Keys.Right, new PlayerRunningCommand(game, Direction.RIGHT));
-
-            this.RegisterCommandUnpress(Keys.Up, new PlayerStopRunningCommand(game, Direction.UP));
-            this.RegisterCommandUnpress(Keys.Left, new PlayerStopRunningCommand(game, Direction.LEFT));
-            this.RegisterCommandUnpress(Keys.Down, new PlayerStopRunningCommand(game, Direction.DOWN));
-            this.RegisterCommandUnpress(Keys.Right, new PlayerStopRunningCommand(game, Direction.RIGHT));
-
+            //this.RegisterCommand(KeyboardAction.LEFT, new LoadRoomCommand(game, Direction.LEFT));
+            //this.RegisterCommand(KeyboardAction.UP, new LoadRoomCommand(game, Direction.UP));
+            //this.RegisterCommand(KeyboardAction.DOWN, new LoadRoomCommand(game, Direction.DOWN));
+            //this.RegisterCommand(KeyboardAction.RIGHT, new LoadRoomCommand(game, Direction.RIGHT));
 
 
             /* L and Z keys for Link attacking */
-            this.RegisterCommand(Keys.B, new PlayerProjCommand(game));
-            this.RegisterCommand(Keys.N, new PlayerAttackingCommand(game));
+            this.RegisterCommand(KeyboardAction.SHOOT, new PlayerProjCommand(game));
+            this.RegisterCommand(KeyboardAction.STAB, new PlayerAttackingCommand(game));
 
             /* Quit the game */
-            this.RegisterCommand(Keys.Q, new ExitCommand(game));
+            this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
 
             /*Pause and Resume*/
-            this.RegisterCommand(Keys.P, new PauseCommand(game));
+            this.RegisterCommand(KeyboardAction.PAUSE, new PauseCommand(game));
 
             //To be able to switch between link projectiles
-            this.RegisterCommand(Keys.K, new NextProjectileCommand(game));
-            this.RegisterCommand(Keys.J, new PrevProjectileCommand(game));
+            this.RegisterCommand(KeyboardAction.NEXTPROJECTILE, new NextProjectileCommand(game));
+            this.RegisterCommand(KeyboardAction.PREVPROJECTILE, new PrevProjectileCommand(game));
 
-            this.RegisterCommand(Keys.Y, new DisplayInventoryCommand(game, "Display"));
-            this.RegisterCommand(Keys.T, new DisplayInventoryCommand(game, "Remove"));
+            this.RegisterCommand(KeyboardAction.SHOWINVENTORY, new DisplayRoomCommand(game, "Display", "RoomInventory"));
+            this.RegisterCommand(KeyboardAction.HIDEINVENTORY, new DisplayRoomCommand(game, "Remove", "RoomInventory"));
+
+            this.RegisterCommand(KeyboardAction.SHOWCONTROLS, new DisplayRoomCommand(game, "Display", "RoomControls"));
+            this.RegisterCommand(KeyboardAction.HIDECONTROLS, new DisplayRoomCommand(game, "Remove", "RoomControls"));
+
+            MapActionsToKeys();
+        }
+
+        private void MapActionsToKeys()
+        {
+            actionsToKeys.Add(Keys.W);
+            actionsToKeys.Add(Keys.S);
+            actionsToKeys.Add(Keys.A);
+            actionsToKeys.Add(Keys.D);
+            actionsToKeys.Add(Keys.P);
+            actionsToKeys.Add(Keys.U);
+            actionsToKeys.Add(Keys.R);
+            actionsToKeys.Add(Keys.Y);
+            actionsToKeys.Add(Keys.T);
+            actionsToKeys.Add(Keys.B);
+            actionsToKeys.Add(Keys.N);
+            actionsToKeys.Add(Keys.Q);
+            actionsToKeys.Add(Keys.K);
+            actionsToKeys.Add(Keys.J);
+            actionsToKeys.Add(Keys.X);
+            actionsToKeys.Add(Keys.Z);
         }
 
         public void UnloadKeys()
@@ -151,6 +169,25 @@ namespace sprint0
         public void DisableKeyboard()
         {
             this.enabled = false;
+        }
+
+        public KeyboardAction GetAction(Keys key)
+        {
+            KeyboardAction result = KeyboardAction.FAULTY;
+            for (int i = 0; i < actionsToKeys.Count; i++)
+            {
+                //Get the keyboard action that corresponds to the key input
+                if (key.Equals(actionsToKeys[i]))
+                {
+                    result = (KeyboardAction)i;
+                }
+            }
+            return result;
+        }
+
+        public Keys GetKey(KeyboardAction action)
+        {
+            return actionsToKeys[(int)action];
         }
     }
 }
