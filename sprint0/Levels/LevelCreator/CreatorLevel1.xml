@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<Pointers>
+		
+	</Pointers>
+	<Meta>
+		<Name>LevelCreatorGrid</Name>
+		<Start>True</Start>
+	</Meta>
+	<Asset>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>Dungeon</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonNorthWall</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonSouthWall</ObjectName>
+			<Location>150 408</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonEastWall</ObjectName>
+			<Location>598 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonWestWall</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>GridSquare</ObjectName>
+			<Location>150 120</Location>
+			<Dimension>16 11</Dimension>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>SaveIcon</ObjectName>
+			<Location>700 400</Location>
+		</Item>
+
+	</Asset>
+</XnaContent>

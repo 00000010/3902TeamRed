@@ -23,8 +23,12 @@ namespace sprint0
 
         public GameObjectManager manager;
         public LevelLoader loader;
+        public LevelCreator creator;
+
+        public MouseController mouse;
         public KeyboardController keyboard;
         public ControlsKeyboard controlsKeyboard;
+
         ICamera camera;
 
         public int level = 0;
@@ -48,10 +52,13 @@ namespace sprint0
             keyboard.LoadDefaultKeys(this);
 
             controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
-
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
+
+            //creator = new LevelCreator(this);
+            //creator.loadLevelCreator();
+            //Debug.WriteLine("TESTING");
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);

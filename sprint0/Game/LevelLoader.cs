@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+using System.Globalization;
+using System.Diagnostics;
 //using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
@@ -76,8 +78,13 @@ namespace sprint0
                 XElement tree = level.Root;
 
                 XElement meta = tree.Element("Meta");
+
+                XElement startElement = meta.Element("Start");
                 XElement roomName = meta.Element("Name");
                 room.name = roomName.Value;
+                room.start = startElement.Value.Equals("True");
+
+                Console.WriteLine(room.name);
                 XElement pointers = tree.Element("Pointers");
                 IEnumerable<XElement> elms = pointers.Elements();
                 room.ParsePointers(elms);
@@ -133,7 +140,7 @@ namespace sprint0
             //Gets starting room
             foreach (Room room in allRooms)
             {
-                if (room.name == "Room1")
+                if (room.start)
                 {
                     currentRoom = room;
                 }
@@ -173,6 +180,12 @@ namespace sprint0
                     }
                 }
             }
+        }
+
+        public void addToRoom(IBlock sprite)
+        {
+            gameObjectManager.addBlock(sprite);
+            currentRoom.Add(sprite);
         }
 
         //Changes rooms from the currrent to the specified
