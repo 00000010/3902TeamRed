@@ -26,7 +26,8 @@ namespace sprint0
         public LevelCreator creator;
 
         public MouseController mouse;
-        KeyboardController keyboard;
+        public KeyboardController keyboard;
+        public ControlsKeyboard controlsKeyboard;
 
         ICamera camera;
 
@@ -50,17 +51,14 @@ namespace sprint0
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
 
-            mouse = new MouseController(new Vector2(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
-
-
-
-            //create level loader
+            controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
+            //Create level loader
             loader = new LevelLoader(this);
-            loader.LoadLevel("LevelCreator");
+            loader.LoadLevel("Dungeon1");
 
-            creator = new LevelCreator(this);
-            creator.loadLevelCreator();
-            Debug.WriteLine("TESTING");
+            //creator = new LevelCreator(this);
+            //creator.loadLevelCreator();
+            //Debug.WriteLine("TESTING");
 
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
@@ -90,7 +88,7 @@ namespace sprint0
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
             keyboard.Update(gameTime);
-            mouse.Update(gameTime);
+            controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }

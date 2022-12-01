@@ -12,7 +12,7 @@ namespace sprint0
         public Game1 game;
         public IPlayer player;
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
-        public Inventory inventory;
+        public KeyboardMappings inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -36,10 +36,10 @@ namespace sprint0
         public GameObjectManager(Game1 game)
         {
             this.game = game;
-            inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
             AddHud();
+            AddKeyboardMappings();
         }
 
         private void PopulateCollisionResolutionDic()
@@ -322,8 +322,16 @@ namespace sprint0
 
         private void AddHud()
         {
+            inventory = InventoryFactory.Instance.TopHUD(game);
             drawables.Add(inventory);
             updateables.Add(inventory);
+        }
+
+        private void AddKeyboardMappings()
+        {
+            KeyboardDrawings drawings = new KeyboardDrawings(game);
+            drawables.Add(drawings);
+            updateables.Add(drawings);
         }
     }
 }

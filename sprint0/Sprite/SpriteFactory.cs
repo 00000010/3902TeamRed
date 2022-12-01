@@ -669,6 +669,11 @@ namespace sprint0
             return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
+        public Sprite ZeldaBlueBox(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaBlueBox, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
         /* inventory */
         public Sprite TopHUD(Vector2 position)
         {
