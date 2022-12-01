@@ -21,6 +21,8 @@ namespace sprint0
         public IItem item;
         public IEnemy enemy;
 
+        public ISprite cursor;
+
         public GameObjectManager manager;
         public LevelLoader loader;
         public LevelCreator creator;
@@ -49,12 +51,16 @@ namespace sprint0
             //manager.AddObject(block);
 
             keyboard = new KeyboardController();
-            keyboard.LoadDefaultKeys(this);
+            keyboard.LoadTitleScreenKeys(this);
+            //keyboard.LoadDefaultKeys(this);
 
             controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
-            loader.LoadLevel("Dungeon1");
+            loader.LoadLevel("TitleScreen");
+
+            cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
+            manager.AddObject(cursor);
 
             //creator = new LevelCreator(this);
             //creator.loadLevelCreator();
@@ -64,6 +70,7 @@ namespace sprint0
             //manager.AddObject(camera);
 
             HandleSpecialDisplays.Instance.Initialize(this);
+            HandleSpecialDisplays.Instance.TitleScreen = true;
 
             //Play theme song in background
             MediaPlayer.Play(SoundFactory.Instance.themeSound);
@@ -80,7 +87,7 @@ namespace sprint0
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
             TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
-            player = PlayerFactory.Instance.Link(new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y));
+            player = PlayerFactory.Instance.Link(new Vector2(-120, -180));
         }
 
         protected override void Update(GameTime gameTime)

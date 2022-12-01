@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+    <Pointers>
+        <NorthRoom>Room16</NorthRoom>
+        <SouthRoom>Room8</SouthRoom>
+    </Pointers>
+    <Meta>
+        <Name>Room15</Name>
+    </Meta>
+    <Asset>
+        <Item>
+            <ObjectType>Sprite</ObjectType>
+            <ObjectName>Dungeon</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonNorthWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonSouthWall</ObjectName>
+            <Location>150 408</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonEastWall</ObjectName>
+            <Location>598 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>DungeonWestWall</ObjectName>
+            <Location>150 120</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>374 144</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorSouth</ObjectName>
+            <Location>374 408</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>214 184</Location>
+            <Dimension>5 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>214 216</Location>
+            <Dimension>1 2</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>214 312</Location>
+            <Dimension>1 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>246 376</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>310 376</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>278 248</Location>
+            <Dimension>1 5</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>342 216</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>374 312</Location>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>438 184</Location>
+            <Dimension>5 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>502 216</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>566 216</Location>
+            <Dimension>1 2</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>406 248</Location>
+            <Dimension>2 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>438 280</Location>
+            <Dimension>1 4</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>470 376</Location>
+            <Dimension>4 1</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Block</ObjectType>
+            <ObjectName>WaterBlock</ObjectName>
+            <Location>566 312</Location>
+            <Dimension>1 3</Dimension>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>406 300</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>470 332</Location>
+        </Item>
+        <Item>
+            <ObjectType>Enemy</ObjectType>
+            <ObjectName>Stalfos</ObjectName>
+            <Location>534 216</Location>
+        </Item>
+    </Asset>
+</XnaContent>
+

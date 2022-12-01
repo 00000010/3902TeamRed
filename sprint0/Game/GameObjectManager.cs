@@ -38,8 +38,7 @@ namespace sprint0
             this.game = game;
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
-            AddHud();
-            AddKeyboardMappings();
+            //AddHud();
         }
 
         private void PopulateCollisionResolutionDic()

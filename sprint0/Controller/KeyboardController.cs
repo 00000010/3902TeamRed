@@ -73,6 +73,25 @@ namespace sprint0
             }
         }
 
+        public void LoadTitleScreenKeys(Game1 game)
+        {
+            this.RegisterCommand(Keys.Q, new ExitCommand(game));
+
+            this.RegisterCommand(Keys.Up, new TitleScreenCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.Down, new TitleScreenCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.Enter, new TitleScreenCommand(game, Direction.RIGHT));
+        }
+
+        public void LoadLevelSelectScreenKeys(Game1 game)
+        {
+            this.RegisterCommand(Keys.Q, new ExitCommand(game));
+
+            this.RegisterCommand(Keys.Up, new LevelSelectScreenCommand(game, Direction.UP));
+            this.RegisterCommand(Keys.Down, new LevelSelectScreenCommand(game, Direction.DOWN));
+            this.RegisterCommand(Keys.Enter, new LevelSelectScreenCommand(game, Direction.RIGHT));
+            this.RegisterCommand(Keys.Escape, new LevelSelectScreenCommand(game, Direction.LEFT));
+        }
+
         public void LoadDefaultKeys(Game1 game)
         {
             /* WASD and arrow keys for moving Link around */
@@ -134,6 +153,12 @@ namespace sprint0
             actionsToKeys.Add(Keys.J);
             actionsToKeys.Add(Keys.X);
             actionsToKeys.Add(Keys.Z);
+        }
+
+        public void UnloadKeys()
+        {
+            controllerMappings.Clear();
+            controllerMappingsUnpress.Clear();
         }
 
         public void EnableKeyboard()
