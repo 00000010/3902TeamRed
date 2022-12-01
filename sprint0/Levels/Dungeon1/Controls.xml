@@ -5,6 +5,7 @@
 	</Pointers>
     <Meta>
         <Name>RoomControls</Name>
+		<Start>False</Start>
     </Meta>
     <Asset>
 		<Item>
