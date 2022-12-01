@@ -31,6 +31,8 @@ namespace sprint0
         public Room eastRoomPtr { get; set; }
         public Room southRoomPtr { get; set; }
 
+        //Used for level creation
+        public Vector2 coordinate { get; set; }
         public Room()
         {
             roomObjects = new List<object>();

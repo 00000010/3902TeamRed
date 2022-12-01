@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Xml;
 using System.Xml.Linq;
@@ -29,21 +30,31 @@ namespace sprint0
             string sDirectory;
             string sFile;
 
+            string folderName = "CustomLevel";
+
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/TestSave");
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/TestSave/");
+                sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}/");
             }
             else
             {
-                sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\TestSave");
-                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\TestSave\");
+                sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}");
+                sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}\");
             }
 
             Debug.WriteLine(sDirectory);
             Debug.WriteLine("\nExists? " + System.IO.Directory.Exists(sDirectory));
             System.IO.Directory.CreateDirectory(sDirectory);
+
+            //Deletes existing files so saves overwrite
+            string[] files = Directory.GetFiles(sDirectory);
+            foreach (string file in files)
+            {
+                File.Delete(file);
+                Console.WriteLine($"{file} is deleted.");
+            }
 
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
@@ -125,6 +136,7 @@ namespace sprint0
             string objectName;
             string location;
 
+            //Info for Blocks
             if(obj is Block)
             {
                 Block tempBlock = (Block)obj;
@@ -135,6 +147,7 @@ namespace sprint0
 
                 location = tempBlock.Position.X + " " + tempBlock.Position.Y;
             }
+            //Gets info for Doors
             else if (obj is Door)
             {
                 Door tempDoor = (Door)obj;
@@ -145,16 +158,29 @@ namespace sprint0
 
                 location = tempDoor.Position.X + " " + tempDoor.Position.Y;
             }
+            //Info for Items
             else if (obj is Item)
             {
                 Item tempItem = (Item)obj;
-                objectType = "Door";
+                objectType = "Item";
 
                 string blockType = tempItem.GetType().ToString();
                 objectName = blockType.Substring(blockType.LastIndexOf('.') + 1);
 
                 location = tempItem.Position.X + " " + tempItem.Position.Y;
             }
+            //Info for enemys
+            else if (obj is Enemy)
+            {
+                Enemy tempEnemy = (Enemy)obj;
+                objectType = "Enemy";
+
+                string blockType = tempEnemy.GetType().ToString();
+                objectName = blockType.Substring(blockType.LastIndexOf('.') + 1);
+
+                location = tempEnemy.Position.X + " " + tempEnemy.Position.Y;
+            }
+            //Info for sprites
             else
             {
                 Sprite tempSprite = (Sprite)obj;
@@ -167,6 +193,7 @@ namespace sprint0
                 location = tempSprite.Position.X + " " + tempSprite.Position.Y;
             }
 
+            //Finishes creating the XML object
             item.Add(new XElement("ObjectType", objectType));
             item.Add(new XElement("ObjectName", objectName));
             item.Add(new XElement("Location", location));

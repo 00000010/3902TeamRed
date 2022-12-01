@@ -35,6 +35,7 @@ namespace sprint0
             loader.LoadLevel("LevelCreator");
 
             loader.currentRoom.name = "Room" + numLevels++;
+            loader.currentRoom.coordinate = new Vector2(0, 0);
 
             //Text for each kind of object
             manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(0, 120), "Block"));

@@ -138,33 +138,119 @@ namespace sprint0
             newRoom.Add(BlockFactory.Instance.DungeonSouthWall(new Vector2(Constants.DUNGEON_SOUTH_WALL_X, Constants.DUNGEON_SOUTH_WALL_Y)));
             newRoom.Add(BlockFactory.Instance.DungeonWestWall(new Vector2(Constants.DUNGEON_WEST_WALL_X, Constants.DUNGEON_WEST_WALL_Y)));
 
-            game.loader.allRooms.Add(newRoom);
 
-
-
+            //Creates the appropriate doors and pointer connections
             if (doorName.Equals("DungeonDoorNorth"))
             {
                 currentRoom.northRoomPtr = newRoom;
                 newRoom.southRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorSouth(new Vector2(Constants.DOOR_SOUTH_POSITION_X, Constants.DOOR_SOUTH_POSITION_Y)));
+
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y + 1);
             }
             else if (doorName.Equals("DungeonDoorEast"))
             {
                 currentRoom.eastRoomPtr = newRoom;
                 newRoom.westRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorWest(new Vector2(Constants.DOOR_WEST_POSITION_X, Constants.DOOR_WEST_POSITION_Y)));
+
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X + 1, currentRoom.coordinate.Y);
             }
             else if (doorName.Equals("DungeonDoorSouth"))
             {
                 currentRoom.southRoomPtr = newRoom;
                 newRoom.northRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorNorth(new Vector2(Constants.DOOR_NORTH_POSITION_X, Constants.DOOR_NORTH_POSITION_Y)));
+
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y - 1);
             }
             else //West Door
             {
                 currentRoom.westRoomPtr = newRoom;
                 newRoom.eastRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorEast(new Vector2(Constants.DOOR_EAST_POSITION_X, Constants.DOOR_EAST_POSITION_Y)));
+
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X - 1, currentRoom.coordinate.Y);
+            }
+
+            foreach(Room room in game.loader.allRooms)
+            {
+                bool validRoom = !room.name.Equals("LevelCreatorGrid");
+
+                int xDif = (int)(newRoom.coordinate.X - room.coordinate.X);
+                int yDif = (int)(newRoom.coordinate.Y - room.coordinate.Y);
+
+                //new room East adjacent
+                if(xDif == 1 && yDif == 0 && validRoom)
+                {
+                    if (room.eastRoomPtr == null)
+                    {
+                        room.eastRoomPtr = newRoom;
+                        newRoom.westRoomPtr = room;
+
+                        placeDoor(room, "East");
+                        placeDoor(newRoom, "West");
+                    }
+                }
+                //new room is West adjacent
+                if(xDif == -1 && yDif == 0 && validRoom)
+                {
+                    if (room.westRoomPtr == null)
+                    {
+                        room.westRoomPtr = newRoom;
+                        newRoom.eastRoomPtr = room;
+
+                        placeDoor(room, "West");
+                        placeDoor(newRoom, "East");
+                    }
+                }
+                //new room is North adjacent
+                if(xDif == 0 && yDif == 1 && validRoom)
+                {
+                    if (room.northRoomPtr == null)
+                    {
+                        room.northRoomPtr = newRoom;
+                        newRoom.southRoomPtr = room;
+
+                        placeDoor(room, "North");
+                        placeDoor(newRoom, "South");
+                    }
+                }
+                //new room is South adjacent
+                if(xDif == 0 && yDif == -1 && validRoom)
+                {
+                    if (room.southRoomPtr == null)
+                    {
+                        room.southRoomPtr = newRoom;
+                        newRoom.northRoomPtr = room;
+
+                        placeDoor(room, "South");
+                        placeDoor(newRoom, "North");
+                    }
+                }
+            }
+
+            game.loader.allRooms.Add(newRoom);
+        }
+
+        //Adds a door to the room
+        public void placeDoor(Room room, string cardinalDirection)
+        {
+            if (cardinalDirection.Equals("North"))
+            {
+                room.Add(DoorFactory.Instance.DungeonDoorNorth(new Vector2(Constants.DOOR_NORTH_POSITION_X, Constants.DOOR_NORTH_POSITION_Y)));
+            }
+            else if (cardinalDirection.Equals("East"))
+            {
+                room.Add(DoorFactory.Instance.DungeonDoorEast(new Vector2(Constants.DOOR_EAST_POSITION_X, Constants.DOOR_EAST_POSITION_Y)));
+            }
+            else if (cardinalDirection.Equals("South"))
+            {
+                room.Add(DoorFactory.Instance.DungeonDoorSouth(new Vector2(Constants.DOOR_SOUTH_POSITION_X, Constants.DOOR_SOUTH_POSITION_Y)));
+            }
+            else //West
+            {
+                room.Add(DoorFactory.Instance.DungeonDoorWest(new Vector2(Constants.DOOR_WEST_POSITION_X, Constants.DOOR_WEST_POSITION_Y)));
             }
         }
     }
