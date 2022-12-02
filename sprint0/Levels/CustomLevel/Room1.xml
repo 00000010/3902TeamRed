@@ -55,30 +55,5 @@
       <ObjectName>DungeonDoorWest</ObjectName>
       <Location>174 264</Location>
     </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>342 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>342 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>374 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>406 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>438 248</Location>
-    </Item>
   </Asset>
 </XnaContent>

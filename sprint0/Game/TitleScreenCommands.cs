@@ -89,8 +89,8 @@ namespace sprint0
                         game.loader.clearLoader();
                         game.creator.numLevels = 1;
                         game.creator.loadLevelCreator();
-                        game.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
-                        game.manager.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
+                        game.player.Position = new Vector2(-180, -120);
+                        game.manager.player.Position = new Vector2(-180, -120);
                         game.mouse.LoadLevelCreatorCommands(game, game.loader);
                     }
                     break;

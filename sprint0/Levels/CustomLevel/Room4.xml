@@ -1,6 +1,5 @@
 ﻿<XnaContent>
   <Pointers>
-    <NorthRoom>Room6</NorthRoom>
     <WestRoom>Room1</WestRoom>
   </Pointers>
   <Meta>
@@ -39,29 +38,59 @@
       <Location>174 264</Location>
     </Item>
     <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>374 216</Location>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>406 248</Location>
     </Item>
     <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>406 216</Location>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>374 248</Location>
     </Item>
     <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>438 216</Location>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>374 280</Location>
     </Item>
     <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>470 216</Location>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>406 280</Location>
     </Item>
     <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorNorth</ObjectName>
-      <Location>374 144</Location>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>406 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>438 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>470 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>502 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>502 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>534 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Item</ObjectType>
+      <ObjectName>ZeldaHeartContainer</ObjectName>
+      <Location>534 248</Location>
     </Item>
   </Asset>
 </XnaContent>

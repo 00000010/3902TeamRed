@@ -1,6 +1,5 @@
 ﻿<XnaContent>
   <Pointers>
-    <SouthRoom>Room7</SouthRoom>
     <EastRoom>Room1</EastRoom>
   </Pointers>
   <Meta>
@@ -37,61 +36,6 @@
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorEast</ObjectName>
       <Location>598 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>310 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>310 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>342 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>374 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>406 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>406 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>374 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>342 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>342 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>374 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorSouth</ObjectName>
-      <Location>374 408</Location>
     </Item>
   </Asset>
 </XnaContent>

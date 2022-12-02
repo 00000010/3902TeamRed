@@ -137,6 +137,7 @@ namespace sprint0
                     itemList.Add(objectCreated, position);
                 }
                 
+                Console.WriteLine("Creating " + objectCreated.ToString() + " " + position.ToString());
             }
 
             Debug.WriteLine(itemList.ToString());

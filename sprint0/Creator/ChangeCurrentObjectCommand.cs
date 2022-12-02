@@ -251,6 +251,8 @@ namespace sprint0
             {
                 room.Add(DoorFactory.Instance.DungeonDoorWest(new Vector2(Constants.DOOR_WEST_POSITION_X, Constants.DOOR_WEST_POSITION_Y)));
             }
+            Console.WriteLine("Testing for a block change");
+            game.creator.currentObject = obj;
         }
     }
 }

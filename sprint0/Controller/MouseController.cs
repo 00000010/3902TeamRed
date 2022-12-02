@@ -87,6 +87,7 @@ namespace sprint0
             foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
             {
 
+                Console.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
                 Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
 
                 if(entry.Key is Door)
