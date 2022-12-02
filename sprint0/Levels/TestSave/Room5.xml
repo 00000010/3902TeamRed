@@ -1,0 +1,57 @@
+﻿<XnaContent>
+  <Pointers>
+    <NorthRoom>Room1</NorthRoom>
+    <SouthRoom>Room6</SouthRoom>
+  </Pointers>
+  <Meta>
+    <Name>Room5</Name>
+    <Start>False</Start>
+  </Meta>
+  <Asset>
+    <Item>
+      <ObjectType>Sprite</ObjectType>
+      <ObjectName>Dungeon</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonNorthWall</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonEastWall</ObjectName>
+      <Location>598 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonSouthWall</ObjectName>
+      <Location>150 408</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonWestWall</ObjectName>
+      <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorNorth</ObjectName>
+      <Location>374 144</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>214 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>246 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorSouth</ObjectName>
+      <Location>374 408</Location>
+    </Item>
+  </Asset>
+</XnaContent>
