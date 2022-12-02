@@ -47,10 +47,12 @@ namespace sprint0
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
+            //camera = new Camera();
 
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
+            
 
             HandleSpecialDisplays.Instance.Initialize(this);
 

@@ -70,6 +70,8 @@ namespace sprint0
         public const int NUM_AVAILABLE_PROJECTILES = 3;
 
         public const int SCALING_FACTOR = 2;
+
+        public const int IMPOSSIBLE_VALUE = -SCALED_ROOM_WIDTH - 1;
     }
 }
 

@@ -1,16 +1,20 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
     <Files>
-      <File FileName="sprint0/Game/Game1.cs" Line="88" Column="1" />
-      <File FileName="sprint0/Camera/Camera.cs" Line="64" Column="39" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="178" Column="10" />
-      <File FileName="sprint0/Camera/ICamera.cs" Line="14" Column="48" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="34" Column="39" />
-      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="23" Column="53" />
-      <File FileName="sprint0/Block/IBlock.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Sprite/Sprite.cs" Line="66" Column="48" />
-      <File FileName="sprint0/Game/Constants.cs" Line="72" Column="40" />
-      <File FileName="sprint0/Levels/Dungeon1/Level1.xml" Line="1" Column="1" />
+      <File FileName="sprint0/Game/Game1.cs" Line="96" Column="18" />
+      <File FileName="sprint0/Camera/Camera.cs" Line="170" Column="147" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="203" Column="14" />
+      <File FileName="sprint0/Sprite/Sprite.cs" Line="83" Column="10" />
+      <File FileName="sprint0/Block/BlockFactory.cs" Line="190" Column="76" />
+      <File FileName="sprint0/Projectile/Projectile.cs" Line="37" Column="20" />
+      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="46" Column="14" />
+      <File FileName="sprint0/Game/LevelLoader.cs" Line="43" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,6 +25,7 @@
               <Node name="Camera" expanded="True" />
               <Node name="Collision" expanded="True" />
               <Node name="Controller" expanded="True" />
+              <Node name="Door" expanded="True" />
               <Node name="Enemy" expanded="True" />
               <Node name="Game" expanded="True" />
               <Node name="Inventory" expanded="True" />
@@ -29,6 +34,7 @@
                 <Node name="Dungeon1" expanded="True" />
               </Node>
               <Node name="Player" expanded="True" />
+              <Node name="Projectile" expanded="True" />
               <Node name="ScreenDisplay" expanded="True" />
               <Node name="Sprite" expanded="True" />
             </Node>
@@ -41,10 +47,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

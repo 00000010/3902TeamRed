@@ -45,26 +45,28 @@ namespace sprint0
         {
             this.spriteBatch = spriteBatch;
 
+            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonSheet = content.Load<Texture2D>("DungeonBackground");
+            dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
+            dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
+            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
+            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
+            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
+            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
+            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
+
             dungeonWallNorth = content.Load<Texture2D>("DungeonNorthWall");
             dungeonWallSouth = content.Load<Texture2D>("DungeonSouthWall");
             dungeonWallEast = content.Load<Texture2D>("DungeonEastWall");
             dungeonWallWest = content.Load<Texture2D>("DungeonWestWall");
-            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
-            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
-            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
-            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
-            dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
-            dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
+
             dungeonSand = content.Load<Texture2D>("DungeonSand");
             dungeonMonster1 = content.Load<Texture2D>("DungeonMonster1");
             dungeonMonster2 = content.Load<Texture2D>("DungeonMonster2");
             dungeonMonster1Faded = content.Load<Texture2D>("DungeonMonster1Faded");
             dungeonMonster2Faded = content.Load<Texture2D>("DungeonMonster2Faded");
-            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
-            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonStairs = content.Load<Texture2D>("DungeonStairs");
-
+        
             waterBlock = content.Load<Texture2D>("WaterBlock");
 
             linkSpritesheet = content.Load<Texture2D>("Link");
@@ -93,7 +95,7 @@ namespace sprint0
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
             OldMan = content.Load<Texture2D>("Zelda_old_man");
             HUD = content.Load<Texture2D>("Zelda_HUD");
-            ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
+            ZeldaBlueMap = content.Load<Texture2D>("Zelda_map");
             ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
             Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
             TopHud = content.Load<Texture2D>("tophud");

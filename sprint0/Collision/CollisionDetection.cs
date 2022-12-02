@@ -83,7 +83,7 @@ namespace sprint0
                     CollisionResolution.CallCorrespondingCommand(object1, currObject, manager, intersectionLoc);
                 }
             }
-        } 
+        }
 
         private static string GetIntersectionLocation(Rectangle Moving, Rectangle intersect)
         {
@@ -101,7 +101,7 @@ namespace sprint0
                 }
             }
             //Top-Bottom
-            if (intersect.Height <= intersect.Width) 
+            if (intersect.Height <= intersect.Width)
             {
                 if (Moving.Top == intersect.Top)
                 {
