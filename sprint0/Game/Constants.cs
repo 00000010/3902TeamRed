@@ -91,7 +91,7 @@ namespace sprint0
         public const float PROJECTILE_LAYER_DEPTH = 0.7f;
         public const float ENEMY_LAYER_DEPTH = 0.8f;
         public const float PLAYER_LAYER_DEPTH = 0.9f;
-        public const float TEXT_LAYER_DEPTH = 1.0f;
+        public const float TEXT_LAYER_DEPTH = 0.99f;
 
         public const int NUM_AVAILABLE_PROJECTILES = 3;
 

@@ -73,6 +73,18 @@ namespace sprint0
             }
         }
 
+        public void LoadLevelCreatorKeys(Game1 game)
+        {
+            this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
+
+            this.RegisterCommand(KeyboardAction.UP, new LoadRoomCommand(game, Direction.UP));
+            this.RegisterCommand(KeyboardAction.RIGHT, new LoadRoomCommand(game, Direction.RIGHT));
+            this.RegisterCommand(KeyboardAction.DOWN, new LoadRoomCommand(game, Direction.DOWN));
+            this.RegisterCommand(KeyboardAction.LEFT, new LoadRoomCommand(game, Direction.LEFT));
+
+            MapActionsToKeys();
+        }
+
         public void LoadTitleScreenKeys(Game1 game)
         {
             this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));

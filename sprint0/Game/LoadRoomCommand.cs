@@ -18,7 +18,8 @@ namespace sprint0
         public void Execute()
         {
             loader = game.loader;
-            Room nextRoom = getRoom();
+            nextRoom = getRoom();
+            Console.WriteLine("Changing into " + nextRoom);
             loader.ChangeRooms(nextRoom);
         }
 
@@ -30,7 +31,6 @@ namespace sprint0
             switch (direction)
             {
                 case Direction.LEFT:
-                    Debug.WriteLine("Going Left");
                     nextRoom = loader.currentRoom.westRoomPtr;
                     break;
                 case Direction.UP:
@@ -43,6 +43,7 @@ namespace sprint0
                     nextRoom = loader.currentRoom.southRoomPtr;
                     break;
             }
+           
             return nextRoom;
         }
     }

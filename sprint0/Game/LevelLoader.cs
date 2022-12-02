@@ -192,7 +192,7 @@ namespace sprint0
         {
             if (room != null)
             {
-                Debug.WriteLine("Changing!");
+                Console.WriteLine("Changing into room " + room);
                 UnloadRoom();
                 currentRoom = room;
                 LoadRoom();

@@ -82,14 +82,15 @@ namespace sprint0
                     else if (game.cursor.Position == position[2])
                     {
                         game.keyboard.UnloadKeys();
+                        game.keyboard.LoadLevelCreatorKeys(game);
                         HandleSpecialDisplays.Instance.TitleScreen = false;
                         game.manager.RemoveObject(game.cursor);
                         game.loader.UnloadRoom();
                         game.loader.clearLoader();
                         game.creator.numLevels = 1;
                         game.creator.loadLevelCreator();
-                        game.player.Position = new Vector2(-180, -120);
-                        game.manager.player.Position = new Vector2(-180, -120);
+                        game.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
+                        game.manager.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
                         game.mouse.LoadLevelCreatorCommands(game, game.loader);
                     }
                     break;

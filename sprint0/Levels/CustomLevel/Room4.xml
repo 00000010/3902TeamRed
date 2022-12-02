@@ -1,6 +1,7 @@
 ﻿<XnaContent>
   <Pointers>
-    <NorthRoom>Room1</NorthRoom>
+    <NorthRoom>Room6</NorthRoom>
+    <WestRoom>Room1</WestRoom>
   </Pointers>
   <Meta>
     <Name>Room4</Name>
@@ -31,6 +32,31 @@
       <ObjectType>Block</ObjectType>
       <ObjectName>DungeonWestWall</ObjectName>
       <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorWest</ObjectName>
+      <Location>174 264</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>374 216</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>406 216</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>438 216</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>ZeldaGreenBlock</ObjectName>
+      <Location>470 216</Location>
     </Item>
     <Item>
       <ObjectType>Door</ObjectType>
