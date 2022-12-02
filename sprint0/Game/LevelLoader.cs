@@ -147,7 +147,6 @@ namespace sprint0
             }
             pointPointers();
             LoadRoom();
-            gameObjectManager.AddPlayer(game.player);
         }
 
          
@@ -193,9 +192,9 @@ namespace sprint0
         {
             if (room != null)
             {
+                Debug.WriteLine("Changing!");
                 UnloadRoom();
                 currentRoom = room;
-                Console.WriteLine(currentRoom);
                 LoadRoom();
             }
 
@@ -253,6 +252,12 @@ namespace sprint0
         private string GetThisNamespace()
         {
             return GetType().Namespace;
+        }
+
+        public void clearLoader()
+        {
+            allRooms.Clear();
+            currentRoom = null;
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿<XnaContent>
   <Pointers>
-    <NorthRoom>Room2</NorthRoom>
-    <SouthRoom>Room3</SouthRoom>
-    <EastRoom>Room4</EastRoom>
-    <WestRoom>Room5</WestRoom>
+    <NorthRoom>Room3</NorthRoom>
+    <SouthRoom>Room4</SouthRoom>
+    <WestRoom>Room2</WestRoom>
   </Pointers>
   <Meta>
     <Name>Room1</Name>
@@ -22,18 +21,23 @@
     </Item>
     <Item>
       <ObjectType>Block</ObjectType>
-      <ObjectName>DungeonSouthWall</ObjectName>
-      <Location>150 408</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
       <ObjectName>DungeonEastWall</ObjectName>
       <Location>598 120</Location>
     </Item>
     <Item>
       <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonSouthWall</ObjectName>
+      <Location>150 408</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
       <ObjectName>DungeonWestWall</ObjectName>
       <Location>150 120</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorWest</ObjectName>
+      <Location>174 264</Location>
     </Item>
     <Item>
       <ObjectType>Door</ObjectType>
@@ -44,286 +48,6 @@
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorSouth</ObjectName>
       <Location>374 408</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorEast</ObjectName>
-      <Location>598 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorWest</ObjectName>
-      <Location>174 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>310 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>342 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>374 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>406 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>438 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>470 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 376</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>214 376</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>246 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>310 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>342 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>374 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>406 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>438 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>470 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>566 376</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 376</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>278 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 376</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>534 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 312</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 344</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>502 376</Location>
     </Item>
   </Asset>
 </XnaContent>

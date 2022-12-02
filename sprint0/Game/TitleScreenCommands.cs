@@ -63,6 +63,7 @@ namespace sprint0
                         game.keyboard.LoadDefaultKeys(game);
                         HandleSpecialDisplays.Instance.TitleScreen = false;
                         game.manager.RemoveObject(game.cursor);
+                        game.manager.AddHud();
                         game.loader.UnloadRoom();
                         game.loader.LoadLevel("Dungeon1");
                         game.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
@@ -84,7 +85,12 @@ namespace sprint0
                         HandleSpecialDisplays.Instance.TitleScreen = false;
                         game.manager.RemoveObject(game.cursor);
                         game.loader.UnloadRoom();
-                        game.loader.LoadLevel("LevelCreator");
+                        game.loader.clearLoader();
+                        game.creator.numLevels = 1;
+                        game.creator.loadLevelCreator();
+                        game.player.Position = new Vector2(-180, -120);
+                        game.manager.player.Position = new Vector2(-180, -120);
+                        game.mouse.LoadLevelCreatorCommands(game, game.loader);
                     }
                     break;
                 default:

@@ -15,7 +15,6 @@ namespace sprint0
         public List<object> roomObjects;
         public List<object> roomEnemies;
         public List<object> roomPlayers;
-        public List<object> levelCreatorObjects;
         public List<ItemObject> roomItemObjects;
 
         public string name { get; set; }
@@ -38,28 +37,12 @@ namespace sprint0
             roomObjects = new List<object>();
             roomEnemies = new List<object>();
             roomPlayers = new List<object>();
-            levelCreatorObjects = new List<object>();
             roomItemObjects = new List<ItemObject>();
         }
 
-        public void deleteCreatorSprite()
-        {
-            foreach(object createrObj in levelCreatorObjects)
-            {
-                roomObjects.Remove(createrObj);
-            }
-        }
 
         public void Add(object obj)
         {
-            if(obj is Sprite)
-            {
-                Sprite tempSprite = (Sprite)obj;
-                if (tempSprite.objectKind.Equals("GridSquare") || tempSprite.objectKind.Equals("SaveIcon"))
-                {
-                    levelCreatorObjects.Add(obj);
-                }
-            }
             
             roomObjects.Add(obj);
             if (obj is Enemy)

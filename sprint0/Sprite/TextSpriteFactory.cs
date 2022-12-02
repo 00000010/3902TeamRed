@@ -54,6 +54,16 @@ namespace sprint0
         /*
          * Background
          */
+        public TextSprite customGoldText(Vector2 position, string text)
+        {
+            return new TextSprite(spriteBatch, position, smallerFont, text, Color.Gold);
+        }
+
+        public TextSprite customBigText(Vector2 position, string text)
+        {
+            return new TextSprite(spriteBatch, position, smallerFont, text, Color.White);
+        }
+
         public TextSprite CustomText(Vector2 position, string text)
         {
             return new TextSprite(spriteBatch, position, ZeldaFont, text, Color.White);

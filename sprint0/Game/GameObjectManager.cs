@@ -319,14 +319,14 @@ namespace sprint0
             HandleSpecialDisplays.Instance.Victory = true;
         }
 
-        private void AddHud()
+        public void AddHud()
         {
             inventory = InventoryFactory.Instance.TopHUD(game);
             drawables.Add(inventory);
             updateables.Add(inventory);
         }
 
-        private void AddKeyboardMappings()
+        public void AddKeyboardMappings()
         {
             KeyboardDrawings drawings = new KeyboardDrawings(game);
             drawables.Add(drawings);

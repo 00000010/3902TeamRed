@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+
 namespace sprint0
 {
     public class LoadRoomCommand : ICommand
@@ -23,12 +25,12 @@ namespace sprint0
         public Room getRoom()
         {
             loader = game.loader;
-            nextRoom = null;
 
             //ToDo - data drive this switch
             switch (direction)
             {
                 case Direction.LEFT:
+                    Debug.WriteLine("Going Left");
                     nextRoom = loader.currentRoom.westRoomPtr;
                     break;
                 case Direction.UP:

@@ -137,6 +137,8 @@ namespace sprint0
                     game.keyboard.LoadDefaultKeys(game);
                     game.loader.UnloadRoom();
                     game.manager.RemoveObject(game.cursor);
+                    HandleSpecialDisplays.Instance.LevelSelectScreen = false;
+                    game.manager.AddHud();
                     game.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
                     game.manager.player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
                     game.loader.LoadLevel(levels[currentLevel]);

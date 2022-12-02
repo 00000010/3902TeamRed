@@ -30,6 +30,12 @@ namespace sprint0
             string sDirectory;
             string sFile;
 
+            string controlsSourceFile;
+            string inventorySourceFile;
+
+            string controlsDestinationFile;
+            string inventoryDestinationFile;
+
             string folderName = "CustomLevel";
 
             //Gets file location based on operating system
@@ -37,16 +43,36 @@ namespace sprint0
             {
                 sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}");
                 sFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}/");
+                controlsDestinationFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}/Controls.xml");
+                inventoryDestinationFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/{folderName}/Controls.xml");
+                controlsSourceFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/Dungeon1/Controls.xml");
+                inventorySourceFile = System.IO.Path.Combine(sCurrentDirectory, @$"../../../Levels/Dungeon1/Inventory.xml");
             }
             else
             {
                 sDirectory = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}");
                 sFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}\");
+                controlsDestinationFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}\Controls.xml");
+                inventoryDestinationFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\{folderName}\Inventory.xml");
+                controlsSourceFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\Dungeon1\Controls.xml");
+                inventorySourceFile = System.IO.Path.Combine(sCurrentDirectory, @$"..\..\..\Levels\Dungeon1\Inventory.xml");
             }
 
             Debug.WriteLine(sDirectory);
             Debug.WriteLine("\nExists? " + System.IO.Directory.Exists(sDirectory));
             System.IO.Directory.CreateDirectory(sDirectory);
+
+            //Creates the controls and inventory file
+            try
+            {
+                Debug.WriteLine("Copying Files");
+                File.Copy(inventorySourceFile, inventoryDestinationFile);
+                File.Copy(controlsSourceFile, controlsDestinationFile);
+            }
+            catch (IOException iox)
+            {
+                Debug.WriteLine(iox.Message);
+            }
 
             //Deletes existing files so saves overwrite
             string[] files = Directory.GetFiles(sDirectory);
@@ -119,7 +145,6 @@ namespace sprint0
         public XElement createAssetXml(Room room)
         {
             XElement asset = new XElement("Asset");
-            room.deleteCreatorSprite();
             foreach(object obj in room.roomObjects)
             {
                 asset.Add(createItemXml(obj));

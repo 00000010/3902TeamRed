@@ -14,11 +14,13 @@ namespace sprint0
         MouseController mouse;
         Game1 game;
         GameObjectManager manager;
+        public Room gridRoom;
 
         public int numLevels = 1;
 
         //Dictionary of all the kind of objects that can be used to make a level with  their location
         public Dictionary<object, Vector2> itemList = new Dictionary<object, Vector2>();
+        public List<object> textObjects = new List<object>();
         public object currentObject;
 
         public LevelCreator(Game1 game)
@@ -32,22 +34,44 @@ namespace sprint0
             mouse = game.mouse;
             manager = game.manager;
 
+            loader.clearLoader();
             loader.LoadLevel("LevelCreator");
+            gridRoom = loader.currentRoom;
 
-            loader.currentRoom.name = "Room" + numLevels++;
-            loader.currentRoom.coordinate = new Vector2(0, 0);
+            Room newRoom = new Room();
+            loader.allRooms.Add(newRoom);
+
+            //Adds neccessary elements to room
+            newRoom.Add(SpriteFactory.Instance.Dungeon(new Vector2(Constants.DUNGEON_CORNER_X, Constants.DUNGEON_CORNER_Y)));
+            newRoom.Add(BlockFactory.Instance.DungeonNorthWall(new Vector2(Constants.DUNGEON_NORTH_WALL_X, Constants.DUNGEON_NORTH_WALL_Y)));
+            newRoom.Add(BlockFactory.Instance.DungeonEastWall(new Vector2(Constants.DUNGEON_EAST_WALL_X, Constants.DUNGEON_EAST_WALL_Y)));
+            newRoom.Add(BlockFactory.Instance.DungeonSouthWall(new Vector2(Constants.DUNGEON_SOUTH_WALL_X, Constants.DUNGEON_SOUTH_WALL_Y)));
+            newRoom.Add(BlockFactory.Instance.DungeonWestWall(new Vector2(Constants.DUNGEON_WEST_WALL_X, Constants.DUNGEON_WEST_WALL_Y)));
+
+            newRoom.start = true;
+            newRoom.name = "Room" + numLevels++;
+            newRoom.coordinate = new Vector2(0, 0);
+            loader.currentRoom = newRoom;
 
             //Text for each kind of object
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(0, 120), "Block"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(50, 120), "Enemy"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(100, 120), "Item"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(700, 120), "Door"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(0, 120), "Block"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(50, 120), "Enemy"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(100, 120), "Item"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(700, 120), "Door"));
 
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 160), "North"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 210), "South"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 270), "East"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 340), "West"));
-            manager.AddObject(TextSpriteFactory.Instance.CustomText(new Vector2(665, 415), "Save"));
+            textObjects.Add(TextSpriteFactory.Instance.customBigText(new Vector2(50, 50), "Back"));
+            textObjects.Add(TextSpriteFactory.Instance.customGoldText(new Vector2(300, 50), "Level Creator"));
+
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 160), "North"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 210), "South"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 270), "East"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 340), "West"));
+            textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 415), "Save"));
+
+            foreach(object obj in textObjects)
+            {
+                manager.AddObject(obj);
+            }
 
             //Names of the objects
             string[] blockNames = { "DungeonBlock", "WaterBlock", "ZeldaGreenBlock", "ZeldaBlackBlock", "ZeldaPurpleBlock" };
@@ -113,12 +137,6 @@ namespace sprint0
                     itemList.Add(objectCreated, position);
                 }
                 
-
-                Debug.WriteLine("Creating " + objectCreated.ToString() + " " + position.ToString());
-
-                
-
-                
             }
 
             Debug.WriteLine(itemList.ToString());
@@ -127,6 +145,18 @@ namespace sprint0
         private string GetThisNamespace()
         {
             return GetType().Namespace;
+        }
+
+        public void unloadCreator()
+        {
+            foreach(KeyValuePair<object, Vector2> entry in itemList)
+            {
+                manager.RemoveObject(entry.Key);
+            }
+            foreach(object obj in textObjects)
+            {
+                manager.RemoveObject(obj);
+            }
         }
 
     }

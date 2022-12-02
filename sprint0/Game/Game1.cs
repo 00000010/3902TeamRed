@@ -54,6 +54,9 @@ namespace sprint0
             keyboard.LoadTitleScreenKeys(this);
             //keyboard.LoadDefaultKeys(this);
 
+            mouse = new MouseController(new Vector2(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+            creator = new LevelCreator(this);
+
             controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
@@ -62,10 +65,7 @@ namespace sprint0
             cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
             manager.AddObject(cursor);
 
-            //creator = new LevelCreator(this);
-            //creator.loadLevelCreator();
-            //Debug.WriteLine("TESTING");
-
+            manager.AddPlayer(player);
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
 
@@ -94,6 +94,7 @@ namespace sprint0
         {
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
+            mouse.Update(gameTime);
             keyboard.Update(gameTime);
             controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);

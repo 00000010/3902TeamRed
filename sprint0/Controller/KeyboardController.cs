@@ -75,21 +75,25 @@ namespace sprint0
 
         public void LoadTitleScreenKeys(Game1 game)
         {
-            this.RegisterCommand(Keys.Q, new ExitCommand(game));
+            this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
 
-            this.RegisterCommand(Keys.Up, new TitleScreenCommand(game, Direction.UP));
-            this.RegisterCommand(Keys.Down, new TitleScreenCommand(game, Direction.DOWN));
-            this.RegisterCommand(Keys.Enter, new TitleScreenCommand(game, Direction.RIGHT));
+            this.RegisterCommand(KeyboardAction.UP, new TitleScreenCommand(game, Direction.UP));
+            this.RegisterCommand(KeyboardAction.DOWN, new TitleScreenCommand(game, Direction.DOWN));
+            this.RegisterCommand(KeyboardAction.ENTER, new TitleScreenCommand(game, Direction.RIGHT));
+
+            MapActionsToKeys();
         }
 
         public void LoadLevelSelectScreenKeys(Game1 game)
         {
-            this.RegisterCommand(Keys.Q, new ExitCommand(game));
+            this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
 
-            this.RegisterCommand(Keys.Up, new LevelSelectScreenCommand(game, Direction.UP));
-            this.RegisterCommand(Keys.Down, new LevelSelectScreenCommand(game, Direction.DOWN));
-            this.RegisterCommand(Keys.Enter, new LevelSelectScreenCommand(game, Direction.RIGHT));
-            this.RegisterCommand(Keys.Escape, new LevelSelectScreenCommand(game, Direction.LEFT));
+            this.RegisterCommand(KeyboardAction.UP, new LevelSelectScreenCommand(game, Direction.UP));
+            this.RegisterCommand(KeyboardAction.DOWN, new LevelSelectScreenCommand(game, Direction.DOWN));
+            this.RegisterCommand(KeyboardAction.ENTER, new LevelSelectScreenCommand(game, Direction.RIGHT));
+            this.RegisterCommand(KeyboardAction.ESCAPE, new LevelSelectScreenCommand(game, Direction.LEFT));
+
+            MapActionsToKeys();
         }
 
         public void LoadDefaultKeys(Game1 game)
@@ -153,12 +157,15 @@ namespace sprint0
             actionsToKeys.Add(Keys.J);
             actionsToKeys.Add(Keys.X);
             actionsToKeys.Add(Keys.Z);
+            actionsToKeys.Add(Keys.Enter);
+            actionsToKeys.Add(Keys.Escape);
         }
 
         public void UnloadKeys()
         {
             controllerMappings.Clear();
             controllerMappingsUnpress.Clear();
+            actionsToKeys.Clear();
         }
 
         public void EnableKeyboard()

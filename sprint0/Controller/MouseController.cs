@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using sprint0.Creator;
+using sprint0;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -87,7 +87,6 @@ namespace sprint0
             foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
             {
 
-                Debug.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
                 Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
 
                 if(entry.Key is Door)
@@ -101,6 +100,28 @@ namespace sprint0
             //Creates a listener for the save command
             Rectangle newRectangle = new Rectangle(Constants.SAVE_ICON_X, Constants.SAVE_ICON_Y, blockLength, blockLength);
             this.RegisterCommand(new MouseCommand(MouseButton.Left, newRectangle), new SaveLevelCommand(game));
+
+            //Creates back button listener
+            newRectangle = new Rectangle(Constants.BACK_BUTTON_X, Constants.BACK_BUTTON_Y, blockLength * 2, blockLength * 2);
+            this.RegisterCommand(new MouseCommand(MouseButton.Left, newRectangle), new BackToTitleScreenCommand(game));
+
+            //Creats the functionality to move between rooms
+            Dictionary<Direction, Vector2> doorPositionInfo = new Dictionary<Direction, Vector2>();
+            doorPositionInfo.Add(Direction.UP, new Vector2(Constants.DOOR_NORTH_POSITION_X, Constants.DOOR_NORTH_POSITION_Y));
+            doorPositionInfo.Add(Direction.RIGHT, new Vector2(Constants.DOOR_EAST_POSITION_X, Constants.DOOR_EAST_POSITION_Y));
+            doorPositionInfo.Add(Direction.DOWN, new Vector2(Constants.DOOR_SOUTH_POSITION_X, Constants.DOOR_SOUTH_POSITION_Y));
+            doorPositionInfo.Add(Direction.LEFT, new Vector2(Constants.DOOR_WEST_POSITION_X, Constants.DOOR_WEST_POSITION_Y));
+
+            foreach(KeyValuePair<Direction, Vector2> pair in doorPositionInfo)
+            {
+                Rectangle doorRec = new Rectangle((int)pair.Value.X, (int)pair.Value.Y, blockLength, blockLength);
+                this.RegisterCommand(new MouseCommand(MouseButton.Left, doorRec), new LoadRoomCommand(game, pair.Key));
+            }
+        }
+
+        public void unloadCommands()
+        {
+            mouseMappings.Clear();
         }
     }
 }

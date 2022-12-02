@@ -127,8 +127,7 @@ namespace sprint0
             Room currentRoom = game.loader.currentRoom;
 
             Room newRoom = new Room();
-            newRoom.name = "Room" + game.creator.numLevels;
-            game.creator.numLevels++;
+            newRoom.name = "Room" + game.creator.numLevels++;
             newRoom.start = false;
 
             //Adds all base layer objects

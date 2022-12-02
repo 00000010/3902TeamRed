@@ -76,6 +76,9 @@ namespace sprint0
         public const int SAVE_ICON_X = 700;
         public const int SAVE_ICON_Y = 400;
 
+        public const int BACK_BUTTON_X = 50;
+        public const int BACK_BUTTON_Y = 50;
+
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 
         public const string LEVEL_FILE_PREFIX = "Level";
