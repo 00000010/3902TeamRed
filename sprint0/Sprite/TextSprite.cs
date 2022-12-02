@@ -16,6 +16,7 @@ namespace sprint0
         public SpriteFont SpriteFont { get; set; }
         public string Text { get; set; }
         public Color Color { get; set; }
+        public Single LayerDepth { get; set; }
 
         public bool Enabled => throw new NotImplementedException();
 
@@ -34,11 +35,15 @@ namespace sprint0
 
         public TextSprite(SpriteBatch spriteBatch, Vector2 position, SpriteFont spriteFont, string text, Color color)
         {
+            Single depth = 0.0f;
+
             SpriteBatch = spriteBatch;
             Position = position;
             SpriteFont = spriteFont;
             Text = text;
             Color = color;
+            LayerDepth = depth;
+
         }
 
         public void Draw(GameTime gameTime)

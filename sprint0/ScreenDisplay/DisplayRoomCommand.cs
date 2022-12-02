@@ -56,6 +56,10 @@ namespace sprint0
                 game.keyboard.DisableKeyboard();
                 game.controlsKeyboard.EnableControlsKeyboard();
             }
+
+            game.player.OldPosition = game.player.Position;
+            game.player.Position = new Vector2(-180, -120);
+            game.manager.player.Position = new Vector2(-180, -120);
         }
 
         private void HandleRemoveDisplay()
@@ -73,6 +77,9 @@ namespace sprint0
                 game.keyboard.EnableKeyboard();
                 game.controlsKeyboard.DisableControlsKeyboard();
             }
+
+            game.player.Position = game.player.OldPosition;
+            game.manager.player.Position = game.player.OldPosition;
         }
     }
 }

@@ -82,6 +82,7 @@ namespace sprint0
                     else if (game.cursor.Position == position[2])
                     {
                         game.keyboard.UnloadKeys();
+                        game.keyboard.LoadLevelCreatorKeys(game);
                         HandleSpecialDisplays.Instance.TitleScreen = false;
                         game.manager.RemoveObject(game.cursor);
                         game.loader.UnloadRoom();

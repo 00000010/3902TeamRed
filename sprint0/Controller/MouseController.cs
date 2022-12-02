@@ -87,6 +87,7 @@ namespace sprint0
             foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
             {
 
+                Console.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
                 Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
 
                 if(entry.Key is Door)
@@ -112,11 +113,11 @@ namespace sprint0
             doorPositionInfo.Add(Direction.DOWN, new Vector2(Constants.DOOR_SOUTH_POSITION_X, Constants.DOOR_SOUTH_POSITION_Y));
             doorPositionInfo.Add(Direction.LEFT, new Vector2(Constants.DOOR_WEST_POSITION_X, Constants.DOOR_WEST_POSITION_Y));
 
-            foreach(KeyValuePair<Direction, Vector2> pair in doorPositionInfo)
-            {
-                Rectangle doorRec = new Rectangle((int)pair.Value.X, (int)pair.Value.Y, blockLength, blockLength);
-                this.RegisterCommand(new MouseCommand(MouseButton.Left, doorRec), new LoadRoomCommand(game, pair.Key));
-            }
+            //foreach(KeyValuePair<Direction, Vector2> pair in doorPositionInfo)
+            //{
+            //    Rectangle doorRec = new Rectangle((int)pair.Value.X, (int)pair.Value.Y, blockLength, blockLength);
+            //    this.RegisterCommand(new MouseCommand(MouseButton.Left, doorRec), new LoadRoomCommand(game, pair.Key));
+            //}
         }
 
         public void unloadCommands()

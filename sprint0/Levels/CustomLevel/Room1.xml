@@ -1,8 +1,9 @@
 ﻿<XnaContent>
   <Pointers>
-    <NorthRoom>Room3</NorthRoom>
-    <SouthRoom>Room4</SouthRoom>
-    <WestRoom>Room2</WestRoom>
+    <NorthRoom>Room2</NorthRoom>
+    <SouthRoom>Room3</SouthRoom>
+    <EastRoom>Room4</EastRoom>
+    <WestRoom>Room5</WestRoom>
   </Pointers>
   <Meta>
     <Name>Room1</Name>
@@ -36,11 +37,6 @@
     </Item>
     <Item>
       <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorWest</ObjectName>
-      <Location>174 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorNorth</ObjectName>
       <Location>374 144</Location>
     </Item>
@@ -48,6 +44,16 @@
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorSouth</ObjectName>
       <Location>374 408</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorEast</ObjectName>
+      <Location>598 264</Location>
+    </Item>
+    <Item>
+      <ObjectType>Door</ObjectType>
+      <ObjectName>DungeonDoorWest</ObjectName>
+      <Location>174 264</Location>
     </Item>
   </Asset>
 </XnaContent>

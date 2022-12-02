@@ -173,10 +173,20 @@ namespace sprint0
         public override string ToString()
         {
             return ($"Name: {this.name}\n" +
-                $"Westroom: {this.WestRoom}\n" +
-                $"NorthRoom: {this.NorthRoom}\n" +
-                $"EastRoom: {this.EastRoom}\n" +
-                $"SouthRoom: {this.SouthRoom}");
+                $"Westroom: {roomName(this.westRoomPtr)}\n" +
+                $"NorthRoom: {roomName(this.northRoomPtr)}\n" +
+                $"EastRoom: {roomName(this.eastRoomPtr)}\n" +
+                $"SouthRoom: {roomName(this.southRoomPtr)}");
+        }
+
+        public string roomName(Room room)
+        {
+            string roomName = "";
+            if(room != null)
+            {
+                roomName = room.name;
+            }
+            return roomName;
         }
     }
 }
