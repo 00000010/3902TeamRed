@@ -48,7 +48,7 @@ namespace sprint0
 
             if (ShotBoomerang) return;
             Sprite.Update(gameTime);
-             
+
             if (willUpdateVelocity)
             {
                 UpdateEnemyVelocity(gameTime);

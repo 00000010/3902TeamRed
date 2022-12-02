@@ -36,6 +36,31 @@
       <Location>150 120</Location>
     </Item>
     <Item>
+      <ObjectType>Enemy</ObjectType>
+      <ObjectName>Stalfos</ObjectName>
+      <Location>406 184</Location>
+    </Item>
+    <Item>
+      <ObjectType>Enemy</ObjectType>
+      <ObjectName>Stalfos</ObjectName>
+      <Location>406 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Enemy</ObjectType>
+      <ObjectName>Keese</ObjectName>
+      <Location>342 184</Location>
+    </Item>
+    <Item>
+      <ObjectType>Enemy</ObjectType>
+      <ObjectName>Keese</ObjectName>
+      <Location>566 184</Location>
+    </Item>
+    <Item>
+      <ObjectType>Enemy</ObjectType>
+      <ObjectName>Keese</ObjectName>
+      <Location>566 248</Location>
+    </Item>
+    <Item>
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorNorth</ObjectName>
       <Location>374 144</Location>

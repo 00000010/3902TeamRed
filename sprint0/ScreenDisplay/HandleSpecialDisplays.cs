@@ -28,6 +28,7 @@ namespace sprint0
         public bool Room10 { get; set; }
         public bool TitleScreen { get; set; }
         public bool LevelSelectScreen { get; set; }
+        public bool LevelCreatorScreen { get; set; }
         private static HandleSpecialDisplays instance = new HandleSpecialDisplays();
         public static HandleSpecialDisplays Instance
         {
@@ -48,6 +49,7 @@ namespace sprint0
             Room10 = false;
             TitleScreen = false;
             LevelSelectScreen = false;
+            LevelCreatorScreen = false;
         }
 
         public void LoadDisplays(ContentManager Content, SpriteBatch _spriteBatch)
