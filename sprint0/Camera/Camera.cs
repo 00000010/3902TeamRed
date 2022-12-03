@@ -175,7 +175,6 @@ namespace sprint0
             {
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.X, prevCapturedAmount);
-                //int newX = roomSprites[i].DestinationRectangle.X + CameraSpeed;
                 int newX = roomSprites[i].DestinationRectangle.X + (cursors[0] - Constants.ROOM_X);
                 int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - roomSprites[i].DestinationRectangle.X, prevCapturedDimension[i]);
                 roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
@@ -378,7 +377,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             prevRoomSprites = prevHandler(prevRoomSprites);
-            //nextRoomSprites = nextHandler(nextRoomSprites);
+            nextRoomSprites = nextHandler(nextRoomSprites);
             cursorHandler();
         }
     }

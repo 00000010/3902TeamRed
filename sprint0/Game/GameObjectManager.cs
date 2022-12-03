@@ -176,6 +176,38 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            // Ensure Link does not keep attacking, but only with each press
+            if (player.State == State.ATTACKING || player.State == State.THROWING)
+            {
+                if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
+                {
+                    player.State = State.STANDING;
+                    player.UpdatePlayerSprite(this);
+                    attackingRotation = 0;
+                }
+                attackingRotation++;
+            }
+            if (player.TakingDamage)
+            {
+                if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
+                {
+                    player.TakingDamage = !player.TakingDamage;
+                    player.UpdatePlayerSprite(this);
+                    damageRotation = 0;
+                }
+                damageRotation++;
+            }
+
+            //Removes all objects in objectsToRemove and adds all objects in objectsToAdd
+            RemoveAllObjects();
+            AddAllObjects();
+
+            Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
+            Enemy.UpdateEnemyProjectiles(game, enemies);
+
+            //Handling all different types of collision
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
+
             if (camera.Transitioning)
             {
                 if (!camera.TransitionSet)
@@ -201,42 +233,10 @@ namespace sprint0
             }
             else
             {
-                // Ensure Link does not keep attacking, but only with each press
-                if (player.State == State.ATTACKING || player.State == State.THROWING)
-                {
-                    if (attackingRotation == 7) // TODO: 7 is a magic number (it just seems to produce the cleanest attack)
-                    {
-                        player.State = State.STANDING;
-                        player.UpdatePlayerSprite(this);
-                        attackingRotation = 0;
-                    }
-                    attackingRotation++;
-                }
-                if (player.TakingDamage)
-                {
-                    if (damageRotation > (300 * ((double)player.Damaged / 10))) // TODO: magic numbers
-                    {
-                        player.TakingDamage = !player.TakingDamage;
-                        player.UpdatePlayerSprite(this);
-                        damageRotation = 0;
-                    }
-                    damageRotation++;
-                }
-
-                //Removes all objects in objectsToRemove and adds all objects in objectsToAdd
-                RemoveAllObjects();
-                AddAllObjects();
-
-                Projectile.UpdateProjectileMotion(gameTime, projectilesInFlight, this);
-                Enemy.UpdateEnemyProjectiles(game, enemies);
-
                 foreach (IUpdateable updateable in updateables)
                 {
                     updateable.Update(gameTime);
                 }
-
-                //Handling all different types of collision
-                CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
             }
         }
 

@@ -33,25 +33,29 @@ namespace sprint0
             Player player = (Player)this.player;
             this.loader = this.game.loader;
             
-            bool success = Enum.TryParse(intersectionLoc.ToUpper(), out Direction d);
-            // TODO: data drive
+            Enum.TryParse(intersectionLoc.ToUpper(), out Direction d);
+
             switch (d)
             {
                 case Direction.RIGHT:
                     player.Position = new Vector2(Constants.FROM_RIGHT_LINK_POSITION_X, Constants.FROM_RIGHT_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.westRoomPtr;
+                    d = Direction.LEFT;
                     break;
                 case Direction.DOWN:
                     player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
-                    nextRoom = loader.currentRoom.northRoomPtr;
+                    nextRoom = loader.currentRoom.southRoomPtr;
+                    d = Direction.UP;
                     break;
                 case Direction.LEFT:
                     player.Position = new Vector2(Constants.FROM_LEFT_LINK_POSITION_X, Constants.FROM_LEFT_LINK_POSITION_Y);
                     nextRoom = loader.currentRoom.eastRoomPtr;
+                    d = Direction.RIGHT;
                     break;
                 case Direction.UP:
                     player.Position = new Vector2(Constants.FROM_UP_LINK_POSITION_X, Constants.FROM_UP_LINK_POSITION_Y);
-                    nextRoom = loader.currentRoom.southRoomPtr;
+                    nextRoom = loader.currentRoom.northRoomPtr;
+                    d = Direction.DOWN;
                     break;
             }
             game.loader.ChangeRooms(nextRoom, d);
