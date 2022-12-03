@@ -4,8 +4,6 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/../../../../Downloads/DungeonNorthWall.png</File>
-    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/../../../../Downloads/Zelda_HUD.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Arial.spritefont</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBackground.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBadDoorNorth.png</File>
@@ -19,12 +17,14 @@
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonMonster1Faded.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonMonster2.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonMonster2Faded.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonNorthWall.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonSand.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonStairs.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/goriyaspritesheet.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Link.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/OctorokSpritesheet.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/WaterBlock.png</File>
+    <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_HUD.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Zelda_sprite.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaAltpBlock.png</File>
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaLaBlock.png</File>
@@ -65,8 +65,8 @@
     <File>/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/ZeldaSpriteWhiteSword.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>DungeonNorthWall.png</File>
-    <File>Zelda_HUD.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
