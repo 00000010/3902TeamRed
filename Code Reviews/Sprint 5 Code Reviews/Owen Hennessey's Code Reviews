@@ -1,0 +1,16 @@
+Sprint 5:
+Author: Owen Hennessey
+Date: 12/03/2022
+CS file being reviewed: LevelCreator.cs
+Author of file: William Gilicinski
+Number of minutes: 15
+
+Comments on code readability:
+Clearly defined code chunks for individual purposes.  Comments available to increase readability.  Quite honestly there aren't a whole lot of things
+to say about readability.  
+Comments on code maintainability:
+As the constants are changed we would need to check the appearance of the dungeon room in case changes in dimensions affect aesthetics.  As any new 
+items/enemies/images become available we'd need to add them to the dictionary.  Overall everything else is pretty well abstracted.
+
+Hypothetical change:
+I feel like it would be smarter to pull prefilled dictionaries from somewhere else in the code instead of creating them in house in this file.
