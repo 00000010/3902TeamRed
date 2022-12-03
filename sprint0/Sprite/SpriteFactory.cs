@@ -24,7 +24,7 @@ namespace sprint0
         private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
         private Texture2D ProjectileEffect;
-        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
+        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart, MapBlocks;
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
         private Texture2D GridSquareBlock, SaveIconBlock, LevelCreatorTextBlock;
 
@@ -107,6 +107,7 @@ namespace sprint0
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
+            MapBlocks = content.Load<Texture2D>("MapBlocks");
 
             logo = content.Load<Texture2D>("Zelda_1_Logo_in_game");
         }
@@ -702,6 +703,21 @@ namespace sprint0
         public Sprite Logo(Vector2 position)
         {
             return new Sprite(logo, SpriteRectangle.Logo, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite BluePixels(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.BluePixels, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite GreenPixel(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.GreenPixel, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite RedPixel(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.RedPixel, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Channels;
 
 namespace sprint0
@@ -76,8 +77,17 @@ namespace sprint0
         public const int SAVE_ICON_X = 700;
         public const int SAVE_ICON_Y = 400;
 
-        public const int BACK_BUTTON_X = 50;
+        public const int BACK_BUTTON_X = 650;
         public const int BACK_BUTTON_Y = 50;
+
+        public const int MAP_ORIGIN_X = 230;
+        public const int MAP_ORIGIN_Y = 100;
+        public const int MAP_TEXT_X = 100;
+        public const int MAP_TEXT_Y = 30;
+        public const int CENTER_VECTOR_X = 4;
+        public const int CENTER_VECTOR_Y = 2;
+
+        public const int MAP_BUFFER_MULT = 7;
 
         public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
 

@@ -64,9 +64,9 @@ namespace sprint0
             CoinTextSprite.Draw(gameTime);
             KeyTextSprite.Draw(gameTime);
             BoomerangTextSprite.Draw(gameTime);
-            ZeldaNumOne.Draw(gameTime);
-            ZeldaLevelWord.Draw(gameTime);
-            ZeldaBlueMap.Draw(gameTime);
+            //ZeldaNumOne.Draw(gameTime);
+            //ZeldaLevelWord.Draw(gameTime);
+            //ZeldaBlueMap.Draw(gameTime);
 
             foreach (Sprite heart in HealthSprite)
             {

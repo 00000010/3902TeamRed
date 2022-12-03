@@ -73,9 +73,11 @@ namespace sprint0
             }
         }
 
+        //Loads the level creator keybinds
         public void LoadLevelCreatorKeys(Game1 game)
         {
             this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
+            this.RegisterCommand(KeyboardAction.ESCAPE, new BackToTitleScreenCommand(game, GameState.CREATOR));
 
             this.RegisterCommand(KeyboardAction.UP, new LoadRoomCommand(game, Direction.UP));
             this.RegisterCommand(KeyboardAction.RIGHT, new LoadRoomCommand(game, Direction.RIGHT));
@@ -85,6 +87,7 @@ namespace sprint0
             MapActionsToKeys();
         }
 
+        //Loads the title screen keybinds
         public void LoadTitleScreenKeys(Game1 game)
         {
             this.RegisterCommand(KeyboardAction.EXIT, new ExitCommand(game));
@@ -110,6 +113,8 @@ namespace sprint0
 
         public void LoadDefaultKeys(Game1 game)
         {
+            this.RegisterCommand(KeyboardAction.ESCAPE, new BackToTitleScreenCommand(game, GameState.GAME));
+
             /* WASD and arrow keys for moving Link around */
             this.RegisterCommand(KeyboardAction.UP, new PlayerRunningCommand(game, Direction.UP));
             this.RegisterCommand(KeyboardAction.LEFT, new PlayerRunningCommand(game, Direction.LEFT));

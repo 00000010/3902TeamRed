@@ -57,6 +57,7 @@ namespace sprint0
                 game.controlsKeyboard.EnableControlsKeyboard();
             }
 
+            game.map.UnloadMap();
             game.player.OldPosition = game.player.Position;
             game.player.Position = new Vector2(-180, -120);
             game.manager.player.Position = new Vector2(-180, -120);
@@ -78,6 +79,7 @@ namespace sprint0
                 game.controlsKeyboard.DisableControlsKeyboard();
             }
 
+            game.map.LoadMap(game.map.mapTitle);
             game.player.Position = game.player.OldPosition;
             game.manager.player.Position = game.player.OldPosition;
         }

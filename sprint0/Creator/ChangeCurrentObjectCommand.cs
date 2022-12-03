@@ -145,7 +145,7 @@ namespace sprint0
                 newRoom.southRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorSouth(new Vector2(Constants.DOOR_SOUTH_POSITION_X, Constants.DOOR_SOUTH_POSITION_Y)));
 
-                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y + 1);
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y - 1);
             }
             else if (doorName.Equals("DungeonDoorEast"))
             {
@@ -161,7 +161,7 @@ namespace sprint0
                 newRoom.northRoomPtr = currentRoom;
                 newRoom.Add(DoorFactory.Instance.DungeonDoorNorth(new Vector2(Constants.DOOR_NORTH_POSITION_X, Constants.DOOR_NORTH_POSITION_Y)));
 
-                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y - 1);
+                newRoom.coordinate = new Vector2(currentRoom.coordinate.X, currentRoom.coordinate.Y + 1);
             }
             else //West Door
             {
@@ -203,25 +203,25 @@ namespace sprint0
                         placeDoor(newRoom, "East");
                     }
                 }
-                //new room is North adjacent
-                if(xDif == 0 && yDif == 1 && validRoom)
-                {
-                    if (room.northRoomPtr == null)
-                    {
-                        room.northRoomPtr = newRoom;
-                        newRoom.southRoomPtr = room;
-
-                        placeDoor(room, "North");
-                        placeDoor(newRoom, "South");
-                    }
-                }
                 //new room is South adjacent
-                if(xDif == 0 && yDif == -1 && validRoom)
+                if(xDif == 0 && yDif == 1 && validRoom)
                 {
                     if (room.southRoomPtr == null)
                     {
                         room.southRoomPtr = newRoom;
                         newRoom.northRoomPtr = room;
+
+                        placeDoor(room, "North");
+                        placeDoor(newRoom, "South");
+                    }
+                }
+                //new room is North adjacent
+                if(xDif == 0 && yDif == -1 && validRoom)
+                {
+                    if (room.northRoomPtr == null)
+                    {
+                        room.northRoomPtr = newRoom;
+                        newRoom.southRoomPtr = room;
 
                         placeDoor(room, "South");
                         placeDoor(newRoom, "North");

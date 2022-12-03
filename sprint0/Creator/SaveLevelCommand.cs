@@ -36,7 +36,7 @@ namespace sprint0
             string controlsDestinationFile;
             string inventoryDestinationFile;
 
-            string folderName = "CustomLevel";
+            string folderName = "Custom Level";
 
             //Gets file location based on operating system
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
@@ -62,6 +62,15 @@ namespace sprint0
             Debug.WriteLine("\nExists? " + System.IO.Directory.Exists(sDirectory));
             System.IO.Directory.CreateDirectory(sDirectory);
 
+
+            //Deletes existing files so saves overwrite
+            string[] files = Directory.GetFiles(sDirectory);
+            foreach (string file in files)
+            {
+                File.Delete(file);
+                Console.WriteLine($"{file} is deleted.");
+            }
+
             //Creates the controls and inventory file
             try
             {
@@ -72,14 +81,6 @@ namespace sprint0
             catch (IOException iox)
             {
                 Debug.WriteLine(iox.Message);
-            }
-
-            //Deletes existing files so saves overwrite
-            string[] files = Directory.GetFiles(sDirectory);
-            foreach (string file in files)
-            {
-                File.Delete(file);
-                Console.WriteLine($"{file} is deleted.");
             }
 
             XmlWriterSettings settings = new XmlWriterSettings();
