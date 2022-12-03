@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2007,21535,0.479768
+"/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/Arial.spritefont","/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/Arial.xnb","FontDescriptionProcessor","SpriteFontContent",2007,21535,0.272123
 "/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBackground.png","/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/DungeonBackground.xnb","TextureProcessor","Texture2DContent",6095,180309,0.34676
 "/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBadDoorNorth.png","/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/DungeonBadDoorNorth.xnb","TextureProcessor","Texture2DContent",1234,2645,0.0017
 "/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/DungeonBadDoorSouth.png","/Users/owenhennessey/Projects/3902TeamRed/sprint0/Content/bin/DesktopGL/Content/DungeonBadDoorSouth.xnb","TextureProcessor","Texture2DContent",1238,2645,0.00182

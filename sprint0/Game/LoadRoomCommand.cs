@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace sprint0
 {
@@ -9,7 +9,6 @@ namespace sprint0
         private LevelLoader loader;
         private Room nextRoom;
         private Direction direction;
-
         public LoadRoomCommand(Game1 game, Direction direction)
         {
             this.game = game;
@@ -19,14 +18,14 @@ namespace sprint0
         public void Execute()
         {
             loader = game.loader;
-            Room nextRoom = getRoom();
+            nextRoom = getRoom();
+            Console.WriteLine("Changing into " + nextRoom);
             loader.ChangeRooms(nextRoom);
         }
 
         public Room getRoom()
         {
             loader = game.loader;
-            nextRoom = null;
 
             //ToDo - data drive this switch
             switch (direction)
@@ -44,6 +43,7 @@ namespace sprint0
                     nextRoom = loader.currentRoom.southRoomPtr;
                     break;
             }
+
             return nextRoom;
         }
     }

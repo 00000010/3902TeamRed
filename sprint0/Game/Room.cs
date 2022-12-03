@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace sprint0
 {
@@ -13,6 +18,7 @@ namespace sprint0
         public List<ItemObject> roomItemObjects;
 
         public string name { get; set; }
+        public bool start { get; set; }
 
         public string WestRoom { get; set; }
         public string NorthRoom { get; set; }
@@ -24,6 +30,8 @@ namespace sprint0
         public Room eastRoomPtr { get; set; }
         public Room southRoomPtr { get; set; }
 
+        //Used for level creation
+        public Vector2 coordinate { get; set; }
         public Room()
         {
             roomObjects = new List<object>();
@@ -32,8 +40,10 @@ namespace sprint0
             roomItemObjects = new List<ItemObject>();
         }
 
+
         public void Add(object obj)
         {
+
             roomObjects.Add(obj);
             if (obj is Enemy)
             {
@@ -74,13 +84,109 @@ namespace sprint0
             }
         }
 
+        public bool existsInLocation(Vector2 location)
+        {
+            bool existsInLocation = false;
+
+            foreach (object obj in roomObjects)
+            {
+                if (obj is Block)
+                {
+                    IBlock tempBlock = (IBlock)obj;
+                    if (tempBlock.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
+                }
+                else if (obj is Enemy)
+                {
+                    IEnemy tempEnemy = (IEnemy)obj;
+                    if (tempEnemy.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
+                }
+                else if (obj is Door)
+                {
+                    IDoor tempDoor = (IDoor)obj;
+                    if (tempDoor.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
+                }
+                else if (obj is Item)
+                {
+                    IItem tempItem = (IItem)obj;
+                    if (tempItem.Position == location)
+                    {
+                        existsInLocation = true;
+                    }
+                }
+            }
+
+            return existsInLocation;
+        }
+
+        public object getFromLocation(Vector2 location)
+        {
+            object objectWithSameLocation = null;
+
+            foreach (object obj in roomObjects)
+            {
+                if (obj is Block)
+                {
+                    IBlock tempBlock = (IBlock)obj;
+                    if (tempBlock.Position == location)
+                    {
+                        Debug.WriteLine("Same Block!");
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Enemy)
+                {
+                    IEnemy tempEnemy = (IEnemy)obj;
+                    if (tempEnemy.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Door)
+                {
+                    IDoor tempDoor = (IDoor)obj;
+                    if (tempDoor.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+                else if (obj is Item)
+                {
+                    IItem tempItem = (IItem)obj;
+                    if (tempItem.Position == location)
+                    {
+                        objectWithSameLocation = obj;
+                    }
+                }
+            }
+            return objectWithSameLocation;
+        }
+
         public override string ToString()
         {
             return ($"Name: {this.name}\n" +
-                $"Westroom: {this.WestRoom}\n" +
-                $"NorthRoom: {this.NorthRoom}\n" +
-                $"EastRoom: {this.EastRoom}\n" +
-                $"SouthRoom: {this.SouthRoom}");
+                $"Westroom: {roomName(this.westRoomPtr)}\n" +
+                $"NorthRoom: {roomName(this.northRoomPtr)}\n" +
+                $"EastRoom: {roomName(this.eastRoomPtr)}\n" +
+                $"SouthRoom: {roomName(this.southRoomPtr)}");
+        }
+
+        public string roomName(Room room)
+        {
+            string roomName = "";
+            if (room != null)
+            {
+                roomName = room.name;
+            }
+            return roomName;
         }
     }
 }

@@ -21,9 +21,17 @@ namespace sprint0
         public IItem item;
         public IEnemy enemy;
 
+        public ISprite cursor;
+
         public GameObjectManager manager;
         public LevelLoader loader;
-        KeyboardController keyboard;
+        public LevelCreator creator;
+
+        public MouseController mouse;
+        public KeyboardController keyboard;
+        public ControlsKeyboard controlsKeyboard;
+
+        ICamera camera;
 
         public int level = 0;
 
@@ -40,27 +48,32 @@ namespace sprint0
             base.Initialize();
 
             manager = new GameObjectManager(this);
-            //manager.AddObject(block);
 
             keyboard = new KeyboardController();
-            keyboard.LoadDefaultKeys(this);
-            //camera = new Camera();
+            keyboard.LoadTitleScreenKeys(this);
 
+            mouse = new MouseController(new Vector2(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+            creator = new LevelCreator(this);
+
+            controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
-            loader.LoadLevel("Dungeon1");
+            loader.LoadLevel("TitleScreen");
 
+            cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
+            manager.AddObject(cursor);
 
+            manager.AddPlayer(player);
             //camera = new Camera(new GameCamera());
             //manager.AddObject(camera);
 
             HandleSpecialDisplays.Instance.Initialize(this);
+            HandleSpecialDisplays.Instance.TitleScreen = true;
 
             //Play theme song in background
-            // TODO: TURN BACK ON
-            //MediaPlayer.Play(SoundFactory.Instance.themeSound);
-            //MediaPlayer.IsRepeating = true;
-            //MediaPlayer.Volume = (float)0.1;
+            MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = (float)0.1;
         }
 
         protected override void LoadContent()
@@ -72,14 +85,16 @@ namespace sprint0
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
             TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
-            player = PlayerFactory.Instance.Link(new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y));
+            player = PlayerFactory.Instance.Link(new Vector2(-120, -180));
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
+            mouse.Update(gameTime);
             keyboard.Update(gameTime);
+            controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }

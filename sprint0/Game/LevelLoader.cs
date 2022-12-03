@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
+using System.Globalization;
+using System.Diagnostics;
+//using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
@@ -16,7 +19,7 @@ namespace sprint0
     {
         public Game1 game;
         public GameObjectManager gameObjectManager;
-        public int pixelLength = 32;
+        public int pixelLength = Constants.BLOCK_SIZE;
 
         public ItemObject background;
 
@@ -28,6 +31,7 @@ namespace sprint0
         {
             this.game = game;
             this.gameObjectManager = game.manager;
+            currentRoom = new Room();
         }
 
         public string[] getFilePaths(string levelName)
@@ -59,6 +63,9 @@ namespace sprint0
          */
         public void LoadLevel(string levelName)
         {
+            // Unload anything that may be previously loaded.
+            //UnloadRoom();
+
             string[] files = getFilePaths(levelName);
 
             foreach (string filePath in files)
@@ -71,8 +78,13 @@ namespace sprint0
                 XElement tree = level.Root;
 
                 XElement meta = tree.Element("Meta");
+
+                XElement startElement = meta.Element("Start");
                 XElement roomName = meta.Element("Name");
                 room.name = roomName.Value;
+                room.start = startElement.Value.Equals("True");
+
+                Console.WriteLine(room.name);
                 XElement pointers = tree.Element("Pointers");
                 IEnumerable<XElement> elms = pointers.Elements();
                 room.ParsePointers(elms);
@@ -115,18 +127,7 @@ namespace sprint0
                             classThing = type.InvokeMember("Instance", BindingFlags.GetProperty, null, null, null); // get class from type
                             method = classThing.GetType().GetMethod(itemObj.ObjectName); // get method from class and method name
                             thing = method.Invoke(classThing, parameterArray); // call method and get its object
-                            if (itemObj.ObjectType == "Player")
-                            {
-                                room.AddPlayer(thing);
-                            }
-                            else
-                            {
-                                if (itemObj.ObjectType == "Sprite")
-                                {
 
-                                }
-                                room.Add(thing);
-                            }
                             room.Add(thing);
                             itemObj.PosX = itemObj.PosX + pixelLength;
                         }
@@ -139,16 +140,15 @@ namespace sprint0
             //Gets starting room
             foreach (Room room in allRooms)
             {
-                if (room.name == "Room1")
+                if (room.start)
                 {
                     currentRoom = room;
                 }
             }
-
             pointPointers();
             LoadRoom();
-            Console.WriteLine(this.ToString());
         }
+
 
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
@@ -181,11 +181,18 @@ namespace sprint0
             }
         }
 
+        public void addToRoom(IBlock sprite)
+        {
+            gameObjectManager.addBlock(sprite);
+            currentRoom.Add(sprite);
+        }
+
         //Changes rooms from the currrent to the specified
         public void ChangeRooms(Room room)
         {
             if (room != null)
             {
+                Console.WriteLine("Changing into room " + room);
                 UnloadRoom();
                 currentRoom = room;
                 LoadRoom();
@@ -220,10 +227,6 @@ namespace sprint0
             {
                 gameObjectManager.RemoveObject(item);
             }
-            foreach (object player in currentRoom.roomPlayers)
-            {
-                gameObjectManager.RemoveObject(player);
-            }
         }
 
         //Loads the current room 
@@ -232,10 +235,6 @@ namespace sprint0
             foreach (object obj in currentRoom.roomObjects)
             {
                 gameObjectManager.AddObject(obj);
-            }
-            foreach (object player in currentRoom.roomPlayers)
-            {
-                gameObjectManager.AddPlayer(player);
             }
         }
 
@@ -253,6 +252,12 @@ namespace sprint0
         private string GetThisNamespace()
         {
             return GetType().Namespace;
+        }
+
+        public void clearLoader()
+        {
+            allRooms.Clear();
+            currentRoom = null;
         }
     }
 }
