@@ -29,9 +29,9 @@ namespace sprint0
         // The cursors that determine where the appearing/disappearing of the room is.
         private int[] cursors;
 
-        private delegate void UpdatePrevRoomFrame(ref List<Sprite> roomSprites);
+        private delegate List<Sprite> UpdatePrevRoomFrame(List<Sprite> roomSprites);
         UpdatePrevRoomFrame prevHandler;
-        private delegate void UpdateNextRoomFrame(ref List<Sprite> roomSprites);
+        private delegate List<Sprite> UpdateNextRoomFrame(List<Sprite> roomSprites);
         UpdateNextRoomFrame nextHandler;
         private delegate void AdjustCursor(); // TODO: incorporating this into the above two delegates would be nice
         AdjustCursor cursorHandler;
@@ -49,20 +49,20 @@ namespace sprint0
         public Camera(Game1 game)
         {
             this.game = game;
-            CameraSpeed = 6;
+            CameraSpeed = 4;
         }
 
         private List<Sprite> FromObjectsToSprites(List<object> objects)
         {
-            List<Sprite> sprites = new List<Sprite>();
-            foreach(object obj in objects)
+            List<Sprite> sprites = new List<Sprite>(new Sprite[objects.Count]);
+            for (int i = 0; i < objects.Count; i++)
             {
-                if (obj is Sprite)
+                if (objects[i] is Sprite)
                 {
-                    sprites.Add((Sprite)obj);
+                    sprites[i] = (Sprite)objects[i];
                 } else
                 {
-                    sprites.Add(((IObject)obj).Sprite);
+                    sprites[i] = ((IObject)objects[i]).Sprite;
                 }
             }
             return sprites;
@@ -117,43 +117,11 @@ namespace sprint0
             }
         }
 
-        //private void SetPrevCapturedDimension(int i, int dimensionAmount)
-        //{
-        //    if (prevCapturedDimension[i] == 0)
-        //    {
-        //        prevCapturedDimension[i] = dimensionAmount;
-        //    }
-        //}
-
-        //private void SetNextCapturedDimension(int i, int dimensionAmount)
-        //{
-        //    if (nextCapturedDimension[i] == 0)
-        //    {
-        //        nextCapturedDimension[i] = dimensionAmount;
-        //    }
-        //}
-
-        //private void SetPrevCapturedAmount(int i, int dimensionAmount)
-        //{
-        //    if (prevCapturedAmount[i] == 0)
-        //    {
-        //        prevCapturedAmount[i] = dimensionAmount;
-        //    }
-        //}
-
-        //private void SetNextCapturedAmount(int i, int dimensionAmount)
-        //{
-        //    if (nextCapturedAmount[i] == 0) // TODO: hard-coded logic
-        //    {
-        //        nextCapturedAmount[i] = dimensionAmount;
-        //    }
-        //}
-
         /// <summary>
         /// Takes an array of rectangles where each rectangle is an object's rectangle. Array <code>cursors</code> must be initialized with the two cursors; the first will go left, the last will go right.
         /// </summary>
         /// <param name="rects">The array of rectangles.</param>
-        private void FullToLeftRightEmpty(ref List<Sprite> roomSprites)
+        private List<Sprite> FullToLeftRightEmpty(List<Sprite> roomSprites)
         {
             throw new NotImplementedException();
         }
@@ -162,7 +130,7 @@ namespace sprint0
         /// Takes an array of rectangles where each rectangle is an object's rectangle.
         /// </summary>
         /// <param name="rects">The array of rectangles.</param>
-        private void EmptyToLeftRightFull(ref List<Sprite> roomSprites)
+        private List<Sprite> EmptyToLeftRightFull(List<Sprite> roomSprites)
         {
             throw new NotImplementedException();
         }
@@ -171,13 +139,14 @@ namespace sprint0
         /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands rightward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of the room rectangles.</param>
-        private void EmptyToRightFull(ref List<Sprite> roomSprites)
+        private List<Sprite> EmptyToRightFull(List<Sprite> roomSprites)
         {
+            List<Sprite> updatedSprites = roomSprites;
             for (int i = 0; i < roomSprites.Count; i++)
             {
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, nextCapturedDimension); // capture scaled width
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.X - Constants.SCALED_ROOM_WIDTH, nextCapturedAmount1); // record starting destination x
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, nextCapturedAmount2);
+                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, nextCapturedAmount2); // record starting source x
                 int trueX = nextCapturedAmount1[i] + (cursors[0] - Constants.ROOM_X);
                 int newX = Constants.ROOM_X + ConstrainDimension(trueX - Constants.ROOM_X, Constants.SCALED_ROOM_WIDTH);
                 int newWidth = ConstrainDimension(trueX + nextCapturedDimension[i] - Constants.ROOM_X, nextCapturedDimension[i]);
@@ -186,11 +155,12 @@ namespace sprint0
                 int newSourceX = nextCapturedAmount2[i] + (nextCapturedDimension[i] / Constants.SCALING_FACTOR) - (newWidth / Constants.SCALING_FACTOR);
                 for (int j = 0; j < roomSprites[i].SourceRectangle.Length; j++)
                 {
-                    roomSprites[i].SourceRectangle[j].X = newSourceX;
-                }
-                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
+                    updatedSprites[i].SourceRectangle[j].X = newSourceX;
+                } // this loop causues the problem at i == 6; it is assigning to roomSprites[7]?!
+                updatedSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                updatedSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
             }
+            return updatedSprites;
         }
 
         // TODO: Below two functions do the same thing; consolidate somehow
@@ -198,32 +168,36 @@ namespace sprint0
         /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts rightward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of the room rectangles.</param>
-        private void FullToRightEmpty(ref List<Sprite> roomSprites)
+        private List<Sprite> FullToRightEmpty(List<Sprite> roomSprites)
         {
-            Console.WriteLine("FullToRightEmpty is doing something");
+            List<Sprite> updatedSprites = roomSprites;
             for (int i = 0; i < roomSprites.Count; i++)
             {
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.X, prevCapturedAmount);
-                int newX = roomSprites[i].DestinationRectangle.X + CameraSpeed;
+                //int newX = roomSprites[i].DestinationRectangle.X + CameraSpeed;
+                int newX = roomSprites[i].DestinationRectangle.X + (cursors[0] - Constants.ROOM_X);
                 int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - roomSprites[i].DestinationRectangle.X, prevCapturedDimension[i]);
                 roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
                 roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
             }
+            return updatedSprites;
         }
 
         /// <summary>
         /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands leftward. Assumes all objects have only one frame to draw.
         /// </summary>
         /// <param name="rects">The array of room rectangles.</param>
-        private void EmptyToLeftFull(ref List<Sprite> roomSprites)
+        private List<Sprite> EmptyToLeftFull(List<Sprite> roomSprites)
         {
+            List<Sprite> updatedSprites = new List<Sprite>(new Sprite[roomSprites.Count]);
             for (int i = 0; i < roomSprites.Count; i++)
             {
                 int width = roomSprites[i].DestinationRectangle.Width;
                 int x = roomSprites[i].DestinationRectangle.X;
-                roomSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
+                updatedSprites[i].SourceRectangle[0].Width = ConstrainDimension(width - (cursors[0] - x), width);
             }
+            return updatedSprites;
         }
 
         /// <summary>
@@ -305,8 +279,8 @@ namespace sprint0
         public void PanLeftTransition(List<object> prevRoomObjects, List<object> nextRoomObjects)
         {
             Console.WriteLine("Pan left transition");
-            this.prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
-            this.nextRoomSprites = FromObjectsToSprites(nextRoomObjects);
+            prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
+            nextRoomSprites = FromObjectsToSprites(nextRoomObjects);
             prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
             nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
             prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
@@ -391,10 +365,10 @@ namespace sprint0
             //{
             //    sprite.Draw(gameTime);
             //}
-            //for (int i = 0; i < prevRoomSprites.Count; i++)
-            //{
-            //    prevRoomSprites[i].Draw(gameTime);
-            //}
+            for (int i = 0; i < prevRoomSprites.Count; i++)
+            {
+                prevRoomSprites[i].Draw(gameTime);
+            }
             //for (int i = 0; i < 3; i++)
             //{
             //    nextRoomSprites[i].Draw(gameTime);
@@ -403,12 +377,9 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            //if (gameTime.ElapsedGameTime.Milliseconds % CameraSpeed == 0)
-            //{
-                //prevHandler(ref prevRoomSprites);
-                nextHandler(ref nextRoomSprites);
-                cursorHandler();
-            //}
+            prevRoomSprites = prevHandler(prevRoomSprites);
+            //nextRoomSprites = nextHandler(nextRoomSprites);
+            cursorHandler();
         }
     }
 }
