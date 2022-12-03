@@ -58,7 +58,7 @@ namespace sprint0
             textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(100, 120), "Item"));
             textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(700, 120), "Door"));
 
-            textObjects.Add(TextSpriteFactory.Instance.customBigText(new Vector2(50, 50), "Back"));
+            textObjects.Add(TextSpriteFactory.Instance.customBigText(new Vector2(650, 50), "Back"));
             textObjects.Add(TextSpriteFactory.Instance.customGoldText(new Vector2(300, 50), "Level Creator"));
 
             textObjects.Add(TextSpriteFactory.Instance.CustomText(new Vector2(665, 160), "North"));

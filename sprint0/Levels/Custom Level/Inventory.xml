@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+	<Pointers>
+		
+	</Pointers>
+    <Meta>
+        <Name>RoomInventory</Name>
+		<Start>False</Start>
+    </Meta>
+    <Asset>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaCurrProjectile</ObjectName>
+			<Location>100 70</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaAvailableProjectiles</ObjectName>
+			<Location>450 70</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaFire</ObjectName>
+			<Location>465 85</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaArrowUp</ObjectName>
+			<Location>530 85</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBoomerang</ObjectName>
+			<Location>580 85</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaMapAndCompassHUD</ObjectName>
+			<Location>150 210</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaOrangeMapHUD</ObjectName>
+			<Location>450 190</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaInventoryHUD</ObjectName>
+			<Location>400 350</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBoomerang</ObjectName>
+			<Location>405 405</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaLevelHUD</ObjectName>
+			<Location>120 360</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaNumOneHUD</ObjectName>
+			<Location>210 360</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueMapHUD</ObjectName>
+			<Location>170 380</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaSword</ObjectName>
+			<Location>540 370</Location>
+		</Item>
+    </Asset>
+</XnaContent>
+

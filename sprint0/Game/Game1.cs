@@ -26,6 +26,7 @@ namespace sprint0
         public GameObjectManager manager;
         public LevelLoader loader;
         public LevelCreator creator;
+        public Minimap map;
 
         public MouseController mouse;
         public KeyboardController keyboard;
@@ -60,6 +61,8 @@ namespace sprint0
             loader = new LevelLoader(this);
             loader.LoadLevel("TitleScreen");
 
+            map = new Minimap(this);
+
             cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
             manager.AddObject(cursor);
 
@@ -92,6 +95,7 @@ namespace sprint0
         {
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
+            map.Update(gameTime);
             mouse.Update(gameTime);
             keyboard.Update(gameTime);
             controlsKeyboard.Update(gameTime);
@@ -105,6 +109,7 @@ namespace sprint0
 
             _spriteBatch.Begin(SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
             manager.Draw(gameTime);
+            map.Draw(gameTime);
             HandleSpecialDisplays.Instance.HandleSpecialDrawings();
             _spriteBatch.End();
 

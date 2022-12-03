@@ -3,7 +3,6 @@
     <NorthRoom>Room2</NorthRoom>
     <SouthRoom>Room3</SouthRoom>
     <EastRoom>Room4</EastRoom>
-    <WestRoom>Room5</WestRoom>
   </Pointers>
   <Meta>
     <Name>Room1</Name>
@@ -36,31 +35,6 @@
       <Location>150 120</Location>
     </Item>
     <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>406 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Stalfos</ObjectName>
-      <Location>406 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>342 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>566 184</Location>
-    </Item>
-    <Item>
-      <ObjectType>Enemy</ObjectType>
-      <ObjectName>Keese</ObjectName>
-      <Location>566 248</Location>
-    </Item>
-    <Item>
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorNorth</ObjectName>
       <Location>374 144</Location>
@@ -74,11 +48,6 @@
       <ObjectType>Door</ObjectType>
       <ObjectName>DungeonDoorEast</ObjectName>
       <Location>598 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorWest</ObjectName>
-      <Location>174 264</Location>
     </Item>
   </Asset>
 </XnaContent>

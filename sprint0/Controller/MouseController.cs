@@ -104,7 +104,7 @@ namespace sprint0
 
             //Creates back button listener
             newRectangle = new Rectangle(Constants.BACK_BUTTON_X, Constants.BACK_BUTTON_Y, blockLength * 2, blockLength * 2);
-            this.RegisterCommand(new MouseCommand(MouseButton.Left, newRectangle), new BackToTitleScreenCommand(game));
+            this.RegisterCommand(new MouseCommand(MouseButton.Left, newRectangle), new BackToTitleScreenCommand(game, GameState.CREATOR));
 
             //Creats the functionality to move between rooms
             Dictionary<Direction, Vector2> doorPositionInfo = new Dictionary<Direction, Vector2>();

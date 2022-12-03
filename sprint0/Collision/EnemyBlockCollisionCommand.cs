@@ -26,31 +26,19 @@ namespace sprint0
             Enemy enemy = (Enemy)this.enemy;
             if (intersectionLoc.Contains("up"))
             {
-                if (enemy.Velocity.Y > 0)  // if the velocity is directed towards the block
-                {
-                    enemy.Position -= new Vector2(0, 5);
-                }
+                enemy.Position -= new Vector2(0, 5);
             }
             if (intersectionLoc.Contains("down"))
             {
-                if (enemy.Velocity.Y < 0)
-                {
-                    enemy.Position += new Vector2(0, 5);
-                }
+                enemy.Position += new Vector2(0, 5);
             }
             if (intersectionLoc.Contains("left"))
             {
-                if (enemy.Velocity.X > 0)
-                {
-                    enemy.Position -= new Vector2(5, 0);
-                }
+                enemy.Position -= new Vector2(5, 0);
             }
             if (intersectionLoc.Contains("right"))
             {
-                if (enemy.Velocity.X < 0)
-                {
-                    enemy.Position += new Vector2(5, 0);
-                }
+                enemy.Position += new Vector2(5, 0);
             }
         }
     }
