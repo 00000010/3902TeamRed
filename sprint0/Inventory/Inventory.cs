@@ -54,6 +54,8 @@ namespace sprint0
         public virtual void Draw(GameTime gameTime)
         {
             if (game.loader.currentRoom.name.Equals("RoomInventory") || game.loader.currentRoom.name.Equals("RoomControls")) return;
+            if (HandleSpecialDisplays.Instance.TitleScreen || HandleSpecialDisplays.Instance.LevelSelectScreen 
+                || HandleSpecialDisplays.Instance.LevelCreatorScreen) return;
             Sprite.Draw(gameTime);
             Sword.Draw(gameTime);
 

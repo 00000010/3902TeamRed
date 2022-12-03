@@ -1,0 +1,19 @@
+Sprint 3:
+Readability code review:
+Author: Abd Elrahman Ibrahim
+Date: 10/21/2022
+Sprint: 3
+CS file being reviewed: EnemyBlockCollisionCommand.cs
+Author of file: Hamdan Almehairbi
+Number of minutes: 10
+Comments on code readability:
+The code is readable, and you can easily identify what the command’s main purpose is: to resolve the collision between Enemies and Blocks by changing the position of the enemies accordingly. The only comment I have for the code is that it might be more readable if the nested if statements were removed because it makes it more difficult to immediately recognize which case we’re in.
+Code quality code review:
+Author: Abd Elrahman Ibrahim
+Date: 10/21/2022
+Sprint: 3
+CS file being reviewed: EnemyEnemyCollisionCommand.cs
+Author of file: Hamdan Almehairbi
+Comments on code maintainability: 
+The code is maintainable and seems to have high cohesion and low coupling as well. The command pattern is effectively used to encapsulate the interaction between two different enemies. Some of the comments can be removed though to avoid clutter.
+Hypothetical change: An addition to the game could be to call multiple commands when a collision occurs instead of calling a single command. By doing so, we can obtain different results for different objects when a single collision occurs. 

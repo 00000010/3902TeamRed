@@ -26,7 +26,6 @@ namespace sprint0
         {
             loader = game.loader;
             currentRoom = game.loader.currentRoom;
-        
 
             switch(direction)
             {

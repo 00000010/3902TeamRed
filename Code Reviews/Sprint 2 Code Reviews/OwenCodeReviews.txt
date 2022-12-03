@@ -1,0 +1,14 @@
+Owen Hennessey Code Reviews
+9/30/22 - Sprint 2
+
+Readability: Emil/ShootProjectileCommand.cs
+In regards to the readability of Emil’s code, all code is evenly spaced and there are not many large blocks. 
+She has ensured that when there are, there are comments to break it up or at least increase the understanding of the code.  
+Her constructor and projectile methods are easily understandable and all variables follow naming conventions that lead to easy understanding.
+She also has safeguards in her code that ensure that things are working correctly and, if they are not, alerts the user.  All around well written code following good practice.
+
+Maintainability: Abd/GameObjectManager.cs
+The only problem that I feel may arise it the constant use of “throw new “ exceptions.  
+I fear the implementation may cause us problems because of all the potential for errors.  
+There is hopefully a way to eliminate those in the future.  
+In regard to the rest of the code, it is well written and easily understandable.

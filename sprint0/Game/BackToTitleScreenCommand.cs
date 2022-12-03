@@ -45,6 +45,7 @@ namespace sprint0
             game.keyboard.UnloadKeys();
             game.keyboard.LoadTitleScreenKeys(game);
             HandleSpecialDisplays.Instance.LevelSelectScreen = false;
+            HandleSpecialDisplays.Instance.LevelCreatorScreen = false;
             HandleSpecialDisplays.Instance.TitleScreen = true;
             game.loader.clearLoader();
             game.loader.LoadLevel("TitleScreen");

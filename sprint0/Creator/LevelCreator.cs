@@ -39,8 +39,7 @@ namespace sprint0
             gridRoom = loader.currentRoom;
 
             Room newRoom = new Room();
-            loader.allRooms.Add(newRoom);
-
+            
             //Adds neccessary elements to room
             newRoom.Add(SpriteFactory.Instance.Dungeon(new Vector2(Constants.DUNGEON_CORNER_X, Constants.DUNGEON_CORNER_Y)));
             newRoom.Add(BlockFactory.Instance.DungeonNorthWall(new Vector2(Constants.DUNGEON_NORTH_WALL_X, Constants.DUNGEON_NORTH_WALL_Y)));
@@ -85,6 +84,7 @@ namespace sprint0
             createListOfType("Door", 700, 150, doorNames);
 
             mouse.LoadLevelCreatorCommands(game, loader);
+            loader.allRooms.Add(newRoom);
         }
 
         //Creates the list of all the things that can be made into the level
@@ -137,6 +137,7 @@ namespace sprint0
                     itemList.Add(objectCreated, position);
                 }
                 
+                Console.WriteLine("Creating " + objectCreated.ToString() + " " + position.ToString());
             }
 
             Debug.WriteLine(itemList.ToString());

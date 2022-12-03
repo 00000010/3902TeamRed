@@ -48,11 +48,9 @@ namespace sprint0
             base.Initialize();
 
             manager = new GameObjectManager(this);
-            //manager.AddObject(block);
 
             keyboard = new KeyboardController();
             keyboard.LoadTitleScreenKeys(this);
-            //keyboard.LoadDefaultKeys(this);
 
             mouse = new MouseController(new Vector2(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
             creator = new LevelCreator(this);
