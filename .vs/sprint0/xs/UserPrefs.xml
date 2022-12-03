@@ -1,60 +1,46 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/TitleScreen/TitleScreenCommands.cs">
     <Files>
-      <File FileName="sprint0/Game/Game1.cs" Line="88" Column="1" />
-      <File FileName="sprint0/Camera/Camera.cs" Line="366" Column="16" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="210" Column="1" />
-      <File FileName="sprint0/Sprite/Sprite.cs" Line="123" Column="31" />
-      <File FileName="sprint0/Block/BlockFactory.cs" Line="190" Column="76" />
-      <File FileName="sprint0/Projectile/Projectile.cs" Line="37" Column="20" />
-      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="46" Column="14" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="43" Column="13" />
-      <File FileName="sprint0/Game/Constants.cs" Line="74" Column="67" />
-      <File FileName="sprint0/Sprite/SpriteFactory.cs" Line="95" Column="74" />
-      <File FileName="sprint0/Game/Program.cs" Line="4" Column="1" />
-      <File FileName="sprint0/Collision/CollisionResolution.cs" Line="36" Column="1" />
-      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="35" Column="13" />
-      <File FileName="sprint0/Collision/CollisionDetection.cs" Line="54" Column="10" />
+      <File FileName="sprint0/Game/Game1.cs" Line="83" Column="1" />
+      <File FileName="sprint0/Camera/Camera.cs" Line="6" Column="1" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="181" Column="14" />
+      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="37" Column="1" />
+      <File FileName="sprint0/Game/LevelLoader.cs" Line="223" Column="10" />
+      <File FileName="sprint0/Game/Room.cs" Line="42" Column="1" />
+      <File FileName="sprint0/Levels/Dungeon1/Level1.xml" Line="1" Column="1" />
+      <File FileName="sprint0/Game/Constants.cs" Line="1" Column="1" />
+      <File FileName="sprint0/Enemy/EnemyRectangle.cs" Line="19" Column="35" />
+      <File FileName="sprint0/Sprite/Sprite.cs" Line="150" Column="1" />
+      <File FileName="sprint0/Controller/KeyboardController.cs" Line="85" Column="1" />
+      <File FileName="sprint0/Game/LoadRoomCommand.cs" Line="13" Column="31" />
+      <File FileName="sprint0/Collision/CollisionResolution.cs" Line="33" Column="1" />
+      <File FileName="sprint0/Collision/CollisionDetection.cs" Line="35" Column="1" />
+      <File FileName="sprint0/Camera/ICamera.cs" Line="17" Column="81" />
+      <File FileName="sprint0/TitleScreen/TitleScreenCommands.cs" Line="43" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="sprint0" expanded="True">
-            <Node name="sprint0" expanded="True">
-              <Node name="Block" expanded="True" />
-              <Node name="Camera" expanded="True">
-                <Node name="Camera.cs" selected="True" />
-              </Node>
-              <Node name="Collision" expanded="True" />
-              <Node name="Controller" expanded="True" />
-              <Node name="Door" expanded="True" />
-              <Node name="Enemy" expanded="True" />
-              <Node name="Game" expanded="True" />
-              <Node name="Inventory" expanded="True" />
-              <Node name="Item" expanded="True" />
-              <Node name="Player" expanded="True" />
-              <Node name="Projectile" expanded="True" />
-              <Node name="ScreenDisplay" expanded="True" />
-              <Node name="Sprite" expanded="True" />
-            </Node>
+          <Node name="sprint0" expanded="True" selected="True">
+            <Node name="sprint0" expanded="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>prevRoomSprites</Value>
-          <Value>nextRoomSprites</Value>
+          <Value>updateables</Value>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Camera/Camera.cs" relfile="sprint0/Camera/Camera.cs" line="280" column="1" />
+      <Breakpoint enabled="false" conditionExpression="objectsToAdd.Count&gt;0" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="203" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="180" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

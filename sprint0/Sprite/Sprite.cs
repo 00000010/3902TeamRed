@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,7 @@ namespace sprint0
         {
             Texture = texture;
             SourceRectangle = sourceRectangle;
+            DestinationRectangle = sourceRectangle[0]; //testing
             Position = position;
             LayerDepth = layerDepth;
             Velocity = Vector2.Zero;
@@ -62,6 +64,11 @@ namespace sprint0
             Frame = 0;
             UpdateDestinationRectangle();
         }
+
+        /// <summary>
+        /// Create an uninitialized Sprite. Exercise caution if using this constructor.
+        /// </summary>
+        public Sprite() {}
 
         private void UpdateDestinationRectangle()
         {
@@ -135,13 +142,22 @@ namespace sprint0
             }
         }
 
+        /// <summary>
+        /// Perform a deep copy and return the copy with no references attached.
+        /// </summary>
+        /// <returns></returns>
         public Sprite Copy()
         {
             var copy = new Sprite(Texture, SourceRectangle, SpriteBatch, Position, LayerDepth);
             copy.Texture = this.Texture;
-            //Rectangle[] rectCopy = new Rectangle[this.SourceRectangle.Length];
-            Array.Copy(this.SourceRectangle, copy.SourceRectangle, this.SourceRectangle.Length);
-            //copy.SourceRectangle = rectCopy;
+
+            // Perform a deep copy of the source rectangles array.
+            copy.SourceRectangle = new Rectangle[this.SourceRectangle.Length];
+            for (int i = 0; i < this.SourceRectangle.Length; i++)
+            {
+                copy.SourceRectangle[i] = new Rectangle(this.SourceRectangle[i].X, this.SourceRectangle[i].Y, this.SourceRectangle[i].Width, this.SourceRectangle[i].Height);
+            }
+
             copy.SpriteBatch = this.SpriteBatch;
             copy.Position = this.Position;
             copy.LayerDepth = this.LayerDepth;

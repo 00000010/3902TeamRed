@@ -14,7 +14,7 @@ namespace sprint0
         public bool TransitionSet { get; set; }
         // TODO: make pass room objects by reference?
         public void CurtainTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);
-        public void PanLeftTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);
+        public void PanLeftTransition(List<Sprite> prevRoomObjects, List<Sprite> nextRoomObjects);
         public void PanRightTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);
         public void PanUpTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);
         public void PanDownTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);

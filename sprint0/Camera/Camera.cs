@@ -272,16 +272,16 @@ namespace sprint0
         /// </summary>
         /// <param name="roomObjects"></param>
         /// <param name="gameTime"></param>
-        public void PanLeftTransition(List<object> prevRoomObjects, List<object> nextRoomObjects)
+        public void PanLeftTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
         {
             Console.WriteLine("Pan left transition");
-            prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
-            nextRoomSprites = FromObjectsToSprites(nextRoomObjects);
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomObjects.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomObjects.Count).ToArray();
+            this.prevRoomSprites = prevRoomSprites;
+            this.nextRoomSprites = nextRoomSprites;
+            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
             cursors = new int[] { Constants.ROOM_X };
             prevHandler = FullToRightEmpty;
             nextHandler = EmptyToRightFull;

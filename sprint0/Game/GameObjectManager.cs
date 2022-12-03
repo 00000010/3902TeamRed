@@ -176,6 +176,14 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            //for (int i = 0; i < updateables.Count; i++)
+            //{
+            //    if (updateables[i] is Sprite && ((Sprite)updateables[i]).Texture.ToString() == "DungeonBackground")
+            //    {
+            //        Console.WriteLine(((Sprite)updateables[i]).Texture.ToString());
+            //        Console.WriteLine(((Sprite)updateables[i]).SourceRectangle[0].ToString());
+            //    }
+            //}
             // Ensure Link does not keep attacking, but only with each press
             if (player.State == State.ATTACKING || player.State == State.THROWING)
             {
@@ -212,20 +220,52 @@ namespace sprint0
             {
                 if (!camera.TransitionSet)
                 {
+                    // Get a copy of the array of objects, not a copy of a reference to the array of objects.
+                    List<Sprite> objectsToRemoveDeepCopy = new List<Sprite>(new Sprite[objectsToRemove.Count]);
+                    for (int i = 0; i < objectsToRemove.Count; i++)
+                    {
+                        if (objectsToRemove[i] is Sprite)
+                        {
+                            objectsToRemoveDeepCopy[i] = ((Sprite)objectsToRemove[i]).Copy();
+                        }
+                        else
+                        {
+                            objectsToRemoveDeepCopy[i] = ((IObject)objectsToRemove[i]).Sprite.Copy();
+                        }
+                        //objectsToRemoveDeepCopy[i] = ((Sprite)objectsToRemove[i]).Copy();
+                        //Console.WriteLine(((Sprite)objectsToRemoveDeepCopy[i]).SourceRectangle[0].X);
+                        //Console.WriteLine(((Sprite)objectsToRemove[i]).SourceRectangle[0].X);
+                        //(objectsToRemoveDeepCopy[i]).SourceRectangle[0].X = -123;
+                        //Console.WriteLine(((Sprite)objectsToRemoveDeepCopy[i]).SourceRectangle[0].X);
+                        //Console.WriteLine(((Sprite)objectsToRemove[i]).SourceRectangle[0].X);
+                    }
+                    List<Sprite> objectsToAddDeepCopy = new List<Sprite>(new Sprite[objectsToAdd.Count]);
+                    for (int i = 0; i < objectsToAdd.Count; i++)
+                    {
+                        if (objectsToAdd[i] is Sprite)
+                        {
+                            objectsToAddDeepCopy[i] = ((Sprite)objectsToAdd[i]).Copy();
+                        }
+                        else
+                        {
+                            objectsToAddDeepCopy[i] = ((IObject)objectsToAdd[i]).Sprite.Copy();
+                        }
+                        //objectsToAddDeepCopy[i] = ((Sprite)objectsToAdd[i]).Copy();
+                    }
                     switch (direction)
                     {
                         case Direction.LEFT:
-                            camera.PanLeftTransition(objectsToRemove, objectsToAdd);
+                            camera.PanLeftTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
                             break;
-                        case Direction.RIGHT:
-                            camera.PanRightTransition(objectsToRemove, objectsToAdd);
-                            break;
-                        case Direction.UP:
-                            camera.PanUpTransition(objectsToRemove, objectsToAdd);
-                            break;
-                        case Direction.DOWN:
-                            camera.PanDownTransition(objectsToRemove, objectsToAdd);
-                            break;
+                        //case Direction.RIGHT:
+                        //    camera.PanRightTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
+                        //    break;
+                        //case Direction.UP:
+                        //    camera.PanUpTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
+                        //    break;
+                        //case Direction.DOWN:
+                        //    camera.PanDownTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
+                        //    break;
                     }
                     camera.TransitionSet = true;
                 }                
