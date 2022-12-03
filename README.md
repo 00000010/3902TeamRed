@@ -30,13 +30,21 @@ with new features including custom controls and a level creator. <br/>
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/BlockRectangle.cs" target="_blank">BlockRectangle.cs</a> - Holds default block size data
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Block/IBlock.cs" target="_blank">IBlock.cs</a> - Block Interface
 
+### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Camera" target="_blank">Camera</a> - Camera and Transitions
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Camera/Camera.cs" target="_blank">Camera.cs</a> - Enables Updateable and Drawable Capabilities
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Camera/GameCamera.cs" target="_blank">GameCamera.cs</a> - Camera object that enables the transition gradually between rooms instead of clipping to them
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Camera/GameCamera.cs" target="_blank">ICamera.cs</a> - Camera Interface
+
 ### <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision" target="_blank">Collision</a> - Collision of any collidable objects
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/CollisionDetection.cs" target="_blank">CollisionDetection.cs</a> - Determines if a collision occurs
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/CollisionResolution.cs" target="_blank">CollisionResolution.cs</a> - Handles collisions when they do occur
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/EnemyBlockCollisionCommand.cs" target="_blank">EnemyBlockCollisionCommand.cs</a> - Enemy/Block collision
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/EnemyEnemyCollisionCommand.cs" target="_blank">EnemyEnemyCollisionCommand.cs</a> - Enemy/Enemy collision
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/EnemyPlayerCollisionCommand.cs" target="_blank">EnemyPlayerCollisionCommand.cs</a> - Enemy/Player collision
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/EnemyProjectileCollisionCommand.cs" target="_blank">EnemyProjectileCollisionCommand.cs</a> - Enemy/Projectile collision
+* <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/ICollidable.cs" target="_blank">ICollidable.cs</a> - Collision Interface
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/PlayerBlockCollisionCommand.cs" target="_blank">PlayerBlockCollisionCommand.cs</a> - Player/Block collision
+* * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/PlayerDoorCollisionCommand.cs.cs" target="_blank">PlayerDoorCollisionCommand.cs.cs</a> - Player/Door collision
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/PlayerEnemyCollisionCommand.cs.cs" target="_blank">PlayerEnemyCollisionCommand.cs.cs</a> - Player/Enemy collision
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/PlayerItemCollisionCommand.cs" target="_blank">PlayerItemCollisionCommand.cs</a> - Player/Item collision
 * <a href="https://github.com/00000010/3902TeamRed/blob/dev/sprint0/Collision/PlayerProjectileCollisionCommand.cs" target="_blank">PlayerProjectileCollisionCommand.cs</a> - Player/Projectile collision
