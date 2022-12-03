@@ -172,7 +172,12 @@ namespace sprint0
             {
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
                 SetSavedArray(i, roomSprites[i].DestinationRectangle.X, prevCapturedAmount);
-                int newX = roomSprites[i].DestinationRectangle.X + (cursors[0] - Constants.ROOM_X);
+                int newX = prevCapturedAmount[i] + (cursors[0] - Constants.ROOM_X);
+                if (i == 0)
+                {
+                    Console.WriteLine("newX: " + newX);
+                    Console.WriteLine("cursors[0]: " + cursors[0]);
+                }
                 int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - roomSprites[i].DestinationRectangle.X, prevCapturedDimension[i]);
                 roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
                 roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);

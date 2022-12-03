@@ -220,6 +220,7 @@ namespace sprint0
             {
                 if (!camera.TransitionSet)
                 {
+                    // TODO: put this in a separate function, but be very careful about references if doing so!
                     // Get a copy of the array of objects, not a copy of a reference to the array of objects.
                     List<Sprite> objectsToRemoveDeepCopy = new List<Sprite>(new Sprite[objectsToRemove.Count]);
                     for (int i = 0; i < objectsToRemove.Count; i++)
@@ -232,12 +233,6 @@ namespace sprint0
                         {
                             objectsToRemoveDeepCopy[i] = ((IObject)objectsToRemove[i]).Sprite.Copy();
                         }
-                        //objectsToRemoveDeepCopy[i] = ((Sprite)objectsToRemove[i]).Copy();
-                        //Console.WriteLine(((Sprite)objectsToRemoveDeepCopy[i]).SourceRectangle[0].X);
-                        //Console.WriteLine(((Sprite)objectsToRemove[i]).SourceRectangle[0].X);
-                        //(objectsToRemoveDeepCopy[i]).SourceRectangle[0].X = -123;
-                        //Console.WriteLine(((Sprite)objectsToRemoveDeepCopy[i]).SourceRectangle[0].X);
-                        //Console.WriteLine(((Sprite)objectsToRemove[i]).SourceRectangle[0].X);
                     }
                     List<Sprite> objectsToAddDeepCopy = new List<Sprite>(new Sprite[objectsToAdd.Count]);
                     for (int i = 0; i < objectsToAdd.Count; i++)
@@ -250,7 +245,6 @@ namespace sprint0
                         {
                             objectsToAddDeepCopy[i] = ((IObject)objectsToAdd[i]).Sprite.Copy();
                         }
-                        //objectsToAddDeepCopy[i] = ((Sprite)objectsToAdd[i]).Copy();
                     }
                     switch (direction)
                     {
