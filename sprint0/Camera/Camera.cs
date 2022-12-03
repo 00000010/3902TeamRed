@@ -272,7 +272,7 @@ namespace sprint0
         /// </summary>
         /// <param name="roomObjects"></param>
         /// <param name="gameTime"></param>
-        public void PanLeftTransition(List<object> prevRoomObjects, List<object> nextRoomObjects)
+        public void PanLeftTransition(in List<object> prevRoomObjects, in List<object> nextRoomObjects)
         {
             Console.WriteLine("Pan left transition");
             prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
@@ -357,14 +357,15 @@ namespace sprint0
             {
                 sprite.Draw(gameTime);
             }
-            //foreach (Sprite sprite in prevRoomSprites)
-            //{
-            //    sprite.Draw(gameTime);
-            //}
-            for (int i = 0; i < prevRoomSprites.Count; i++)
+            foreach (Sprite sprite in prevRoomSprites)
             {
-                prevRoomSprites[i].Draw(gameTime);
+                sprite.Draw(gameTime);
             }
+            //(cursors[0]>600)&&(sprite.Texture=="DungeonBackground")
+            //for (int i = 0; i < prevRoomSprites.Count; i++)
+            //{
+            //    prevRoomSprites[i].Draw(gameTime);
+            //}
             //for (int i = 0; i < 3; i++)
             //{
             //    nextRoomSprites[i].Draw(gameTime);

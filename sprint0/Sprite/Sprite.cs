@@ -139,9 +139,9 @@ namespace sprint0
         {
             var copy = new Sprite(Texture, SourceRectangle, SpriteBatch, Position, LayerDepth);
             copy.Texture = this.Texture;
-            Rectangle[] rectCopy = new Rectangle[this.SourceRectangle.Length];
-            Array.Copy(this.SourceRectangle, rectCopy, rectCopy.Length);
-            copy.SourceRectangle = rectCopy;
+            //Rectangle[] rectCopy = new Rectangle[this.SourceRectangle.Length];
+            Array.Copy(this.SourceRectangle, copy.SourceRectangle, this.SourceRectangle.Length);
+            //copy.SourceRectangle = rectCopy;
             copy.SpriteBatch = this.SpriteBatch;
             copy.Position = this.Position;
             copy.LayerDepth = this.LayerDepth;
