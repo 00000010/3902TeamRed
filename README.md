@@ -160,7 +160,6 @@ The backlog mainly contains minor and major features that need to be made to imp
 ## Known Bugs
 Link does not move in completely expected ways when multiple movement keys are pressed (WASD)<br/>
 Enemies are able to push Link outside of the room<br/>
-Link is able to kill the dungeon monsters and the old man<br/>
 *Please see the Trello list "Buglog" for a full detail of all items here, as well as complete descriptions.*
 
 ## Sprint 5 Reflection

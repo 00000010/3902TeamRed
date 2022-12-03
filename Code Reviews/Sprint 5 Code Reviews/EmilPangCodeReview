@@ -1,0 +1,24 @@
+Sprint 5:
+Readability code review:
+Author: Emil Pang
+Date: 12/3/2022
+Sprint: 5
+CS file being reviewed: TitleScreenCommands.cs
+Author of file: Adam Perhala
+Number of minutes: 17
+Comments on code readability:
+While the code does not have many comments, the function is easy to understand. The only method in this class is the Execute() function, which will show the title screen. However, it does seem quite long due to the switch case, so it may be a good idea to split each of the cases into separate methods.
+Syntactically the code is very readable, with mostly consistant spacing (other than a couple of double/triple lines of space). Method names are all capitalized per C# standards, and private variables use camel case. It may be beneficial to have variables keyboard, player, manager, etc. so it looks less cluttered with game.keyboard, game.player, game.manager, etc.
+Overall, this code is very readable.
+
+Code quality code review:
+Author: Emil Pang
+Date: 12/3/2022
+Sprint: 5
+CS file being reviewed: LevelSelectScreenCommand.cs
+Author of file: Adam Perhala
+Comments on code maintainability: 
+The code seems to be cohesive overall, with functions being relatively short. However, these functions appear similar to those in LevelLoader.cs, so it would probably be a good idea to consolidate these two separate pieces. 
+For the most part, this code is also loosely coupled, with method functionality being very easy to add to. The only method that seems more tightly coupled is the Execute() method, since there appears to be some hard-coded logic.
+Hypothetical changes could include offloading some of the code in Execute() to other, private functions so it is shorter. Some of this code could be the switch-case when determining action based on the direction from the message.
+
