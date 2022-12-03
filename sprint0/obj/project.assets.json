@@ -124,24 +124,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/owenhennessey/.nuget/packages/": {}
+    "C:\\Users\\PowerSpec\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\PowerSpec\\Desktop\\3902v3\\3902TeamRed\\sprint0\\sprint0.csproj",
       "projectName": "sprint0",
-      "projectPath": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/sprint0.csproj",
-      "packagesPath": "/Users/owenhennessey/.nuget/packages/",
-      "outputPath": "/Users/owenhennessey/Projects/3902TeamRed/sprint0/obj/",
+      "projectPath": "C:\\Users\\PowerSpec\\Desktop\\3902v3\\3902TeamRed\\sprint0\\sprint0.csproj",
+      "packagesPath": "C:\\Users\\PowerSpec\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PowerSpec\\Desktop\\3902v3\\3902TeamRed\\sprint0\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/owenhennessey/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\PowerSpec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -189,7 +197,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },
