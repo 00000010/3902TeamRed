@@ -74,34 +74,6 @@ namespace sprint0
             Enemy enemy = new ZeldaOldMan(position);
             return enemy;
         }
-
-        public Enemy DungeonMonster1(Vector2 position)
-        {
-            Enemy enemy = new DungeonMonster1(position);
-            enemy.CollideDamage = 0;
-            return enemy;
-        }
-
-        public Enemy DungeonMonster2(Vector2 position)
-        {
-            Enemy enemy = new DungeonMonster2(position);
-            enemy.CollideDamage = 0;
-            return enemy;
-        }
-
-        public Enemy DungeonMonster1Faded(Vector2 position)
-        {
-            Enemy enemy = new DungeonMonster1Faded(position);
-            enemy.CollideDamage = 0;
-            return enemy;
-        }
-
-        public Enemy DungeonMonster2Faded(Vector2 position)
-        {
-            Enemy enemy = new DungeonMonster2Faded(position);
-            enemy.CollideDamage = 0;
-            return enemy;
-        }
     }
 
     internal class Stalfos : Enemy
@@ -168,45 +140,6 @@ namespace sprint0
         {
             Sprite = SpriteFactory.Instance.ZeldaOldMan(position);
             TypeOfObject = "Enemy";
-        }
-    }
-
-    internal class DungeonMonster1 : Enemy
-    {
-        public DungeonMonster1(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.DungeonMonster1(position);
-            Velocity = Vector2.Zero;
-        }
-    }
-
-    internal class DungeonMonster2 : Enemy
-    {
-        public DungeonMonster2(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.DungeonMonster2(position);
-            Direction = Direction.DOWN;
-            Velocity = Vector2.Zero;
-        }
-    }
-
-    internal class DungeonMonster1Faded : Enemy
-    {
-        public DungeonMonster1Faded(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.DungeonMonster1Faded(position);
-            Direction = Direction.DOWN;
-            Velocity = Vector2.Zero;
-        }
-    }
-
-    internal class DungeonMonster2Faded : Enemy
-    {
-        public DungeonMonster2Faded(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.DungeonMonster2Faded(position);
-            Direction = Direction.DOWN;
-            Velocity = Vector2.Zero;
         }
     }
 }

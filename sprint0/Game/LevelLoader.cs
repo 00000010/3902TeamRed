@@ -149,7 +149,7 @@ namespace sprint0
             LoadRoom();
         }
 
-         
+
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
         public void pointPointers()

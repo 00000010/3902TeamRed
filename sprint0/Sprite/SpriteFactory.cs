@@ -569,25 +569,25 @@ namespace sprint0
         public Sprite DungeonMonster1(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
-            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
-            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster1Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
-            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
-            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         // TODO: dictionary with key as direction for these

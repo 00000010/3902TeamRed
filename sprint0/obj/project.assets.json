@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "InputManagement/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40-client/InputManagement.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/InputManagement.dll": {}
+        }
+      },
       "MonoGame.Content.Builder.Task/3.8.1.303": {
         "type": "package",
         "build": {
@@ -58,6 +67,18 @@
     }
   },
   "libraries": {
+    "InputManagement/1.0.0": {
+      "sha512": "9SatzTvAxdwJUY+Rl2jaJ8uQmi/mAyqVDHieG/5eC9Ji5v5AHsOyQ0uEBnip7N5B60FEleFEkI4jlwsNiNj2cw==",
+      "type": "package",
+      "path": "inputmanagement/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "inputmanagement.1.0.0.nupkg.sha512",
+        "inputmanagement.nuspec",
+        "lib/net40-client/InputManagement.dll"
+      ]
+    },
     "MonoGame.Content.Builder.Task/3.8.1.303": {
       "sha512": "9Ilzzje62LhWElbPNEl7vh7XsRSbze+lvCJdZtTZUGu48FRgvYN6THURwIB9PN98EI33/Wnf6iuShNUtD7hL4Q==",
       "type": "package",
@@ -97,6 +118,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "InputManagement >= 1.0.0",
       "MonoGame.Content.Builder.Task >= 3.8.1.303",
       "MonoGame.Framework.DesktopGL >= 3.8.1.303"
     ]
@@ -138,6 +160,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "InputManagement": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",
             "version": "[3.8.1.303, )"
@@ -163,8 +189,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.403/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'InputManagement 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "InputManagement",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

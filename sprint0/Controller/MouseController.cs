@@ -33,7 +33,7 @@ namespace sprint0
         {
             foreach (MouseCommand mouseCommand in mouseMappings.Keys)
             {
-                if (mouseCommand.Equals(Mouse.GetState())) 
+                if (mouseCommand.Equals(Mouse.GetState()))
                 {
                     mouseMappings[mouseCommand].Execute();
                 }
@@ -82,15 +82,15 @@ namespace sprint0
                     this.RegisterCommand(new MouseCommand(MouseButton.Right, newRec), new RemoveBlockCommand(game, new Vector2(newRec.X, newRec.Y)));
                 }
             }
-            
+
             //Creates a listener for each object in the list to change
-            foreach(KeyValuePair<object, Vector2> entry in game.creator.itemList)
+            foreach (KeyValuePair<object, Vector2> entry in game.creator.itemList)
             {
 
                 Console.WriteLine("Entry bruh " + entry.Key.ToString() + " " + entry.Value.ToString());
                 Rectangle newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
 
-                if(entry.Key is Door)
+                if (entry.Key is Door)
                 {
                     newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength * 2, blockLength * 2);
                 }

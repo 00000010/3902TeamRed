@@ -59,12 +59,12 @@
             <Location>304 272</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1</ObjectName>
             <Location>352 256</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2</ObjectName>
             <Location>368 256</Location>
         </Item>
@@ -84,12 +84,12 @@
             <Location>336 256</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
             <Location>384 256</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
             <Location>400 256</Location>
         </Item>
