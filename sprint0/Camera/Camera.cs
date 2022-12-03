@@ -272,7 +272,7 @@ namespace sprint0
         /// </summary>
         /// <param name="roomObjects"></param>
         /// <param name="gameTime"></param>
-        public void PanLeftTransition(in List<object> prevRoomObjects, in List<object> nextRoomObjects)
+        public void PanLeftTransition(List<object> prevRoomObjects, List<object> nextRoomObjects)
         {
             Console.WriteLine("Pan left transition");
             prevRoomSprites = FromObjectsToSprites(prevRoomObjects);
