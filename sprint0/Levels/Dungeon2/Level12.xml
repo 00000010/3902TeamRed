@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <XnaContent>
     <Pointers>
-        <WestRoom>Room11</WestRoom>
+        <WestRoom>Room1</WestRoom>
         <NorthRoom>Room13</NorthRoom>
     </Pointers>
     <Meta>
         <Name>Room12</Name>
+        <Start>False</Start>
+
     </Meta>
     <Asset>
         <Item>

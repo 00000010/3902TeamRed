@@ -3,11 +3,12 @@
     <Pointers>
         <WestRoom>Room9</WestRoom>
         <NorthRoom>Room15</NorthRoom>
-        <EastRoom>Room11</EastRoom>
+        <EastRoom>Room1</EastRoom>
         <SouthRoom>Room5</SouthRoom>
     </Pointers>
     <Meta>
         <Name>Room8</Name>
+        <Start>False</Start>
     </Meta>
     <Asset>
 		<Item>

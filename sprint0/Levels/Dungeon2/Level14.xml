@@ -5,6 +5,7 @@
     </Pointers>
     <Meta>
         <Name>Room14</Name>
+        <Start>False</Start>
     </Meta>
     <Asset>
 		<Item>
@@ -68,22 +69,22 @@
             <Dimension>3 1</Dimension>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
             <Location>342 248</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster1Faded</ObjectName>
             <Location>310 280</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
             <Location>438 248</Location>
         </Item>
         <Item>
-            <ObjectType>Enemy</ObjectType>
+            <ObjectType>Block</ObjectType>
             <ObjectName>DungeonMonster2Faded</ObjectName>
             <Location>470 280</Location>
         </Item>

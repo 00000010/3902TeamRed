@@ -2,10 +2,11 @@
 <XnaContent>
     <Pointers>
         <WestRoom>Room5</WestRoom>
-        <NorthRoom>Room11</NorthRoom>
+        <NorthRoom>Room1</NorthRoom>
     </Pointers>
     <Meta>
         <Name>Room7</Name>
+        <Start>False</Start>
     </Meta>
     <Asset>
 		<Item>
@@ -37,6 +38,11 @@
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorWest</ObjectName>
             <Location>174 264</Location>
+        </Item>
+        <Item>
+            <ObjectType>Door</ObjectType>
+            <ObjectName>DungeonDoorNorth</ObjectName>
+            <Location>374 144</Location>
         </Item>
         <!--<Item>
             <ObjectType>Door</ObjectType>

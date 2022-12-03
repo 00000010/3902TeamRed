@@ -39,7 +39,7 @@
             <Location>210 183</Location>
         </Item>
 		<Item>
-			<ObjectType>Enemy</ObjectType>
+			<ObjectType>Block</ObjectType>
 			<ObjectName>ZeldaOldMan</ObjectName>
 			<Location>385 270</Location>
 		</Item>

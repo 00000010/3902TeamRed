@@ -21,6 +21,12 @@ namespace sprint0
             return new ZeldaArrow(position, direction);
         }
 
+        //Trying to make the sword do damage
+        public Projectile ZeldaSword(Vector2 position, Direction direction)
+        {
+            return new ZeldaSword(position, direction);
+        }
+
         public Projectile ZeldaBoomerang(Vector2 position, Direction direction, string shooter = "")
         {
             return new ZeldaBoom(position, direction, shooter);
@@ -183,6 +189,34 @@ namespace sprint0
 
             Velocity = velocity;
             CollideDamage = 5;
+        }
+    }
+
+    internal class ZeldaSword : Projectile
+    {
+        public ZeldaSword(Vector2 position, Direction direction)
+        {
+            Vector2 velocity = Vector2.Zero;
+            switch (direction)
+            {
+                case Direction.LEFT:
+                    Sprite = SpriteFactory.Instance.LinkAttackingLeft(position);
+                    break;
+                case Direction.RIGHT:
+                    Sprite = SpriteFactory.Instance.LinkAttackingRight(position);
+                    break;
+                case Direction.UP:
+                    Sprite = SpriteFactory.Instance.LinkAttackingUp(position);
+                    break;
+                case Direction.DOWN:
+                    Sprite = SpriteFactory.Instance.LinkAttackingDown(position);
+                    break;
+                default:
+                    break;
+            }
+            Velocity = velocity;
+            InitPosition = position;
+            CollideDamage = 10;
         }
     }
 

@@ -69,11 +69,7 @@ namespace sprint0
             enemy.Health = 100;
             return enemy;
         }
-        public Enemy ZeldaOldMan(Vector2 position)
-        {
-            Enemy enemy = new ZeldaOldMan(position);
-            return enemy;
-        }
+        
     }
 
     internal class Stalfos : Enemy
@@ -130,15 +126,6 @@ namespace sprint0
             Sprite = SpriteFactory.Instance.ZeldaDragon(position);
             Direction = Direction.LEFT;
             Velocity = Vector2.Zero;
-            TypeOfObject = "Enemy";
-        }
-    }
-
-    internal class ZeldaOldMan : Enemy
-    {
-        public ZeldaOldMan(Vector2 position)
-        {
-            Sprite = SpriteFactory.Instance.ZeldaOldMan(position);
             TypeOfObject = "Enemy";
         }
     }

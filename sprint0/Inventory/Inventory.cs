@@ -72,8 +72,8 @@ namespace sprint0
             {
                 heart.Draw(gameTime);
             }
-            Vector2 ArrowPosition = new Vector2(410, 55);
-            Vector2 FirePosition = new Vector2(400, 58);
+            Vector2 ArrowPosition = new Vector2(410, 60);
+            Vector2 FirePosition = new Vector2(406, 58);
             Vector2 BoomerangPosition = new Vector2(410, 65);
             if (CurrentItem == TypeOfProj.ARROW)
             {

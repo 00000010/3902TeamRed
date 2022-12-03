@@ -2,10 +2,10 @@
 <XnaContent>
     <Pointers>
         <NorthRoom>Room5</NorthRoom>
-        <SouthRoom>Room1</SouthRoom>
     </Pointers>
     <Meta>
         <Name>Room4</Name>
+        <Start>False</Start>
     </Meta>
     <Asset>
 		<Item>

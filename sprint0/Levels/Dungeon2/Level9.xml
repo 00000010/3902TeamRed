@@ -7,6 +7,7 @@
     </Pointers>
     <Meta>
         <Name>Room9</Name>
+        <Start>False</Start>
     </Meta>
     <Asset>
 		<Item>
@@ -44,11 +45,11 @@
             <ObjectName>DungeonDoorEast</ObjectName>
             <Location>598 264</Location>
         </Item>
-        <Item>
+        <!--<Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorWest</ObjectName>
             <Location>174 264</Location>
-        </Item>
+        </Item>-->
 		<Item>
 			<ObjectType>Block</ObjectType>
 			<ObjectName>DungeonBlock</ObjectName>
