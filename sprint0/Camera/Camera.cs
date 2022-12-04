@@ -52,7 +52,7 @@ namespace sprint0
         public Camera(Game1 game)
         {
             this.game = game;
-            CameraSpeed = 2;
+            CameraSpeed = 4;
         }
 
         private List<Sprite> FromObjectsToSprites(List<object> objects)
@@ -230,6 +230,18 @@ namespace sprint0
         /// <param name="rects">The array of room rectangles.</param>
         private List<Sprite> EmptyToLeftFull(List<Sprite> roomSprites)
         {
+            for (int i = 0; i < roomSprites.Count; i++)
+            {
+                SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, nextCapturedDimension); // capture scaled width
+                SetSavedArray(i, roomSprites[i].DestinationRectangle.X, nextCapturedAmount1); // record starting destination x
+                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, nextCapturedAmount2); // record starting source x
+                int cursorDisplacement = Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - cursors[0];
+                int newX = nextCapturedAmount1[i] + Constants.SCALED_ROOM_WIDTH - cursorDisplacement;
+                int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - newX, nextCapturedDimension[i]);
+                
+                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
+            }
             return roomSprites;
         }
 
@@ -301,7 +313,7 @@ namespace sprint0
             this.prevRoomSprites = prevRoomSprites;
             this.nextRoomSprites = nextRoomSprites;
             prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
             prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
             nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
             nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
@@ -322,9 +334,11 @@ namespace sprint0
             this.prevRoomSprites = prevRoomSprites;
             this.nextRoomSprites = nextRoomSprites;
             prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
             prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
             prevCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
             cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH };
             prevHandler = FullToLeftEmpty;
             nextHandler = EmptyToLeftFull;
@@ -375,24 +389,20 @@ namespace sprint0
 
         public void Draw(GameTime gameTime)
         {
-            //foreach (Sprite sprite in nextRoomSprites)
-            //{
-            //    sprite.Draw(gameTime);
-            //}
+            foreach (Sprite sprite in nextRoomSprites)
+            {
+                sprite.Draw(gameTime);
+            }
             foreach (Sprite sprite in prevRoomSprites)
             {
                 sprite.Draw(gameTime);
             }
-            //for (int i = 0; i < 1; i++)
-            //{
-            //    prevRoomSprites[i].Draw(gameTime);
-            //}
         }
 
         public void Update(GameTime gameTime)
         {
             prevRoomSprites = prevHandler(prevRoomSprites);
-            //nextRoomSprites = nextHandler(nextRoomSprites);
+            nextRoomSprites = nextHandler(nextRoomSprites);
             cursorHandler();
         }
     }
