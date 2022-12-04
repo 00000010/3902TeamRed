@@ -44,7 +44,7 @@ namespace sprint0
                     break;
                 case Direction.DOWN:
                     player.Position = new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y);
-                    nextRoom = loader.currentRoom.southRoomPtr;
+                    nextRoom = loader.currentRoom.northRoomPtr;
                     d = Direction.UP;
                     break;
                 case Direction.LEFT:
@@ -54,7 +54,7 @@ namespace sprint0
                     break;
                 case Direction.UP:
                     player.Position = new Vector2(Constants.FROM_UP_LINK_POSITION_X, Constants.FROM_UP_LINK_POSITION_Y);
-                    nextRoom = loader.currentRoom.northRoomPtr;
+                    nextRoom = loader.currentRoom.southRoomPtr;
                     d = Direction.DOWN;
                     break;
             }

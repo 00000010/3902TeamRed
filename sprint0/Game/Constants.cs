@@ -72,6 +72,7 @@ namespace sprint0
         public const int SCALING_FACTOR = 2;
 
         public const int IMPOSSIBLE_VALUE = -SCALED_ROOM_WIDTH - 1;
+        public const int CAMERA_SPEED = 4;
     }
 }
 
