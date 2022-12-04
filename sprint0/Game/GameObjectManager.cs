@@ -251,9 +251,9 @@ namespace sprint0
                         case Direction.LEFT:
                             camera.PanLeftTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
                             break;
-                        //case Direction.RIGHT:
-                        //    camera.PanRightTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
-                        //    break;
+                        case Direction.RIGHT:
+                            camera.PanRightTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
+                            break;
                         //case Direction.UP:
                         //    camera.PanUpTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
                         //    break;
