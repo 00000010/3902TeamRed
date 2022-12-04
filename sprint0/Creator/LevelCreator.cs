@@ -73,8 +73,8 @@ namespace sprint0
             }
 
             //Names of the objects
-            string[] blockNames = { "DungeonBlock", "WaterBlock", "ZeldaGreenBlock", "ZeldaBlackBlock", "ZeldaPurpleBlock" };
-            string[] enemyNames = { "ZeldaOldMan", "Stalfos", "Keese", "Gel", "Octorok" };
+            string[] blockNames = { "ZeldaOldMan", "DungeonBlock", "WaterBlock", "ZeldaGreenBlock", "ZeldaBlackBlock", "ZeldaPurpleBlock" };
+            string[] enemyNames = { "Stalfos", "Keese", "Gel", "Octorok" };
             string[] itemNames = { "ZeldaFairy", "ZeldaHeart", "ZeldaHeartContainer", "ZeldaKey", "ZeldaTriforce", "ZeldaRupy" };
             string[] doorNames = { "DungeonDoorNorth", "DungeonDoorSouth", "DungeonDoorEast", "DungeonDoorWest" };
 

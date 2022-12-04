@@ -1,0 +1,14 @@
+Sprint 5:
+Author: William Gilicinski
+Date: 12/03/2022
+CS file being reviewed: (polishing many files)
+Author of file: William Gilicinski
+Number of minutes: 5
+Comments about readability:
+Maintaining readbility by polishing up many of the files into easier to read (like more white space) and commenting out unnecassary code helps keep the whole project easier to read.
+
+Comments about maintainability:
+Keeping the code base cleaner will help the team later on maintain such code. Also Dungeon2 was a mess that didn't work so fixing the pointers to help with testing helps with maintaining everythings.
+
+Hypothetical change:
+Instead of commenting everything out, it might be better to delete some lines entirely.
