@@ -155,10 +155,10 @@ YOU CANNOT CHANGE THE CONTROLLER MAPPINGS FOR VIEWING (X) AND EXITING (Z) THE CO
 <!-- LEVEL CREATOR CONTROLS -->
 ## Level Creator Controls
 
-Change object - Click on either a block, item, or enemy
-Place object - Click or hold down the left mouse click
-Remove object - Right click on said object
-Place Door - Click on a door
+Change object - Click on either a block, item, or enemy<br/>
+Place object - Click or hold down the left mouse click<br/>
+Remove object - Right click on said object<br/>
+Place Door - Click on a door<br/>
 Move to north room - 'W'<br/>
 Move to west room - 'A'<br/>
 Move to south room - 'S'<br/>
