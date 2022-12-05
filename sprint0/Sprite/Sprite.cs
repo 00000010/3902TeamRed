@@ -100,28 +100,7 @@ namespace sprint0
         {
             Position += Velocity;
 
-            //Don't wrap around screen for projectiles
-            // TODO: ouch! fix this messy if statement
             if (SourceRectangle == ItemRectangle.BowArrowUp || SourceRectangle == ItemRectangle.BowArrowDown || SourceRectangle == ItemRectangle.BowArrowLeft || SourceRectangle == ItemRectangle.BowArrowRight) return;
-
-            // wrap around screen
-            // TODO: probably remove as this is from sprint2
-            //if (Position.X > 800)
-            //{
-            //    Position = new Vector2(0, Position.Y);
-            //}
-            //else if (Position.X < 0)
-            //{
-            //    Position = new Vector2(800 - SourceRectangle[Frame].Width, Position.Y);
-            //}
-            //else if (Position.Y > 480)
-            //{
-            //    Position = new Vector2(Position.X, 0);
-            //} 
-            //else if (Position.Y < 0)
-            //{
-            //    Position = new Vector2(Position.X, 480 - SourceRectangle[Frame].Height);
-            //}
         }
 
         public virtual void UpdateFrame(GameTime gameTime)

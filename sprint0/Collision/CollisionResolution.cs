@@ -30,7 +30,7 @@ namespace sprint0
                 {
                     object[] collidingObjects = new object[] { sprite1, sprite2, intersectionLoc, manager };
                     command = (ICommand)ctor.Invoke(collidingObjects);
-                    command.Execute(); // TODO: HERE!
+                    command.Execute();
                 }
             }
         }

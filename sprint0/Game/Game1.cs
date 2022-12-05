@@ -17,7 +17,6 @@ namespace sprint0
         public SpriteBatch _spriteBatch;
 
         public IPlayer player;
-        //public IBlock block;
         public IItem item;
         public IEnemy enemy;
 
@@ -43,24 +42,20 @@ namespace sprint0
             camera = new Camera(this);
 
             manager = new GameObjectManager(this);
-            //manager.AddObject(block);
 
             keyboard = new KeyboardController();
             keyboard.LoadDefaultKeys(this);
-            //camera = new Camera();
 
             //Create level loader
             loader = new LevelLoader(this);
             loader.LoadLevel("Dungeon1");
             
-
             HandleSpecialDisplays.Instance.Initialize(this);
 
             //Play theme song in background
-            // TODO: TURN BACK ON
-            //MediaPlayer.Play(SoundFactory.Instance.themeSound);
-            //MediaPlayer.IsRepeating = true;
-            //MediaPlayer.Volume = (float)0.1;
+            MediaPlayer.Play(SoundFactory.Instance.themeSound);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = (float)0.1;
         }
 
         protected override void LoadContent()

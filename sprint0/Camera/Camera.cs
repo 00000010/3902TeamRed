@@ -16,25 +16,20 @@ namespace sprint0
 
         public int UpdateOrder => throw new NotImplementedException();
 
-        private List<object> prevRoomObjects, nextRoomObjects;
         private List<Sprite> prevRoomSprites, nextRoomSprites;
-        private int[] prevCapturedDimension;
-        private int[] nextCapturedDimension;
-        private int[] prevCapturedAmount;
-        private int[] nextCapturedAmount1;
-        private int[] nextCapturedAmount2;
-        private int[] nextCapturedAmount;
-        private int[] prevCapturedAmount1;
-        private int[] prevCapturedAmount2;
+        private int[] prevCapturedDimension, prevCapturedAmount1, prevCapturedAmount2;
+        private int[] nextCapturedDimension, nextCapturedAmount1, nextCapturedAmount2;
 
         // The cursors that determine where the appearing/disappearing of the room is.
-        private int[] cursors;
+        private int cursor;
 
-        private delegate List<Sprite> UpdatePrevRoomFrame(List<Sprite> roomSprites);
+        private Dictionary<Direction, Action> transitionDict = new Dictionary<Direction, Action>();
+
+        private delegate void UpdatePrevRoomFrame();
         UpdatePrevRoomFrame prevHandler;
-        private delegate List<Sprite> UpdateNextRoomFrame(List<Sprite> roomSprites);
+        private delegate void UpdateNextRoomFrame();
         UpdateNextRoomFrame nextHandler;
-        private delegate void AdjustCursor(); // TODO: incorporating this into the above two delegates would be nice
+        private delegate void AdjustCursor();
         AdjustCursor cursorHandler;
 
         private delegate void SetTransition(Direction direction);
@@ -53,47 +48,85 @@ namespace sprint0
             this.game = game;
             CameraSpeed = Constants.CAMERA_SPEED;
             plane = PLANE.HORIZONTAL;
+            PopulateTransitionDictionary();
         }
 
-        private int ConstrainDimension(int unconstrainedDimension, int dimensionAmount)
+        /// <summary>
+        /// Import the sprites involved in the camera transition.
+        /// </summary>
+        /// <param name="prevRoomSprites"></param>
+        /// <param name="nextRoomSprites"></param>
+        public void GetSprites(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
+        {
+            this.prevRoomSprites = prevRoomSprites;
+            this.nextRoomSprites = nextRoomSprites;
+        }
+
+        /// <summary>
+        /// Set the transition direction.
+        /// </summary>
+        /// <param name="direction"></param>
+        public void SetDirection(Direction direction)
+        {
+            transitionDict[direction].Invoke();
+        }
+
+        private void PopulateTransitionDictionary()
+        {
+            transitionDict.Add(Direction.LEFT, PanLeftTransition);
+            transitionDict.Add(Direction.RIGHT, PanRightTransition);
+            transitionDict.Add(Direction.UP, PanUpTransition);
+            transitionDict.Add(Direction.DOWN, PanDownTransition);
+        }
+        /// <summary>
+        /// Constrain an amount between zero and the specified amount.
+        /// </summary>
+        /// <param name="unconstrainedAmount"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        private int ConstrainAmount(int unconstrainedAmount, int amount)
         {
             int x = 0;
-            return ((unconstrainedDimension < 0 ? 0 : x = unconstrainedDimension) > dimensionAmount ? dimensionAmount : x);
+            return ((unconstrainedAmount < 0 ? 0 : x = unconstrainedAmount) > amount ? amount : x);
         }
 
+        /// <summary>
+        /// Check whether the transition is complete by where the cursor is and what type of transition is occuring.
+        /// </summary>
+        /// <param name="cursor"></param>
         private void CheckProgress(int cursor)
         {
             if ((plane == PLANE.VERTICAL && (cursor > Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT || cursor < Constants.ROOM_Y)) || (plane == PLANE.HORIZONTAL && (cursor > Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH || cursor < Constants.ROOM_X)))
             {
                 Transitioning = false;
                 TransitionSet = false;
-                prevCapturedDimension = Array.Empty<int>();
-                nextCapturedDimension = Array.Empty<int>();
-                prevCapturedAmount = Array.Empty<int>();
-                nextCapturedAmount1 = Array.Empty<int>();
-                nextCapturedAmount2 = Array.Empty<int>();
             }
         }
 
+        /// <summary>
+        /// Advance the cursor by the speed the camera is set to.
+        /// </summary>
         private void AdvanceCursor()
         {
-            cursors[0] = cursors[0] + CameraSpeed;
-            CheckProgress(cursors[0]);
+            cursor = cursor + CameraSpeed;
+            CheckProgress(cursor);
         }
 
+        /// <summary>
+        /// Retract the cursor by the speed the camera is set to.
+        /// </summary>
         private void RetractCursor()
         {
-            cursors[0] = cursors[0] - CameraSpeed;
-            CheckProgress(cursors[0]);
+            cursor = cursor - CameraSpeed;
+            CheckProgress(cursor);
         }
 
-        private void AdvanceRetractCursors()
-        {
-            cursors[0] = cursors[0] - CameraSpeed;
-            cursors[1] = cursors[0] + CameraSpeed;
-            CheckProgress(cursors[0]);
-        }
-
+        /// <summary>
+        /// Save the element in index i of the array depending on whether that slot is filled by an impossible value.
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="element"></param>
+        /// <param name="array"></param>
         private void SetSavedArray(int i, int element, int[] array)
         {
             if (array[i] == Constants.IMPOSSIBLE_VALUE)
@@ -103,337 +136,306 @@ namespace sprint0
         }
 
         /// <summary>
-        /// Takes an array of rectangles where each rectangle is an object's rectangle. Array <code>cursors</code> must be initialized with the two cursors; the first will go left, the last will go right.
+        /// Adjusts the source rectangle X and width and the destination X and width of the next room sprites depending on where the cursor is. Expands rightward.
         /// </summary>
-        /// <param name="rects">The array of rectangles.</param>
-        private List<Sprite> FullToLeftRightEmpty(List<Sprite> roomSprites)
+        private void EmptyToRightFull()
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Takes an array of rectangles where each rectangle is an object's rectangle.
-        /// </summary>
-        /// <param name="rects">The array of rectangles.</param>
-        private List<Sprite> EmptyToLeftRightFull(List<Sprite> roomSprites)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands rightward. Assumes all objects have only one frame to draw.
-        /// </summary>
-        /// <param name="rects">The array of the room rectangles.</param>
-        private List<Sprite> EmptyToRightFull(List<Sprite> roomSprites)
-        {
-            List<Sprite> updatedSprites = new List<Sprite>(roomSprites.Select(x=>x.Copy()));
-            for (int i = 0; i < roomSprites.Count; i++)
+            for (int i = 0; i < nextRoomSprites.Count; i++)
             {
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, nextCapturedDimension); // capture scaled width
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.X - Constants.SCALED_ROOM_WIDTH, nextCapturedAmount1); // record starting destination x
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, nextCapturedAmount2); // record starting source x
-                int trueX = nextCapturedAmount1[i] + (cursors[0] - Constants.ROOM_X);
-                int newX = Constants.ROOM_X + ConstrainDimension(trueX - Constants.ROOM_X, Constants.SCALED_ROOM_WIDTH);
-                int newWidth = ConstrainDimension(trueX + nextCapturedDimension[i] - Constants.ROOM_X, nextCapturedDimension[i]);
+                // Save the original width to constrain it later
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Width, nextCapturedDimension);
+                // Save the original destination X
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.X, nextCapturedAmount1);
+                // Save starting source X
+                SetSavedArray(i, nextRoomSprites[i].SourceRectangle[0].X, nextCapturedAmount2);
 
+                // Get the destination X as if the sprite was actually moving outside of the room
+                int trueX = nextCapturedAmount1[i] - Constants.SCALED_ROOM_WIDTH + (cursor - Constants.ROOM_X);
+                // Get the new destination X
+                int newX = Constants.ROOM_X + ConstrainAmount(trueX - Constants.ROOM_X, Constants.SCALED_ROOM_WIDTH);
+                // Get the new destination width
+                int newWidth = ConstrainAmount(trueX + nextCapturedDimension[i] - Constants.ROOM_X, nextCapturedDimension[i]);
                 // Get the new source X for all source rectangles of the sprite.
                 int newSourceX = nextCapturedAmount2[i] + (nextCapturedDimension[i] / Constants.SCALING_FACTOR) - (newWidth / Constants.SCALING_FACTOR);
-                updatedSprites[i].SourceRectangle[0].X = newSourceX;
-                updatedSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
-                updatedSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
+
+                // Adjust the source and destination rectangles
+                nextRoomSprites[i].SourceRectangle[0].X = newSourceX;
+                nextRoomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                nextRoomSprites[i].DestinationRectangle = new Rectangle(newX, nextRoomSprites[i].DestinationRectangle.Y, newWidth, nextRoomSprites[i].DestinationRectangle.Height);
             }
-            return updatedSprites;
         }
 
-        // TODO: Below two functions do the same thing; consolidate somehow
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts rightward. Assumes all objects have only one frame to draw.
+        /// Adjusts the source rectangle width and the destination X and width of the previous room sprites depending on where the cursor is. Contracts rightward.
         /// </summary>
-        /// <param name="rects">The array of the room rectangles.</param>
-        private List<Sprite> FullToRightEmpty(List<Sprite> roomSprites)
+        private void FullToRightEmpty()
         {
             // Go through all sprites and update their source and destination according to the cursor
-            for (int i = 0; i < roomSprites.Count; i++)
+            for (int i = 0; i < prevRoomSprites.Count; i++)
             {
                 // Save the original width to constrain it later
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
                 // Save the original destination X
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.X, prevCapturedAmount);
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.X, prevCapturedAmount1);
+
                 // Get the new destination X
-                int newX = prevCapturedAmount[i] + (cursors[0] - Constants.ROOM_X);
+                int newX = prevCapturedAmount1[i] + (cursor - Constants.ROOM_X);
                 // Get the new destination width
-                int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - roomSprites[i].DestinationRectangle.X, prevCapturedDimension[i]);
-                // Set the source rectangle to the new width, unscaled
-                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
-                // Set the destination rectangle to the new X and width
-                roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
+                int newWidth = ConstrainAmount(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - prevRoomSprites[i].DestinationRectangle.X, prevCapturedDimension[i]);
+
+                // Adjust the source and destination rectangles
+                prevRoomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                prevRoomSprites[i].DestinationRectangle = new Rectangle(newX, prevRoomSprites[i].DestinationRectangle.Y, newWidth, prevRoomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
             }
-            return roomSprites;
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts leftward. Assumes all objects have only one frame to draw.
+        /// Adjusts the source rectangle X and width and the destination X and width of the previous room sprites depending on where the cursor is. Contracts leftward.
         /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> FullToLeftEmpty(List<Sprite> roomSprites)
+        private void FullToLeftEmpty()
         {
             // Go through all sprites and update their source and destination according to the cursor
-            for (int i = 0; i < roomSprites.Count; i++)
+            for (int i = 0; i < prevRoomSprites.Count; i++)
             {
                 // Save the original width to constrain it later
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Width, prevCapturedDimension);
                 // Save the original destination X
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.X, prevCapturedAmount1);
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.X, prevCapturedAmount1);
                 // Save starting source X
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, prevCapturedAmount2);
+                SetSavedArray(i, prevRoomSprites[i].SourceRectangle[0].X, prevCapturedAmount2);
 
                 // Get how far the cursor has moved across the room
-                int cursorDisplacement = (Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH) - cursors[0];
+                int cursorDisplacement = (Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH) - cursor;
                 // Get the destination X as if the sprite was actually moving outside of the room
                 int trueX = (prevCapturedAmount1[i] - cursorDisplacement);
                 // Get the new destination X; it will be between Constants.ROOM_X and Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH
-                int newX = Constants.ROOM_X + ConstrainDimension(trueX - Constants.ROOM_X, Constants.SCALED_ROOM_WIDTH);
+                int newX = Constants.ROOM_X + ConstrainAmount(trueX - Constants.ROOM_X, Constants.SCALED_ROOM_WIDTH);
                 // Get the new destination width; it will be between 0 and its original scaled width
-                int newWidth = prevCapturedDimension[i] - ConstrainDimension(Constants.ROOM_X - trueX, prevCapturedDimension[i]);
+                int newWidth = prevCapturedDimension[i] - ConstrainAmount(Constants.ROOM_X - trueX, prevCapturedDimension[i]);
                 // Get the new source X; it will go from its source width to 0
-                int newSourceX = prevCapturedAmount2[i] + ConstrainDimension((Constants.ROOM_X - trueX) / Constants.SCALING_FACTOR, prevCapturedDimension[i] / Constants.SCALING_FACTOR);
-                roomSprites[i].SourceRectangle[0].X = newSourceX;
-                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
+                int newSourceX = prevCapturedAmount2[i] + ConstrainAmount((Constants.ROOM_X - trueX) / Constants.SCALING_FACTOR, prevCapturedDimension[i] / Constants.SCALING_FACTOR);
+
+                // Adjust the source and destination rectangles
+                prevRoomSprites[i].SourceRectangle[0].X = newSourceX;
+                prevRoomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                prevRoomSprites[i].DestinationRectangle = new Rectangle(newX, prevRoomSprites[i].DestinationRectangle.Y, newWidth, prevRoomSprites[i].SourceRectangle[0].Height * Constants.SCALING_FACTOR);
             }
-            return roomSprites;
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands leftward. Assumes all objects have only one frame to draw.
+        /// Adjusts the source rectangle width and the destination X and width of the next room sprites depending on where the cursor is. Expands leftward.
         /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> EmptyToLeftFull(List<Sprite> roomSprites)
+        private void EmptyToLeftFull()
         {
-            for (int i = 0; i < roomSprites.Count; i++)
-            {
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Width, nextCapturedDimension); // capture scaled width
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.X, nextCapturedAmount1); // record starting destination x
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].X, nextCapturedAmount2); // record starting source x
-                int cursorDisplacement = Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - cursors[0];
-                int newX = nextCapturedAmount1[i] + Constants.SCALED_ROOM_WIDTH - cursorDisplacement;
-                int newWidth = ConstrainDimension(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - newX, nextCapturedDimension[i]);
-                
-                roomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(newX, roomSprites[i].DestinationRectangle.Y, newWidth, roomSprites[i].DestinationRectangle.Height);
-            }
-            return roomSprites;
-        }
-
-        /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts upward. Assumes all objects have only one frame to draw.
-        /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> FullToUpEmpty(List<Sprite> roomSprites)
-        {
-            // Go through all sprites and update their source and destination according to the cursor
-            for (int i = 0; i < roomSprites.Count; i++)
-            {
-                // Save the original height to constrain it later
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Height, prevCapturedDimension);
-                // Save the original destination Y
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Y, prevCapturedAmount1);
-                // Save starting source Y
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].Y, prevCapturedAmount2);
-
-                // Get how far the cursor has moved across the room
-                int cursorDisplacement = (Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT) - cursors[0];
-                // Get the destination Y as if the sprite was actually moving outside of the room
-                int trueX = (prevCapturedAmount1[i] - cursorDisplacement);
-                // Get the new destination Y; it will be between Constants.ROOM_Y and Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT
-                int newX = Constants.ROOM_Y + ConstrainDimension(trueX - Constants.ROOM_Y, Constants.SCALED_ROOM_HEIGHT);
-                // Get the new destination height; it will be between 0 and its original scaled height
-                int newWidth = prevCapturedDimension[i] - ConstrainDimension(Constants.ROOM_Y - trueX, prevCapturedDimension[i]);
-                // Get the new source Y; it will go from its source width to 0
-                int newSourceX = prevCapturedAmount2[i] + ConstrainDimension((Constants.ROOM_Y - trueX) / Constants.SCALING_FACTOR, prevCapturedDimension[i] / Constants.SCALING_FACTOR);
-                roomSprites[i].SourceRectangle[0].Y = newSourceX;
-                roomSprites[i].SourceRectangle[0].Height = newWidth / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, newX, roomSprites[i].SourceRectangle[0].Width * Constants.SCALING_FACTOR, newWidth);
-            }
-            return roomSprites;
-        }
-
-        /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands upward.
-        /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> EmptyToUpFull(List<Sprite> roomSprites)
-        {
-            for (int i = 0; i < roomSprites.Count; i++)
-            {
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Height, nextCapturedDimension); // capture scaled width
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Y, nextCapturedAmount1); // record starting destination x
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].Y, nextCapturedAmount2); // record starting source x
-                int cursorDisplacement = Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - cursors[0];
-                int newY = nextCapturedAmount1[i] + Constants.SCALED_ROOM_HEIGHT - cursorDisplacement;
-                int newHeight = ConstrainDimension(Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - newY, nextCapturedDimension[i]);
-
-                roomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, newY, roomSprites[i].DestinationRectangle.Width, newHeight);
-            }
-            return roomSprites;
-        }
-
-        /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Contracts downward.
-        /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> FullToDownEmpty(List<Sprite> roomSprites)
-        {
-            // Go through all sprites and update their source and destination according to the cursor
-            for (int i = 0; i < roomSprites.Count; i++)
+            for (int i = 0; i < nextRoomSprites.Count; i++)
             {
                 // Save the original width to constrain it later
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Height, prevCapturedDimension);
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Width, nextCapturedDimension);
                 // Save the original destination X
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Y, prevCapturedAmount);
-                // Get the new destination X
-                int newY = prevCapturedAmount[i] + (cursors[0] - Constants.ROOM_Y);
-                // Get the new destination width
-                int newHeight = ConstrainDimension(Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - roomSprites[i].DestinationRectangle.Y, prevCapturedDimension[i]);
-                // Set the source rectangle to the new width, unscaled
-                roomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
-                // Set the destination rectangle to the new X and width
-                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, newY, roomSprites[i].SourceRectangle[0].Width * Constants.SCALING_FACTOR, newHeight);
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.X, nextCapturedAmount1);
+
+                // Get how far the cursor has moved across the room
+                int cursorDisplacement = Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - cursor;
+                // Get the new destination X; it will be between Constants.ROOM_X and Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH
+                int newX = nextCapturedAmount1[i] + Constants.SCALED_ROOM_WIDTH - cursorDisplacement;
+                // Get the new destination width; it will be between 0 and its original scaled width
+                int newWidth = ConstrainAmount(Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH - newX, nextCapturedDimension[i]);
+
+                // Adjust the source and destination rectangles
+                nextRoomSprites[i].SourceRectangle[0].Width = newWidth / Constants.SCALING_FACTOR;
+                nextRoomSprites[i].DestinationRectangle = new Rectangle(newX, nextRoomSprites[i].DestinationRectangle.Y, newWidth, nextRoomSprites[i].DestinationRectangle.Height);
             }
-            return roomSprites;
         }
 
         /// <summary>
-        /// Takes an array of room object rectangles and adjusts their width depending on whether they should be shown. Expands downward.
+        /// Adjusts the source rectangle Y and height and the destination Y and width of the previous room sprites depending on where the cursor is. Contracts upward.
         /// </summary>
-        /// <param name="rects">The array of room rectangles.</param>
-        private List<Sprite> EmptyToDownFull(List<Sprite> roomSprites)
+        private void FullToUpEmpty()
         {
-            for (int i = 0; i < roomSprites.Count; i++)
+            // Go through all sprites and update their source and destination according to the cursor
+            for (int i = 0; i < prevRoomSprites.Count; i++)
             {
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Height, nextCapturedDimension); // capture scaled width
-                SetSavedArray(i, roomSprites[i].DestinationRectangle.Y - Constants.SCALED_ROOM_HEIGHT, nextCapturedAmount1); // record starting destination x
-                SetSavedArray(i, roomSprites[i].SourceRectangle[0].Y, nextCapturedAmount2); // record starting source x
-                int trueY = nextCapturedAmount1[i] + (cursors[0] - Constants.ROOM_Y);
-                int newY = Constants.ROOM_Y + ConstrainDimension(trueY - Constants.ROOM_Y, Constants.SCALED_ROOM_HEIGHT);
-                int newHeight = ConstrainDimension(trueY + nextCapturedDimension[i] - Constants.ROOM_Y, nextCapturedDimension[i]);
+                // Save the original height to constrain it later
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Height, prevCapturedDimension);
+                // Save the original destination Y
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Y, prevCapturedAmount1);
+                // Save starting source Y
+                SetSavedArray(i, prevRoomSprites[i].SourceRectangle[0].Y, prevCapturedAmount2);
 
-                // Get the new source X for all source rectangles of the sprite.
-                int newSourceX = nextCapturedAmount2[i] + (nextCapturedDimension[i] / Constants.SCALING_FACTOR) - (newHeight / Constants.SCALING_FACTOR);
-                roomSprites[i].SourceRectangle[0].Y = newSourceX;
-                roomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
-                roomSprites[i].DestinationRectangle = new Rectangle(roomSprites[i].DestinationRectangle.X, newY, roomSprites[i].DestinationRectangle.Width, newHeight);
+                // Get how far the cursor has moved across the room
+                int cursorDisplacement = (Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT) - cursor;
+                // Get the destination Y as if the sprite was actually moving outside of the room
+                int trueY = (prevCapturedAmount1[i] - cursorDisplacement);
+                // Get the new destination Y; it will be between Constants.ROOM_Y and Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT
+                int newY = Constants.ROOM_Y + ConstrainAmount(trueY - Constants.ROOM_Y, Constants.SCALED_ROOM_HEIGHT);
+                // Get the new destination height; it will be between 0 and its original scaled height
+                int newHeight = prevCapturedDimension[i] - ConstrainAmount(Constants.ROOM_Y - trueY, prevCapturedDimension[i]);
+                // Get the new source Y; it will go from its source width to 0
+                int newSourceY = prevCapturedAmount2[i] + ConstrainAmount((Constants.ROOM_Y - trueY) / Constants.SCALING_FACTOR, prevCapturedDimension[i] / Constants.SCALING_FACTOR);
+
+                // Adjust the source the destination rectangles
+                prevRoomSprites[i].SourceRectangle[0].Y = newSourceY;
+                prevRoomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
+                prevRoomSprites[i].DestinationRectangle = new Rectangle(prevRoomSprites[i].DestinationRectangle.X, newY, prevRoomSprites[i].SourceRectangle[0].Width * Constants.SCALING_FACTOR, newHeight);
             }
-            return roomSprites;
-        }
-
-        public void CurtainTransition(List<object> prevRoomObjects, List<object> nextRoomObjects)
-        {
-            Console.WriteLine("Curtain transition");
-            this.prevRoomObjects = prevRoomObjects;
-            this.nextRoomObjects = nextRoomObjects;
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomObjects.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomObjects.Count).ToArray();
-            cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2, Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH / 2 };
-            //prevHandler = FullToLeftRightEmpty;
-            //nextHandler = EmptyToLeftRightFull;
-            cursorHandler = AdvanceRetractCursors;
         }
 
         /// <summary>
-        /// Transition when going to the left (west) room.
+        /// Adjusts the source rectangle height and the destination Y and width of the previous room sprites depending on where the cursor is. Expands upward.
         /// </summary>
-        /// <param name="roomObjects"></param>
-        /// <param name="gameTime"></param>
-        public void PanLeftTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
+        private void EmptyToUpFull()
+        {
+            for (int i = 0; i < nextRoomSprites.Count; i++)
+            {
+                // Save the original height to constrain it later
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Height, nextCapturedDimension);
+                // Save the original destination Y
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Y, nextCapturedAmount1);
+                // Save starting source Y
+                SetSavedArray(i, nextRoomSprites[i].SourceRectangle[0].Y, nextCapturedAmount2);
+
+                // Get how far the cursor has moved across the room
+                int cursorDisplacement = Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - cursor;
+                // Get the new destination Y; it will be between Constants.ROOM_Y and Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT
+                int newY = nextCapturedAmount1[i] + Constants.SCALED_ROOM_HEIGHT - cursorDisplacement;
+                // Get the new destination height; it will be between 0 and its original scaled height
+                int newHeight = ConstrainAmount(Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - newY, nextCapturedDimension[i]);
+
+                // Adjust the source and destination rectangles
+                nextRoomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
+                nextRoomSprites[i].DestinationRectangle = new Rectangle(nextRoomSprites[i].DestinationRectangle.X, newY, nextRoomSprites[i].DestinationRectangle.Width, newHeight);
+            }
+        }
+
+        /// <summary>
+        /// Adjusts the source rectangle height and the destination Y and width of the previous room sprites depending on where the cursor is.  Contracts downward.
+        /// </summary>
+        private void FullToDownEmpty()
+        {
+            // Go through all sprites and update their source and destination according to the cursor
+            for (int i = 0; i < prevRoomSprites.Count; i++)
+            {
+                // Save the original width to constrain it later
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Height, prevCapturedDimension);
+                // Save the original destination X
+                SetSavedArray(i, prevRoomSprites[i].DestinationRectangle.Y, prevCapturedAmount1);
+
+                // Get the new destination X
+                int newY = prevCapturedAmount1[i] + (cursor - Constants.ROOM_Y);
+                // Get the new destination width
+                int newHeight = ConstrainAmount(Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT - prevRoomSprites[i].DestinationRectangle.Y, prevCapturedDimension[i]);
+
+                // Adjust the source and destination rectangles
+                prevRoomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
+                prevRoomSprites[i].DestinationRectangle = new Rectangle(prevRoomSprites[i].DestinationRectangle.X, newY, prevRoomSprites[i].SourceRectangle[0].Width * Constants.SCALING_FACTOR, newHeight);
+            }
+        }
+
+        /// <summary>
+        /// Adjusts the source rectangle Y and height and the destination Y and width of the previous room sprites depending on where the cursor is. Expands downward.
+        /// </summary>
+        private void EmptyToDownFull()
+        {
+            for (int i = 0; i < nextRoomSprites.Count; i++)
+            {
+                // Save the original height to constrain it later
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Height, nextCapturedDimension);
+                // Save the original destination Y
+                SetSavedArray(i, nextRoomSprites[i].DestinationRectangle.Y, nextCapturedAmount1);
+                // Save starting source Y
+                SetSavedArray(i, nextRoomSprites[i].SourceRectangle[0].Y, nextCapturedAmount2);
+
+                // Get the destination Y as if the sprite was actually moving outside of the room
+                int trueY = nextCapturedAmount1[i] - Constants.SCALED_ROOM_HEIGHT + (cursor - Constants.ROOM_Y);
+                // Get the new destination Y; it will be between Constants.ROOM_Y and Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT
+                int newY = Constants.ROOM_Y + ConstrainAmount(trueY - Constants.ROOM_Y, Constants.SCALED_ROOM_HEIGHT);
+                // Get the new destination height; it will be between 0 and its original scaled height
+                int newHeight = ConstrainAmount(trueY + nextCapturedDimension[i] - Constants.ROOM_Y, nextCapturedDimension[i]);
+                // Get the new source Y for all source rectangles of the sprite.
+                int newSourceY = nextCapturedAmount2[i] + (nextCapturedDimension[i] / Constants.SCALING_FACTOR) - (newHeight / Constants.SCALING_FACTOR);
+
+                // Adjust the source and destination rectangles
+                nextRoomSprites[i].SourceRectangle[0].Y = newSourceY;
+                nextRoomSprites[i].SourceRectangle[0].Height = newHeight / Constants.SCALING_FACTOR;
+                nextRoomSprites[i].DestinationRectangle = new Rectangle(nextRoomSprites[i].DestinationRectangle.X, newY, nextRoomSprites[i].DestinationRectangle.Width, newHeight);
+            }
+        }
+
+        /// <summary>
+        /// Set transition to go to the left (west) room.
+        /// </summary>
+        public void PanLeftTransition()
         {
             Console.WriteLine("Pan left transition");
             plane = PLANE.HORIZONTAL;
-            this.prevRoomSprites = prevRoomSprites;
-            this.nextRoomSprites = nextRoomSprites;
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            cursors = new int[] { Constants.ROOM_X };
+            cursor = Constants.ROOM_X;
             prevHandler = FullToRightEmpty;
             nextHandler = EmptyToRightFull;
             cursorHandler = AdvanceCursor;
+
+            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
         }
 
         /// <summary>
-        /// Transition when going to the right (east) room.
+        /// Set transition to go to the right (east) room.
         /// </summary>
-        /// <param name="roomObjects"></param>
-        /// <param name="gameTime"></param>
-        public void PanRightTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
+        public void PanRightTransition()
         {
             Console.WriteLine("Pan right transition");
             plane = PLANE.HORIZONTAL;
-            this.prevRoomSprites = prevRoomSprites;
-            this.nextRoomSprites = nextRoomSprites;
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            prevCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            cursors = new int[] { Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH };
+            cursor = Constants.ROOM_X + Constants.SCALED_ROOM_WIDTH;
             prevHandler = FullToLeftEmpty;
             nextHandler = EmptyToLeftFull;
             cursorHandler = RetractCursor;
+
+            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            prevCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
         }
 
         /// <summary>
-        /// Transition when going to the forward (north) room.
+        /// Set transition to go to the forward (north) room.
         /// </summary>
-        /// <param name="roomObjects"></param>
-        /// <param name="gameTime"></param>
-        public void PanUpTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
+        public void PanUpTransition()
         {
             Console.WriteLine("Pan up transition");
             plane = PLANE.VERTICAL;
-            this.prevRoomSprites = prevRoomSprites;
-            this.nextRoomSprites = nextRoomSprites;
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            prevCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            cursors = new int[] { Constants.ROOM_Y };
+            cursor = Constants.ROOM_Y;
             prevHandler = FullToDownEmpty;
             nextHandler = EmptyToDownFull;
             cursorHandler = AdvanceCursor;
+
+            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
         }
 
         /// <summary>
-        /// Transition when going to the backward (south) room.
+        /// Set transition to go to the backward (south) room.
         /// </summary>
-        /// <param name="roomObjects"></param>
-        /// <param name="gameTime"></param>
-        public void PanDownTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites)
+        public void PanDownTransition()
         {
             Console.WriteLine("Pan down transition");
             plane = PLANE.VERTICAL;
-            this.prevRoomSprites = prevRoomSprites;
-            this.nextRoomSprites = nextRoomSprites;
-            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            prevCapturedAmount = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
-            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
-            cursors = new int[] { Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT };
+            cursor = Constants.ROOM_Y + Constants.SCALED_ROOM_HEIGHT;
             prevHandler = FullToUpEmpty;
             nextHandler = EmptyToUpFull;
             cursorHandler = RetractCursor;
+
+            prevCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedDimension = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            prevCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            prevCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, prevRoomSprites.Count).ToArray();
+            nextCapturedAmount1 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
+            nextCapturedAmount2 = Enumerable.Repeat(Constants.IMPOSSIBLE_VALUE, nextRoomSprites.Count).ToArray();
         }
 
         public void Draw(GameTime gameTime)
@@ -450,8 +452,8 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            prevRoomSprites = prevHandler(prevRoomSprites);
-            nextRoomSprites = nextHandler(nextRoomSprites);
+            prevHandler();
+            nextHandler();
             cursorHandler();
         }
     }

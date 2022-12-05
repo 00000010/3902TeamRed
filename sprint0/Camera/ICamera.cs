@@ -12,11 +12,9 @@ namespace sprint0
     {
         public bool Transitioning { get; set; }
         public bool TransitionSet { get; set; }
-        // TODO: make pass room objects by reference?
-        public void CurtainTransition(List<object> prevRoomObjects, List<object> nextRoomObjects);
-        public void PanLeftTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites);
-        public void PanRightTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites);
-        public void PanUpTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites);
-        public void PanDownTransition(List<Sprite> prevRoomSprites, List<Sprite> nextRoomSprites);
+        public void PanLeftTransition();
+        public void PanRightTransition();
+        public void PanUpTransition();
+        public void PanDownTransition();
     }
 }

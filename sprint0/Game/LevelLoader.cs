@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using System.Reflection;
-//using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
@@ -143,7 +142,6 @@ namespace sprint0
             gameObjectManager.AddPlayer(game.player);
         }
 
-         
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
         private void pointPointers()

@@ -30,27 +30,6 @@ namespace sprint0
         // The number of colors the sprite will have.
         public abstract int Colors();
 
-        // Create an array of rectangles, with each rectangle containing one frame of the sprite.
-        public Rectangle[] SourceRectangle(SpriteRectangle finalizedRectangle)
-        {
-            int colors = finalizedRectangle.Colors();
-            int framesPerColor = finalizedRectangle.Frames() / colors;
-            Rectangle[] frameCollection = new Rectangle[colors * framesPerColor];
-
-            for (int color = 0; color < colors; color++)
-            {
-                for (int frame = 0; frame < framesPerColor; frame++)
-                {
-                    frameCollection[(framesPerColor * color) + frame] = new Rectangle(
-                        finalizedRectangle.SourceX() + (color * Constants.HORIZONTAL_SPACE_BETWEEN_STATES),
-                        finalizedRectangle.SourceY() + (frame % framesPerColor) * Constants.LINK_HEIGHT,
-                        Constants.LINK_WIDTH,
-                        Constants.LINK_HEIGHT);
-                }
-            }
-            return frameCollection;
-        }
-
         public static Rectangle[] Background = { new Rectangle(0, 0, Constants.ROOM_WIDTH, Constants.ROOM_HEIGHT) };
 
         public static Rectangle[] Empty =

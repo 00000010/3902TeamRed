@@ -77,7 +77,6 @@ namespace sprint0
             setOfEnemyShooters.Add("Dragon");
         }
 
-        // TODO: refactor so it's addThing(object o) and uses reflection to add to the correct list
         public void addProjectile(IProjectile projectile)
         {
             projectilesInFlight.Add(projectile);
@@ -174,6 +173,36 @@ namespace sprint0
             HandleSpecialDisplays.Instance.GameOver = true;
         }
 
+        private void SetCameraSprites()
+        {
+            // Get a copy of the array of objects, not a copy of a reference to the array of objects.
+            List<Sprite> objectsToRemoveDeepCopy = new List<Sprite>(new Sprite[objectsToRemove.Count]);
+            for (int i = 0; i < objectsToRemove.Count; i++)
+            {
+                if (objectsToRemove[i] is Sprite)
+                {
+                    objectsToRemoveDeepCopy[i] = ((Sprite)objectsToRemove[i]).Copy();
+                }
+                else
+                {
+                    objectsToRemoveDeepCopy[i] = ((IObject)objectsToRemove[i]).Sprite.Copy();
+                }
+            }
+            List<Sprite> objectsToAddDeepCopy = new List<Sprite>(new Sprite[objectsToAdd.Count]);
+            for (int i = 0; i < objectsToAdd.Count; i++)
+            {
+                if (objectsToAdd[i] is Sprite)
+                {
+                    objectsToAddDeepCopy[i] = ((Sprite)objectsToAdd[i]).Copy();
+                }
+                else
+                {
+                    objectsToAddDeepCopy[i] = ((IObject)objectsToAdd[i]).Sprite.Copy();
+                }
+            }
+            camera.GetSprites(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
+        }
+
         public void Update(GameTime gameTime)
         {
             // Ensure Link does not keep attacking, but only with each press
@@ -206,53 +235,14 @@ namespace sprint0
             Enemy.UpdateEnemyProjectiles(game, enemies);
 
             //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this); // TODO: this line is messing with objectsToAdd and objectsToRemove, which messes up PanDown
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
 
             if (camera.Transitioning)
             {
                 if (!camera.TransitionSet)
                 {
-                    // TODO: put this in a separate function, but be very careful about references if doing so!
-                    // Get a copy of the array of objects, not a copy of a reference to the array of objects.
-                    List<Sprite> objectsToRemoveDeepCopy = new List<Sprite>(new Sprite[objectsToRemove.Count]);
-                    for (int i = 0; i < objectsToRemove.Count; i++)
-                    {
-                        if (objectsToRemove[i] is Sprite)
-                        {
-                            objectsToRemoveDeepCopy[i] = ((Sprite)objectsToRemove[i]).Copy();
-                        }
-                        else
-                        {
-                            objectsToRemoveDeepCopy[i] = ((IObject)objectsToRemove[i]).Sprite.Copy();
-                        }
-                    }
-                    List<Sprite> objectsToAddDeepCopy = new List<Sprite>(new Sprite[objectsToAdd.Count]);
-                    for (int i = 0; i < objectsToAdd.Count; i++)
-                    {
-                        if (objectsToAdd[i] is Sprite)
-                        {
-                            objectsToAddDeepCopy[i] = ((Sprite)objectsToAdd[i]).Copy();
-                        }
-                        else
-                        {
-                            objectsToAddDeepCopy[i] = ((IObject)objectsToAdd[i]).Sprite.Copy();
-                        }
-                    }
-                    switch (direction)
-                    {
-                        case Direction.LEFT:
-                            camera.PanLeftTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
-                            break;
-                        case Direction.RIGHT:
-                            camera.PanRightTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
-                            break;
-                        case Direction.UP:
-                            camera.PanUpTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
-                            break;
-                        case Direction.DOWN:
-                            camera.PanDownTransition(objectsToRemoveDeepCopy, objectsToAddDeepCopy);
-                            break;
-                    }
+                    SetCameraSprites();
+                    camera.SetDirection(direction);
                     camera.TransitionSet = true;
                 }                
                 camera.Update(gameTime);

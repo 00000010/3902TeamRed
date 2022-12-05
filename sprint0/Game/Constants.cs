@@ -9,8 +9,7 @@ namespace sprint0
 
         public const int BLOCK_SIZE = 16 * SCALING_FACTOR;
 
-        // TODO: SCALING_FACTOR should affect these
-        // Position of room
+        // Position of room (depends on SCALING_FACTOR)
         public const int ROOM_X = 150;
         public const int ROOM_Y = 120;
 
@@ -33,17 +32,6 @@ namespace sprint0
         public const int LINK_WIDTH = 40 * SCALING_FACTOR;
         public const int LINK_HEIGHT = 40 * SCALING_FACTOR;
 
-        public const int NUM_OF_DIRECTIONS = 4;
-        public const int NUM_OF_COLORS = 3;
-
-        // TODO: LINK_ROWS and LINK_SHEET_HEIGHT necessary?
-        public const int LINK_ROWS = 5;
-        public const int LINK_COLUMNS = 12;
-        public const int LINK_SHEET_WIDTH = LINK_WIDTH * NUM_OF_DIRECTIONS * NUM_OF_COLORS;
-        public const int LINK_SHEET_HEIGHT = LINK_HEIGHT * NUM_OF_DIRECTIONS * NUM_OF_COLORS;
-
-        public const int HORIZONTAL_SPACE_BETWEEN_STATES = LINK_WIDTH * NUM_OF_DIRECTIONS;
-
         public const int FROM_DOWN_LINK_POSITION_X = 366;
         public const int FROM_DOWN_LINK_POSITION_Y = 352;
         public const int FROM_UP_LINK_POSITION_X = 366;
@@ -53,7 +41,7 @@ namespace sprint0
         public const int FROM_RIGHT_LINK_POSITION_X = 540;
         public const int FROM_RIGHT_LINK_POSITION_Y = 256;
 
-        public const int NUM_OF_LEVELS = 18; // TODO: set to correct number
+        public const int NUM_OF_LEVELS = 18;
 
         public const string LEVEL_FILE_PREFIX = "Level";
 

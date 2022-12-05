@@ -20,7 +20,6 @@
     <None Remove="ScreenDisplay\" />
     <None Remove="Item\" />
     <None Remove="Player\" />
-    <None Remove="Link\" />
     <None Remove="Controller\" />
     <None Remove="Game\" />
     <None Remove="Levels\Dungeon1\" />
@@ -42,7 +41,6 @@
     <Folder Include="Block\" />
     <Folder Include="Item\" />
     <Folder Include="Player\" />
-    <Folder Include="Link\" />
     <Folder Include="Controller\" />
     <Folder Include="Levels\Dungeon1\" />
   </ItemGroup>
