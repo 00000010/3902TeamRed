@@ -152,6 +152,21 @@ Remove Controls Screen: 'Z' <br/>
 To update a control, open up the controls screen and first tap the key that the current control is mapped to. Then press the new mapping that you want to replace the key for. If the requested key is already mapped to another key elsewhere, the request won't register. In that case, choose a different key to map to. <br/>
 YOU CANNOT CHANGE THE CONTROLLER MAPPINGS FOR VIEWING (X) AND EXITING (Z) THE CONTROLS SCREEN. <br/>
 
+<!-- LEVEL CREATOR CONTROLS -->
+## Level Creator Controls
+
+Change object - Click on either a block, item, or enemy
+Place object - Click or hold down the left mouse click
+Remove object - Right click on said object
+Place Door - Click on a door
+Move to north room - 'W'<br/>
+Move to west room - 'A'<br/>
+Move to south room - 'S'<br/>
+Move to east room - 'D'<br/>
+Exit creator - 'ESC'<br/>
+Exit Game - 'Q'<br/>
+
+THE LEVEL SELECT SCREEN IS NOT SCROLLING; THEREFORE, TOO MANY LEVELS MAY TAKE UP SPACE. TOO LOAD THE CORRECT LEVEL MAKE SURE 'Custom Level' (with a space) IS SELECTED. LEVELS SUCH AS DUNGEON 33 AND 'CustomLevel' (no space) MAY BE DELETED TO SHOW THE CORRECT CUSTOM LEVEL.
 <!-- NON-REQUIRED TOOLS AND PROCESSES -->
 ## Non-Required Tools and Processes
 
