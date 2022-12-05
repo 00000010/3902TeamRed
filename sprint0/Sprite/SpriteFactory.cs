@@ -24,8 +24,12 @@ namespace sprint0
         private Texture2D GreenBlock, BlackBlock, PurpleBlock, waterBlock;
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
         private Texture2D ProjectileEffect;
-        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart;
+        private Texture2D TopHud, Fullheart, Halfheart, Emptyheart, MapBlocks;
+
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
+        private Texture2D GridSquareBlock, SaveIconBlock, LevelCreatorTextBlock;
+
+        private Texture2D logo;
 
         private SpriteBatch spriteBatch;
 
@@ -45,28 +49,26 @@ namespace sprint0
         {
             this.spriteBatch = spriteBatch;
 
-            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonSheet = content.Load<Texture2D>("DungeonBackground");
-            dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
-            dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
-            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
-            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
-            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
-            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
-            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
-
             dungeonWallNorth = content.Load<Texture2D>("DungeonNorthWall");
             dungeonWallSouth = content.Load<Texture2D>("DungeonSouthWall");
             dungeonWallEast = content.Load<Texture2D>("DungeonEastWall");
             dungeonWallWest = content.Load<Texture2D>("DungeonWestWall");
-
+            dungeonDoorNorth = content.Load<Texture2D>("DungeonDoorNorth");
+            dungeonDoorSouth = content.Load<Texture2D>("DungeonDoorSouth");
+            dungeonDoorEast = content.Load<Texture2D>("DungeonDoorEast");
+            dungeonDoorWest = content.Load<Texture2D>("DungeonDoorWest");
+            dungeonBadDoorNorth = content.Load<Texture2D>("DungeonBadDoorNorth");
+            dungeonBadDoorSouth = content.Load<Texture2D>("DungeonBadDoorSouth");
             dungeonSand = content.Load<Texture2D>("DungeonSand");
             dungeonMonster1 = content.Load<Texture2D>("DungeonMonster1");
             dungeonMonster2 = content.Load<Texture2D>("DungeonMonster2");
             dungeonMonster1Faded = content.Load<Texture2D>("DungeonMonster1Faded");
             dungeonMonster2Faded = content.Load<Texture2D>("DungeonMonster2Faded");
+            dungeonBlock = content.Load<Texture2D>("DungeonBlock");
+            dungeonAbyss = content.Load<Texture2D>("DungeonAbyss");
             dungeonStairs = content.Load<Texture2D>("DungeonStairs");
-        
+
             waterBlock = content.Load<Texture2D>("WaterBlock");
 
             linkSpritesheet = content.Load<Texture2D>("Link");
@@ -75,6 +77,10 @@ namespace sprint0
             GreenBlock = content.Load<Texture2D>("ZeldaAltpBlock");
             BlackBlock = content.Load<Texture2D>("ZeldaLaBlock");
             PurpleBlock = content.Load<Texture2D>("ZeldaLadxBlock");
+
+            GridSquareBlock = content.Load<Texture2D>("GridSquare");
+            SaveIconBlock = content.Load<Texture2D>("SaveIcon");
+            LevelCreatorTextBlock = content.Load<Texture2D>("LevelCreatorText");
 
             Arrow = content.Load<Texture2D>("ZeldaSpriteArrow");
             BlueCandle = content.Load<Texture2D>("ZeldaSpriteBlueCandle");
@@ -90,6 +96,7 @@ namespace sprint0
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
             Triforce = content.Load<Texture2D>("zeldaspritesheet");
+
             ProjectileEffect = content.Load<Texture2D>("zeldaspritesheet");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
@@ -102,6 +109,9 @@ namespace sprint0
             Fullheart = content.Load<Texture2D>("Heart");
             Halfheart = content.Load<Texture2D>("HalfHeart");
             Emptyheart = content.Load<Texture2D>("EmptyHeart");
+            MapBlocks = content.Load<Texture2D>("MapBlocks");
+
+            logo = content.Load<Texture2D>("Zelda_1_Logo_in_game");
         }
 
         public void LoadZeldaTextures(ContentManager content)
@@ -112,9 +122,12 @@ namespace sprint0
         /*
          * Background
          */
+        
         public Sprite Dungeon(Vector2 position)
         {
-            return new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            Sprite dun = new Sprite(dungeonSheet, SpriteRectangle.Background, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+            dun.objectKind = "Dungeon";
+            return dun;
         }
 
         public Sprite DungeonNorthWall(Vector2 position)
@@ -386,6 +399,28 @@ namespace sprint0
         }
 
         /*
+         * Dungeon Creator
+         */
+        public Sprite GridSquare(Vector2 position)
+        {
+            Sprite grid = new Sprite(GridSquareBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+            grid.objectKind = "GridSquare";
+            return grid;
+        }
+
+        public Sprite SaveIcon(Vector2 position)
+        {
+            Sprite save = new Sprite(SaveIconBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
+            save.objectKind = "SaveIcon";
+            return save;
+        }
+
+        public Sprite BlockText(Vector2 position)
+        {
+            return new Sprite(LevelCreatorTextBlock, BlockRectangle.NormalBlock, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+        }
+
+        /*
          * Items
          */
         public Sprite ZeldaBlueCandle(Vector2 position)
@@ -537,25 +572,25 @@ namespace sprint0
         public Sprite DungeonMonster1(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1.Width, dungeonMonster1.Height) };
-            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster1, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2.Width, dungeonMonster2.Height) };
-            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster2, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster1Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster1Faded.Width, dungeonMonster1Faded.Height) };
-            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster1Faded, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         public Sprite DungeonMonster2Faded(Vector2 position)
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, dungeonMonster2Faded.Width, dungeonMonster2Faded.Height) };
-            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position, Constants.ENEMY_LAYER_DEPTH);
+            return new Sprite(dungeonMonster2Faded, rectangles, spriteBatch, position, Constants.BLOCK_LAYER_DEPTH);
         }
 
         // TODO: dictionary with key as direction for these
@@ -641,6 +676,11 @@ namespace sprint0
             return new Sprite(ZeldaOrangeMap, SpriteRectangle.ZeldaOrangeMapHUD, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
         }
 
+        public Sprite ZeldaBlueBox(Vector2 position)
+        {
+            return new Sprite(HUD, SpriteRectangle.ZeldaBlueBox, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
         /* inventory */
         public Sprite TopHUD(Vector2 position)
         {
@@ -660,6 +700,26 @@ namespace sprint0
         {
             Rectangle[] rectangles = new Rectangle[] { new Rectangle(0, 0, Emptyheart.Width, Emptyheart.Height) };
             return new Sprite(Emptyheart, rectangles, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite Logo(Vector2 position)
+        {
+            return new Sprite(logo, SpriteRectangle.Logo, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite BluePixels(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.BluePixels, spriteBatch, position, Constants.BACKGROUND_LAYER_DEPTH);
+        }
+
+        public Sprite GreenPixel(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.GreenPixel, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
+        }
+
+        public Sprite RedPixel(Vector2 position)
+        {
+            return new Sprite(MapBlocks, SpriteRectangle.RedPixel, spriteBatch, position, Constants.BACKGROUND_BLOCK_LAYER_DEPTH);
         }
     }
 }

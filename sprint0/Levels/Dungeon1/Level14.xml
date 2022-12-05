@@ -5,6 +5,7 @@
     </Pointers>
     <Meta>
         <Name>Room14</Name>
+		<Start>False</Start>
     </Meta>
     <Asset>
 		<Item>

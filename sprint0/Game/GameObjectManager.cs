@@ -14,7 +14,7 @@ namespace sprint0
         Camera camera;
 
         public TypeOfProj LinkProjectile = TypeOfProj.ARROW;
-        public Inventory inventory;
+        public KeyboardMappings inventory;
 
         public List<IUpdateable> updateables = new List<IUpdateable>();
         public List<IDrawable> drawables = new List<IDrawable>();
@@ -42,10 +42,10 @@ namespace sprint0
         {
             this.game = game;
             camera = game.camera;
-            inventory = InventoryFactory.Instance.TopHUD(game);
             PopulateCollisionResolutionDic();
             PopulateEnemyShooters();
             AddHud();
+            AddKeyboardMappings();
         }
 
         private void PopulateCollisionResolutionDic()
@@ -374,10 +374,18 @@ namespace sprint0
             HandleSpecialDisplays.Instance.Victory = true;
         }
 
-        private void AddHud()
+        public void AddHud()
         {
+            inventory = InventoryFactory.Instance.TopHUD(game);
             drawables.Add(inventory);
             updateables.Add(inventory);
+        }
+
+        public void AddKeyboardMappings()
+        {
+            KeyboardDrawings drawings = new KeyboardDrawings(game);
+            drawables.Add(drawings);
+            updateables.Add(drawings);
         }
     }
 }

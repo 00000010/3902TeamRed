@@ -17,11 +17,11 @@ namespace sprint0
 
         private InventoryFactory() { }
 
-        public Inventory TopHUD(Game1 game)
+        public KeyboardMappings TopHUD(Game1 game)
         {
             return new TopHud(game);
         }
-        internal class TopHud : Inventory
+        internal class TopHud : KeyboardMappings
         {
             public TopHud(Game1 game)
             {
@@ -32,7 +32,7 @@ namespace sprint0
                 Velocity = Vector2.Zero;
 
                 /* Sword will always be available so it is drawn in the hud*/
-                Sword = SpriteFactory.Instance.ZeldaSword(new Vector2(455, 55));
+                Sword = SpriteFactory.Instance.ZeldaSword(new Vector2(455, 60));
 
                 /*array of sprites of hearts to be drawn side to side it can either be a full heart, a half heart, or an empty heart*/
                 Sprite[] AllHearts = { SpriteFactory.Instance.FullHeart(new Vector2(520, 65)), SpriteFactory.Instance.FullHeart(new Vector2(535, 65)),

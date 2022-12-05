@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XnaContent>
+	<Pointers>
+		
+	</Pointers>
+    <Meta>
+        <Name>RoomControls</Name>
+		<Start>False</Start>
+    </Meta>
+    <Asset>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>PauseText</ObjectName>
+			<Location>20 50</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>30 80</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>ResumeText</ObjectName>
+			<Location>20 150</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>30 180</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>RestartText</ObjectName>
+			<Location>20 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>30 280</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>PrevProjectileText</ObjectName>
+			<Location>200 50</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>210 80</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>NextProjectileText</ObjectName>
+			<Location>200 150</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>210 180</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>UpText</ObjectName>
+			<Location>200 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>210 280</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>DownText</ObjectName>
+			<Location>200 350</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>210 380</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>LeftText</ObjectName>
+			<Location>400 50</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>410 80</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>RightText</ObjectName>
+			<Location>400 150</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>410 180</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>ShootProjectileText</ObjectName>
+			<Location>400 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>410 280</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>SwordText</ObjectName>
+			<Location>400 350</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>410 380</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>ExitText</ObjectName>
+			<Location>600 50</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>610 80</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>ShowInventoryText</ObjectName>
+			<Location>600 150</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>610 180</Location>
+		</Item>
+		<Item>
+			<ObjectType>TextSprite</ObjectType>
+			<ObjectName>HideInventoryText</ObjectName>
+			<Location>600 250</Location>
+		</Item>
+		<Item>
+			<ObjectType>Sprite</ObjectType>
+			<ObjectName>ZeldaBlueBox</ObjectName>
+			<Location>610 280</Location>
+		</Item>
+    </Asset>
+</XnaContent>
+

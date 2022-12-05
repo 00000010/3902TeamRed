@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public class Inventory : IInventory, IObject
+    public class KeyboardMappings : IInventory, IObject
     {
         protected Game1 game { get; set; }
         public Sprite Sprite { get; set; } //hud
@@ -38,7 +38,7 @@ namespace sprint0
 
         public bool Visible => throw new NotImplementedException();
 
-        public Inventory() { }
+        public KeyboardMappings() { }
 
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
@@ -53,7 +53,9 @@ namespace sprint0
 
         public virtual void Draw(GameTime gameTime)
         {
-            if (game.loader.currentRoom.name.Equals("RoomInventory")) return;
+            if (game.loader.currentRoom.name.Equals("RoomInventory") || game.loader.currentRoom.name.Equals("RoomControls")) return;
+            if (HandleSpecialDisplays.Instance.TitleScreen || HandleSpecialDisplays.Instance.LevelSelectScreen 
+                || HandleSpecialDisplays.Instance.LevelCreatorScreen) return;
             Sprite.Draw(gameTime);
             Sword.Draw(gameTime);
 
@@ -62,16 +64,16 @@ namespace sprint0
             CoinTextSprite.Draw(gameTime);
             KeyTextSprite.Draw(gameTime);
             BoomerangTextSprite.Draw(gameTime);
-            ZeldaNumOne.Draw(gameTime);
-            ZeldaLevelWord.Draw(gameTime);
-            ZeldaBlueMap.Draw(gameTime);
+            //ZeldaNumOne.Draw(gameTime);
+            //ZeldaLevelWord.Draw(gameTime);
+            //ZeldaBlueMap.Draw(gameTime);
 
             foreach (Sprite heart in HealthSprite)
             {
                 heart.Draw(gameTime);
             }
-            Vector2 ArrowPosition = new Vector2(410, 55);
-            Vector2 FirePosition = new Vector2(400, 58);
+            Vector2 ArrowPosition = new Vector2(410, 60);
+            Vector2 FirePosition = new Vector2(406, 58);
             Vector2 BoomerangPosition = new Vector2(410, 65);
             if (CurrentItem == TypeOfProj.ARROW)
             {

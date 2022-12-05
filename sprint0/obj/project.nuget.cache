@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "PgbMTX+nciCnyJr5LLQiHHAjgAU29J2fXSbJfU6dDtQXe+IXxEY5hndN7Z3PkkTtQKEigNQokLSOadkpCFgA7Q==",
+  "success": true,
+  "projectFilePath": "/Users/chicken/3902TeamRed/sprint0/sprint0.csproj",
+  "expectedPackageFiles": [
+    "/Users/chicken/.nuget/packages/inputmanagement/1.0.0/inputmanagement.1.0.0.nupkg.sha512",
+    "/Users/chicken/.nuget/packages/monogame.content.builder.task/3.8.1.303/monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "/Users/chicken/.nuget/packages/monogame.framework.desktopgl/3.8.1.303/monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'InputManagement 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "InputManagement",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

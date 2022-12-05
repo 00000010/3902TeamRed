@@ -21,6 +21,12 @@ namespace sprint0
             return new ZeldaArrow(position, direction);
         }
 
+        //Trying to make the sword do damage
+        //public Projectile ZeldaSword(Vector2 position, Direction direction)
+        //{
+        //    return new ZeldaSword(position, direction);
+        //}
+
         public Projectile ZeldaBoomerang(Vector2 position, Direction direction, string shooter = "")
         {
             return new ZeldaBoom(position, direction, shooter);
@@ -53,25 +59,25 @@ namespace sprint0
             switch (direction)
             {
                 case Direction.LEFT:
-                    arrowThrowPosition = new Vector2(position.X + 11, position.Y + 20);
+                    arrowThrowPosition = new Vector2(position.X + 11, position.Y + 36);
                     Sprite = SpriteFactory.Instance.ZeldaArrowLeft(arrowThrowPosition);
                     velocity.X -= 5;
                     InitPosition = arrowThrowPosition;
                     break;
                 case Direction.RIGHT:
-                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 30);
+                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 36);
                     Sprite = SpriteFactory.Instance.ZeldaArrowRight(arrowThrowPosition);
                     velocity.X += 5;
-                    InitPosition = new Vector2(850,-100);
+                    InitPosition = new Vector2(850, -100);
                     break;
                 case Direction.UP:
-                    arrowThrowPosition = new Vector2(position.X + 36, position.Y + 20);
+                    arrowThrowPosition = new Vector2(position.X + 36, position.Y + 0);
                     Sprite = SpriteFactory.Instance.ZeldaArrowUp(arrowThrowPosition);
                     velocity.Y -= 5;
                     InitPosition = arrowThrowPosition;
                     break;
                 case Direction.DOWN:
-                    arrowThrowPosition = new Vector2(position.X + 22, position.Y + 22);
+                    arrowThrowPosition = new Vector2(position.X + 36, position.Y + 22);
                     Sprite = SpriteFactory.Instance.ZeldaArrowDown(arrowThrowPosition);
                     velocity.Y += 5;
                     InitPosition = arrowThrowPosition;
@@ -185,6 +191,35 @@ namespace sprint0
             CollideDamage = 5;
         }
     }
+
+    //Trying for sword damage
+    //internal class ZeldaSword : Projectile
+    //{
+    //    public ZeldaSword(Vector2 position, Direction direction)
+    //    {
+    //        Vector2 velocity = Vector2.Zero;
+    //        switch (direction)
+    //        {
+    //            case Direction.LEFT:
+    //                Sprite = SpriteFactory.Instance.LinkAttackingLeft(position);
+    //                break;
+    //            case Direction.RIGHT:
+    //                Sprite = SpriteFactory.Instance.LinkAttackingRight(position);
+    //                break;
+    //            case Direction.UP:
+    //                Sprite = SpriteFactory.Instance.LinkAttackingUp(position);
+    //                break;
+    //            case Direction.DOWN:
+    //                Sprite = SpriteFactory.Instance.LinkAttackingDown(position);
+    //                break;
+    //            default:
+    //                break;
+    //        }
+    //        Velocity = velocity;
+    //        InitPosition = position;
+    //        CollideDamage = 10;
+    //    }
+    //}
 
     internal class ZeldaRock : Projectile
     {

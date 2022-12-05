@@ -7,6 +7,7 @@
     </Pointers>
     <Meta>
         <Name>Room1</Name>
+        <Start>True</Start>
     </Meta>
     <Asset>
         <Item>
@@ -14,26 +15,26 @@
             <ObjectName>Dungeon</ObjectName>
             <Location>150 120</Location>
         </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonNorthWall</ObjectName>
-            <Location>150 120</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonSouthWall</ObjectName>
-            <Location>150 408</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonEastWall</ObjectName>
-            <Location>598 120</Location>
-        </Item>
-        <Item>
-            <ObjectType>Block</ObjectType>
-            <ObjectName>DungeonWestWall</ObjectName>
-            <Location>150 120</Location>
-        </Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonNorthWall</ObjectName>
+			<Location>150 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonSouthWall</ObjectName>
+			<Location>150 408</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonEastWall</ObjectName>
+			<Location>598 120</Location>
+		</Item>
+		<Item>
+			<ObjectType>Block</ObjectType>
+			<ObjectName>DungeonWestWall</ObjectName>
+			<Location>150 120</Location>
+		</Item>
         <Item>
             <ObjectType>Door</ObjectType>
             <ObjectName>DungeonDoorNorth</ObjectName>
@@ -54,13 +55,7 @@
             <ObjectName>DungeonDoorWest</ObjectName>
             <Location>174 264</Location>
         </Item>
-        <Item>
-			<ObjectType>Sprite</ObjectType>
-			<ObjectName>DungeonSand</ObjectName>
-			<Location>374 312</Location>
-			<Dimension>2 1</Dimension>
-		</Item>
-        <Item>
+		<Item>
 			<ObjectType>Sprite</ObjectType>
 			<ObjectName>DungeonSand</ObjectName>
 			<Location>310 344</Location>
@@ -128,4 +123,3 @@
         </Item>
     </Asset>
 </XnaContent>
-

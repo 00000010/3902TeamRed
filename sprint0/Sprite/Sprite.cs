@@ -25,6 +25,7 @@ namespace sprint0
 
         public Direction Direction { get; set; }
         public int NumUpdates { get; set; }
+        public string objectKind { get; set; }
 
         public int DrawOrder => throw new NotImplementedException();
 
@@ -54,6 +55,7 @@ namespace sprint0
         /// <param name="layerDepth">float between 0 and 1, with a higher number indicating drawn later</param>
         public Sprite(Texture2D texture, Rectangle[] sourceRectangle, SpriteBatch spriteBatch, Vector2 position, float layerDepth)
         {
+            objectKind = "Sprite";
             Texture = texture;
             SourceRectangle = sourceRectangle;
             DestinationRectangle = sourceRectangle[0]; //testing
@@ -102,7 +104,6 @@ namespace sprint0
 
             if (SourceRectangle == ItemRectangle.BowArrowUp || SourceRectangle == ItemRectangle.BowArrowDown || SourceRectangle == ItemRectangle.BowArrowLeft || SourceRectangle == ItemRectangle.BowArrowRight) return;
         }
-
         public virtual void UpdateFrame(GameTime gameTime)
         {
             //Waits for 4 updates to occur before doing another update

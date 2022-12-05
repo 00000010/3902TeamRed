@@ -20,10 +20,18 @@ namespace sprint0
         public IItem item;
         public IEnemy enemy;
 
+        public ISprite cursor;
+
         public GameObjectManager manager;
         public LevelLoader loader;
         public Camera camera;
-        KeyboardController keyboard;
+
+        public LevelCreator creator;
+        public Minimap map;
+
+        public MouseController mouse;
+        public KeyboardController keyboard;
+        public ControlsKeyboard controlsKeyboard;
 
         public int level = 0;
 
@@ -44,13 +52,28 @@ namespace sprint0
             manager = new GameObjectManager(this);
 
             keyboard = new KeyboardController();
-            keyboard.LoadDefaultKeys(this);
+            keyboard.LoadTitleScreenKeys(this);
 
+            mouse = new MouseController(new Vector2(Constants.SCALED_ROOM_WIDTH, Constants.SCALED_ROOM_HEIGHT));
+            creator = new LevelCreator(this);
+
+            controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
-            loader.LoadLevel("Dungeon1");
-            
+
+            loader.LoadLevel("TitleScreen");
+
+            map = new Minimap(this);
+
+            cursor = SpriteFactory.Instance.ZeldaArrowRight(new Vector2(250, 310));
+            manager.AddObject(cursor);
+
+            manager.AddPlayer(player);
+            //camera = new Camera(new GameCamera());
+            //manager.AddObject(camera);
+
             HandleSpecialDisplays.Instance.Initialize(this);
+            HandleSpecialDisplays.Instance.TitleScreen = true;
 
             //Play theme song in background
             MediaPlayer.Play(SoundFactory.Instance.themeSound);
@@ -67,14 +90,17 @@ namespace sprint0
             HandleSpecialDisplays.Instance.LoadDisplays(Content, _spriteBatch);
             TextSpriteFactory.Instance.LoadTextures(Content, _spriteBatch);
 
-            player = PlayerFactory.Instance.Link(new Vector2(Constants.FROM_DOWN_LINK_POSITION_X, Constants.FROM_DOWN_LINK_POSITION_Y));
+            player = PlayerFactory.Instance.Link(new Vector2(-120, -180));
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (HandleSpecialDisplays.Instance.HandleSpecialUpdates(gameTime)) return;
 
+            map.Update(gameTime);
+            mouse.Update(gameTime);
             keyboard.Update(gameTime);
+            controlsKeyboard.Update(gameTime);
             manager.Update(gameTime);
             base.Update(gameTime);
         }
@@ -85,6 +111,7 @@ namespace sprint0
 
             _spriteBatch.Begin(SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
             manager.Draw(gameTime);
+            map.Draw(gameTime);
             HandleSpecialDisplays.Instance.HandleSpecialDrawings();
             _spriteBatch.End();
 

@@ -18,6 +18,7 @@ namespace sprint0
         public string TypeOfObject { get; set; }
         public bool ShotBoomerang { get; set; }
         public GameTime LastDamaged { get; set; }
+        public Vector2 OldPosition { get; set; }
         public int Health { get; set; }
         public bool Enabled => throw new NotImplementedException();
 

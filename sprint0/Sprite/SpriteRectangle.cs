@@ -318,5 +318,30 @@ namespace sprint0
         {
             new Rectangle(0, 0, 80, 70)
         };
+
+        public static Rectangle[] Logo =
+        {
+            new Rectangle(0, 0, 256, 120)
+        };
+
+        public static Rectangle[] ZeldaBlueBox =
+        {
+            new Rectangle(60, 53, 26, 26)
+        };
+
+        public static Rectangle[] BluePixels =
+        {
+            new Rectangle(0, 0, 5, 4)
+        };
+
+        public static Rectangle[] GreenPixel =
+        {
+            new Rectangle(1, 4, 1, 2)
+        };
+
+        public static Rectangle[] RedPixel =
+        {
+            new Rectangle(3, 4, 1, 2)
+        };
     }
 }

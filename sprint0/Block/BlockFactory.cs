@@ -85,6 +85,11 @@ namespace sprint0
         {
             return new DungeonMonster2Faded(position);
         }
+
+        public Block ZeldaOldMan(Vector2 position)
+        {
+            return new ZeldaOldMan(position);
+        }
     }
 
     internal class ZeldaGreenBlock : Block
@@ -188,6 +193,14 @@ namespace sprint0
         public DungeonMonster2Faded(Vector2 position)
         {
             Sprite = SpriteFactory.Instance.DungeonMonster2Faded(position);
+        }
+    }
+
+    internal class ZeldaOldMan : Block
+    {
+        public ZeldaOldMan(Vector2 position)
+        {
+            Sprite = SpriteFactory.Instance.ZeldaOldMan(position);
         }
     }
 }
