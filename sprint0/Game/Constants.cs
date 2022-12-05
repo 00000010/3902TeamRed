@@ -47,7 +47,7 @@ namespace sprint0
         public const int FROM_DOWN_LINK_POSITION_X = 366;
         public const int FROM_DOWN_LINK_POSITION_Y = 352;
         public const int FROM_UP_LINK_POSITION_X = 366;
-        public const int FROM_UP_LINK_POSITION_Y = 158;
+        public const int FROM_UP_LINK_POSITION_Y = 160;
         public const int FROM_LEFT_LINK_POSITION_X = 190;
         public const int FROM_LEFT_LINK_POSITION_Y = 256;
         public const int FROM_RIGHT_LINK_POSITION_X = 540;

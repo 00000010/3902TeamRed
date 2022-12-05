@@ -1,16 +1,15 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Collision/CollisionDetection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Collision/PlayerDoorCollisionCommand.cs">
     <Files>
       <File FileName="sprint0/Game/Game1.cs" Line="83" Column="1" />
       <File FileName="sprint0/Game/Constants.cs" Line="75" Column="43" />
       <File FileName="sprint0/Camera/Camera.cs" Line="443" Column="1" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="209" Column="1" />
-      <File FileName="sprint0/Collision/CollisionDetection.cs" Line="83" Column="1" />
-      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="61" Column="1" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="187" Column="1" />
-      <File FileName="sprint0/Collision/CollisionResolution.cs" Line="33" Column="1" />
-      <File FileName="sprint0/Collision/EnemyEnemyCollisionCommand.cs" Line="57" Column="1" />
-      <File FileName="sprint0/Collision/ProjectileBlockCollisionCommand.cs" Line="30" Column="53" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="13" Column="30" />
+      <File FileName="sprint0/Collision/CollisionDetection.cs" Line="83" Column="65" />
+      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="48" Column="21" />
+      <File FileName="sprint0/Collision/CollisionResolution.cs" Line="26" Column="30" />
+      <File FileName="sprint0/Player/IPlayer.cs" Line="13" Column="24" />
+      <File FileName="sprint0/Player/Player.cs" Line="23" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,11 +17,14 @@
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
               <Node name="Camera" expanded="True" />
-              <Node name="Collision" expanded="True" />
+              <Node name="Collision" expanded="True">
+                <Node name="PlayerDoorCollisionCommand.cs" selected="True" />
+              </Node>
               <Node name="Game" expanded="True" />
               <Node name="Levels" expanded="True">
                 <Node name="Dungeon1" expanded="True" />
               </Node>
+              <Node name="Player" expanded="True" />
               <Node name="Sprite" expanded="True" />
             </Node>
           </Node>
@@ -33,18 +35,10 @@
           <Value>objectsToAdd.Count</Value>
           <Value>objectsToRemove.Count</Value>
           <Value>updateables</Value>
-          <Value>player</Value>
-          <Value>projectiles</Value>
-          <Value>enemies</Value>
-          <Value>blocks</Value>
-          <Value>doors</Value>
-          <Value>items</Value>
-          <Value>object1</Value>
-          <Value>object1Rect</Value>
-          <Value>otherObjects</Value>
-          <Value>shooterOfProjectile</Value>
+          <Value>sprite1</Value>
+          <Value>sprite2</Value>
           <Value>manager</Value>
-          <Value>expectedShooter</Value>
+          <Value>intersectionLoc</Value>
         </State>
       </Pad>
     </Pads>
@@ -52,17 +46,22 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="83" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="83" column="1" />
       <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionResolution.cs" relfile="sprint0/Collision/CollisionResolution.cs" line="33" column="1" />
       <Breakpoint enabled="false" conditionExpression="camera.Transitioning==false" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="259" column="1" />
       <Breakpoint enabled="false" conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="180" column="1" />
       <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="262" column="1" />
       <Breakpoint enabled="false" conditionExpression="updateables.Count==18" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="257" column="1" />
-      <Breakpoint conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="202" column="13" />
-      <Breakpoint file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="53" column="1" />
+      <Breakpoint enabled="false" conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="202" column="13" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="53" column="1" />
+      <Breakpoint enabled="false" conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="209" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionResolution.cs" relfile="sprint0/Collision/CollisionResolution.cs" line="26" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/PlayerDoorCollisionCommand.cs" relfile="sprint0/Collision/PlayerDoorCollisionCommand.cs" line="48" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/PlayerDoorCollisionCommand.cs" relfile="sprint0/Collision/PlayerDoorCollisionCommand.cs" line="48" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/PlayerDoorCollisionCommand.cs" relfile="sprint0/Collision/PlayerDoorCollisionCommand.cs" line="40" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
 </Properties>

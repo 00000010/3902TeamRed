@@ -27,8 +27,6 @@ namespace sprint0
         private int[] prevCapturedAmount1;
         private int[] prevCapturedAmount2;
 
-        private List<IDrawable> drawables = new List<IDrawable>(); // TODO: for testing; DELETE!
-
         // The cursors that determine where the appearing/disappearing of the room is.
         private int[] cursors;
 

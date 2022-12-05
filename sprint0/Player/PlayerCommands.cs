@@ -151,7 +151,7 @@ namespace sprint0
         {
             player = manager.player;
             player.State = State.ATTACKING;
-            player.Velocity = Vector2.Zero; // TODO: comment this line out to make Link attack and kind of keep running; causes weird bug where Link can somehow disappear...; need to decide whether to fix this or call it a feature
+            player.Velocity = Vector2.Zero;
             player.UpdatePlayerSprite(manager);
             SoundFactory.Instance.zeldaSword.Play();
         }
