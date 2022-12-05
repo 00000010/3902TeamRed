@@ -32,7 +32,7 @@ namespace sprint0
             Dictionary<IObject, IShooter> shooterOfProjectileObjects = new Dictionary<IObject, IShooter>();
             foreach (KeyValuePair<IProjectile, IShooter> entry in shooterOfProjectile) shooterOfProjectileObjects.Add((IObject)entry.Key, entry.Value);
 
-            HandlePlayerCollisions(objectPlayer, objectDoors, shooterOfProjectileObjects, manager);
+            HandlePlayerCollisions(objectPlayer, objectDoors, shooterOfProjectileObjects, manager); // modified!
             HandlePlayerCollisions(objectPlayer, objectProjectiles, shooterOfProjectileObjects, manager);
             HandlePlayerCollisions(objectPlayer, objectEnemies, shooterOfProjectileObjects, manager);
             HandlePlayerCollisions(objectPlayer, objectItems, shooterOfProjectileObjects, manager);
@@ -50,7 +50,7 @@ namespace sprint0
             Rectangle playerRect = new Rectangle((int)player.Position.X + offset,
                 (int)player.Position.Y + offset, Constants.BLOCK_SIZE,
                 Constants.BLOCK_SIZE);
-            HandleInnerLoop(player, playerRect, otherObjects, shooterOfProjectile, manager, "Player");
+            HandleInnerLoop(player, playerRect, otherObjects, shooterOfProjectile, manager, "Player"); // TODO: HERE it is modifying its parameters illegally!
         }
 
         private static void HandleGeneralCollisions(List<IObject> objects1, List<IObject> objects2,

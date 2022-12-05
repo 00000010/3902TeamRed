@@ -1,10 +1,16 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Camera/Camera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Collision/CollisionDetection.cs">
     <Files>
       <File FileName="sprint0/Game/Game1.cs" Line="83" Column="1" />
-      <File FileName="sprint0/Camera/Camera.cs" Line="222" Column="1" />
-      <File FileName="sprint0/Game/GameObjectManager.cs" Line="266" Column="1" />
-      <File FileName="sprint0/Camera/ICamera.cs" Line="18" Column="81" />
+      <File FileName="sprint0/Game/Constants.cs" Line="75" Column="43" />
+      <File FileName="sprint0/Camera/Camera.cs" Line="443" Column="1" />
+      <File FileName="sprint0/Game/GameObjectManager.cs" Line="209" Column="1" />
+      <File FileName="sprint0/Collision/CollisionDetection.cs" Line="83" Column="1" />
+      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" Line="61" Column="1" />
+      <File FileName="sprint0/Game/LevelLoader.cs" Line="187" Column="1" />
+      <File FileName="sprint0/Collision/CollisionResolution.cs" Line="33" Column="1" />
+      <File FileName="sprint0/Collision/EnemyEnemyCollisionCommand.cs" Line="57" Column="1" />
+      <File FileName="sprint0/Collision/ProjectileBlockCollisionCommand.cs" Line="30" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +18,11 @@
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
               <Node name="Camera" expanded="True" />
+              <Node name="Collision" expanded="True" />
               <Node name="Game" expanded="True" />
+              <Node name="Levels" expanded="True">
+                <Node name="Dungeon1" expanded="True" />
+              </Node>
               <Node name="Sprite" expanded="True" />
             </Node>
           </Node>
@@ -20,24 +30,39 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>prevCapturedDimension[0]</Value>
-          <Value>prevCapturedAmount1[0]</Value>
-          <Value>prevCapturedAmount2[0]</Value>
-          <Value>roomSprites[0].SourceRectangle[0]</Value>
-          <Value>roomSprites[0].DestinationRectangle</Value>
-          <Value>newWidth</Value>
-          <Value>trueX</Value>
+          <Value>objectsToAdd.Count</Value>
+          <Value>objectsToRemove.Count</Value>
+          <Value>updateables</Value>
+          <Value>player</Value>
+          <Value>projectiles</Value>
+          <Value>enemies</Value>
+          <Value>blocks</Value>
+          <Value>doors</Value>
+          <Value>items</Value>
+          <Value>object1</Value>
+          <Value>object1Rect</Value>
+          <Value>otherObjects</Value>
+          <Value>shooterOfProjectile</Value>
+          <Value>manager</Value>
+          <Value>expectedShooter</Value>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint conditionExpression="i==0" file="/Users/chicken/3902TeamRed/sprint0/Camera/Camera.cs" relfile="sprint0/Camera/Camera.cs" line="222" column="1" />
+      <Breakpoint file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="83" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionResolution.cs" relfile="sprint0/Collision/CollisionResolution.cs" line="33" column="1" />
+      <Breakpoint enabled="false" conditionExpression="camera.Transitioning==false" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="259" column="1" />
+      <Breakpoint enabled="false" conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="180" column="1" />
+      <Breakpoint enabled="false" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="262" column="1" />
+      <Breakpoint enabled="false" conditionExpression="updateables.Count==18" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="257" column="1" />
+      <Breakpoint conditionExpression="camera.Transitioning==true" file="/Users/chicken/3902TeamRed/sprint0/Game/GameObjectManager.cs" relfile="sprint0/Game/GameObjectManager.cs" line="202" column="13" />
+      <Breakpoint file="/Users/chicken/3902TeamRed/sprint0/Collision/CollisionDetection.cs" relfile="sprint0/Collision/CollisionDetection.cs" line="53" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

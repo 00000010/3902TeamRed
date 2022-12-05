@@ -176,14 +176,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            //for (int i = 0; i < updateables.Count; i++)
-            //{
-            //    if (updateables[i] is Sprite && ((Sprite)updateables[i]).Texture.ToString() == "DungeonBackground")
-            //    {
-            //        Console.WriteLine(((Sprite)updateables[i]).Texture.ToString());
-            //        Console.WriteLine(((Sprite)updateables[i]).SourceRectangle[0].ToString());
-            //    }
-            //}
             // Ensure Link does not keep attacking, but only with each press
             if (player.State == State.ATTACKING || player.State == State.THROWING)
             {
@@ -214,7 +206,7 @@ namespace sprint0
             Enemy.UpdateEnemyProjectiles(game, enemies);
 
             //Handling all different types of collision
-            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this);
+            CollisionDetection.HandleAllCollidables(player, projectilesInFlight, enemies, blocks, doors, items, shooterOfProjectile, this); // TODO: this line is messing with objectsToAdd and objectsToRemove, which messes up PanDown
 
             if (camera.Transitioning)
             {
