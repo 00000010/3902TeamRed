@@ -60,7 +60,7 @@ namespace sprint0
                     d = Direction.DOWN;
                     break;
             }
-            game.loader.ChangeRooms(nextRoom, d);
+            game.loader.ChangeRooms(nextRoom, d, true);
         }
     }
 }

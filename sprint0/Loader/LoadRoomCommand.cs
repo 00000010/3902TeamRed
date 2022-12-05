@@ -21,7 +21,7 @@ namespace sprint0
         {
             loader = game.loader;
             nextRoom = getRoom();
-            loader.ChangeRooms(nextRoom, direction);
+            loader.ChangeRooms(nextRoom, direction, false);
         }
 
         public Room getRoom()

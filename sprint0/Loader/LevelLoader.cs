@@ -226,11 +226,11 @@ namespace sprint0
         }
 
         //Changes rooms from the currrent to the specified
-        public void ChangeRooms(Room room, Direction direction)
+        public void ChangeRooms(Room room, Direction direction, bool transitioning)
         {
             if (room != null)
             {
-                camera.Transitioning = true;
+                camera.Transitioning = transitioning;
                 game.manager.direction = direction;
                 UnloadRoom();
                 currentRoom = room;

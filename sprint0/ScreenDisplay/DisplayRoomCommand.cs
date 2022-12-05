@@ -49,7 +49,7 @@ namespace sprint0
                 string nameOfRoom = game.loader.allRooms[i].name;
                 if (nameOfRoom.Equals(roomName))
                 {
-                    game.loader.ChangeRooms(game.loader.allRooms[i], Direction.UP);
+                    game.loader.ChangeRooms(game.loader.allRooms[i], Direction.UP, false);
                     break;
                 }
             }
@@ -73,7 +73,7 @@ namespace sprint0
                 return;
             }
 
-            game.loader.ChangeRooms(callerRoom, Direction.DOWN);
+            game.loader.ChangeRooms(callerRoom, Direction.DOWN, false);
             callerRoom = null;
 
             if (roomName.Equals("RoomControls"))
