@@ -1,8 +1,5 @@
 ﻿<XnaContent>
-  <Pointers>
-    <NorthRoom>Room2</NorthRoom>
-    <EastRoom>Room12</EastRoom>
-  </Pointers>
+  <Pointers />
   <Meta>
     <Name>Room1</Name>
     <Start>True</Start>
@@ -32,66 +29,6 @@
       <ObjectType>Block</ObjectType>
       <ObjectName>DungeonWestWall</ObjectName>
       <Location>150 120</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorNorth</ObjectName>
-      <Location>374 144</Location>
-    </Item>
-    <Item>
-      <ObjectType>Door</ObjectType>
-      <ObjectName>DungeonDoorEast</ObjectName>
-      <Location>598 264</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>214 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>246 216</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>246 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>246 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>278 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>310 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>310 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>374 248</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>374 280</Location>
-    </Item>
-    <Item>
-      <ObjectType>Block</ObjectType>
-      <ObjectName>ZeldaGreenBlock</ObjectName>
-      <Location>374 184</Location>
     </Item>
   </Asset>
 </XnaContent>
