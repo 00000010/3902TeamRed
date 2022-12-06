@@ -11,14 +11,16 @@ using System.Xml;
 using System.Reflection;
 using System.Globalization;
 using System.Diagnostics;
-//using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
     public class LevelLoader
     {
         public Game1 game;
+        private GameTime gameTime;
         public GameObjectManager gameObjectManager;
+        private ICamera camera;
+
         public int pixelLength = Constants.BLOCK_SIZE;
 
         //Check to display the old mans message
@@ -35,10 +37,11 @@ namespace sprint0
         {
             this.game = game;
             this.gameObjectManager = game.manager;
+            this.camera = game.camera;
             currentRoom = new Room();
         }
 
-        public string[] getFilePaths(string levelName)
+        private string[] getFilePaths(string levelName)
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string sFile;
@@ -67,9 +70,6 @@ namespace sprint0
          */
         public void LoadLevel(string levelName)
         {
-            // Unload anything that may be previously loaded.
-            //UnloadRoom();
-
             string[] files = getFilePaths(levelName);
 
             foreach (string filePath in files)
@@ -188,10 +188,9 @@ namespace sprint0
             return (room != null && !beenCalculated.Contains(room));
         }
 
-         
         //Points the rooms to each other so rooms know whats adjecent
         //Todo - Make this not a double for loop
-        public void pointPointers()
+        private void pointPointers()
         {
             foreach (Room roomX in allRooms)
             {
@@ -227,11 +226,12 @@ namespace sprint0
         }
 
         //Changes rooms from the currrent to the specified
-        public void ChangeRooms(Room room)
+        public void ChangeRooms(Room room, Direction direction, bool transitioning)
         {
             if (room != null)
             {
-                Console.WriteLine("Changing into room " + room);
+                camera.Transitioning = transitioning;
+                game.manager.direction = direction;
                 UnloadRoom();
                 currentRoom = room;
                 LoadRoom();

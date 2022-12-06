@@ -78,7 +78,7 @@ namespace sprint0
 
         public Block DungeonMonster1Faded(Vector2 position)
         {
-            return new DungeonMonster1Faded(position);;
+            return new DungeonMonster1Faded(position);
         }
 
         public Block DungeonMonster2Faded(Vector2 position)

@@ -17,7 +17,6 @@ namespace sprint0
         public SpriteBatch _spriteBatch;
 
         public IPlayer player;
-        //public IBlock block;
         public IItem item;
         public IEnemy enemy;
 
@@ -25,14 +24,14 @@ namespace sprint0
 
         public GameObjectManager manager;
         public LevelLoader loader;
+        public Camera camera;
+
         public LevelCreator creator;
         public Minimap map;
 
         public MouseController mouse;
         public KeyboardController keyboard;
         public ControlsKeyboard controlsKeyboard;
-
-        ICamera camera;
 
         public int level = 0;
 
@@ -48,17 +47,20 @@ namespace sprint0
         {
             base.Initialize();
 
+            camera = new Camera(this);
+
             manager = new GameObjectManager(this);
 
             keyboard = new KeyboardController();
             keyboard.LoadTitleScreenKeys(this);
 
-            mouse = new MouseController(new Vector2(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+            mouse = new MouseController(new Vector2(Constants.SCALED_ROOM_WIDTH, Constants.SCALED_ROOM_HEIGHT));
             creator = new LevelCreator(this);
 
             controlsKeyboard = new ControlsKeyboard(this, ref keyboard);
             //Create level loader
             loader = new LevelLoader(this);
+
             loader.LoadLevel("TitleScreen");
 
             map = new Minimap(this);

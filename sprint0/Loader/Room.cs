@@ -43,7 +43,7 @@ namespace sprint0
 
         public void Add(object obj)
         {
-            
+
             roomObjects.Add(obj);
             if (obj is Enemy)
             {
@@ -73,7 +73,7 @@ namespace sprint0
         //Loads all of the text corresponding to the pointers
         public void ParsePointers(IEnumerable<XElement> pointers)
         {
-            foreach(XElement pointer in pointers)
+            foreach (XElement pointer in pointers)
             {
                 //Tag element of XML
                 string name = pointer.Name.ToString();
@@ -90,26 +90,26 @@ namespace sprint0
 
             foreach (object obj in roomObjects)
             {
-                if(obj is Block)
+                if (obj is Block)
                 {
                     IBlock tempBlock = (IBlock)obj;
-                    if(tempBlock.Position == location)
+                    if (tempBlock.Position == location)
                     {
                         existsInLocation = true;
                     }
                 }
-                else if(obj is Enemy)
+                else if (obj is Enemy)
                 {
                     IEnemy tempEnemy = (IEnemy)obj;
-                    if(tempEnemy.Position == location)
+                    if (tempEnemy.Position == location)
                     {
-                        existsInLocation=true;
+                        existsInLocation = true;
                     }
                 }
                 else if (obj is Door)
                 {
                     IDoor tempDoor = (IDoor)obj;
-                    if(tempDoor.Position == location)
+                    if (tempDoor.Position == location)
                     {
                         existsInLocation = true;
                     }
@@ -117,7 +117,7 @@ namespace sprint0
                 else if (obj is Item)
                 {
                     IItem tempItem = (IItem)obj;
-                    if(tempItem.Position == location)
+                    if (tempItem.Position == location)
                     {
                         existsInLocation = true;
                     }
@@ -136,7 +136,7 @@ namespace sprint0
                 if (obj is Block)
                 {
                     IBlock tempBlock = (IBlock)obj;
-                    if(tempBlock.Position == location)
+                    if (tempBlock.Position == location)
                     {
                         Debug.WriteLine("Same Block!");
                         objectWithSameLocation = obj;
@@ -182,7 +182,7 @@ namespace sprint0
         public string roomName(Room room)
         {
             string roomName = "";
-            if(room != null)
+            if (room != null)
             {
                 roomName = room.name;
             }

@@ -25,6 +25,7 @@ namespace sprint0
         private Texture2D HUD, ZeldaBlueMap, ZeldaOrangeMap;
         private Texture2D ProjectileEffect;
         private Texture2D TopHud, Fullheart, Halfheart, Emptyheart, MapBlocks;
+
         private Texture2D Arrow, BlueCandle, Bomb, Boomerang, Bow, Clock, Compass, Fairy, Food, Heart, HeartContainer, Key, Letter, Rupy, Triforce;
         private Texture2D GridSquareBlock, SaveIconBlock, LevelCreatorTextBlock;
 
@@ -95,12 +96,13 @@ namespace sprint0
             Key = content.Load<Texture2D>("ZeldaSpriteKey");
             Letter = content.Load<Texture2D>("ZeldaSpriteLetter");
             Triforce = content.Load<Texture2D>("zeldaspritesheet");
+
             ProjectileEffect = content.Load<Texture2D>("zeldaspritesheet");
 
             enemiesSpritesheet = content.Load<Texture2D>("Zelda_sprite");
             OldMan = content.Load<Texture2D>("Zelda_old_man");
             HUD = content.Load<Texture2D>("Zelda_HUD");
-            ZeldaBlueMap = content.Load<Texture2D>("Zelda_Map");
+            ZeldaBlueMap = content.Load<Texture2D>("Zelda_map");
             ZeldaOrangeMap = content.Load<Texture2D>("Zelda_orange_map");
             Rupy = content.Load<Texture2D>("ZeldaSpriteRupy");
             TopHud = content.Load<Texture2D>("tophud");

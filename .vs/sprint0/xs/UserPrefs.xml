@@ -1,53 +1,34 @@
 ﻿<Properties StartupConfiguration="{1E6D0602-4FAF-4DAF-AF13-6F4EC4D15496}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Creator/SaveLevelCommand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sprint0/Levels/Dungeon1/Level1.xml">
     <Files>
-      <File FileName="sprint0/Game/Game1.cs" Line="60" Column="1" IsPinned="True" />
-      <File FileName="sprint0/Creator/LevelCreator.cs" Line="57" Column="1" IsPinned="True" />
-      <File FileName="sprint0/Creator/SaveLevelCommand.cs" Line="151" Column="34" IsPinned="True" />
-      <File FileName="sprint0/Camera/Camera.cs" />
-      <File FileName="sprint0/Game/Room.cs" Line="58" Column="108" />
-      <File FileName="sprint0/Game/LevelLoader.cs" Line="129" Column="79" />
-      <File FileName="sprint0/Game/Constants.cs" />
-      <File FileName="sprint0/Game/LoadRoomCommand.cs" />
-      <File FileName="sprint0/Game/Enums.cs" />
-      <File FileName="sprint0/Collision/PlayerDoorCollisionCommand.cs" />
-      <File FileName="sprint0/Creator/ChangeCurrentObjectCommand.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Creator/PlaceBlockCommand.cs" Line="1" Column="1" />
-      <File FileName="sprint0/Creator/RemoveBlockCommand.cs" />
-      <File FileName="sprint0/Controller/MouseController.cs" />
-      <File FileName="sprint0/Levels/LevelCreator/CreatorLevel1.xml" Line="1" Column="1" />
-      <File FileName="sprint0/Levels/Dungeon1/Level10.xml" />
-      <File FileName="sprint0/Sprite/SpriteRectangle.cs" />
-      <File FileName="sprint0/Sprite/SpriteFactory.cs" Line="408" Column="25" />
-      <File FileName="sprint0/Block/BlockFactory.cs" />
-      <File FileName="sprint0/Sprite/ISprite.cs" />
-      <File FileName="sprint0/Sprite/Sprite.cs" Line="51" Column="41" />
-      <File FileName="sprint0/Levels/TestSave/LevelCreatorGrid.xml" Line="4" Column="27" />
+      <File FileName="sprint0/Loader/Room.cs" Line="12" Column="2" />
+      <File FileName="sprint0/Game/Room.cs" Line="20" Column="17" />
+      <File FileName="sprint0/Creator/ChangeRoomCommand.cs" Line="10" Column="22" />
+      <File FileName="sprint0/Loader/LevelLoader.cs" Line="81" Column="36" />
+      <File FileName="sprint0/Levels/Dungeon1/Level1.xml" Line="13" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="sprint0" expanded="True">
             <Node name="sprint0" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Content" expanded="True">
-                <Node name="Content.mgcb" selected="True" />
-              </Node>
+              <Node name="Block" expanded="True" />
+              <Node name="Camera" expanded="True" />
               <Node name="Controller" expanded="True" />
-              <Node name="Door" expanded="True" />
+              <Node name="Creator" expanded="True" />
               <Node name="Enemy" expanded="True" />
               <Node name="Game" expanded="True" />
-              <Node name="Item" expanded="True" />
               <Node name="Levels" expanded="True">
                 <Node name="Dungeon1" expanded="True" />
               </Node>
+              <Node name="Loader" expanded="True" />
               <Node name="Projectile" expanded="True" />
               <Node name="ScreenDisplay" expanded="True" />
               <Node name="Sprite" expanded="True" />
@@ -55,9 +36,17 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>objectsToAdd.Count</Value>
+          <Value>objectsToRemove.Count</Value>
+          <Value>updateables</Value>
+          <Value>sprite1</Value>
+          <Value>sprite2</Value>
+          <Value>manager</Value>
+          <Value>intersectionLoc</Value>
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
 </Properties>

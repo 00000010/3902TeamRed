@@ -14,12 +14,15 @@ namespace sprint0
         private string request;
         private string roomName;
         private static Room callerRoom;
+
         public DisplayRoomCommand(Game1 game, string request, string roomName)
+
         {
             this.game = game;
             this.request = request;
             this.roomName = roomName;
         }
+
         public void Execute()
         {
             if (request.Equals("Display"))
@@ -46,7 +49,7 @@ namespace sprint0
                 string nameOfRoom = game.loader.allRooms[i].name;
                 if (nameOfRoom.Equals(roomName))
                 {
-                    game.loader.ChangeRooms(game.loader.allRooms[i]);
+                    game.loader.ChangeRooms(game.loader.allRooms[i], Direction.UP, false);
                     break;
                 }
             }
@@ -70,7 +73,7 @@ namespace sprint0
                 return;
             }
 
-            game.loader.ChangeRooms(callerRoom);
+            game.loader.ChangeRooms(callerRoom, Direction.DOWN, false);
             callerRoom = null;
 
             if (roomName.Equals("RoomControls"))

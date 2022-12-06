@@ -18,7 +18,7 @@ namespace sprint0
         private Dictionary<KeyboardAction, ICommand> controllerMappingsUnpress;
         public List<Keys> actionsToKeys;
 
-        private bool enabled = true; // TODO: for if keyboard will have enable/disable capability; delete if not using
+        private bool enabled = true;
 
         private Keys[] prevPressedKeys = new Keys[0];
 
@@ -131,7 +131,6 @@ namespace sprint0
             //this.RegisterCommand(KeyboardAction.UP, new LoadRoomCommand(game, Direction.UP));
             //this.RegisterCommand(KeyboardAction.DOWN, new LoadRoomCommand(game, Direction.DOWN));
             //this.RegisterCommand(KeyboardAction.RIGHT, new LoadRoomCommand(game, Direction.RIGHT));
-
 
             /* L and Z keys for Link attacking */
             this.RegisterCommand(KeyboardAction.SHOOT, new PlayerProjCommand(game));

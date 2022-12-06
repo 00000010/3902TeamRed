@@ -69,7 +69,6 @@ namespace sprint0
             enemy.Health = 100;
             return enemy;
         }
-        
     }
 
     internal class Stalfos : Enemy
