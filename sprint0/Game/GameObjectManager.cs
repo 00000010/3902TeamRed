@@ -145,7 +145,7 @@ namespace sprint0
             game.loader.RemoveFromCurrRoom(obj);
             //Sometimes drop hearts after killing enemies
             Random randomGen = new Random();
-            int shouldDrop = randomGen.Next(0, 20);
+            int shouldDrop = randomGen.Next(0, 3);
             if (shouldDrop == 0 && obj is Enemy)
             {
                 IEnemy enemy = (Enemy)obj;
