@@ -92,7 +92,7 @@ namespace sprint0
 
                 if (entry.Key is Door)
                 {
-                    newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength * 2, blockLength * 2);
+                    newRec = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, blockLength, blockLength);
                 }
 
                 this.RegisterCommand(new MouseCommand(MouseButton.Left, newRec), new ChangeCurrentObjectCommand(game, entry.Key));

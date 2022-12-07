@@ -30,5 +30,70 @@
       <ObjectName>DungeonWestWall</ObjectName>
       <Location>150 120</Location>
     </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>342 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>342 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>342 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>374 344</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>406 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>438 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>470 312</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>470 280</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>438 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>406 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>374 248</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>374 216</Location>
+    </Item>
+    <Item>
+      <ObjectType>Block</ObjectType>
+      <ObjectName>DungeonBlock</ObjectName>
+      <Location>342 216</Location>
+    </Item>
   </Asset>
 </XnaContent>
